@@ -1,0 +1,20 @@
+# ignore aurelia_project folder
+aurelia_project
+
+# ignore sourcecode
+src
+
+# ignore sample dist
+docs
+images
+
+# ignore other project files
+.editorconfig
+.gitignore
+favicon.ico
+index.pug
+tsconfig.json
+tsconfig.dist.json
+tslint.json
+package-lock.json
+.npmignore
