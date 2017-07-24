@@ -1,0 +1,8 @@
+
+<template><a class="mdc-tab" ref="elementTab" class.bind="class" href="${href}" click.delegate="aClicked($event)">
+    <!-- TEXT-->
+    <slot></slot>
+    <!-- ICON--><span class="mdc-tab__icon" show.bind="showIcon" aria-hidden="${ariaHidden}">
+      <slot name="icon"><span ref="isIcon"></span></slot></span>
+    <!-- ICON TEXT--><span class="mdc-tab__icon-text" show.bind="showIconText">
+      <slot name="icon-text"><span ref="isIconText"></span></slot></span></a></template>

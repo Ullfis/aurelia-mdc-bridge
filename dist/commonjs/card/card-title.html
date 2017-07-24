@@ -1,0 +1,9 @@
+
+<template>
+  <require from="./card-title.css"></require>
+  <section class="mdc-card__primary" class.bind="class" ref="elementPrimary">
+    <slot><span ref="isAvatar"></span></slot>
+    <h1 class="mdc-card__title" if.bind="showTitle" class.bind="showLarge ? 'mdc-card__title--large' : ''">${title}</h1>
+    <h2 class="mdc-card__subtitle" if.bind="showSubtitle">${subtitle}</h2>
+  </section>
+</template>

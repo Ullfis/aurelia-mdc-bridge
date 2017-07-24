@@ -1,0 +1,21 @@
+
+<template>
+  <div class="mdc-form-field">
+    <!-- RADIO-->
+    <div class="mdc-radio" class.bind="disabled ? 'mdc-radio--disabled' : ''" ref="elementRadio">
+      <!-- INPUT TYPE RADIO (NO MODEL)-->
+      <input class="mdc-radio__native-control" id="${controlId}" if.bind="!isModel" type="radio" name="${name}" value.bind="value" matcher.bind="matcher" checked.bind="checked" change.delegate="handleChange($event)"/>
+      <!-- INPUT TYPE RADIO (MODEL BIND)-->
+      <input class="mdc-radio__native-control" id="${controlId}" if.bind="isModel" type="radio" name="${name}" model.bind="model" matcher.bind="matcher" checked.bind="checked" change.delegate="handleChange($event)"/>
+      <!-- RADIO BACKGROUND-->
+      <div class="mdc-radio__background">
+        <div class="mdc-radio__outer-circle"></div>
+        <div class="mdc-radio__inner-circle"></div>
+      </div>
+    </div>
+    <!-- LABEL-->
+    <label for="${controlId}">
+      <slot></slot>
+    </label>
+  </div>
+</template>

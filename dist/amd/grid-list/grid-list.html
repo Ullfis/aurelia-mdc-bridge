@@ -1,0 +1,20 @@
+
+<template>
+  <style>
+    .mdc-grid-tile .mdc-grid-tile__secondary 
+    .mdc-grid-tile__support-text i {
+      padding: 0 6px 0 0;
+      vertical-align: middle;
+      font-size: 18px;
+    }
+    [dir="rtl"] .mdc-grid-tile .mdc-grid-tile__secondary 
+    .mdc-grid-tile__support-text i {
+      padding: 0 0 0 6px; 
+    }  
+  </style>
+  <div class="mdc-grid-list" ref="elementGridlist">
+    <ul class="mdc-grid-list__tiles">
+      <slot></slot>
+    </ul>
+  </div>
+</template>

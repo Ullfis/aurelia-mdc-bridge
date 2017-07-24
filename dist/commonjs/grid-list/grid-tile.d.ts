@@ -1,0 +1,32 @@
+export declare class MdcGlidTile {
+    private element;
+    imgSrc: string;
+    imgClass: string;
+    supportIcon: string;
+    supportText: string;
+    actionIcon: string;
+    private log;
+    private elementGridTile;
+    private elementShowTitle;
+    private isImg;
+    private isClass;
+    private isTitle;
+    private isSupport;
+    private isSupportIcon;
+    private isSupportText;
+    private isActionIcon;
+    private isSecondary;
+    constructor(element: Element);
+    private bind();
+    private unbind();
+    private attached();
+    private onClick();
+    private onSecondaryAction();
+    private imgSrcChanged(newValue);
+    private imgClassChanged(newValue);
+    private showPrimary();
+    private supportIconChanged(newValue);
+    private supportTextChanged(newValue);
+    private actionIconChanged(newValue);
+    private showSecondary();
+}

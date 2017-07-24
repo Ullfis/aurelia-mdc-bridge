@@ -1,0 +1,21 @@
+
+<template>
+  <li class="mdc-grid-tile" ref="elementGridTile">
+    <!-- PRIMARY CONTENT-->
+    <div class="mdc-grid-tile__primary" click.delegate="onClick()"><img class="mdc-grid-tile__primary-content" if.bind="isImg" src.bind="imgSrc"/>
+      <div class="mdc-grid-tile__primary-content" if.bind="isClass" class.bind="imgClass"></div>
+    </div>
+    <!-- SECONDARY CONTENT-->
+    <div class="mdc-grid-tile__secondary" show.bind="isSecondary">
+      <!-- TITLE-->
+      <div class="mdc-grid-tile__title" show.bind="isTitle" click.delegate="onClick()">
+        <slot>
+          <div ref="elementShowTitle"></div>
+        </slot>
+      </div>
+      <!-- SUPPORT TEXT-->
+      <div class="mdc-grid-tile__support-text" if.bind="isSupport" click.delegate="onClick()"><i class="material-icons" if.bind="isSupportIcon">${supportIcon} </i><span if.bind="isSupportText">${supportText}</span></div>
+      <!-- ICON--><i class="mdc-grid-tile__icon material-icons" if.bind="isActionIcon" click.delegate="onSecondaryAction()">${actionIcon}</i>
+    </div>
+  </li>
+</template>

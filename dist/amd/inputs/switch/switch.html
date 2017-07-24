@@ -1,0 +1,24 @@
+
+<template>
+  <style>
+    .mdc-switch-label  {
+      padding-left: 3px;
+    }
+    
+  </style>
+  <!-- SWITCH-->
+  <div class="mdc-form-field">
+    <div class="mdc-switch" class.bind="disabled ? 'mdc-switch--disabled' : ''">
+      <!-- INPUT-->
+      <input class="mdc-switch__native-control" type="checkbox" id="${controlId}" ref="inputElement" disabled.bind="disabled"/>
+      <!-- BACKGROUND-->
+      <div class="mdc-switch__background">
+        <div class="mdc-switch__knob"></div>
+      </div>
+    </div>
+    <!-- LABEL-->
+    <label class="mdc-switch-label" for="${controlId}">
+      <slot><span if.bind="checked">${labelOn}</span><span if.bind="!checked">${labelOff}</span></slot>
+    </label>
+  </div>
+</template>

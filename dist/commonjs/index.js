@@ -1,0 +1,93 @@
+"use strict";
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+Object.defineProperty(exports, "__esModule", { value: true });
+function configure(frameworkConfig) {
+    frameworkConfig.globalResources([
+        './button/button',
+        './button/fab/fab',
+        './button/icon-toggle/icon-toggle',
+        './card/card-actions',
+        './card/card-horizontal',
+        './card/card-media',
+        './card/card-text',
+        './card/card-title',
+        './card/card',
+        './dialog/dialog',
+        './drawer/header',
+        './drawer/permanent',
+        './drawer/persistent',
+        './drawer/spacer',
+        './drawer/temporary',
+        './grid/mdc-grid-inner.html',
+        './grid/grid-cell',
+        './grid/grid',
+        './grid-list/grid-list',
+        './grid-list/grid-tile',
+        './inputs/checkbox/checkbox',
+        './inputs/radio/radio',
+        './inputs/select/select-css',
+        './inputs/select/select',
+        './inputs/slider/slider',
+        './inputs/switch/switch',
+        './inputs/textfield/textfield',
+        './list/mdc-list-group.html',
+        './list/mdc-list-group-header.html',
+        './list/list-divider',
+        './list/list-item',
+        './list/list',
+        './menu/simple-menu',
+        './progress/linear',
+        './ripple/ripple',
+        './snackbar/snackbar',
+        './tab/tab-bar-scroller',
+        './tab/tab-bar',
+        './tab/tab',
+        './toolbar/toolbar-row',
+        './toolbar/toolbar-section',
+        './toolbar/toolbar-title',
+        './toolbar/toolbar'
+    ]);
+}
+exports.configure = configure;
+__export(require("./button/button"));
+__export(require("./button/fab/fab"));
+__export(require("./button/icon-toggle/icon-toggle"));
+__export(require("./card/card-actions"));
+__export(require("./card/card-horizontal"));
+__export(require("./card/card-media"));
+__export(require("./card/card-text"));
+__export(require("./card/card-title"));
+__export(require("./card/card"));
+__export(require("./dialog/dialog"));
+__export(require("./drawer/header"));
+__export(require("./drawer/permanent"));
+__export(require("./drawer/persistent"));
+__export(require("./drawer/spacer"));
+__export(require("./drawer/temporary"));
+__export(require("./grid/grid-cell"));
+__export(require("./grid/grid"));
+__export(require("./grid-list/grid-list"));
+__export(require("./grid-list/grid-tile"));
+__export(require("./inputs/checkbox/checkbox"));
+__export(require("./inputs/radio/radio"));
+__export(require("./inputs/select/select"));
+__export(require("./inputs/select/select-css"));
+__export(require("./inputs/slider/slider"));
+__export(require("./inputs/switch/switch"));
+__export(require("./inputs/textfield/textfield"));
+__export(require("./list/list-divider"));
+__export(require("./list/list-item"));
+__export(require("./list/list"));
+__export(require("./menu/simple-menu"));
+__export(require("./progress/linear"));
+__export(require("./ripple/ripple"));
+__export(require("./snackbar/snackbar"));
+__export(require("./tab/tab-bar-scroller"));
+__export(require("./tab/tab-bar"));
+__export(require("./tab/tab"));
+__export(require("./toolbar/toolbar-row"));
+__export(require("./toolbar/toolbar-section"));
+__export(require("./toolbar/toolbar-title"));
+__export(require("./toolbar/toolbar"));

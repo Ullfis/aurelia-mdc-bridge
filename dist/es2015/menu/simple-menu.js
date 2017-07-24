@@ -1,0 +1,138 @@
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+import { inject, bindable, bindingMode, containerless, customElement, TaskQueue } from 'aurelia-framework';
+import { getLogger } from 'aurelia-logging';
+import { MDCSimpleMenu } from '@material/menu';
+import * as util from '../util';
+export const MdcSimpleMenuOpenFrom = {
+    topLeft: 'top-left',
+    topRight: 'top-right',
+    bottomLeft: 'bottom-left',
+    bottomRight: 'bottom-right'
+};
+let MdcSimpleMenu = class MdcSimpleMenu {
+    constructor(element, taskQueue) {
+        this.element = element;
+        this.taskQueue = taskQueue;
+        this.openState = false;
+        this.openFrom = null;
+        this.internalValueChange = false;
+        this.log = getLogger('mdc-simple-menu');
+    }
+    get open() {
+        return this.mdcSimpleMenu.open;
+    }
+    set open(value) {
+        this.mdcSimpleMenu.open = value;
+    }
+    show(options) {
+        if (options && options.focusIndex) {
+            this.mdcSimpleMenu.show({ focusIndex: options.focusIndex });
+            return;
+        }
+        if (options && options.focusValue) {
+            const index = this.findIndex(this.value);
+            if (index === -1) {
+                this.mdcSimpleMenu.show();
+            }
+            else {
+                this.mdcSimpleMenu.show({ focusIndex: index });
+            }
+            return;
+        }
+        this.mdcSimpleMenu.show();
+    }
+    hide() {
+        this.mdcSimpleMenu.hide();
+    }
+    bind() { }
+    unbind() { }
+    attached() {
+        if (util.getBoolean(this.openState)) {
+            this.elementSimpleMenu.classList.add('mdc-simple-menu--open');
+        }
+        this.openFromChanged(this.openFrom);
+        this.mdcSimpleMenu = new MDCSimpleMenu(this.elementSimpleMenu);
+        this.mdcSimpleMenu.listen('MDCSimpleMenu:selected', this.raiseSelectEvent.bind(this));
+        this.mdcSimpleMenu.listen('MDCSimpleMenu:cancel', this.raiseCancelEvent.bind(this));
+        this.taskQueue.queueMicroTask(() => {
+            this.valueChanged(this.value);
+        });
+    }
+    detached() {
+        this.mdcSimpleMenu.unlisten('MDCSimpleMenu:selected', this.raiseSelectEvent.bind(this));
+        this.mdcSimpleMenu.unlisten('MDCSimpleMenu:cancel', this.raiseCancelEvent.bind(this));
+        this.mdcSimpleMenu.destroy();
+    }
+    raiseSelectEvent(e) {
+        this.internalValueChange = true;
+        this.value = e.detail.item.model;
+        util.fireEvent(this.element, 'on-select', { item: e.detail.item, index: e.detail.index });
+    }
+    raiseCancelEvent() {
+        util.fireEvent(this.element, 'on-cancel');
+    }
+    openFromChanged(newValue) {
+        this.elementSimpleMenu.classList.remove('mdc-simple-menu--open-from-' + MdcSimpleMenuOpenFrom.topLeft);
+        this.elementSimpleMenu.classList.remove('mdc-simple-menu--open-from-' + MdcSimpleMenuOpenFrom.topRight);
+        this.elementSimpleMenu.classList.remove('mdc-simple-menu--open-from-' + MdcSimpleMenuOpenFrom.bottomLeft);
+        this.elementSimpleMenu.classList.remove('mdc-simple-menu--open-from-' + MdcSimpleMenuOpenFrom.bottomRight);
+        if (newValue) {
+            this.elementSimpleMenu.classList.add('mdc-simple-menu--open-from-' + newValue);
+        }
+    }
+    valueChanged(newValue) {
+        if (this.internalValueChange || this.open === false) {
+            this.internalValueChange = false;
+            return;
+        }
+        const index = this.findIndex(newValue);
+        if (index === -1) {
+            return;
+        }
+        this.mdcSimpleMenu.items[index].focus();
+    }
+    findIndex(value) {
+        for (let index = 0; index < this.mdcSimpleMenu.items.length; index++) {
+            const item = this.mdcSimpleMenu.items[index];
+            if (item.model && this.compareModels(item.model, value)) {
+                this.log.debug('item index', index);
+                return index;
+            }
+        }
+        return -1;
+    }
+    compareModels(model1, model2) {
+        return (model1 === model2);
+    }
+};
+__decorate([
+    bindable({ defaultBindingMode: bindingMode.oneTime }),
+    __metadata("design:type", Boolean)
+], MdcSimpleMenu.prototype, "openState", void 0);
+__decorate([
+    bindable({ defaultBindingMode: bindingMode.oneTime }),
+    __metadata("design:type", String)
+], MdcSimpleMenu.prototype, "openFrom", void 0);
+__decorate([
+    bindable({ defaultBindingMode: bindingMode.twoWay }),
+    __metadata("design:type", Object)
+], MdcSimpleMenu.prototype, "value", void 0);
+__decorate([
+    bindable(),
+    __metadata("design:type", String)
+], MdcSimpleMenu.prototype, "class", void 0);
+MdcSimpleMenu = __decorate([
+    containerless(),
+    customElement('mdc-simple-menu'),
+    inject(Element, TaskQueue),
+    __metadata("design:paramtypes", [Element, TaskQueue])
+], MdcSimpleMenu);
+export { MdcSimpleMenu };
