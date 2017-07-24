@@ -15,12 +15,6 @@ function copyIndex() {
     .pipe(gulp.dest('docs'));
 }
 
-function copyManifest() {
-  return gulp.src(['manifest.json', 'browserconfig.xml'])
-    .pipe(plumber({ errorHandler: notify['onError']('Error: <%= error.message %>') }))
-    .pipe(gulp.dest('docs'));
-}
-
 function copyIcons() {
   return gulp.src('icons/*')
     .pipe(plumber({ errorHandler: notify['onError']('Error: <%= error.message %>') }))
@@ -48,7 +42,6 @@ function copyStyles() {
 export default gulp.series(
   copyScripts,
   copyIndex,
-  copyManifest,
   copyIcons,
   copyImages,
   copyStyles
