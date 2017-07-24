@@ -37,6 +37,7 @@ aurelia-mdc-bridge*.tgz
 !docs/scripts
 !docs/style
 !docs/index.html
+!docs/index.css
 
 # use public npm package server
 # .npmrc

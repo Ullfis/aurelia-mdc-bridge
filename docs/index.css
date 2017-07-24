@@ -1,0 +1,22 @@
+.my-loader-container {
+  position: absolute;
+  top: 50%;
+  margin-top: -48px;
+  left: 0;
+  width: 100%;
+}
+
+.my-loader-content {
+  background-image: url(icons/favicon-96x96.png);
+  width: 96px;
+  height: 96px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0;
+  -webkit-transition: opacity 2000ms;
+  transition: opacity 2000ms;
+}
+
+.my-loader-transaction {
+  opacity: 1;
+}
