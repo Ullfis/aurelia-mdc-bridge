@@ -1,0 +1,304 @@
+{
+  "name": "aurelia-mdc-bridge",
+  "description": "Use Material Design Components in Aurelia projects",
+  "version": "0.3.3",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ullfis/aurelia-mdc-bridge.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ullfis/aurelia-mdc-bridge/issues"
+  },
+  "homepage": "https://github.com/ullfis/aurelia-mdc-bridge",
+  "license": "MIT",
+  "author": {
+    "name": "Ullfis",
+    "email": "",
+    "url": "https://github.com/ullfis"
+  },
+  "main": "dist/amd/index.js",
+  "scripts": {
+    "start": "au run -w",
+    "___TEST___": "---- TEST ----",
+    "test": "echo 'no tests to run'",
+    "___end-test___": "",
+    "___LINT___": "---- LINT ----",
+    "lint": "cross-env tslint --project tsconfig.json",
+    "___end-lint___": "",
+    "___BUILD___": "---- BUILD DIST ----",
+    "build": "concurrently \"npm run build:amd\" \"npm run build:commonjs\" \"npm run build:es2015\" \"npm run build:es2017\" \"npm run build:native-modules\" \"npm run build:system\"",
+    "postbuild": "au build-dist",
+    "prebuild:amd": "cross-env rimraf dist/amd",
+    "build:amd": "cross-env tsc --project tsconfig.dist.json --outDir dist/amd --module amd",
+    "prebuild:commonjs": "cross-env rimraf dist/commonjs",
+    "build:commonjs": "cross-env tsc --project tsconfig.dist.json --outDir dist/commonjs --module commonjs",
+    "prebuild:es2017": "cross-env rimraf dist/es2017",
+    "build:es2017": "cross-env tsc --project tsconfig.dist.json --outDir dist/es2017 --module es2015 --target es2017",
+    "prebuild:es2015": "cross-env rimraf dist/es2015",
+    "build:es2015": "cross-env tsc --project tsconfig.dist.json --outDir dist/es2015 --module es2015 --target es2015",
+    "prebuild:native-modules": "cross-env rimraf dist/native-modules",
+    "build:native-modules": "cross-env tsc --project tsconfig.dist.json --outDir dist/native-modules --module es2015",
+    "prebuild:system": "cross-env rimraf dist/system",
+    "build:system": "cross-env tsc --project tsconfig.dist.json --outDir dist/system --module system",
+    "___end-build___": "",
+    "___RELEASE___": "---- BUILD DIST, BUMP VERSION, CREATE CHANGELOG AND ADD CHANGES TO GIT ----",
+    "prerelease": "npm run release:docs",
+    "release": "npm run release:dist",
+    "postrelease": "npm run release:changelog",
+    "prerelease:docs": "npm run docs",
+    "release:docs": "git add docs",
+    "postrelease:docs": "git commit -m \"doc(build): build docs\"",
+    "prerelease:dist": "npm run build",
+    "release:dist": "git add dist",
+    "postrelease:dist": "git commit -m \"chore(dist): build dist\"",
+    "prerelease:changelog": "standard-version -a",
+    "release:changelog": "git add -A",
+    "postrelease:changelog": "npm run release:tag",
+    "prerelease:tag": "git commit -m \"chore(version): bump to version ${npm_package_version}\"",
+    "release:tag": "git tag ${npm_package_version}",
+    "_postrelease:tag": "",
+    "___end-release___": "",
+    "___DOCS___": "---- BUILD DOCS ----",
+    "predocs": "rimraf scripts",
+    "docs": "au build --env prod",
+    "postdocs": "npm run builddocs",
+    "prebuilddocs": "rimraf docs",
+    "builddocs": "au build-docs",
+    "___end-dist-sample___": ""
+  },
+  "standard-version": {
+    "skip": {
+      "tag": true,
+      "commit": true
+    }
+  },
+  "dependencies": {
+    "material-components-web": "*"
+  },
+  "peerDependencies": {},
+  "devDependencies": {
+    "@types/node": "^8.0.14",
+    "@types/prismjs": "^1.6.2",
+    "aurelia-bootstrapper": "^2.1.1",
+    "aurelia-cli": "^0.30.1",
+    "aurelia-google-analytics": "^2.3.0",
+    "aurelia-tools": "^1.0.0",
+    "bluebird": "^3.5.0",
+    "browser-sync": "^2.18.13",
+    "concurrently": "^3.5.0",
+    "connect-history-api-fallback": "^1.3.0",
+    "cross-env": "^5.0.1",
+    "debounce": "^1.0.2",
+    "event-stream": "^3.3.4",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-changed-in-place": "^2.2.0",
+    "gulp-html-replace": "^1.6.2",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-notify": "^3.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-pug": "^3.3.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-tslint": "^8.1.1",
+    "gulp-typescript": "^3.2.1",
+    "gulp-watch": "^4.3.11",
+    "html-minifier": "^3.5.2",
+    "material-design-icons": "^3.0.1",
+    "minimatch": "^3.0.4",
+    "prismjs": "^1.6.0",
+    "requirejs": "^2.3.3",
+    "rimraf": "^2.6.1",
+    "roboto-npm-webfont": "0.0.4",
+    "standard-version": "^4.2.0",
+    "text": "github:requirejs/text#latest",
+    "through2": "^2.0.3",
+    "tslint": "^5.5.0",
+    "typescript": "^2.4.2",
+    "uglify-js": "^2.6.3",
+    "vinyl-fs": "^2.4.4"
+  },
+  "aurelia": {
+    "import": {
+      "_patches": [
+        {
+          "op": "replace",
+          "path": "/build/loader/plugins/0/stub",
+          "value": false
+        }
+      ],
+      "bundles": [
+        {
+          "name": "mdc-bundle.js",
+          "dependencies": [
+            {
+              "name": "@material/animation",
+              "path": "../node_modules/@material/animation/dist",
+              "main": "mdc.animation"
+            },
+            {
+              "name": "@material/checkbox",
+              "path": "../node_modules/@material/checkbox/dist",
+              "main": "mdc.checkbox"
+            },
+            {
+              "name": "@material/dialog",
+              "path": "../node_modules/@material/dialog/dist",
+              "main": "mdc.dialog"
+            },
+            {
+              "name": "@material/drawer",
+              "path": "../node_modules/@material/drawer/dist",
+              "main": "mdc.drawer"
+            },
+            {
+              "name": "@material/form-field",
+              "path": "../node_modules/@material/form-field/dist",
+              "main": "mdc.formField"
+            },
+            {
+              "name": "@material/grid-list",
+              "path": "../node_modules/@material/grid-list/dist",
+              "main": "mdc.gridList"
+            },
+            {
+              "name": "@material/icon-toggle",
+              "path": "../node_modules/@material/icon-toggle/dist",
+              "main": "mdc.iconToggle"
+            },
+            {
+              "name": "@material/linear-progress",
+              "path": "../node_modules/@material/linear-progress/dist",
+              "main": "mdc.linearProgress"
+            },
+            {
+              "name": "@material/menu",
+              "path": "../node_modules/@material/menu/dist",
+              "main": "mdc.menu"
+            },
+            {
+              "name": "@material/radio",
+              "path": "../node_modules/@material/radio/dist",
+              "main": "mdc.radio"
+            },
+            {
+              "name": "@material/ripple",
+              "path": "../node_modules/@material/ripple/dist",
+              "main": "mdc.ripple"
+            },
+            {
+              "name": "@material/select",
+              "path": "../node_modules/@material/select/dist",
+              "main": "mdc.select"
+            },
+            {
+              "name": "@material/slider",
+              "path": "../node_modules/@material/slider/dist",
+              "main": "mdc.slider"
+            },
+            {
+              "name": "@material/snackbar",
+              "path": "../node_modules/@material/snackbar/dist",
+              "main": "mdc.snackbar"
+            },
+            {
+              "name": "@material/tabs",
+              "path": "../node_modules/@material/tabs/dist",
+              "main": "mdc.tabs"
+            },
+            {
+              "name": "@material/textfield",
+              "path": "../node_modules/@material/textfield/dist",
+              "main": "mdc.textfield"
+            },
+            {
+              "name": "@material/toolbar",
+              "path": "../node_modules/@material/toolbar/dist",
+              "main": "mdc.toolbar"
+            },
+            {
+              "name": "material-components-web",
+              "path": "../node_modules/material-components-web/dist",
+              "main": "material-components-web",
+              "resources": [
+                "material-components-web.css"
+              ]
+            },
+            {
+              "name": "aurelia-mdc-bridge",
+              "path": "../node_modules/aurelia-mdc-bridge/dist/amd",
+              "main": "index",
+              "resources": [
+                "**/*.{css,html}",
+                "index.js"
+              ]
+            }
+          ]
+        }
+      ],
+      "tutorial": [
+        "",
+        "1. in main.js add: aurelia.use.plugin('aurelia-mdc-bridge')",
+        "2. in app.html add: <require from=\"material-components-web/material-components-web.css\"></require>",
+        "3. in index.html add following lines in the head section:",
+        "    <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">",
+        "    <link href=\"https://fonts.googleapis.com/css?family=Roboto+Mono\" rel=\"stylesheet\">",
+        "    <link href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500\" rel=\"stylesheet\">",
+        "",
+        "4. add this class to your html tag (in index.html):",
+        "<html class=\"mdc-typography\">",
+        "",
+        "More information at https://ullfis.github.io/aurelia-mdc-bridge/",
+        ""
+      ]
+    },
+    "build": {
+      "resources": [
+        "aurelia-mdc-bridge/button/button",
+        "aurelia-mdc-bridge/button/fab/fab",
+        "aurelia-mdc-bridge/button/icon-toggle/icon-toggle",
+        "aurelia-mdc-bridge/card/card-actions",
+        "aurelia-mdc-bridge/card/card-horizontal",
+        "aurelia-mdc-bridge/card/card-media",
+        "aurelia-mdc-bridge/card/card-title",
+        "aurelia-mdc-bridge/card/card",
+        "aurelia-mdc-bridge/dialog/dialog",
+        "aurelia-mdc-bridge/drawer/header",
+        "aurelia-mdc-bridge/drawer/permanent",
+        "aurelia-mdc-bridge/drawer/persistent",
+        "aurelia-mdc-bridge/drawer/spacer",
+        "aurelia-mdc-bridge/drawer/temporary",
+        "aurelia-mdc-bridge/grid/mdc-grid-inner.html",
+        "aurelia-mdc-bridge/grid/grid-cell",
+        "aurelia-mdc-bridge/grid/grid",
+        "aurelia-mdc-bridge/grid-list/grid-list",
+        "aurelia-mdc-bridge/grid-list/grid-tile",
+        "aurelia-mdc-bridge/inputs/checkbox/checkbox",
+        "aurelia-mdc-bridge/inputs/radio/radio",
+        "aurelia-mdc-bridge/inputs/select/select",
+        "aurelia-mdc-bridge/inputs/select/select-css",
+        "aurelia-mdc-bridge/inputs/slider/slider",
+        "aurelia-mdc-bridge/inputs/switch/switch",
+        "aurelia-mdc-bridge/inputs/textfield/textfield",
+        "aurelia-mdc-bridge/list/list-divider",
+        "aurelia-mdc-bridge/list/list-item",
+        "aurelia-mdc-bridge/list/list",
+        "aurelia-mdc-bridge/list/mdc-list-group.html",
+        "aurelia-mdc-bridge/list/mdc-list-group-header.html",
+        "aurelia-mdc-bridge/menu/simple-menu",
+        "aurelia-mdc-bridge/progress/linear",
+        "aurelia-mdc-bridge/ripple/ripple",
+        "aurelia-mdc-bridge/snackbar/snackbar",
+        "aurelia-mdc-bridge/tab/tab-bar-scroller",
+        "aurelia-mdc-bridge/tab/tab-bar",
+        "aurelia-mdc-bridge/tab/tab",
+        "aurelia-mdc-bridge/toolbar/toolbar-row",
+        "aurelia-mdc-bridge/toolbar/toolbar-section",
+        "aurelia-mdc-bridge/toolbar/toolbar-title",
+        "aurelia-mdc-bridge/toolbar/toolbar",
+        "aurelia-mdc-bridge/util"
+      ]
+    }
+  }
+}
