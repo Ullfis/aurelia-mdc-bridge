@@ -1,5 +1,6 @@
 import { bindable, bindingMode, customAttribute, inject } from 'aurelia-framework';
 import { getLogger, Logger } from 'aurelia-logging';
+import { MDCRipple } from '@material/ripple';
 import * as util from '../util';
 
 @customAttribute('mdc-button')
@@ -10,6 +11,7 @@ export class MdcButton {
   @bindable() public dense = false;
   @bindable() public raised = false;
   @bindable() public compact = false;
+  @bindable({ defaultBindingMode: bindingMode.oneTime }) public ripple = true;
   private log: Logger;
 
   constructor(private element: Element) {
@@ -23,6 +25,11 @@ export class MdcButton {
     if (parentNode && parentNode.classList.contains('mdc-card__actions')) {
       this.element.classList.add('mdc-card__action');
       this.compact = true;
+    }
+
+    // add ripple effect
+    if (util.getBoolean(this.ripple)) {
+      MDCRipple.attachTo(this.element);
     }
   }
 
