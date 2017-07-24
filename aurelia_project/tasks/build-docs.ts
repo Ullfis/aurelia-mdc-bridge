@@ -15,10 +15,16 @@ function copyIndex() {
     .pipe(gulp.dest('docs'));
 }
 
-function copyFavicon() {
-  return gulp.src('favicon.ico')
+function copyManifest() {
+  return gulp.src(['manifest.json', 'browserconfig.xml'])
     .pipe(plumber({ errorHandler: notify['onError']('Error: <%= error.message %>') }))
     .pipe(gulp.dest('docs'));
+}
+
+function copyIcons() {
+  return gulp.src('icons/*')
+    .pipe(plumber({ errorHandler: notify['onError']('Error: <%= error.message %>') }))
+    .pipe(gulp.dest('docs/icons'));
 }
 
 function copyScripts() {
@@ -42,7 +48,8 @@ function copyStyles() {
 export default gulp.series(
   copyScripts,
   copyIndex,
-  copyFavicon,
+  copyManifest,
+  copyIcons,
   copyImages,
   copyStyles
 );
