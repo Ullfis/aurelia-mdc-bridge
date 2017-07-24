@@ -8,7 +8,6 @@ import { build } from 'aurelia-cli';
 import transpile from './transpile';
 import processMarkup from './process-markup';
 import processPug from './process-pug';
-import processPugIndex from './process-pug-index';
 import processCSS from './process-css';
 import copyFiles from './copy-files';
 
@@ -21,7 +20,6 @@ let watchCallback = () => { /** nothing */ };
 watches[project.transpiler.source] = { name: 'transpile', callback: transpile };
 watches[project.markupProcessor.source] = { name: 'markup', callback: processMarkup };
 watches[project.markupPug.source] = { name: 'pugmarkup', callback: processPug };
-watches['./index.pug'] = { name: 'pugindexmarkup', callback: processPugIndex };
 watches[project.cssProcessor.source] = { name: 'CSS', callback: processCSS };
 if (typeof project.build.copyFiles === 'object') {
   for (const src of Object.keys(project.build.copyFiles)) {

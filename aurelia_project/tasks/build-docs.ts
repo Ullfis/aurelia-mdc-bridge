@@ -9,7 +9,7 @@ import * as htmlreplace from 'gulp-html-replace';
 import { build } from 'aurelia-cli';
 
 function copyIndex() {
-  return gulp.src('index.html')
+  return gulp.src(['index.html', 'index.css'])
     .pipe(plumber({ errorHandler: notify['onError']('Error: <%= error.message %>') }))
     .pipe(htmlreplace({ basereplace: '<base href="/aurelia-mdc-bridge/">'}))
     .pipe(gulp.dest('docs'));

@@ -11,9 +11,11 @@ images
 # general project files
 index.pug
 index.html
-favicon.ico
+index.scss
+index.css
 scripts
 style
+icons
 tsconfig.json
 tsconfig.dist.json
 tslint.json

@@ -27,6 +27,8 @@ html.mdc-typography
     meta(name="msapplication-TileImage" content="icons/ms-icon-144x144.png")
     meta(name="theme-color" content="#ffffff")
 
+    link(href="./index.css" rel="stylesheet")
+
     //- MATERIAL ICONS -ONLINE
     link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
 
@@ -50,5 +52,11 @@ html.mdc-typography
     //-   "node_modules/roboto-npm-webfont/**/*.*": "style/roboto"
     //- },
 
-  body(aurelia-app="main")
+  body(aurelia-app="main" onload="loaderTransaction();")
+    .my-loader-container
+      .my-loader-content
+    script.
+      function loaderTransaction() {
+        document.getElementsByClassName('my-loader-content')[0].classList.add('my-loader-transaction');
+      }
     script(src="scripts/vendor-bundle.js" data-main="aurelia-bootstrapper")

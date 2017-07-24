@@ -28,6 +28,7 @@ node_modules
 # - style if copied from node_modules
 scripts
 index.html
+index.css
 style
 aurelia-mdc-bridge*.tgz
 

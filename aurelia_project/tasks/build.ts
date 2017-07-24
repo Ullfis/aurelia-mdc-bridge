@@ -7,6 +7,7 @@ import processMarkup from './process-markup';
 import processPug from './process-pug';
 import processIndexPug from './process-pug-index';
 import processCSS from './process-css';
+import processCSSIndex from './process-css-index';
 import copyFiles from './copy-files';
 import watch from './watch';
 
@@ -18,6 +19,7 @@ const build = gulp.series(
     processMarkup,
     processPug,
     processCSS,
+    processCSSIndex,
     copyFiles
   ),
   writeBundles
