@@ -38,3 +38,4 @@ style
 
 # package-lock contain links to private npm server
 package-lock.json
+.npmrc

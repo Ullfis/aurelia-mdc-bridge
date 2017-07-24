@@ -8,13 +8,21 @@ src
 docs
 images
 
-# ignore other project files
-.editorconfig
-.gitignore
-favicon.ico
+# general project files
 index.pug
+index.html
+favicon.ico
+scripts
+style
 tsconfig.json
 tsconfig.dist.json
 tslint.json
 package-lock.json
+aurelia-mdc-bridge*.tgz
+
+# ignore other project files
+.editorconfig
+.gitignore
 .npmignore
+.npmrc
+.vscode
