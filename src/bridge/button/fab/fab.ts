@@ -1,5 +1,6 @@
-import { bindable, customAttribute, inject } from 'aurelia-framework';
+import { bindable, bindingMode, customAttribute, inject } from 'aurelia-framework';
 import { getLogger, Logger } from 'aurelia-logging';
+import { MDCRipple } from '@material/ripple';
 import * as util from '../../util';
 
 @customAttribute('mdc-fab')
@@ -8,6 +9,7 @@ export class MdcFab {
   @bindable() public mini = false;
   @bindable() public plain = false;
   @bindable() public ariaLabel = '';
+  @bindable({ defaultBindingMode: bindingMode.oneTime }) public ripple = true;
   private log: Logger;
 
   constructor(private element: Element) {
@@ -26,6 +28,11 @@ export class MdcFab {
 
   private attached() {
     this.element.classList.add('mdc-fab', 'material-icons');
+
+    // add ripple effect
+    if (util.getBoolean(this.ripple)) {
+      MDCRipple.attachTo(this.element);
+    }
   }
 
   private detached() {
