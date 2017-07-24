@@ -13,8 +13,6 @@ template
           mdc-checkbox(checked.bind="primary") primary
         section
           mdc-checkbox(checked.bind="on") on: ${on}
-        section
-          p Toggle event value: ${iconValue}        
             
       // DEMO AREA
       mdc-grid-cell(span="8")
@@ -42,9 +40,11 @@ template
             aria-label-off="Off"
             on-toggle.delegate="onToggle($event)")
 
-      mdc-grid-cell(span="12")
+        section
+          p Toggle event value: ${iconValue}        
 
-        // LINKS
+      // LINKS
+      mdc-grid-cell(span="12")
         hr
         section
           a(href="https://material.io/components/web/catalog/buttons/icon-toggle-buttons/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-icon-toggle") Material components documentation
@@ -54,7 +54,9 @@ template
           a(href="https://material.io/icons/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-icons") Icons
         hr
 
-        // EXAMPLE
+
+      // EXAMPLE
+      mdc-grid-cell(span="12")
         section
           pre
             code-prism(language="typescript").
@@ -76,13 +78,3 @@ template
                 aria-label-off="Off"
                 on-toggle.delegate="onToggle($event)"&gt;
               &lt;/mdc-icon-toggle&gt;
-    
-    
-        // THEMING
-        section
-          legend.mdc-typography--headline Theming
-          p.
-            #[span.mark-text mdc-icon-toggle] ships with two css classes, 
-            #[span.mark-text mdc-icon-toggle--primary] and #[span.mark-text mdc-icon-toggle--accent] 
-            that allow you to color #[span.mark-text mdc-icon-toggle] based on your primary and accent 
-            colors, respectively.
