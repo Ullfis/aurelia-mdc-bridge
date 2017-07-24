@@ -15,6 +15,7 @@ export class App {
       { route: 'inputs',            moduleId: './inputs/app',               nav: true,  title: 'Inputs' },
       { route: 'list',              moduleId: './list/list',                nav: true,  title: 'List' },
       { route: 'linear-progress',   moduleId: './progress/linear',          nav: true,  title: 'Linear Progress' },
+      { route: 'ripple',            moduleId: './ripple/ripples',           nav: true,  title: 'Ripple' },
       { route: 'simple-menu',       moduleId: './simple-menu/simple-menu',  nav: true,  title: 'Simple Menu' },
       { route: 'snackbar',          moduleId: './snackbar/snackbar',        nav: true,  title: 'Snackbar' },
       { route: 'tabs',              moduleId: './tabs/tabs',                nav: true,  title: 'Tabs' },
