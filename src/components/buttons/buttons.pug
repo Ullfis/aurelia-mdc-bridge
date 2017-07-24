@@ -40,10 +40,9 @@ template
           br
           br
 
-  
-      mdc-grid-cell(span="12")
 
-        // LINKS
+      // LINKS
+      mdc-grid-cell(span="12")
         hr
         section
           a(href="https://material.io/components/web/catalog/buttons/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-button") Material components documentation
@@ -51,21 +50,31 @@ template
           a(href="https://material.io/guidelines/components/buttons.html" target="_blank" data-analytics-category="external" data-analytics-action="mdg-button") Material design guidelines
         hr
 
-        // EXAMPLE
+      // EXAMPLE
+      mdc-grid-cell(span="12")
         section
-
-          // html
           pre
             code-prism.
               &lt;button
                 mdc-button="accent.bind: accent; primary.bind: primary; raised.bind: raised; dense.bind: dense; compact.bind: compact; ripple: true;" 
-                 
                 disabled.bind="disabled"&gt;
-                Bindable button
+                Button text
               &lt;/button&gt;
 
+      // RIPPLE
+      mdc-grid-cell(span="12")
+        section
+          legend.mdc-typography--headline Ripple
+          p.
+            By default the ripple effect is added automatically. To avoid that, set ripple to false:
+          pre
+            code-prism.
+              &lt;button mdc-button="ripple: false;" ...&gt;
+                ...
+              &lt;/button&gt;
 
-        // WALL OF BUTTONS
+      // WALL OF BUTTONS
+      mdc-grid-cell(span="12")
         hr
         section
           mdc-checkbox(checked.bind="disabled") Disable buttons
@@ -99,7 +108,8 @@ template
             hr
 
         
-        // LINKS
+      // LINKS
+      mdc-grid-cell(span="12")
         section
           legend.mdc-typography--headline Links
           fieldset(disabled.bind="disabled")
@@ -135,7 +145,8 @@ template
             hr
 
 
-        // BUTTONS DARK THEME
+      // BUTTONS DARK THEME
+      mdc-grid-cell(span="12")
         section.mdc-theme--dark
           legend.mdc-typography--headline Dark Theme Buttons
           fieldset(disabled.bind="disabled")
@@ -173,7 +184,8 @@ template
               mdc-button="accent: false; primary: false; raised: true; dense: false; compact: false;" role="button") Div
 
 
-        // LINKS DARK THEME
+      // LINKS DARK THEME
+      mdc-grid-cell(span="12")
         section.mdc-theme--dark
           legend.mdc-typography--headline Dark Theme Links
           fieldset(disabled.bind="disabled")

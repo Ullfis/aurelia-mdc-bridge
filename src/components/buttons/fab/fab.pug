@@ -16,18 +16,17 @@ template
       // DEMO AREA
       mdc-grid-cell(span="8")
         section
-          button(mdc-fab="plain.bind: plain; mini.bind: mini; aria-label: Star;" mdc-ripple) star
+          button(mdc-fab="plain.bind: plain; mini.bind: mini; aria-label: Star;") star
         section
-          button(mdc-fab="plain.bind: plain; mini.bind: mini; aria-label: Fingerprint;" mdc-ripple) fingerprint
-          button(mdc-fab="plain.bind: plain; mini.bind: mini; aria-label: Https;" mdc-ripple) https
-          button(mdc-fab="plain.bind: plain; mini.bind: mini; aria-label.bind: ariaText;" click.delegate="changeAria()" mdc-ripple) done_all
-          button(mdc-fab="plain.bind: plain; mini.bind: mini; aria-label: Accessibility;" mdc-ripple) accessibility
-          button.my-fab--fixed(mdc-fab="aria-label: Accessibility;" mdc-ripple) accessibility
+          button(mdc-fab="plain.bind: plain; mini.bind: mini; aria-label: Fingerprint;") fingerprint
+          button(mdc-fab="plain.bind: plain; mini.bind: mini; aria-label: Https;") https
+          button(mdc-fab="plain.bind: plain; mini.bind: mini; aria-label.bind: ariaText;" click.delegate="changeAria()") done_all
+          button(mdc-fab="plain.bind: plain; mini.bind: mini; aria-label: Accessibility;") accessibility
+          button.my-fab--fixed(mdc-fab="aria-label: Accessibility;") accessibility
 
 
+      // LINKS
       mdc-grid-cell(span="12")
-
-        // LINKS
         hr
         section
           a(href="https://material.io/components/web/catalog/buttons/floating-action-buttons/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-fab") Material components documentation
@@ -37,20 +36,31 @@ template
           a(href="https://material.io/icons/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-icons") Icons
         hr
 
-        // EXAMPLE
+      // EXAMPLE
+      mdc-grid-cell(span="12")
         section
-
-          // html
           pre
             code-prism.
-              &lt;button 
-                mdc-fab="aria-label: Hello World; plain: true; mini: true;" 
-                mdc-ripple&gt;
+              &lt;button mdc-fab="aria-label: Hello World; plain: true; mini: true; ripple: true;"&gt;
                 favorite_border
-              &lt;/button&gt;      
+              &lt;/button&gt;
 
 
-        // POSITION
+      // RIPPLE
+      mdc-grid-cell(span="12")
+        section
+          legend.mdc-typography--headline Ripple
+          p.
+            By default the ripple effect is added automatically. To avoid that, set ripple to false:
+          pre
+            code-prism.
+              &lt;button mdc-fab="ripple: false;" ...&gt;
+                ...
+              &lt;/button&gt;
+            
+
+      // POSITION
+      mdc-grid-cell(span="12")
         section
           legend.mdc-typography--headline Position
           p.
@@ -73,6 +83,6 @@ template
                 }
               &lt;/style&gt;
 
-              &lt;button class="my-fab--fixed" mdc-fab="aria-label: Accessibility;" mdc-ripple&gt;
+              &lt;button class="my-fab--fixed" mdc-fab="aria-label: Accessibility;"&gt;
                 favorite_border
               &lt;/button&gt;     
