@@ -29,6 +29,7 @@ node_modules
 scripts
 index.html
 style
+aurelia-mdc-bridge*.tgz
 
 # do not ignore docs
 !docs/images
@@ -36,6 +37,5 @@ style
 !docs/style
 !docs/index.html
 
-# package-lock contain links to private npm server
-package-lock.json
-.npmrc
+# use public npm package server
+# .npmrc

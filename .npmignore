@@ -17,7 +17,6 @@ style
 tsconfig.json
 tsconfig.dist.json
 tslint.json
-package-lock.json
 aurelia-mdc-bridge*.tgz
 
 # ignore other project files
