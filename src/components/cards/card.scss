@@ -1,0 +1,63 @@
+
+// CARD SIZE
+.my-card-container .mdc-card {
+  height: 120px;
+  width: 300px;
+}
+
+// AVATAR
+.my-avatar1 {
+  background-image: url("images/16-9.jpeg");
+  background-size: cover;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+}
+
+.my-avatar2 {
+  background-image: url("images/16-9.jpeg");
+  background-size: cover;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+  margin-top: 0.8rem;
+}
+
+.my-avatar22 {
+  background-image: url("images/1-1.jpeg");
+  background-size: cover;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+  margin-top: 0.8rem;
+}
+
+.my-avatar3 {
+  margin-top: 0.8rem;
+}              
+
+
+// TABLE
+table {
+  display: inline-block;
+  overflow-x: auto;
+  margin: 8px 0 32px;
+  max-width: 100%;
+  border: 1px solid #eee;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+table, td, th, thead, tbody {
+  vertical-align: baseline;
+}
+
+th {
+  background: #fafafa;
+  text-align: left;
+}
+
+td, th {
+  border: 1px solid #eee;
+  padding: 12px 12px 12px 24px;
+}
+

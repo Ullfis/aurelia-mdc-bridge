@@ -1,0 +1,24 @@
+template
+  li.mdc-grid-tile(ref="elementGridTile")
+
+    // PRIMARY CONTENT
+    .mdc-grid-tile__primary(click.delegate="onClick()")
+      img.mdc-grid-tile__primary-content(if.bind="isImg" src.bind="imgSrc")
+      .mdc-grid-tile__primary-content(if.bind="isClass" class.bind="imgClass")
+
+    // SECONDARY CONTENT
+    .mdc-grid-tile__secondary(show.bind="isSecondary")
+
+      // TITLE
+      .mdc-grid-tile__title(show.bind="isTitle" click.delegate="onClick()")
+        slot
+          div(ref="elementShowTitle")
+        
+
+      // SUPPORT TEXT
+      .mdc-grid-tile__support-text(if.bind="isSupport" click.delegate="onClick()")
+        i.material-icons(if.bind="isSupportIcon") ${supportIcon} 
+        span(if.bind="isSupportText") ${supportText}
+
+      // ICON
+      i.mdc-grid-tile__icon.material-icons(if.bind="isActionIcon" click.delegate="onSecondaryAction()") ${actionIcon}

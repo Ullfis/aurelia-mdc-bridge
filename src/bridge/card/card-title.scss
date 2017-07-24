@@ -1,0 +1,17 @@
+.mdc-mdc-card-avatar.mdc-card__primary {
+  position: relative;
+
+  .mdc-card__title, .mdc-card__subtitle {
+    margin-right: initial;
+    margin-left: 56px;
+  }
+}
+
+[dir="rtl"] .mdc-mdc-card-avatar.mdc-card__primary {
+  position: relative;
+
+  .mdc-card__title, .mdc-card__subtitle {
+    margin-right: 56px;
+    margin-left: initial;
+  }
+}

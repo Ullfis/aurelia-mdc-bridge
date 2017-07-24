@@ -1,0 +1,493 @@
+template
+  require(from="./card.css")
+
+  // SAMPLE
+  section
+    legend.mdc-typography--display1 Cards
+    mdc-grid
+      
+      // CONFIG AREA
+      mdc-grid-cell(span="4")
+        mdc-list(dense="true")
+          mdc-list-item 
+            a(href="#cardsize") Size
+          mdc-list-item 
+            a(href="#cardtitle") Card Title
+          mdc-list-item 
+            a(href="#cardtitleavatar") Card Title with avatar              
+          mdc-list-item 
+            a(href="#richmedia") Rich Media
+          mdc-list-item 
+            a(href="#supportingtext") Supporting Text
+          mdc-list-item 
+            a(href="#cardactions") Card Actions
+          mdc-list-item 
+            a(href="#horizontalblock") Horizontal Block
+          mdc-list-item 
+            a(href="#mediaitems") Media Items             
+
+      // DEMO AREA
+      mdc-grid-cell(span="8")
+        mdc-card.test-class.another-test-class
+          mdc-card-title.test-class(title="Card title" subtitle="Subtitle")
+          mdc-card-text
+            span.
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+              veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+              commodo consequat.
+            br
+            br
+            mdc-list(dense="false" two-line="true")
+              mdc-list-divider
+
+              mdc-list-item(ripple="true")
+                span(slot="start")
+                  i.material-icons(aria-hidden="true") network_wifi
+                span(slot="text") Two-line Item
+                span(slot="secondary") Secondary text
+                span(slot="end")
+                  a.material-icons(href="#/components/card" class="" aria-label="Remove from favorites" title="Remove from favorites") favorite
+
+              mdc-list-divider(inset="true")
+
+              mdc-list-item(ripple="true")
+                span One-line Item
+                span(slot="start")
+                  i.material-icons(aria-hidden="true") network_wifi
+                span(slot="end")
+                  a.material-icons(href="#/components/card" class="" aria-label="Remove from favorites" title="Add to favorites") favorite_outline
+
+              mdc-list-divider
+
+          mdc-card-actions
+            button(mdc-button) Action 1
+            button(mdc-button) Action 2
+
+        br
+        .mdc-theme--dark
+          mdc-card
+            mdc-card-title(title="Card title" subtitle="Subtitle")
+              .my-avatar22
+            mdc-card-text.
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+              veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+              commodo consequat. 
+            mdc-card-actions
+              button(mdc-button) Action 1
+              button(mdc-button) Action 2
+
+
+      mdc-grid-cell(span="12")
+
+        // LINKS
+        hr
+        section
+          a(href="https://material.io/components/web/catalog/cards/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-card") Material components documentation
+        section
+          a(href="https://material.io/guidelines/components/cards.html" target="_blank" data-analytics-category="external" data-analytics-action="mdg-drawer") Material design guidelines
+        hr
+
+
+      // EXAMPLES
+
+      // SIZE
+      mdc-grid-cell(span="12")
+        legend.mdc-typography--headline(id="cardsize") Size
+        p.
+          Cards don’t come with a predefined width or height. They expand horizontally to 
+          fill all available space, and vertically to fit their contents.
+        p.
+          You can set height and width for a card like this:
+
+      mdc-grid-cell(span="6")
+        pre
+          code-prism.
+            &lt;mdc-card
+              height="150px"
+              width="300px"&gt;
+            &lt;/mdc-card&gt;
+        
+        p Content will be bottom-aligned if it’s smaller than the height of the card.
+
+      mdc-grid-cell(span="6" align="middle")
+        mdc-card(height="150px" width="300px")
+          mdc-card-title(title="Card title" subtitle="Subtitle")
+
+
+      mdc-grid-cell(span="12")
+        p.
+          If you’d like to maintain a consistent height and width across cards, 
+          set it in your styles:
+
+      mdc-grid-cell(span="6")
+        pre
+          code-prism(language="css").
+            .my-card-container .mdc-card {
+              height: 120px;
+              width: 300px;
+            }
+        pre
+          code-prism.
+            &lt;div class="my-card-container"&gt;
+              &lt;mdc-card&gt;
+                ..
+              &lt;/mdc-card&gt;
+              &lt;mdc-card&gt;
+                ..
+              &lt;/mdc-card&gt;
+            &lt;/div&gt;
+
+      mdc-grid-cell(span="6" align="middle")
+        .my-card-container
+          mdc-card
+            mdc-card-title(title="Card 1" subtitle="Subtitle")              
+          mdc-card
+            mdc-card-title(title="Card 2" subtitle="Subtitle")              
+
+
+      // CONTENT BLOCKS
+      mdc-grid-cell(span="12")
+        legend.mdc-typography--headline Content blocks
+        p.
+          Cards are composed of different content blocks, which are typically laid out in vertical succession.
+
+
+      // CARD TITLE
+      mdc-grid-cell(span="6")
+        legend.mdc-typography--title(id="cardtitle") card title
+        pre
+          code-prism.
+            &lt;mdc-card width="300px"&gt;
+              &lt;mdc-card-title
+                title="Card title" 
+                subtitle="Subtitle"&gt;
+              &lt;/mdc-card-title&gt;
+            &lt;/mdc-card&gt;
+
+      mdc-grid-cell(span="6" align="middle")
+        mdc-card(width="300px")
+          mdc-card-title(title="Card title" subtitle="Subtitle")
+
+      mdc-grid-cell(span="6")
+        pre
+          code-prism.
+            &lt;mdc-card width="300px"&gt;
+              &lt;mdc-card-title
+                title="Card title"
+                subtitle="Subtitle"&gt;
+              &lt;/mdc-card-title&gt;
+            &lt;/mdc-card&gt;
+
+            &lt;mdc-card width="300px"&gt;
+              &lt;mdc-card-title title="Card title" large="false"&gt;&lt;/mdc-card-title&gt;
+            &lt;/mdc-card&gt;
+
+            &lt;mdc-card width="300px"&gt;
+              &lt;mdc-card-title subtitle="Subtitle"&gt;&lt;/mdc-card-title&gt;
+            &lt;/mdc-card&gt;
+
+      mdc-grid-cell(span="6" align="middle")
+        mdc-card(width="300px")
+          mdc-card-title(title="Card title" subtitle="Subtitle")
+        mdc-card(width="300px")
+          mdc-card-title(title="Card title" large="false")
+        mdc-card(width="300px")
+          mdc-card-title(subtitle="Subtitle")
+
+
+      // CARD TITLE AVATAR
+      mdc-grid-cell(span="6")
+        legend.mdc-typography--title(id="cardtitleavatar") card title with avatar
+        pre
+          code-prism.
+            &lt;mdc-card&gt;
+              &lt;mdc-card-title
+                title="Card title" 
+                large="false"
+                subtitle="Subtitle"&gt;
+                &lt;div class="my-avatar1"&gt;&lt;/div&gt;
+              &lt;/mdc-card-title&gt;
+            &lt;/mdc-card&gt;
+
+            &lt;mdc-card&gt;
+              &lt;mdc-card-title
+                title="Card title" 
+                subtitle="Subtitle"&gt;
+                &lt;div class="my-avatar2"&gt;&lt;/div&gt;
+              &lt;/mdc-card-title&gt;
+            &lt;/mdc-card&gt;
+
+            &lt;mdc-card&gt;
+              &lt;mdc-card-title
+                title="Card title" 
+                subtitle="Subtitle"&gt;
+                &lt;i class="material-icons md-36 my-avatar3"&gt;face&lt;/i&gt;
+              &lt;/mdc-card-title&gt;
+            &lt;/mdc-card&gt;
+        pre
+          code-prism(language="css").
+            .my-avatar1 {
+              background-image: url("images/16-9.jpeg");
+              background-size: cover;
+              height: 2.5rem;
+              width: 2.5rem;
+              border-radius: 50%;
+            }
+
+            .my-avatar2 {
+              background-image: url("images/16-9.jpeg");
+              background-size: cover;
+              height: 2.5rem;
+              width: 2.5rem;
+              border-radius: 50%;
+              margin-top: 0.8rem;
+            }
+
+            .my-avatar3 {
+              margin-top: 0.8rem;
+            }                 
+
+      mdc-grid-cell(span="6")
+        mdc-checkbox(checked.bind="rtl") RTL
+        br
+        div(ref="rtlWrapper")
+          mdc-card(height="90px" width="300px")
+            mdc-card-title(title="Card title" large="false" subtitle="Subtitle")
+              .my-avatar1
+
+          mdc-card(height="90px" width="300px")
+            mdc-card-title(title="Card title" subtitle="Subtitle")
+              .my-avatar2
+
+          mdc-card(height="90px" width="300px")
+            mdc-card-title(title="Card title" subtitle="Subtitle")
+              i.material-icons.md-36.accent.my-avatar3 face
+
+        br
+        br
+        a(href="#/documentation/material-icons") (More on material-icons styling here)
+
+
+      // RICH MEDIA
+      mdc-grid-cell(span="6")
+        legend.mdc-typography--title(id="richmedia") rich media
+        pre
+          code-prism.
+            &lt;mdc-card width="300px"&gt;
+              &lt;mdc-card-media
+                image="images/16-9.jpeg"
+                height="200px"&gt;
+              &lt;/mdc-card-media&gt;
+            &lt;/mdc-card&gt;
+
+            default attributes:
+              size="cover"
+              repeat="no-repeat"
+
+        p You can also use styles:
+        pre
+          code-prism.
+            &lt;mdc-card id="example"&gt;
+              &lt;mdc-card-media&gt;&lt;/mdc-card-media&gt;
+            &lt;/mdc-card&gt;
+        pre
+          code-prism(language="css").
+            #example .mdc-card__media {
+              background-image: url("images/16-9.jpeg");
+              background-size: cover;
+              background-repeat: no-repeat;
+              height: 90px;
+            }                
+
+      mdc-grid-cell(span="6")
+        mdc-radio(name="image" checked.bind="image" value="images/16-9.jpeg") images/16-9.jpeg
+        mdc-radio(name="image" checked.bind="image" value="images/1-1.jpeg") images/1-1.jpeg
+        br
+        br
+        mdc-card(width="300px")
+          mdc-card-media(image.bind="image" height="200px")
+
+
+      // SUPPORTING TEXT
+      mdc-grid-cell(span="6")
+        legend.mdc-typography--title(id="supportingtext") supporting text
+        pre
+          code-prism.
+            &lt;mdc-card width="300px"&gt;
+              &lt;mdc-card-text&gt;
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                commodo consequat.                
+              &lt;/mdc-card-text&gt;
+            &lt;/mdc-card&gt;
+
+      mdc-grid-cell(span="6" align="middle")
+        mdc-card(width="300px")
+          mdc-card-text.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+            commodo consequat.
+
+
+      // CARD ACTION
+      mdc-grid-cell(span="6")
+        legend.mdc-typography--title(id="cardactions") card actions
+        pre
+          code-prism.
+            &lt;mdc-card width="300px"&gt;
+              &lt;mdc-card-actions&gt;
+                &lt;button mdc-button&gt;Action 1&lt;/button&gt;
+                &lt;button mdc-button="accent:true;"&gt;Action 2&lt;/button&gt;
+              &lt;/mdc-card-actions&gt;
+            &lt;/mdc-card&gt;
+        pre
+          code-prism.
+            &lt;mdc-card width="300px"&gt;
+              &lt;mdc-card-actions vertical="true"&gt;
+                &lt;button mdc-button&gt;Action 1&lt;/button&gt;
+                &lt;button mdc-button="primary:true;"&gt;Action 2&lt;/button&gt;
+              &lt;/mdc-card-actions&gt;
+            &lt;/mdc-card&gt;
+
+        p mdc-card__action and mdc-button--compact classes is automaticly added to buttons within card action section.
+
+      mdc-grid-cell(span="6" align="middle")
+        mdc-card(width="300px")
+          mdc-card-actions
+            button(mdc-button) Action 1
+            button(mdc-button="accent:true;") Action 2
+        mdc-card(width="300px")
+          mdc-card-actions(vertical="true")
+            button(mdc-button) Action 1
+            button(mdc-button="primary:true;") Action 2   
+
+
+      // HORIZONTAL BLOCK
+      mdc-grid-cell(span="12")
+        legend.mdc-typography--title(id="horizontalblock") horizontal block
+        p.
+          You can stack multiple card blocks horizontally instead of vertically, 
+          by placing them inside of a horizontal block:
+
+      mdc-grid-cell(span="6")
+        pre
+          code-prism.
+            &lt;mdc-card width="400px"&gt;
+              &lt;mdc-card-title 
+                title="Card title" 
+                subtitle="Subtitle"&gt;
+                &lt;i class="material-icons my-avatar3"&gt;face&lt;/i&gt;
+              &lt;/mdc-card-title&gt;
+              &lt;mdc-card-horizontal&gt;
+                &lt;mdc-card-text&gt;
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
+                  sed do eiusmod tempor incididunt ut labore et 
+                  dolore magna aliqua.                
+                &lt;/mdc-card-text&gt;
+                &lt;mdc-card-actions vertical="true"&gt;
+                  &lt;button mdc-button&gt;Action&lt;/button&gt;
+                  &lt;button mdc-button&gt;Action&lt;/button&gt;
+                &lt;/mdc-card-actions&gt;
+              &lt;/mdc-card-horizontal&gt;
+            &lt;/mdc-card&gt;
+
+      mdc-grid-cell(span="6")
+        mdc-card(width="400px")
+          mdc-card-title(title="Card title" subtitle="Subtitle")
+            i.material-icons.my-avatar3 face
+          mdc-card-horizontal
+            mdc-card-text.
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
+              sed do eiusmod tempor incididunt ut labore et 
+              dolore magna aliqua.
+            mdc-card-actions(vertical="true")
+              button(mdc-button) Action
+              button(mdc-button) Action
+
+
+      // MEDIA ITEMS
+      mdc-grid-cell(span="12")
+        legend.mdc-typography--title(id="mediaitems") media items
+        p.
+          Media items are designed to be used in horizontal blocks, taking up a fixed height, 
+          rather than stretching to the width of the card.
+        p.
+          Note: Unlike media blocks, media items are not designed to be used as optional containers.
+        pre
+          code-prism.
+            &lt;img class="mdc-card__media-item mdc-card__media-item--1dot5x" src="images/16-9.jpeg"&gt;&lt;/img&gt;
+
+      mdc-grid-cell(span="6")
+        pre
+          code-prism.
+            &lt;mdc-card width="400px"&gt;
+              &lt;mdc-card-horizontal&gt;
+                &lt;img class="mdc-card__media-item mdc-card__media-item--1dot5x" src="images/16-9.jpeg"&gt;&lt;/img&gt;
+                &lt;mdc-card-title title="Card title" subtitle="Subtitle"&gt;&lt;/mdc-card-title&gt;
+              &lt;/mdc-card-horizontal&gt;
+              &lt;mdc-card-actions&gt;
+                &lt;button mdc-button&gt;Action 1&lt;/button&gt;
+                &lt;button mdc-button&gt;Action 2&lt;/button&gt;
+              &lt;/mdc-card-actions&gt;                
+            &lt;/mdc-card&gt;
+
+      mdc-grid-cell(span="6")
+        mdc-card(width="400px")
+          mdc-card-horizontal
+            img.mdc-card__media-item.mdc-card__media-item(src="images/1-1.jpeg")
+            mdc-card-title(title="Card title" subtitle="Subtitle")
+          mdc-card-actions
+            button(mdc-button) Action 1
+            button(mdc-button) Action 2
+
+        mdc-card(width="400px")
+          mdc-card-horizontal
+            img.mdc-card__media-item.mdc-card__media-item--1dot5x(src="images/1-1.jpeg")
+            mdc-card-title(title="Card title" subtitle="Subtitle")
+          mdc-card-actions
+            button(mdc-button) Action 1
+            button(mdc-button) Action 2
+
+        mdc-card(width="400px")
+          mdc-card-horizontal
+            img.mdc-card__media-item.mdc-card__media-item--2x(src="images/1-1.jpeg")
+            mdc-card-title(title="Card title" subtitle="Subtitle")
+          mdc-card-actions
+            button(mdc-button) Action 1
+            button(mdc-button) Action 2
+
+        mdc-card(width="400px")
+          mdc-card-horizontal
+            img.mdc-card__media-item.mdc-card__media-item--3x(src="images/1-1.jpeg")
+            mdc-card-title(title="Card title" subtitle="Subtitle")
+          mdc-card-actions
+            button(mdc-button) Action 1
+            button(mdc-button) Action 2
+
+
+      mdc-grid-cell(span="12")
+        p.
+          There are several predefined media item sizes you can use:
+
+        table
+          thead
+            tr
+              th Class
+              th Description
+          tbody
+            tr
+              td mdc-card__media-item
+              td Defines a media item and sets it to the default height of 80px.
+            tr
+              td mdc-card__media-item--1dot5x
+              td Sets the media item height to 120px.
+            tr
+              td mdc-card__media-item--2x
+              td Sets the media item height to 160px.
+            tr
+              td mdc-card__media-item--3x
+              td Sets the media item height to 240px.

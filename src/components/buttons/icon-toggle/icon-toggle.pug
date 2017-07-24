@@ -1,0 +1,88 @@
+template
+
+  // SAMPLE
+  section
+    legend.mdc-typography--display1 Icon Toggle
+    mdc-grid
+
+      // CONFIG AREA
+      mdc-grid-cell(span="4")
+        section
+          mdc-checkbox(checked.bind="accent") accent
+        section
+          mdc-checkbox(checked.bind="primary") primary
+        section
+          mdc-checkbox(checked.bind="on") on: ${on}
+        section
+          p Toggle event value: ${iconValue}        
+            
+      // DEMO AREA
+      mdc-grid-cell(span="8")
+        section
+          legend.mdc-typography--title Default theme
+          mdc-icon-toggle(
+            on.bind="on"
+            accent.bind="accent" 
+            primary.bind="primary"
+            icon-on="star"
+            icon-off="star_outline"
+            aria-label-on="On"
+            aria-label-off="Off"
+            on-toggle.delegate="onToggle($event)")
+        
+        section.mdc-theme--dark
+          legend.mdc-typography--title Dark theme
+          mdc-icon-toggle(
+            on.bind="on"
+            accent.bind="accent" 
+            primary.bind="primary"
+            icon-on="star"
+            icon-off="star_outline"
+            aria-label-on="On"
+            aria-label-off="Off"
+            on-toggle.delegate="onToggle($event)")
+
+      mdc-grid-cell(span="12")
+
+        // LINKS
+        hr
+        section
+          a(href="https://material.io/components/web/catalog/buttons/icon-toggle-buttons/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-icon-toggle") Material components documentation
+        section
+          a(href="https://material.io/guidelines/components/buttons.html#buttons-toggle-buttons" target="_blank" data-analytics-category="external" data-analytics-action="mdg-icon-toggle") Material design guidelines
+        section
+          a(href="https://material.io/icons/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-icons") Icons
+        hr
+
+        // EXAMPLE
+        section
+          pre
+            code-prism(language="typescript").
+              import { IMdcIconToggleEvent } from 'aurelia-mdc-bridge';
+        
+              onToggle(event: IMdcIconToggleEvent) {
+                this.isOn = event.detail;
+              }
+
+          pre
+            code-prism.
+              &lt;mdc-icon-toggle
+                on.bind="on"
+                accent.bind="accent" 
+                primary.bind="primary"
+                icon-on="star"
+                icon-off="star_outline"
+                aria-label-on="On"
+                aria-label-off="Off"
+                on-toggle.delegate="onToggle($event)"&gt;
+              &lt;/mdc-icon-toggle&gt;
+    
+    
+        // THEMING
+        section
+          legend.mdc-typography--headline Theming
+          p.
+            #[span.mark-text mdc-icon-toggle] ships with two css classes, 
+            #[span.mark-text mdc-icon-toggle--primary] and #[span.mark-text mdc-icon-toggle--accent] 
+            that allow you to color #[span.mark-text mdc-icon-toggle] based on your primary and accent 
+            colors, respectively.

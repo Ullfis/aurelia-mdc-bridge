@@ -1,0 +1,34 @@
+doctype html
+html.mdc-typography
+  head
+    // build:basereplace
+    // endbuild
+    meta(charset="utf-8")
+    title Material bridge
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    
+    //- ICONS -ONLINE
+    link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
+
+    //- ICONS -OFFLINE
+    //- link(rel="stylesheet" href="/style/mdi/material-icons.css")
+    //- npm install material-design-icons --save-dev
+    //- add this to aurelia.json build section:
+    //- "copyFiles": {
+    //-   "node_modules/material-design-icons/iconfont/**/*.*": "style/mdi"
+    //- },
+
+    //- FONTS -ONLINE
+    link(href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet")
+    link(href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet")
+
+    //- FONTS -OFFLINE
+    //- link(rel="stylesheet" href="/style/roboto/style.css")
+    //- npm install roboto-npm-webfont --save-dev
+    //- add this to aurelia.json build section:
+    //- "copyFiles": {
+    //-   "node_modules/roboto-npm-webfont/**/*.*": "style/roboto"
+    //- },
+
+  body(aurelia-app="main")
+    script(src="scripts/vendor-bundle.js" data-main="aurelia-bootstrapper")

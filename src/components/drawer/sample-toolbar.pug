@@ -1,0 +1,19 @@
+template
+
+  // TOOLBAR
+  mdc-toolbar.mdc-theme--dark(fixed.bind="fixed" waterfall.bind="waterfall")
+    mdc-toolbar-row
+
+      // HEADER
+      mdc-toolbar-section(start="true")
+        a.material-icons.mdc-toolbar__icon--menu(href="#/" click.delegate="onClick()" if.bind="showMenu") menu
+        a.mdc-toolbar__title-link(href="#/")
+          h1.mdc-toolbar__title.mdc-toolbar__title--full ${title}
+          h1.mdc-toolbar__title.mdc-toolbar__title--medium ${titleMedium}
+          h1.mdc-toolbar__title.mdc-toolbar__title--mini ${titleMini}
+
+      // MAIN NAV
+      mdc-toolbar-section(end="true" fit="true")
+        a(mdc-button href="#/documentation") Documentation
+        a(mdc-button="accent:true;" href="#/components") Components
+        a(mdc-button href="https://github.com/ullfis/aurelia-mdc-bridge" data-analytics-category="external" data-analytics-action="github") Github

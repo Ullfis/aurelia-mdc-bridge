@@ -1,0 +1,12 @@
+.my-fab--fixed {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+@media(min-width: 1024px) {
+  .my-fab--fixed {
+    bottom: 3rem;
+    right: 5rem;
+  }
+}

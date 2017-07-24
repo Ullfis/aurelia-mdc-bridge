@@ -1,0 +1,141 @@
+template
+
+  // SAMPLE
+  section
+    legend.mdc-typography--display1 Grids
+
+    mdc-grid
+
+      mdc-grid-cell(span="12")
+        p.
+          This component is a wrapper around MDC Layout Grid which is a css only component.
+          Read more about grids at #[a(href="https://material.io/components/web/catalog/layout-grids/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-grids") Material components documentation]
+
+        // LINKS
+        hr
+        section
+          a(href="https://material.io/components/web/catalog/layout-grids/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-grids") Material components documentation
+        section
+          a(href="https://material.io/guidelines/layout/responsive-ui.html#responsive-ui-grid" target="_blank" data-analytics-category="external" data-analytics-action="mdg-grids") Material design guidelines
+        hr
+
+
+        // COPY PASTE DESCRIPTION
+        section
+          legend.mdc-typography--headline The layout grid
+          p.mdc-typography--caption (copy from Material documentation)
+          p.
+            A grid is a container that consists of a group of cells. 
+            Grid can define its own max-width or designate its columns to be a 
+            certain width. Cells get positioned in sequence according to a 
+            predefined number of columns.
+          p.
+            The grid has 12 columns in desktop mode (&gt;= 840px), 8 columns in tablet mode (&gt;= 480px), 
+            and 4 columns in phone mode (&lt; 480px). Cells specify how many columns to span (the default is 4). 
+            Cells are placed side by side until there is no more room, then the next cell is placed at 
+            the beginning of the next row.
+          p.
+            Margins (the space between the edge of the grid and the edge of the first cell) and 
+            gutters (the space between edges of adjacent cells) can be customized on different devices respectively 
+            based on design needs. The columns are evenly distributed within the container width, minus the width 
+            of all margins and gutters. Layout grids set default margins and gutters to 24px on desktop, 16px on 
+            tablet and phone, according to the Material Design spec.
+          p.
+            The grid and cells are not styled in any way, serving only for alignment and positioning of elements.
+
+        // BASIC
+        section
+          legend.mdc-typography--headline Grid component
+          p This is a #[span.mark-text basic] layout used with material components:
+          pre
+            code-prism.
+              <div class="mdc-layout-grid">
+                <div class="mdc-layout-grid__inner">
+                  <div class="mdc-layout-grid__cell"></div>
+                  <div class="mdc-layout-grid__cell"></div>
+                  <div class="mdc-layout-grid__cell"></div>
+                </div>
+              </div>
+
+          p Equal part with bridge component:
+          pre
+            code-prism.
+              <mdc-grid>
+                <mdc-grid-cell></mdc-grid-cell>
+                <mdc-grid-cell></mdc-grid-cell>
+                <mdc-grid-cell></mdc-grid-cell>
+              </mdc-grid>
+
+          // FIXED
+          legend.mdc-typography--headline Fixed column width grid
+          p.
+            Set #[span.mark-text fixed-width] attribute to #[span.mark-text true] to add 
+            #[span.mark-text class mdc-layout-grid--fixed-column-width] to #[span.mark-text mdc-layout-grid]:
+          pre
+            code-prism.
+              <mdc-grid fixed-width="true">
+                <mdc-grid-cell></mdc-grid-cell>
+                <mdc-grid-cell></mdc-grid-cell>
+                <mdc-grid-cell></mdc-grid-cell>
+              </mdc-grid>
+          
+          // COLUMN SPANS
+          legend.mdc-typography--headline Column spans
+          p.
+            To span columns set attributes #[span.mark-text span], #[span.mark-text span-desktop],
+            #[span.mark-text span-tablet] and/or #[span.mark-text span-phone] to a numeric
+            value (1-12):
+          pre
+            code-prism.
+              <mdc-grid>
+                <mdc-grid-cell span="2"></mdc-grid-cell>
+                <mdc-grid-cell span="4"></mdc-grid-cell>
+                <mdc-grid-cell span="6" span-tablet="8"></mdc-grid-cell>
+              </mdc-grid>
+          
+          // REORDERING
+          legend.mdc-typography--headline Reordering
+          p.
+            Reorder columns by setting attribute #[span.mark-text order] to a numeric
+            value (1-12):
+          pre
+            code-prism.
+              <mdc-grid>
+                <mdc-grid-cell order="3"></mdc-grid-cell>
+                <mdc-grid-cell order="1"></mdc-grid-cell>
+                <mdc-grid-cell order="2"></mdc-grid-cell>
+              </mdc-grid>
+
+          // ALIGNMENT
+          legend.mdc-typography--headline Alignment
+          p.
+            Align column content by setting attribute #[span.mark-text align] to a string
+            value ("top", "middle", "bottom"):
+          pre
+            code-prism.
+              <mdc-grid>
+                <mdc-grid-cell align="top"></mdc-grid-cell>
+                <mdc-grid-cell align="middle"></mdc-grid-cell>
+                <mdc-grid-cell align="bottom"></mdc-grid-cell>
+              </mdc-grid>
+
+          // NESTED GRID
+          legend.mdc-typography--headline Nested grid
+          p.
+            When your contents need extra structure that cannot be supported by single layout grid, 
+            you can nest layout grid within each other. To nest layout grid, add a new #[span.mark-text mdc-layout-grid-inner] element to wrap around nested cells.
+          p.mdc-typography--caption.
+            (Material guideline do not recommend have a deeply nested grid since it might means a over complicated UX.)
+          pre
+            code-prism.
+              <mdc-grid>
+                <mdc-grid-cell>
+                  <mdc-grid-inner>
+                    <mdc-grid-cell></mdc-grid-cell>
+                    <mdc-grid-cell></mdc-grid-cell>
+                    <mdc-grid-cell></mdc-grid-cell>
+                  </mdc-grid-inner>
+                </mdc-grid-cell>
+                <mdc-grid-cell></mdc-grid-cell>
+                <mdc-grid-cell></mdc-grid-cell>
+              </mdc-grid>

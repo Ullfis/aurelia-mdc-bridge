@@ -1,0 +1,23 @@
+template
+  .mdc-form-field(ref="elementCheckbox")
+  
+    // CHECKBOX
+    .mdc-checkbox
+  
+      // INPUT TYPE CHECKBOX
+      input.mdc-checkbox__native-control(
+        id="${controlId}" 
+        type="checkbox" 
+        change.delegate="handleChange($event)")
+
+      // CHECKBOX BACKGROUND
+      .mdc-checkbox__background
+          svg.mdc-checkbox__checkmark(viewBox="0 0 24 24")
+              path.mdc-checkbox__checkmark__path(
+                fill="none" 
+                stroke="white" d="M1.73,12.91 8.1,19.28 22.79,4.59")
+          .mdc-checkbox__mixedmark
+
+    // LABEL
+    label(for="${controlId}")
+      slot

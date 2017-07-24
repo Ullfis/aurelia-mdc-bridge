@@ -1,0 +1,16 @@
+template
+  .mdc-tab-bar-scroller(ref="elementTabBarScroller")
+  
+    // BEFORE
+    .mdc-tab-bar-scroller__indicator.mdc-tab-bar-scroller__indicator--back
+      a.mdc-tab-bar-scroller__indicator__inner.material-icons(href="#" aria-label="${ariaBefore}") navigate_before
+      
+    // TAB
+    .mdc-tab-bar-scroller__scroll-frame
+      nav.mdc-tab-bar.mdc-tab-bar-scroller__scroll-frame__tabs(ref="elementTabBar" class.bind="class")
+        slot
+        span.mdc-tab-bar__indicator
+
+    // NEXT
+    .mdc-tab-bar-scroller__indicator.mdc-tab-bar-scroller__indicator--forward
+      a.mdc-tab-bar-scroller__indicator__inner.material-icons(href="#" aria-label="${ariaNext}") navigate_next

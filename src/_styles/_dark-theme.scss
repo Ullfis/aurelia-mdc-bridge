@@ -1,0 +1,20 @@
+// DARK THEME
+.mdc-theme--dark {
+  background-color: $my-dark-color;
+
+  legend {
+    color: $my-white-on-dark-color;
+  }
+
+  fieldset {
+    background-color: $my-dark-color;
+
+    legend {
+      color: $my-white-on-dark-color;
+    }
+  }
+
+  .mdc-switch-label, p, table {
+    color: $my-white-on-dark-color;
+  }
+}

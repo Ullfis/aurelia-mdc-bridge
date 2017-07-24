@@ -1,0 +1,57 @@
+@import "@material/elevation/mixins";
+
+// .mdc-grid-tile .mdc-grid-tile__secondary 
+// .mdc-grid-tile__support-text i {
+//   padding: 0 6px 0 0;
+//   vertical-align: middle;
+//   font-size: 18px;
+// }
+// [dir="rtl"] .mdc-grid-tile .mdc-grid-tile__secondary 
+// .mdc-grid-tile__support-text i {
+//   padding: 0 0 0 6px; 
+// }
+
+
+/* Image background */
+.my-tile-image {
+  background-image: url(images/16-9.jpeg);
+}
+
+/* tile width */
+.my-grid-list .mdc-grid-tile {
+  width : 300px;
+} 
+
+.my-tile-color {
+  /* background of secondary content */
+  .mdc-grid-tile__secondary {
+    background: rgba(0, 0, 0, 0.2);
+  }
+  /* action icon */
+  .mdc-grid-tile__icon {
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.3);
+  }
+  /* action icon hover */
+  .mdc-grid-tile__icon:hover {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  /* action icon active */
+  .mdc-grid-tile__icon:active {
+    color: rgba(255, 255, 255, 1);
+  }
+  /* support icon */
+  .mdc-grid-tile__support-text i {
+    color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+.my-tile-stuff {
+  .mdc-grid-tile {
+    @include mdc-elevation(0);
+    @include mdc-elevation-transition;
+  }
+  .mdc-grid-tile:active {
+    @include mdc-elevation(8);
+  }  
+}

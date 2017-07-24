@@ -1,0 +1,32 @@
+.demo-button-style {
+  padding: 16px 16px 16px 16px;
+}
+
+.demo-menu-manual {
+  position: relative;
+  border: 1px solid #eee; 
+  margin: 12px 0 32px 0;
+  width: 256px; 
+  height: 256px;
+}
+
+.demo-menu-topleft {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.demo-menu-topright {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.demo-menu-bottomleft {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.demo-menu-bottomright {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}

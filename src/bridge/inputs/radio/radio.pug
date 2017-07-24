@@ -1,0 +1,36 @@
+template
+  .mdc-form-field
+  
+    // RADIO
+    .mdc-radio(class.bind="disabled ? 'mdc-radio--disabled' : ''" ref="elementRadio")
+  
+      // INPUT TYPE RADIO (NO MODEL)
+      input.mdc-radio__native-control(
+        id="${controlId}" 
+        if.bind="!isModel"
+        type="radio" 
+        name="${name}"
+        value.bind="value"
+        matcher.bind="matcher"
+        checked.bind="checked"
+        change.delegate="handleChange($event)")
+
+      // INPUT TYPE RADIO (MODEL BIND)
+      input.mdc-radio__native-control(
+        id="${controlId}"
+        if.bind="isModel"
+        type="radio" 
+        name="${name}"
+        model.bind="model"
+        matcher.bind="matcher"
+        checked.bind="checked"
+        change.delegate="handleChange($event)")
+
+      // RADIO BACKGROUND
+      .mdc-radio__background
+        .mdc-radio__outer-circle
+        .mdc-radio__inner-circle
+
+    // LABEL
+    label(for="${controlId}")
+      slot

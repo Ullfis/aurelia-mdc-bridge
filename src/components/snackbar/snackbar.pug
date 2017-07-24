@@ -1,0 +1,160 @@
+template
+  require(from="./snackbar.css")
+
+  // SAMPLE
+  section
+    legend.mdc-typography--display1 Snackbar
+    mdc-grid
+  
+      // DEMO
+      mdc-grid-cell(span="12")
+        button(mdc-button="raised: true;" click.delegate="onClick()") Show snackbar
+
+        mdc-snackbar(
+          view-model.ref="mdcSnackbar"
+          message="Hello World!"
+          action-text="SHOW"
+        )
+
+
+      mdc-grid-cell(span="12")
+
+        // LINKS
+        hr
+        section
+          a(href="https://material.io/components/web/catalog/snackbars/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-snackbar") Material components documentation
+        section
+          a(href="https://material.io/guidelines/components/snackbars-toasts.html" target="_blank" data-analytics-category="external" data-analytics-action="mdg-snackbar") Material design guidelines
+        section
+          a(href="https://material.io/icons/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-icons") Icons
+        hr
+
+      // BASIC
+      mdc-grid-cell(span="12")
+
+        section
+          legend.mdc-typography--headline Basic
+
+          pre
+            code-prism.
+              <mdc-snackbar view-model.ref="mdcSnackbar"></mdc-snackbar>
+
+          pre
+            code-prism(language="typescript").
+              import { MdcSnackbar, IMdcSnackbarOptions } from 'aurelia-mdc-bridge';
+              private mdcSnackbar: MdcSnackbar;
+              ...
+                this.mdcSnackbar.show({ message: 'Hello World!' });
+
+      // OPTIONS SHOW()
+      mdc-grid-cell(span="12")
+
+        section
+          legend.mdc-typography--headline Options: show(options)
+
+          pre
+            code-prism(language="typescript").
+              import { MdcSnackbar, IMdcSnackbarOptions } from 'aurelia-mdc-bridge';
+              
+              ...
+                const options: IMdcSnackbarOptions = {
+                  ...
+                };
+                this.mdcSnackbar.show(options);
+
+          table
+            thead
+              tr
+                th Option
+                th Description
+                th Type
+            tbody
+              tr
+                td message
+                td The text message to display. Required.
+                td String
+              tr
+                td timeout
+                td The amount of time in milliseconds to show the snackbar. Optional (default 2750).
+                td Integer
+              tr
+                td multiline
+                td Whether to show the snackbar with space for multiple lines of text. Optional.
+                td Boolean                            
+              tr
+                td actionText
+                td The text to display for the action button. Required if actionHandler is set.
+                td String
+              tr
+                td actionOnBottom
+                td Whether to show the action below the multiple lines of text. Optional, applies when multiline is true.
+                td Boolean
+              tr
+                td dismissesOnAction
+                td Keep snackbar when the action button is pressed. Optional, default true.
+                td Boolean
+              tr
+                td actionHandler
+                td The function to execute when the action is clicked.
+                td Function
+              tr
+                td alignStart
+                td Align position to start.
+                td Boolean
+
+      // OPTIONS
+      mdc-grid-cell(span="12")
+
+        section
+          legend.mdc-typography--headline Options on component
+
+          pre
+            code-prism.
+              &lt;mdc-snackbar view-model.ref="mdcSnackbar"
+                message="Hello World!"
+                timeout="2750"
+                action-text="HIDE"
+                multiline="false"
+                action-on-bottom="false"
+                dismisses-on-action="true"
+                align-start="false"
+                on-action.delegate="onAction()"&gt;
+              &lt;/mdc-snackbar&gt;
+
+          pre
+            code-prism(language="typescript").            
+              // override message
+              const options: IMdcSnackbarOptions = {
+                message: 'Press HIDE!'
+              };
+              this.mdcSnackbar.show(options);
+
+      // WITHOUT ELEMENT
+      mdc-grid-cell(span="12")
+
+        section
+          legend.mdc-typography--headline Snackbar without component
+          p.
+            You can also use snackbar without using component &lt;mdc-snackbar&gt;. The constructor will
+            add the needed html to document.body.main (if no main, document.body will be used). show function 
+            will show the snackbar, destroy and remove html after snackbar is hidden again.
+
+          pre
+            code-prism(language="typescript").            
+              import { MdcSnackbar, IMdcSnackbarOptions } from 'aurelia-mdc-bridge';
+
+              private onButtonClick() {
+                const mdcSnackbar = new MdcSnackbar();
+                mdcSnackbar.show({
+                  message: 'Press HIDE',
+                  actionText: 'Hide',
+                  actionHandler: this.onAction
+                });
+              }
+
+              private onAction() {
+                console.log('on action');
+              }
+
+      mdc-grid-cell(span="12")
+        button(mdc-button="raised: true;" click.delegate="onClick2()") Show snackbar

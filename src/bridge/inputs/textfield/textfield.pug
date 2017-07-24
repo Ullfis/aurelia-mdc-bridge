@@ -1,0 +1,43 @@
+template
+  // TEXTFIELD
+  .mdc-textfield(ref="elementMain")
+
+    // INPUT
+    input.mdc-textfield__input.amdc_input_element(
+      id="${controlId}"
+      ref="elementInput"
+      if.bind="!multiline"
+      type="${type}" 
+      name.bind="name"
+      value.bind="value"
+      min.bind="min"
+      max.bind="max"
+      step.bind="step"
+      required.bind="required" 
+      aria-controls="${helptextId}")
+
+    // TEXTAREA
+    textarea.mdc-textfield__input.amdc_textarea_element(
+      id="${controlId}"
+      ref="elementInput" 
+      name.bind="name"
+      if.bind="multiline" 
+      rows="${multilineRows}" 
+      cols="${multilineCols}" 
+      value.bind="value" 
+      required.bind="required" 
+      aria-controls="${helptextId}")
+
+    // LABEL
+    label.mdc-textfield__label(for="${controlId}" ref="elementLabel")
+      slot
+
+    // BOX BOTTOM LINE
+    .mdc-textfield__bottom-line(if.bind="box")
+
+  // HELP TEXT
+  p.mdc-textfield-helptext(
+    id="${helptextId}"
+    ref="elementHelpText" 
+    aria-hidden="true"
+    css.bind="styleHelptext") ${helptext}

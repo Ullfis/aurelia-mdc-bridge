@@ -1,0 +1,24 @@
+template
+  aside(id="${controlId}"
+    class="mdc-dialog"
+    ref="diagElement"
+    role="alertdialog"
+    aria-labelledby="${controlId}-label"
+    aria-describedby="${controlId}-description")
+
+    .mdc-dialog__surface
+
+      // HEADER
+      header.mdc-dialog__header
+        h2.mdc-dialog__header__title(id="${controlId}-label") ${header}
+
+      // BODY
+      section.mdc-dialog__body(id="${controlId}-description" class.bind="scrollable ? 'mdc-dialog__body--scrollable' : ''")
+        slot
+
+      // FOOTER
+      footer.mdc-dialog__footer
+        button.mdc-button.mdc-dialog__footer__button.mdc-dialog__footer__button--cancel(type="button") ${cancel}
+        button.mdc-button.mdc-dialog__footer__button.mdc-dialog__footer__button--accept(type="button") ${accept}
+          
+    .mdc-dialog__backdrop

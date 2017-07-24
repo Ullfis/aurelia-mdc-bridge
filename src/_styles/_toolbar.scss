@@ -1,0 +1,51 @@
+
+// TOOLBAR TITLE
+.mdc-toolbar__title-link {
+  color: $my-white-on-dark-color;
+  text-decoration: none;
+}
+
+@media(min-width: 600px) {
+  .mdc-toolbar__title--full {
+    display: block;
+  }
+  .mdc-toolbar__title--medium {
+    display: none;
+  }  
+  .mdc-toolbar__title--mini {
+    display: none;
+  }
+}
+@media(max-width: 599px) {
+  .mdc-toolbar__title--full {
+    display: none;
+  }  
+  .mdc-toolbar__title--medium {
+    display: block;
+  }  
+  .mdc-toolbar__title--mini {
+    display: none;
+  }  
+}
+@media(max-width: 500px) {
+  .mdc-toolbar__title--full {
+    display: none;
+  }  
+  .mdc-toolbar__title--medium {
+    display: none;
+  }  
+  .mdc-toolbar__title--mini {
+    display: block;
+  }  
+}
+@media(max-width: 430px) {
+  .mdc-toolbar__title--full {
+    display: none;
+  }
+  .mdc-toolbar__title--medium {
+    display: none;
+  }  
+  .mdc-toolbar__title--mini {
+    display: none;
+  }  
+}

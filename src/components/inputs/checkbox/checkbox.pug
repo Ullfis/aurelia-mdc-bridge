@@ -1,0 +1,78 @@
+template
+
+  // SAMPLE
+  section
+    legend.mdc-typography--display1 Checkbox
+    mdc-grid
+      
+      // CONFIG AREA
+      mdc-grid-cell(span="4")   
+        section
+          mdc-checkbox(checked.bind="disable") Disable demo checkbox
+
+        section
+          mdc-checkbox(checked.bind="indeterminate") Make demo checkbox indeterminate
+
+        section
+          p Event counter: ${eventCounter}
+          p Last change: ${isChecked}
+
+      // DEMO AREA
+      mdc-grid-cell(span="8")    
+        section
+          legend.mdc-typography--title Default theme
+          mdc-checkbox(
+            checked.bind="checked1" 
+            indeterminate.bind="indeterminate" 
+            disabled.bind="disable" 
+            on-change.delegate="onChange($event)") DEMO checkbox. checked: ${checked1}
+
+        section.mdc-theme--dark
+          legend.mdc-typography--title Dark theme
+          mdc-checkbox(checked.bind="checked2") Checkbox. checked: ${checked2}
+
+        section
+          mdc-checkbox(checked="true") Check unbound (checked="true")
+        section
+          mdc-checkbox(indeterminate="true") Check unbound (indeterminate="true")
+        section
+          mdc-checkbox(disabled="true") Check unbound (disabled="true")
+
+
+      mdc-grid-cell(span="12")
+
+        // LINKS
+        hr
+        section
+          a(href="https://material.io/components/web/catalog/input-controls/checkboxes/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-checkbox") Material components documentation
+        section
+          a(href="https://material.io/guidelines/components/selection-controls.html#selection-controls-checkbox" target="_blank" data-analytics-category="external" data-analytics-action="mdg-checkbox") Material design guidelines
+        hr
+
+
+        // EXAMPLE
+        section
+
+          // script
+          pre
+            code-prism(language="typescript").
+              import { IMdcCheckboxEvent } from 'aurelia-mdc-bridge';
+
+              private onChange(event: IMdcCheckboxEvent) {
+                this.isChecked = event.detail;
+                this.eventCounter++;
+              }
+              
+
+          // html
+          pre
+            code-prism.
+              &lt;mdc-checkbox
+                checked.bind="checked1" 
+                indeterminate.bind="indeterminate"
+                disabled.bind="disable"
+                on-change.delegate="onChange($event)"&gt;
+
+                DEMO checkbox. checked: ${checked1}
+                
+              &lt;/mdc-checkbox&gt;         

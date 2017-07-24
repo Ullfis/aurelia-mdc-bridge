@@ -1,0 +1,11 @@
+template
+
+  // ICON TOGGLE
+  i.mdc-icon-toggle.material-icons(
+    ref="elementI"
+    role="button" 
+    class.bind="class"
+    aria-pressed="${on}"
+    aria-label="${ariaLabelOff}" tabindex="0"
+    data-toggle-on='{"label": "${ariaLabelOn}", "content": "${iconOn}"}'
+    data-toggle-off='{"label": "${ariaLabelOff}", "content": "${iconOff}"}') ${iconOff}

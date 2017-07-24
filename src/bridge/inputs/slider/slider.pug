@@ -1,0 +1,20 @@
+template
+  .mdc-slider(
+    role="slider" 
+    tabindex="0" 
+    ref="elementSlider"
+    aria-valuemin="${min}" 
+    aria-valuemax="${max}" 
+    aria-valuenow="${value}" 
+    data-step="${step}"
+    aria-label="${ariaLabel}"
+    aria-disabled="${disabled}")
+
+    .mdc-slider__track-container
+      .mdc-slider__track
+    
+    .mdc-slider__thumb-container
+      svg.mdc-slider__thumb(width="21" height="21")
+        circle(cx="10.5" cy="10.5" r="7.875")
+      
+      .mdc-slider__focus-ring

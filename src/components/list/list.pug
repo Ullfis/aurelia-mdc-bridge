@@ -1,0 +1,393 @@
+template
+  require(from="./list.css")
+
+  // SAMPLE
+  section
+    legend.mdc-typography--display1 List
+    mdc-grid
+      
+      // CONFIG AREA
+      mdc-grid-cell(span="4")
+        section
+          mdc-checkbox(checked.bind="dense") dense
+        section
+          mdc-checkbox(checked.bind="twoLine") two-line
+        section
+          mdc-checkbox(checked.bind="avatar") avatar
+        section
+          mdc-checkbox(checked.bind="inset") inset (divider)
+
+      // DEMO AREA
+      mdc-grid-cell(span="8")
+        section
+          mdc-list-group
+            mdc-list-group-header &lt;ul&gt; list and &lt;li&gt; items
+              mdc-list(dense.bind="dense" two-line.bind="twoLine" avatar.bind="avatar")
+
+                // start detail
+                mdc-list-item
+                  | start detail
+                  div(slot="start")
+                    i.material-icons(aria-hidden="true") network_wifi
+
+                // end detail
+                mdc-list-item 
+                  | end detail
+                  div(slot="end")
+                    a.material-icons(href="#" class="" aria-label="Remove from favorites" title="Remove from favorites") favorite
+
+                // start and end detail
+                mdc-list-item
+                  | start and end detail
+                  div(slot="start")
+                    i.material-icons(aria-hidden="true") network_wifi
+                  div(slot="end")
+                    i.material-icons(aria-hidden="true") star
+
+                // two line
+                mdc-list-item
+                  span(slot="text") Two-line item
+                  span(slot="secondary") Secondary text
+
+                // start and end detail two line
+                mdc-list-item
+                  span(slot="text") Two-line item
+                  span(slot="secondary") Secondary text
+                  div(slot="start")
+                    i.material-icons(aria-hidden="true") network_wifi
+                  div(slot="end")
+                    i.material-icons(aria-hidden="true") star              
+
+                // list divider
+                mdc-list-item Simple List item
+                mdc-list-divider(inset.bind="inset")
+                mdc-list-item(ripple="true") Simple List item ripple
+
+                mdc-list-item(ripple="true")
+                  div(slot="start")
+                    img(src="images/1-1.jpeg" alt="Picture of Janet Perkins")
+                  | Avatar
+
+            mdc-list-group-header &lt;nav&gt; list and &lt;a&gt; items
+              mdc-list(tag="nav" dense.bind="dense" two-line.bind="twoLine" avatar.bind="avatar")
+                mdc-list-item(href="#/components/list" ripple="true")
+                  div(slot="start")
+                    i.material-icons(aria-hidden="true") inbox
+                  | Inbox
+                mdc-list-item(href="#/components/list" ripple="true" on-click.delegate="onClick($event)")
+                  div(slot="start")
+                    i.material-icons(aria-hidden="true") note
+                  | Show dialog
+
+      mdc-grid-cell(span="12")
+
+        // LINKS
+        hr
+        section
+          a(href="https://material.io/components/web/catalog/lists/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-list") Material components documentation
+        section
+          a(href="https://material.io/guidelines/components/lists.html" target="_blank" data-analytics-category="external" data-analytics-action="mdg-list") Material design guidelines
+        section
+          a(href="https://material.io/icons/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-icons") Icons
+        hr
+
+
+        // EXAMPLE
+
+        // CLICK DIALOG
+        mdc-dialog(
+          view-model.ref="dialog"
+          header="Clicked"
+          accept="OK"
+          cancel="Close")
+          span You clicked something!
+
+      // BASIC
+      mdc-grid-cell(span="12")
+        legend.mdc-typography--headline Basic (&lt;ul&gt; list and &lt;li&gt; items)
+      mdc-grid-cell(span="8")
+        pre
+          code-prism.
+            <mdc-list>
+              <mdc-list-item>List item 1</mdc-list-item>
+              <mdc-list-item on-click.delegate="onClick($event)">List item 2</mdc-list-item>
+            </mdc-list>
+      mdc-grid-cell(span="4")
+        mdc-list
+          mdc-list-item List item 1
+          mdc-list-item(on-click.delegate="onClick($event)") List item 2
+
+      // NAV
+      mdc-grid-cell(span="12")
+        legend.mdc-typography--headline &lt;nav&gt; list and &lt;a&gt; list item
+        p.
+          Use tag="nav" attribute on mdc-list element to convert the list to a &lt;nav&gt; element list.
+          href attribute on mdc-list-item create a &lt;a&gt; list item element.
+      mdc-grid-cell(span="8")
+        pre
+          code-prism.
+            &lt;mdc-list tag="nav"&gt;
+        pre
+          code-prism.
+            &lt;mdc-list-item href="#"&gt;      
+        pre
+          code-prism.
+            <mdc-list tag="nav">
+              <mdc-list-item href="#">List item 1</mdc-list-item>
+              <mdc-list-item href="#" target="_blank">List item 2</mdc-list-item>
+              <mdc-list-item href="#" on-click.delegate="onClick($event)">List item 3</mdc-list-item>
+            </mdc-list>
+        pre
+          code-prism(language="typescript").
+            import { IMdcListItemClickEvent } from 'aurelia-mdc-bridge';
+
+            private onClick(e: IMdcListItemClickEvent) {
+              e.stopPropagation();
+              ...
+            }
+
+      mdc-grid-cell(span="4")
+        mdc-list(tag="nav")
+          mdc-list-item(href="#/components/list") List item 1
+          mdc-list-item(href="#/components/list" target="_blank") List item 2
+          mdc-list-item(href="#/" on-click.delegate="onClick($event)") List item 3
+
+      // DENSE AND RIPPLE
+      mdc-grid-cell(span="12")
+        legend.mdc-typography--headline Dense and ripple
+      mdc-grid-cell(span="8")
+        pre
+          code-prism.
+            &lt;mdc-list dense="true"&gt;
+        pre
+          code-prism.
+            &lt;mdc-list-item ripple="true"&gt;
+        pre
+          code-prism.
+            <mdc-list dense="true">
+              <mdc-list-item>List item 1</mdc-list-item>
+              <mdc-list-item ripple="true">List item 2</mdc-list-item>
+            </mdc-list>
+      mdc-grid-cell(span="4")
+        mdc-list(dense="true")
+          mdc-list-item List item 1
+          mdc-list-item(ripple="true") List item 2
+
+      // START, END, TEXT AND SECONDARY DETAIL
+      mdc-grid-cell(span="12")
+        legend.mdc-typography--headline Start, end, text and secondary detail
+      mdc-grid-cell(span="8")
+        pre
+          code-prism.
+            slot="start"
+            slot="end"
+            slot="text"
+            slot="secondary"
+
+        pre
+          code-prism.
+            <mdc-list>
+              <mdc-list-item>
+                <span slot="start">start</span>
+                List item 1
+              </mdc-list-item>
+              <mdc-list-item>
+                <span slot="end">end</span>
+                List item 2
+              </mdc-list-item>
+            </mdc-list>
+      mdc-grid-cell(span="4")
+        mdc-list
+          mdc-list-item
+            span List item 1
+            span(slot="start") start
+          mdc-list-item
+            span List item 2
+            span(slot="end") end
+
+      // TWO LINE
+      mdc-grid-cell(span="12")
+        legend.mdc-typography--headline Two line
+      mdc-grid-cell(span="8")
+        pre
+          code-prism.
+            &lt;mdc-list two-line="true"&gt;
+
+        pre
+          code-prism.
+            <mdc-list two-line="true">
+              <mdc-list-item>
+                <span slot="start">
+                  <i class="material-icons" aria-hidden="true">network_wifi</i>
+                </span>
+                <span slot="end">
+                  <a href="#" class="material-icons" aria-label="Remove from favorites" title="Remove from favorites">favorite</i></a>
+                </span>
+                <span slot="text">List item 1</span>
+                <span slot="secondary">Line 2 secondary text</span>
+              </mdc-list-item>              
+            </mdc-list>
+      mdc-grid-cell(span="4")
+        mdc-list(two-line="true")
+          mdc-list-item
+            span(slot="text") List item 1
+            span(slot="secondary") Line 2 secondary text
+            div(slot="start")
+              i.material-icons(aria-hidden="true") network_wifi
+            div(slot="end")
+              a.material-icons(href="#" aria-label="Remove from favorites" title="Remove from favorites") favorite
+
+      // DIVIDER
+      mdc-grid-cell(span="12")
+        legend.mdc-typography--headline Divider
+      mdc-grid-cell(span="8")
+        pre
+          code-prism.
+            <mdc-list-divider inset="true"></mdc-list-divider>
+        pre
+          code-prism.
+            <mdc-list>
+              <mdc-list-divider></mdc-list-divider>
+              <mdc-list-item>List item 1</mdc-list-item>
+              <mdc-list-divider inset="true"></mdc-list-divider>
+              <mdc-list-item>List item 2</mdc-list-item>
+              <mdc-list-divider inset="true"></mdc-list-divider>
+              <mdc-list-item>List item 3</mdc-list-item>
+              <mdc-list-divider></mdc-list-divider>
+            </mdc-list>
+      mdc-grid-cell(span="4")
+        mdc-list
+          mdc-list-divider
+          mdc-list-item List item 1
+          mdc-list-divider(inset="true")
+          mdc-list-item List item 2
+          mdc-list-divider(inset="true")
+          mdc-list-item List item 3
+          mdc-list-divider
+
+      // AVATAR
+      mdc-grid-cell(span="12")
+        legend.mdc-typography--headline Avatar
+      mdc-grid-cell(span="8")
+        pre
+          code-prism(language="css").
+            .list-avatar1 {
+              background-image: url("images/1-1.jpeg");
+              background-size: cover;
+            }
+        pre
+          code-prism.
+            <mdc-list two-line="true" avatar="true">
+              <mdc-list-item>
+                <span slot="start" class="list-avatar1"></span>
+                <span slot="text">List item 1</span>
+                <span slot="secondary">Line 2 secondary text</span>
+              </mdc-list-item>              
+
+              <mdc-list-item>
+                <span slot="start">
+                  <i class="material-icons md-36 accent">face</i>
+                </span>
+                <span slot="text">List item 2</span>
+                <span slot="secondary">Line 2 secondary text</span>
+              </mdc-list-item>
+              
+              <mdc-list-item>
+                <span slot="start">
+                  <img src="images/1-1.jpeg" alt="Picture of Janet Perkins" />
+                </span>
+                List item 3
+              </mdc-list-item>
+            </mdc-list>
+      mdc-grid-cell(span="4")
+        mdc-list(two-line="true" avatar="true")
+          mdc-list-item
+            span(slot="text") List item 1
+            span(slot="secondary") Line 2 secondary text
+            div(slot="start")
+              .list-avatar1
+          mdc-list-item
+            span(slot="text") List item 2
+            span(slot="secondary") Line 2 secondary text
+            div(slot="start")
+              i.material-icons.md-36.accent face
+          mdc-list-item
+            div(slot="start")
+              img(src="images/1-1.jpeg" width="56" height="56" alt="Picture of Janet Perkins")
+            | List item 3
+            
+        br
+        br
+        a(href="#/documentation/material-icons") (More on material-icons styling here)
+
+      // LIST GROUP
+      mdc-grid-cell(span="12")
+        legend.mdc-typography--headline List group
+      mdc-grid-cell(span="8")
+        pre
+          code-prism.
+            &lt;mdc-list-group&gt;
+              &lt;mdc-list-group-header&gt;Header 1&lt;/mdc-list-group-header&gt;
+              &lt;mdc-list&gt;
+                &lt;mdc-list-item&gt;
+                  ...
+
+        pre
+          code-prism.
+            <mdc-list-group>
+              <mdc-list-group-header>Header 1</mdc-list-group-header>
+
+              <mdc-list>
+                <mdc-list-item>
+                  <span>List item 1</span>
+                  <span slot="start">
+                    <i class="material-icons" aria-hidden="true">network_wifi</i>
+                  </span>                  
+                </mdc-list-item>              
+                <mdc-list-item>
+                  <span>List item 2</span>
+                  <span slot="start">
+                    <i class="material-icons" aria-hidden="true">network_wifi</i>
+                  </span>                  
+                </mdc-list-item>              
+              </mdc-list>
+
+              <mdc-list-group-header>Header 2</mdc-list-group-header>
+
+              <mdc-list>
+                <mdc-list-item>
+                  <span>List item 3</span>
+                  <span slot="start">
+                    <i class="material-icons" aria-hidden="true">network_wifi</i>
+                  </span>                  
+                </mdc-list-item>              
+                <mdc-list-item>
+                  <span>List item 4</span>
+                  <span slot="start">
+                    <i class="material-icons" aria-hidden="true">network_wifi</i>
+                  </span>                  
+                </mdc-list-item>
+              </mdc-list>
+            </mdc-list-group>
+      mdc-grid-cell(span="4")
+        mdc-list-group
+          mdc-list-group-header Header 1
+          mdc-list
+            mdc-list-item
+              div(slot="start")
+                i.material-icons(aria-hidden="true") network_wifi
+              span List item 1
+            mdc-list-item
+              div(slot="start")
+                i.material-icons(aria-hidden="true") network_wifi
+              span List item 2
+          mdc-list-group-header Header 2
+          mdc-list
+            mdc-list-item
+              div(slot="start")
+                i.material-icons(aria-hidden="true") network_wifi
+              span List item 3
+            mdc-list-item
+              div(slot="start")
+                i.material-icons(aria-hidden="true") network_wifi
+              span List item 4
