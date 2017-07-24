@@ -10,7 +10,7 @@ import { build } from 'aurelia-cli';
 export default function processMarkup() {
   return gulp.src(project.markupProcessor.source)
     .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
-    .pipe(changedInPlace({firstPass:true}))
+    .pipe(changedInPlace({firstPass: true}))
     .pipe(htmlmin({
         removeComments: true,
         collapseWhitespace: true,
