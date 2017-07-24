@@ -29,7 +29,7 @@ template
           legend.mdc-typography--title Default theme
           br
           .mdc-menu-anchor
-            button(mdc-ripple mdc-button="raised: true;" click.delegate="showMenu1()") Button 1
+            button(mdc-button="raised: true;" click.delegate="showMenu1()") Button 1
             mdc-simple-menu(
               view-model.ref="menuElement1" 
               on-cancel.delegate="onCancel1()"
@@ -53,7 +53,7 @@ template
           legend.mdc-typography--title Dark theme
           br
           .mdc-menu-anchor
-            button(mdc-ripple mdc-button="raised: true;" click.delegate="showMenu2()") Button 2
+            button(mdc-button="raised: true;" click.delegate="showMenu2()") Button 2
             mdc-simple-menu(
               view-model.ref="menuElement2"
               on-cancel.delegate="onCancel2()"
@@ -156,7 +156,7 @@ template
       mdc-grid-cell(span="6")
         section
           .mdc-menu-anchor
-            button(mdc-ripple mdc-button="raised: true;" click.delegate="showMenu3()") Show Menu
+            button(mdc-button="raised: true;" click.delegate="showMenu3()") Show Menu
             mdc-simple-menu(view-model.ref="menuElement3" value.bind="selectedMenuItem")
               mdc-list-item(
                 repeat.for="item of menuItems3" 
@@ -295,13 +295,13 @@ template
             mdc-list-item Item 3
 
         section
-          button(mdc-button="raised: true;" click.delegate="showMenu41()" mdc-ripple) Top Left
+          button(mdc-button="raised: true;" click.delegate="showMenu41()") Top Left
         section
-          button(mdc-button="raised: true;" click.delegate="showMenu42()" mdc-ripple) Top Right
+          button(mdc-button="raised: true;" click.delegate="showMenu42()") Top Right
         section
-          button(mdc-button="raised: true;" click.delegate="showMenu43()" mdc-ripple) Bottom Left
+          button(mdc-button="raised: true;" click.delegate="showMenu43()") Bottom Left
         section
-          button(mdc-button="raised: true;" click.delegate="showMenu44()" mdc-ripple) Bottom Right
+          button(mdc-button="raised: true;" click.delegate="showMenu44()") Bottom Right
 
 
       // MENU OPENING POINT
@@ -329,25 +329,25 @@ template
 
       mdc-grid-cell(span="4")
         .mdc-menu-anchor
-          button(mdc-button="raised: true;" click.delegate="showMenu51()" mdc-ripple) Top Left
+          button(mdc-button="raised: true;" click.delegate="showMenu51()") Top Left
           mdc-simple-menu(view-model.ref="menuElement51" open-from="top-left")
             mdc-list-item Item 1
             mdc-list-item Item 2
             mdc-list-item Item 3
         .mdc-menu-anchor
-          button(mdc-button="raised: true;" click.delegate="showMenu52()" mdc-ripple) Top Right
+          button(mdc-button="raised: true;" click.delegate="showMenu52()") Top Right
           mdc-simple-menu(view-model.ref="menuElement52" open-from="top-right")
             mdc-list-item Item 1
             mdc-list-item Item 2
             mdc-list-item Item 3
         .mdc-menu-anchor
-          button(mdc-button="raised: true;" click.delegate="showMenu53()" mdc-ripple) Bottom left
+          button(mdc-button="raised: true;" click.delegate="showMenu53()") Bottom left
           mdc-simple-menu(view-model.ref="menuElement53" open-from="bottom-left")
             mdc-list-item Item 1
             mdc-list-item Item 2
             mdc-list-item Item 3
         .mdc-menu-anchor
-          button(mdc-button="raised: true;" click.delegate="showMenu54()" mdc-ripple) Bottom Right
+          button(mdc-button="raised: true;" click.delegate="showMenu54()") Bottom Right
           mdc-simple-menu(view-model.ref="menuElement54" open-from="bottom-right")
             mdc-list-item Item 1
             mdc-list-item Item 2
@@ -378,7 +378,7 @@ template
 
       mdc-grid-cell(span="4")
         .mdc-menu-anchor
-          button(mdc-button="raised: true;" click.delegate="showMenu6()" mdc-ripple) Open menu
+          button(mdc-button="raised: true;" click.delegate="showMenu6()") Open menu
           mdc-simple-menu(view-model.ref="menuElement6")
             mdc-list-item 
               | Item 1
