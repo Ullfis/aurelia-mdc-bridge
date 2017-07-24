@@ -1,4 +1,4 @@
-System.register(["aurelia-framework", "aurelia-logging", "../../util"], function (exports_1, context_1) {
+System.register(["aurelia-framework", "aurelia-logging", "@material/ripple", "../../util"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -10,7 +10,7 @@ System.register(["aurelia-framework", "aurelia-logging", "../../util"], function
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var aurelia_framework_1, aurelia_logging_1, util, MdcFab;
+    var aurelia_framework_1, aurelia_logging_1, ripple_1, util, MdcFab;
     return {
         setters: [
             function (aurelia_framework_1_1) {
@@ -18,6 +18,9 @@ System.register(["aurelia-framework", "aurelia-logging", "../../util"], function
             },
             function (aurelia_logging_1_1) {
                 aurelia_logging_1 = aurelia_logging_1_1;
+            },
+            function (ripple_1_1) {
+                ripple_1 = ripple_1_1;
             },
             function (util_1) {
                 util = util_1;
@@ -30,6 +33,7 @@ System.register(["aurelia-framework", "aurelia-logging", "../../util"], function
                     this.mini = false;
                     this.plain = false;
                     this.ariaLabel = '';
+                    this.ripple = true;
                     this.log = aurelia_logging_1.getLogger('mdc-fab');
                     var icon = this.element.firstChild;
                     this.removeChildren();
@@ -42,6 +46,9 @@ System.register(["aurelia-framework", "aurelia-logging", "../../util"], function
                 }
                 MdcFab.prototype.attached = function () {
                     this.element.classList.add('mdc-fab', 'material-icons');
+                    if (util.getBoolean(this.ripple)) {
+                        ripple_1.MDCRipple.attachTo(this.element);
+                    }
                 };
                 MdcFab.prototype.detached = function () {
                     var classes = [
@@ -83,6 +90,10 @@ System.register(["aurelia-framework", "aurelia-logging", "../../util"], function
                     aurelia_framework_1.bindable(),
                     __metadata("design:type", Object)
                 ], MdcFab.prototype, "ariaLabel", void 0);
+                __decorate([
+                    aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.oneTime }),
+                    __metadata("design:type", Object)
+                ], MdcFab.prototype, "ripple", void 0);
                 MdcFab = __decorate([
                     aurelia_framework_1.customAttribute('mdc-fab'),
                     aurelia_framework_1.inject(Element),

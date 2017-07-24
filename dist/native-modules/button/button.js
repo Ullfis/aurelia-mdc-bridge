@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { bindable, bindingMode, customAttribute, inject } from 'aurelia-framework';
 import { getLogger } from 'aurelia-logging';
+import { MDCRipple } from '@material/ripple';
 import * as util from '../util';
 var MdcButton = (function () {
     function MdcButton(element) {
@@ -18,6 +19,7 @@ var MdcButton = (function () {
         this.dense = false;
         this.raised = false;
         this.compact = false;
+        this.ripple = true;
         this.log = getLogger('mdc-button');
     }
     MdcButton.prototype.attached = function () {
@@ -26,6 +28,9 @@ var MdcButton = (function () {
         if (parentNode && parentNode.classList.contains('mdc-card__actions')) {
             this.element.classList.add('mdc-card__action');
             this.compact = true;
+        }
+        if (util.getBoolean(this.ripple)) {
+            MDCRipple.attachTo(this.element);
         }
     };
     MdcButton.prototype.detached = function () {
@@ -87,6 +92,10 @@ var MdcButton = (function () {
         bindable(),
         __metadata("design:type", Object)
     ], MdcButton.prototype, "compact", void 0);
+    __decorate([
+        bindable({ defaultBindingMode: bindingMode.oneTime }),
+        __metadata("design:type", Object)
+    ], MdcButton.prototype, "ripple", void 0);
     MdcButton = __decorate([
         customAttribute('mdc-button'),
         inject(Element),

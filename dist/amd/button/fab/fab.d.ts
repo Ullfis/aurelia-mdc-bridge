@@ -3,6 +3,7 @@ export declare class MdcFab {
     mini: boolean;
     plain: boolean;
     ariaLabel: string;
+    ripple: boolean;
     private log;
     constructor(element: Element);
     private attached();

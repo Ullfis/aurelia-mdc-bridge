@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-define(["require", "exports", "aurelia-framework", "aurelia-logging", "../../util"], function (require, exports, aurelia_framework_1, aurelia_logging_1, util) {
+define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material/ripple", "../../util"], function (require, exports, aurelia_framework_1, aurelia_logging_1, ripple_1, util) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var MdcFab = (function () {
@@ -16,6 +16,7 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "../../uti
             this.mini = false;
             this.plain = false;
             this.ariaLabel = '';
+            this.ripple = true;
             this.log = aurelia_logging_1.getLogger('mdc-fab');
             var icon = this.element.firstChild;
             this.removeChildren();
@@ -28,6 +29,9 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "../../uti
         }
         MdcFab.prototype.attached = function () {
             this.element.classList.add('mdc-fab', 'material-icons');
+            if (util.getBoolean(this.ripple)) {
+                ripple_1.MDCRipple.attachTo(this.element);
+            }
         };
         MdcFab.prototype.detached = function () {
             var classes = [
@@ -69,6 +73,10 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "../../uti
             aurelia_framework_1.bindable(),
             __metadata("design:type", Object)
         ], MdcFab.prototype, "ariaLabel", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.oneTime }),
+            __metadata("design:type", Object)
+        ], MdcFab.prototype, "ripple", void 0);
         MdcFab = __decorate([
             aurelia_framework_1.customAttribute('mdc-fab'),
             aurelia_framework_1.inject(Element),

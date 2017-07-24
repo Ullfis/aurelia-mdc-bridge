@@ -1,4 +1,4 @@
-System.register(["aurelia-framework", "aurelia-logging", "../util"], function (exports_1, context_1) {
+System.register(["aurelia-framework", "aurelia-logging", "@material/ripple", "../util"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -10,7 +10,7 @@ System.register(["aurelia-framework", "aurelia-logging", "../util"], function (e
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var aurelia_framework_1, aurelia_logging_1, util, MdcButton;
+    var aurelia_framework_1, aurelia_logging_1, ripple_1, util, MdcButton;
     return {
         setters: [
             function (aurelia_framework_1_1) {
@@ -18,6 +18,9 @@ System.register(["aurelia-framework", "aurelia-logging", "../util"], function (e
             },
             function (aurelia_logging_1_1) {
                 aurelia_logging_1 = aurelia_logging_1_1;
+            },
+            function (ripple_1_1) {
+                ripple_1 = ripple_1_1;
             },
             function (util_1) {
                 util = util_1;
@@ -32,6 +35,7 @@ System.register(["aurelia-framework", "aurelia-logging", "../util"], function (e
                     this.dense = false;
                     this.raised = false;
                     this.compact = false;
+                    this.ripple = true;
                     this.log = aurelia_logging_1.getLogger('mdc-button');
                 }
                 MdcButton.prototype.attached = function () {
@@ -40,6 +44,9 @@ System.register(["aurelia-framework", "aurelia-logging", "../util"], function (e
                     if (parentNode && parentNode.classList.contains('mdc-card__actions')) {
                         this.element.classList.add('mdc-card__action');
                         this.compact = true;
+                    }
+                    if (util.getBoolean(this.ripple)) {
+                        ripple_1.MDCRipple.attachTo(this.element);
                     }
                 };
                 MdcButton.prototype.detached = function () {
@@ -101,6 +108,10 @@ System.register(["aurelia-framework", "aurelia-logging", "../util"], function (e
                     aurelia_framework_1.bindable(),
                     __metadata("design:type", Object)
                 ], MdcButton.prototype, "compact", void 0);
+                __decorate([
+                    aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.oneTime }),
+                    __metadata("design:type", Object)
+                ], MdcButton.prototype, "ripple", void 0);
                 MdcButton = __decorate([
                     aurelia_framework_1.customAttribute('mdc-button'),
                     aurelia_framework_1.inject(Element),

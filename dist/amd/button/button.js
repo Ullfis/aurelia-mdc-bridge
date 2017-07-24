@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-define(["require", "exports", "aurelia-framework", "aurelia-logging", "../util"], function (require, exports, aurelia_framework_1, aurelia_logging_1, util) {
+define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material/ripple", "../util"], function (require, exports, aurelia_framework_1, aurelia_logging_1, ripple_1, util) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var MdcButton = (function () {
@@ -18,6 +18,7 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "../util"]
             this.dense = false;
             this.raised = false;
             this.compact = false;
+            this.ripple = true;
             this.log = aurelia_logging_1.getLogger('mdc-button');
         }
         MdcButton.prototype.attached = function () {
@@ -26,6 +27,9 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "../util"]
             if (parentNode && parentNode.classList.contains('mdc-card__actions')) {
                 this.element.classList.add('mdc-card__action');
                 this.compact = true;
+            }
+            if (util.getBoolean(this.ripple)) {
+                ripple_1.MDCRipple.attachTo(this.element);
             }
         };
         MdcButton.prototype.detached = function () {
@@ -87,6 +91,10 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "../util"]
             aurelia_framework_1.bindable(),
             __metadata("design:type", Object)
         ], MdcButton.prototype, "compact", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.oneTime }),
+            __metadata("design:type", Object)
+        ], MdcButton.prototype, "ripple", void 0);
         MdcButton = __decorate([
             aurelia_framework_1.customAttribute('mdc-button'),
             aurelia_framework_1.inject(Element),

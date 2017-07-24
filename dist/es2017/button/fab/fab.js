@@ -7,8 +7,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { bindable, customAttribute, inject } from 'aurelia-framework';
+import { bindable, bindingMode, customAttribute, inject } from 'aurelia-framework';
 import { getLogger } from 'aurelia-logging';
+import { MDCRipple } from '@material/ripple';
 import * as util from '../../util';
 let MdcFab = class MdcFab {
     constructor(element) {
@@ -16,6 +17,7 @@ let MdcFab = class MdcFab {
         this.mini = false;
         this.plain = false;
         this.ariaLabel = '';
+        this.ripple = true;
         this.log = getLogger('mdc-fab');
         const icon = this.element.firstChild;
         this.removeChildren();
@@ -28,6 +30,9 @@ let MdcFab = class MdcFab {
     }
     attached() {
         this.element.classList.add('mdc-fab', 'material-icons');
+        if (util.getBoolean(this.ripple)) {
+            MDCRipple.attachTo(this.element);
+        }
     }
     detached() {
         const classes = [
@@ -69,6 +74,10 @@ __decorate([
     bindable(),
     __metadata("design:type", Object)
 ], MdcFab.prototype, "ariaLabel", void 0);
+__decorate([
+    bindable({ defaultBindingMode: bindingMode.oneTime }),
+    __metadata("design:type", Object)
+], MdcFab.prototype, "ripple", void 0);
 MdcFab = __decorate([
     customAttribute('mdc-fab'),
     inject(Element),

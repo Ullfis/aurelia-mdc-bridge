@@ -5,6 +5,7 @@ export declare class MdcButton {
     dense: boolean;
     raised: boolean;
     compact: boolean;
+    ripple: boolean;
     private log;
     constructor(element: Element);
     private attached();
