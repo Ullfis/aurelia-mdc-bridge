@@ -23,11 +23,20 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="icons/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
+    <link href="./index.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
   </head>
-  <body aurelia-app="main">
-    <script src="scripts/vendor-bundle-04ae584e3a.js" data-main="aurelia-bootstrapper"></script>
+  <body aurelia-app="main" onload="loaderTransaction();">
+    <div class="my-loader-container">
+      <div class="my-loader-content"></div>
+    </div>
+    <script>
+      function loaderTransaction() {
+        document.getElementsByClassName('my-loader-content')[0].classList.add('my-loader-transaction');
+      }
+    </script>
+    <script src="scripts/vendor-bundle-696c21c6f4.js" data-main="aurelia-bootstrapper"></script>
   </body>
 </html>
