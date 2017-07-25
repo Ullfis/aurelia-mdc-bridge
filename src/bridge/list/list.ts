@@ -1,9 +1,9 @@
 import {
-  inject,
   bindable,
   bindingMode,
   customElement,
   processContent,
+  containerless,
   noView
 } from 'aurelia-framework';
 
@@ -13,9 +13,9 @@ import * as drawerCommon from '../drawer/common';
 import * as util from '../util';
 
 @noView()
+@containerless()
 @customElement('mdc-list')
 @processContent(CreateListComponent)
-@inject(Element)
 export class MdcList {
   @bindable({ defaultBindingMode: bindingMode.oneTime }) public tag = 'ul';
   @bindable() public class: string;
@@ -25,7 +25,7 @@ export class MdcList {
   private log: Logger;
   private elementList: HTMLElement;
 
-  constructor(private element: Element) {
+  constructor() {
     this.log = getLogger('mdc-list');
   }
 
@@ -33,13 +33,13 @@ export class MdcList {
   private unbind() { /** */ }
 
   private attached() {
-    if (drawerCommon.isPermanentDrawer(this.element)) {
+    if (drawerCommon.isPermanentDrawer(this.elementList)) {
       this.elementList.classList.add('mdc-permanent-drawer__content');
     }
-    if (drawerCommon.isPersistentDrawer(this.element)) {
+    if (drawerCommon.isPersistentDrawer(this.elementList)) {
       this.elementList.classList.add('mdc-persistent-drawer__content');
     }
-    if (drawerCommon.isTemporaryDrawer(this.element)) {
+    if (drawerCommon.isTemporaryDrawer(this.elementList)) {
       this.elementList.classList.add('mdc-temporary-drawer__content');
     }
     this.denseChanged(this.dense);
