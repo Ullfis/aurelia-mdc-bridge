@@ -5,6 +5,129 @@ template
     legend.mdc-typography--display1 Components
     mdc-grid
       
-      mdc-grid-cell(span="12")
+      mdc-grid-cell(span="6")
         section
-          p More to come on this page. For now browse menu to your left.
+          mdc-list-group(tag="nav" dense="false" two-line="true")
+
+            // BUTTONS
+            mdc-list-group-header Buttons
+
+            mdc-list-item(href="#/components/buttons" ripple="true")
+              span(slot="start")
+                img.components-page(svg-inline src="images/components/ic_button_24px.svg")
+              span Buttons
+            mdc-list-item(href="#/components/buttons/fab" ripple="true")
+              span(slot="start")
+                img.components-page(svg-inline src="images/components/ic_button_24px.svg")
+              span FAB
+            mdc-list-item(href="#/components/buttons/icon-toggle" ripple="true")
+              span(slot="start")
+                img.components-page(svg-inline src="images/components/ic_button_24px.svg")
+              span Icon toggle
+
+            // INPUTS
+            mdc-list-group-header Inputs
+            mdc-list-item(href="#/components/inputs/checkbox" ripple="true")
+              span(slot="start")
+                img.components-page(svg-inline src="images/components/ic_selection_control_24px.svg")
+              span Checkboxes
+            mdc-list-item(href="#/components/inputs/radio" ripple="true")
+              span(slot="start")
+                img.components-page(svg-inline src="images/components/ic_radio_button_24px.svg")
+              span Radio Buttons
+            mdc-list-item(href="#/components/inputs/selects" ripple="true")
+              span(slot="start")
+                img.components-page(svg-inline src="images/components/ic_menu_24px.svg")
+              span Select Menus
+            mdc-list-item(href="#/components/inputs/selects-css" ripple="true")
+              span(slot="start")
+                img.components-page(svg-inline src="images/components/ic_menu_24px.svg")
+              span Select Menus CSS
+            mdc-list-item(href="#/components/inputs/slider" ripple="true")
+              span(slot="start")
+                img.components-page(svg-inline src="images/components/slider.svg")
+              span Sliders
+            mdc-list-item(href="#/components/inputs/switches" ripple="true")
+              span(slot="start")
+                img.components-page(svg-inline src="images/components/ic_switch_24px.svg")
+              span Switches
+            mdc-list-item(href="#/components/inputs/textfield" ripple="true")
+              span(slot="start")
+                img.components-page(svg-inline src="images/components/ic_text_field_24px.svg")
+              span Text Fields
+            
+            // EFFECTS
+            mdc-list-group-header Effects
+            mdc-list-item(href="#/components/ripple" ripple="true")
+              span(slot="start")
+                img.components-page(svg-inline src="images/components/ic_ripple_24px.svg")
+              span Ripples
+
+      mdc-grid-cell(span="6")
+        section
+          mdc-list-group(tag="nav" dense="false" two-line="true")
+
+            // CONTROLS
+            mdc-list-group-header Controls
+            mdc-list-item(href="#/components/dialog" ripple="true")
+              span(slot="start")
+                img.components-page(svg-inline src="images/components/ic_dialog_24px.svg")
+              span Dialogs
+            mdc-list-item(href="#/components/linear-progress" ripple="true")
+              span(slot="start")
+                img.components-page(svg-inline src="images/components/ic_progress_activity.svg")
+              span Linear Progress
+            mdc-list-item(href="#/components/list" ripple="true")
+              span(slot="start")
+                img.components-page(svg-inline src="images/components/ic_list_24px.svg")
+              span Lists
+            mdc-list-item(href="#/components/simple-menu" ripple="true")
+              span(slot="start")
+                img.components-page(svg-inline src="images/components/ic_menu_24px.svg")
+              span Menus
+            mdc-list-item(href="#/components/snackbar" ripple="true")
+              span(slot="start")
+                img.components-page(svg-inline src="images/components/ic_toast_24px.svg")
+              span Snackbars
+            mdc-list-item(href="#/components/tabs" ripple="true")
+              span(slot="start")
+                img.components-page(svg-inline src="images/components/ic_tabs_24px.svg")
+              span Tabs
+
+            // LAYOUT
+            mdc-list-group-header Layout
+            mdc-list-item(href="#/components/cards" ripple="true")
+              span(slot="start")
+                img.components-page(svg-inline src="images/components/ic_card_24px.svg")
+              span Cards
+            mdc-list-item(href="#/components/grid-list" ripple="true")
+              span(slot="start")
+                img.components-page(svg-inline src="images/components/ic_card_24px.svg")
+              span Glid Lists
+            mdc-list-item(href="#/components/grids" ripple="true")
+              span(slot="start")
+                img.components-page(svg-inline src="images/components/ic_responsive_layout_24px.svg")
+              span Layout Grids
+            mdc-list-item(href="#/components/toolbars" ripple="true")
+              span(slot="start")
+                img.components-page(svg-inline src="images/components/ic_toolbar_24px.svg")
+              span Toolbars
+            
+            // DRAWERS
+            mdc-list-group-header Drawers
+            mdc-list-item(href="#/components/drawer/permanent-above" ripple="true")
+              span(slot="start")
+                img.components-page(svg-inline src="images/components/ic_side_navigation_24px.svg")
+              span Permanent Above Toolbar
+            mdc-list-item(href="#/components/drawer/permanent-below" ripple="true")
+              span(slot="start")
+                img.components-page(svg-inline src="images/components/ic_side_navigation_24px.svg")
+              span Permanent Below Toolbar
+            mdc-list-item(href="#/components/drawer/persistent" ripple="true")
+              span(slot="start")
+                img.components-page(svg-inline src="images/components/ic_side_navigation_24px.svg")
+              span Persistent
+            mdc-list-item(href="#/components/drawer/temporary" ripple="true")
+              span(slot="start")
+                img.components-page(svg-inline src="images/components/ic_side_navigation_24px.svg")
+              span Temporary

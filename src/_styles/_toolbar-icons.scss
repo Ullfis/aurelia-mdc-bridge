@@ -1,22 +1,23 @@
-.toolbar-icon {
-  background-repeat: no-repeat;
-  background-size: 24px 24px;
-  background-position: center;
+a.toolbar-img {
   width: 24px;
   height: 24px;
   align-items: center;
   justify-content: center;
-  display: inline-block;
+}
+a.toolbar-img {
+  path:not([fill]) {
+    fill: rgba(255, 255, 255, 1); 
+  }
 }
 
-.github-icon {
-  background-image: url(images/github.svg);
+a.toolbar-img.accent {
+  path:not([fill]) {
+    fill: $mdc-theme-accent; 
+  }
 }
 
-.components-icon {
-  background-image: url(images/components.svg);
-}
-
-.documents-icon {
-  background-image: url(images/documents.svg);
+a.toolbar-img.primary {
+  path:not([fill]) {
+    fill: $mdc-theme-primary; 
+  }
 }

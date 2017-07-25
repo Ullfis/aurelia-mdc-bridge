@@ -1,0 +1,64 @@
+template
+
+  // DOCUMENTATION
+  section
+    legend.mdc-typography--display1 Getting started
+    mdc-grid
+      
+      mdc-grid-cell(span="12")
+        legend.mdc-typography--headline Aurelia cli
+        
+        p 1. Create a new or use an existing project with aurelia-cli.
+        pre
+          code-prism(language="batch").
+            au new material-test
+            ...
+            cd material-test
+        
+        p 2. Install aurelia-mdc-bridge:
+        pre
+          code-prism(language="batch").
+            au install aurelia-mdc-bridge
+
+        p 3. Include Material Design icons and fonts in index.html:
+        pre
+          code-prism(language="html").
+            &lt;html class="mdc-typography"&gt;
+              &lt;head&gt;
+                &lt;link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"&gt;
+                &lt;link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet"&gt;
+                &lt;link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet"&gt;
+                ...
+        a(href="#/documentation/offline") (Check out this to use icons and fonts offline)
+
+        p 4. Register the plugin in your main.js in src folder:
+        pre
+          code-prism(language="javascript").
+            export function configure(aurelia) {
+              ...
+                aurelia.use.plugin('aurelia-mdc-bridge')
+              ...
+            }
+
+        p 5. Import the css in your app.html:
+        pre
+          code-prism(language="html").
+            &lt;require from="material-components-web/material-components-web.css"&gt;&lt;/require&gt;
+
+
+      mdc-grid-cell(span="8")
+        p 6. Use it:
+        pre
+          code-prism(language="html").
+            &lt;mdc-textfield value.bind="value"&gt;          
+              Username
+            &lt;/mdc-textfield&gt;            
+            &lt;button mdc-button="raised: true;"&gt;Submit&lt;/button&gt;
+
+      mdc-grid-cell(span="4")
+        mdc-textfield(value.bind="username") Username
+        br
+        button(mdc-button="raised: true;") Submit
+
+      mdc-grid-cell(span="12")
+        p 7. Check out #[a(href="#/components") components] to add more components to your project.

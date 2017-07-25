@@ -62,3 +62,15 @@
     display: none;
   }
 }
+
+// DRAWER
+@media (min-width: 720px) {
+  .mdc-show-drawer {
+    display: flex;
+  }
+}
+@media (max-width: 719px) {
+  .mdc-show-drawer {
+    display: none;
+  }
+}

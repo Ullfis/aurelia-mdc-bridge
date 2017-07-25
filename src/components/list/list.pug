@@ -3,7 +3,7 @@ template
 
   // SAMPLE
   section
-    legend.mdc-typography--display1 List
+    legend.mdc-typography--display1 Lists
     mdc-grid
       
       // CONFIG AREA
@@ -28,41 +28,47 @@ template
                 mdc-list-item
                   | start detail
                   div(slot="start")
-                    i.material-icons(aria-hidden="true") network_wifi
+                    i.material-icons.md-dark(aria-hidden="true") network_wifi
 
                 // end detail
+                mdc-list-divider(inset.bind="inset")
                 mdc-list-item 
                   | end detail
                   div(slot="end")
-                    a.material-icons(href="#" class="" aria-label="Remove from favorites" title="Remove from favorites") favorite
+                    a.material-icons.md-dark.no-text-decoration(href="#" aria-label="Remove from favorites" title="Remove from favorites") favorite
 
                 // start and end detail
+                mdc-list-divider(inset.bind="inset")
                 mdc-list-item
                   | start and end detail
                   div(slot="start")
-                    i.material-icons(aria-hidden="true") network_wifi
+                    i.material-icons.md-dark(aria-hidden="true") network_wifi
                   div(slot="end")
-                    i.material-icons(aria-hidden="true") star
+                    i.material-icons.md-dark(aria-hidden="true") star
 
                 // two line
+                mdc-list-divider(inset.bind="inset")
                 mdc-list-item
                   span(slot="text") Two-line item
                   span(slot="secondary") Secondary text
 
                 // start and end detail two line
+                mdc-list-divider(inset.bind="inset")
                 mdc-list-item
                   span(slot="text") Two-line item
                   span(slot="secondary") Secondary text
                   div(slot="start")
-                    i.material-icons(aria-hidden="true") network_wifi
+                    i.material-icons.md-dark(aria-hidden="true") network_wifi
                   div(slot="end")
-                    i.material-icons(aria-hidden="true") star              
+                    i.material-icons.md-dark(aria-hidden="true") star              
 
                 // list divider
+                mdc-list-divider(inset.bind="inset")
                 mdc-list-item Simple List item
                 mdc-list-divider(inset.bind="inset")
                 mdc-list-item(ripple="true") Simple List item ripple
 
+                mdc-list-divider(inset.bind="inset")
                 mdc-list-item(ripple="true")
                   div(slot="start")
                     img(src="images/1-1.jpeg" alt="Picture of Janet Perkins")
@@ -72,12 +78,14 @@ template
               mdc-list(tag="nav" dense.bind="dense" two-line.bind="twoLine" avatar.bind="avatar")
                 mdc-list-item(href="#/components/list" ripple="true")
                   div(slot="start")
-                    i.material-icons(aria-hidden="true") inbox
+                    i.material-icons.md-dark(aria-hidden="true") inbox
                   | Inbox
+                mdc-list-divider(inset.bind="inset")
                 mdc-list-item(href="#/components/list" ripple="true" on-click.delegate="onClick($event)")
                   div(slot="start")
-                    i.material-icons(aria-hidden="true") note
+                    i.material-icons.md-dark(aria-hidden="true") note
                   | Show dialog
+                mdc-list-divider(inset.bind="inset")
 
       mdc-grid-cell(span="12")
 
@@ -233,9 +241,9 @@ template
             span(slot="text") List item 1
             span(slot="secondary") Line 2 secondary text
             div(slot="start")
-              i.material-icons(aria-hidden="true") network_wifi
+              i.material-icons.md-dark(aria-hidden="true") network_wifi
             div(slot="end")
-              a.material-icons(href="#" aria-label="Remove from favorites" title="Remove from favorites") favorite
+              a.material-icons.md-dark.no-text-decoration(href="#" aria-label="Remove from favorites" title="Remove from favorites") favorite
 
       // DIVIDER
       mdc-grid-cell(span="12")
@@ -286,7 +294,7 @@ template
 
               <mdc-list-item>
                 <span slot="start">
-                  <i class="material-icons md-36 accent">face</i>
+                  <i class="material-icons md-dark md-36 accent">face</i>
                 </span>
                 <span slot="text">List item 2</span>
                 <span slot="secondary">Line 2 secondary text</span>
@@ -310,7 +318,7 @@ template
             span(slot="text") List item 2
             span(slot="secondary") Line 2 secondary text
             div(slot="start")
-              i.material-icons.md-36.accent face
+              i.material-icons.md-dark.md-36.accent face
           mdc-list-item
             div(slot="start")
               img(src="images/1-1.jpeg" width="56" height="56" alt="Picture of Janet Perkins")
@@ -375,19 +383,19 @@ template
           mdc-list
             mdc-list-item
               div(slot="start")
-                i.material-icons(aria-hidden="true") network_wifi
+                i.material-icons.md-dark(aria-hidden="true") network_wifi
               span List item 1
             mdc-list-item
               div(slot="start")
-                i.material-icons(aria-hidden="true") network_wifi
+                i.material-icons.md-dark(aria-hidden="true") network_wifi
               span List item 2
           mdc-list-group-header Header 2
           mdc-list
             mdc-list-item
               div(slot="start")
-                i.material-icons(aria-hidden="true") network_wifi
+                i.material-icons.md-dark(aria-hidden="true") network_wifi
               span List item 3
             mdc-list-item
               div(slot="start")
-                i.material-icons(aria-hidden="true") network_wifi
+                i.material-icons.md-dark(aria-hidden="true") network_wifi
               span List item 4
