@@ -5,47 +5,19 @@
   text-decoration: none;
 }
 
-@media(min-width: 600px) {
+@media(min-width: 680px) {
   .mdc-toolbar__title--full {
     display: block;
   }
-  .mdc-toolbar__title--medium {
+  .mdc-toolbar__title--small {
     display: none;
   }  
-  .mdc-toolbar__title--mini {
-    display: none;
-  }
 }
-@media(max-width: 599px) {
+@media(max-width: 679px) {
   .mdc-toolbar__title--full {
     display: none;
   }  
-  .mdc-toolbar__title--medium {
+  .mdc-toolbar__title--small {
     display: block;
-  }  
-  .mdc-toolbar__title--mini {
-    display: none;
-  }  
-}
-@media(max-width: 500px) {
-  .mdc-toolbar__title--full {
-    display: none;
-  }  
-  .mdc-toolbar__title--medium {
-    display: none;
-  }  
-  .mdc-toolbar__title--mini {
-    display: block;
-  }  
-}
-@media(max-width: 430px) {
-  .mdc-toolbar__title--full {
-    display: none;
-  }
-  .mdc-toolbar__title--medium {
-    display: none;
-  }  
-  .mdc-toolbar__title--mini {
-    display: none;
   }  
 }

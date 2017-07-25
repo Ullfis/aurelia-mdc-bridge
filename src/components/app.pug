@@ -3,6 +3,12 @@ template
   // STYLE -SAMPLE
   require(from="./app.css")
 
+  // TOOLBAR LINKS
+  require(from="../toolbar-links")
+
+  // TOOLBAR TITLE
+  require(from="../toolbar-title")
+
   // ELEMENTS -MENU LIST
   require(from="./app-menu.html")
 
@@ -12,16 +18,11 @@ template
 
       // HEADER
       mdc-toolbar-section(start="true")
-        a.mdc-toolbar__title-link(href="#/")
-          h1.mdc-toolbar__title.mdc-toolbar__title--full ${title}
-          h1.mdc-toolbar__title.mdc-toolbar__title--medium ${titleMedium}
-          h1.mdc-toolbar__title.mdc-toolbar__title--mini ${titleMini}
+        toolbar-title
 
       // MAIN NAV
       mdc-toolbar-section(end="true" fit="true")
-        a(mdc-button href="#/documentation") Documentation
-        a(mdc-button="accent:true;" href="#/components") Components
-        a(mdc-button href="https://github.com/ullfis/aurelia-mdc-bridge" data-analytics-category="external" data-analytics-action="github") Github
+        toolbar-links(doc="false" comp="true")
 
   // adjust for fixed toolbar
   .mdc-toolbar-fixed-adjust

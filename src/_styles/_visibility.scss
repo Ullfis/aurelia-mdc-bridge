@@ -1,0 +1,64 @@
+
+// DESKTOP
+@media (min-width: 840px) {
+  .mdc-show-desktop {
+    display: block;
+  }
+  .mdc-hide-desktop {
+    display: none;
+  }
+  .mdc-show-tablet {
+    display: none;
+  }
+  .mdc-hide-tablet {
+    display: block;
+  }
+  .mdc-show-phone {
+    display: none;
+  }    
+  .mdc-hide-phone {
+    display: block;
+  }
+}
+// TABLET
+@media (min-width: 480px) and (max-width: 839px) {
+  .mdc-show-desktop {
+    display: none;
+  }
+  .mdc-hide-desktop {
+    display: block;
+  }
+  .mdc-show-tablet {
+    display: block;
+  }
+  .mdc-hide-tablet {
+    display: none;
+  }
+  .mdc-show-phone {
+    display: none;
+  }
+  .mdc-hide-phone {
+    display: block;
+  }
+}
+// PHONE
+@media (max-width: 479px) {
+  .mdc-show-desktop {
+    display: none;
+  }
+  .mdc-hide-desktop {
+    display: block;
+  }
+  .mdc-show-tablet {
+    display: none;
+  }
+  .mdc-hide-tablet {
+    display: block;
+  }
+  .mdc-show-phone {
+    display: block;
+  }    
+  .mdc-hide-phone {
+    display: none;
+  }
+}

@@ -1,16 +1,17 @@
 template
-  require(from="index.css")
+  require(from="./index.css")
+  require(from="./toolbar-links")
+  require(from="./toolbar-title")
+  
 
   // TOOLBAR
   mdc-toolbar.mdc-theme--dark(fixed="true" waterfall="true")
     mdc-toolbar-row
       mdc-toolbar-section(start="true")
-        span.mdc-toolbar__title ${title}
+        toolbar-title
 
       mdc-toolbar-section(end="true" fit="true")
-        a(mdc-button href="#/documentation") Documentation
-        a(mdc-button href="#/components") Components
-        a(mdc-button href="https://github.com/ullfis/aurelia-mdc-bridge" data-analytics-category="external" data-analytics-action="github") Github
+        toolbar-links(doc="false" comp="false")
 
   main.mdc-toolbar-fixed-adjust
 

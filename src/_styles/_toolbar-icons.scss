@@ -1,0 +1,22 @@
+.toolbar-icon {
+  background-repeat: no-repeat;
+  background-size: 24px 24px;
+  background-position: center;
+  width: 24px;
+  height: 24px;
+  align-items: center;
+  justify-content: center;
+  display: inline-block;
+}
+
+.github-icon {
+  background-image: url(images/github.svg);
+}
+
+.components-icon {
+  background-image: url(images/components.svg);
+}
+
+.documents-icon {
+  background-image: url(images/documents.svg);
+}

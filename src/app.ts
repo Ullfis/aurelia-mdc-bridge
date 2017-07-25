@@ -4,11 +4,9 @@ import { Router, RouterConfiguration, NavigationInstruction, Next } from 'aureli
 @inject(Element)
 export class App {
   public static title = 'Aurelia Mdc Bridge';
-  public static titleMedium = 'Aurelia Mdc';
-  public static titleMini = 'Aurelia';
+  public static titleSmall = 'Mdc';
   public title = App.title;
-  public titleMedium = App.titleMedium;
-  public titleMini = App.titleMini;
+  public titleSamll = App.titleSmall;
   private router: Router;
 
   constructor(private element: Element) {}
