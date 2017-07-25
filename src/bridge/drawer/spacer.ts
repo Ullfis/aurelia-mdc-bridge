@@ -1,15 +1,14 @@
-import { inject, customElement } from 'aurelia-framework';
+import { customElement } from 'aurelia-framework';
 import { getLogger, Logger } from 'aurelia-logging';
 import * as drawerCommon from './common';
 import * as util from '../util';
 
 @customElement('mdc-drawer-spacer')
-@inject(Element)
 export class MdcDrawerSpacer {
   private log: Logger;
   private elementSpacer: HTMLElement;
 
-  constructor(private element: Element) {
+  constructor() {
     this.log = getLogger('mdc-drawer-spacer');
   }
 
@@ -17,13 +16,13 @@ export class MdcDrawerSpacer {
   private unbind() { /** */ }
 
   private attached() {
-    if (drawerCommon.isPermanentDrawer(this.element)) {
+    if (drawerCommon.isPermanentDrawer(this.elementSpacer)) {
       this.elementSpacer.classList.add('mdc-permanent-drawer__toolbar-spacer');
     }
-    if (drawerCommon.isPersistentDrawer(this.element)) {
+    if (drawerCommon.isPersistentDrawer(this.elementSpacer)) {
       this.elementSpacer.classList.add('mdc-persistent-drawer__toolbar-spacer');
     }
-    if (drawerCommon.isTemporaryDrawer(this.element)) {
+    if (drawerCommon.isTemporaryDrawer(this.elementSpacer)) {
       this.elementSpacer.classList.add('mdc-temporary-drawer__toolbar-spacer');
     }
   }
