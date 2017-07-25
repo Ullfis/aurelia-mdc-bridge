@@ -9,8 +9,6 @@ template
       // CONFIG AREA
       mdc-grid-cell(span="4")
         section
-          p Last event menu 1: ${lastEvent1 | stringify}
-          p Last event menu 2: ${lastEvent2 | stringify}
           mdc-list(dense="true")
             mdc-list-item
               a(href="#bindingmodel") Binding items model and menu value
@@ -48,6 +46,9 @@ template
               mdc-list-divider
               mdc-list-item Item 4
 
+        section
+          p Last event menu 1: ${lastEvent1 | stringify}
+
         // dark theme
         section.mdc-theme--dark.demo-button-style
           legend.mdc-typography--title Dark theme
@@ -64,6 +65,9 @@ template
               mdc-list-item Item 3
               mdc-list-divider
               mdc-list-item Item 4
+
+        section
+          p Last event menu 2: ${lastEvent2 | stringify}
 
 
       mdc-grid-cell(span="12")
