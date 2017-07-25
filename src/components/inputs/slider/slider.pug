@@ -19,9 +19,6 @@ template
         section
           mdc-textfield(value.bind="step" type="number" min="1" max.bind="max") step
 
-        section
-          p.mdc-typography--caption input event value: ${inputValue}
-
       // DEMO AREA
       mdc-grid-cell(span="8")
         section.demo-area
@@ -42,7 +39,11 @@ template
             step.bind="step"
             disabled.bind="disabled"
             aria-label="Aria label"
-            on-input.delegate="onInput($event)")            
+            on-input.delegate="onInput($event)")
+    
+        section
+          p.mdc-typography--caption input event value: ${inputValue}
+
 
       mdc-grid-cell(span="12")
 

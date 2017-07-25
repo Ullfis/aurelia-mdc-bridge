@@ -14,9 +14,6 @@ template
           button(mdc-button="raised: true;" click.delegate="addRow()") Add option
           br
           mdc-checkbox(checked.bind="disabled") disabled
-          p Selected selectedProductId: ${selectedProductId}
-          p Selected selectedProducts: ${selectedProducts}
-                
 
       // DEMO AREA
       mdc-grid-cell(span="8")
@@ -29,8 +26,10 @@ template
               option(repeat.for="product of products"
                 model.bind="product.id") ${product.id} - ${product.name}
               option(role="presentation" disabled)
-              option test 1
-              option test 2
+              option Item test
+              
+            section
+              span Selected id: ${selectedProductId}
             
             br
             select(mdc-select-css multiple value.bind="selectedProducts" disabled.bind="disabled")
@@ -41,6 +40,10 @@ template
               optgroup(label="optgroup label")
                 option Group
               option Item 3
+
+            section
+                span Selected selected ids: ${selectedProducts}
+              
           
         // DARK THEME
         section.mdc-theme--dark

@@ -15,8 +15,6 @@ template
           button(mdc-button="raised: true;" click.delegate="addRow()") Add option
           br
           mdc-checkbox(checked.bind="disabled") disabled
-          p Selected product Id: ${selectedProductId}
-                
 
       // DEMO AREA
       mdc-grid-cell(span="8")
@@ -44,8 +42,10 @@ template
                 span Something
                 span(slot="start")
                   i.material-icons(aria-hidden="true") gps_fixed
-
           br
+          
+        section
+          p Selected product Id: ${selectedProductId}
 
       mdc-grid-cell(span="12")
 

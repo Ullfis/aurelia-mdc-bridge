@@ -10,16 +10,21 @@ template
       mdc-grid-cell(span="4") 
         section
           mdc-checkbox(checked.bind="switchDisable") Disable switch
-        section
-          p.mdc-typography--caption event counter: ${eventCounter}
-          p.mdc-typography--caption event value: ${isChecked}
 
       // DEMO AREA
       mdc-grid-cell(span="8")
         section
           legend.mdc-typography--title Default theme
-          mdc-switch(disabled.bind="switchDisable" checked.bind="switch1" on-change.delegate="onChange($event)") On/off 
-          p checked: ${switch1}
+          mdc-switch(disabled.bind="switchDisable" checked.bind="switch1" on-change.delegate="onChange($event)") On/off
+          table.event-list
+            tbody
+              tr
+                td checked:
+                td ${switch1}
+              tr
+                td event value:
+                td ${isChecked}
+
         section 
           mdc-switch(disabled.bind="switchDisable" checked.bind="switch2" label-on="On" label-off="Off")
           p checked: ${switch2}
