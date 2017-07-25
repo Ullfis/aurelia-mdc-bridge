@@ -31,8 +31,7 @@ System.register(["aurelia-framework", "aurelia-logging", "./create-components", 
         ],
         execute: function () {
             MdcList = (function () {
-                function MdcList(element) {
-                    this.element = element;
+                function MdcList() {
                     this.tag = 'ul';
                     this.dense = false;
                     this.twoLine = false;
@@ -42,13 +41,13 @@ System.register(["aurelia-framework", "aurelia-logging", "./create-components", 
                 MdcList.prototype.bind = function () { };
                 MdcList.prototype.unbind = function () { };
                 MdcList.prototype.attached = function () {
-                    if (drawerCommon.isPermanentDrawer(this.element)) {
+                    if (drawerCommon.isPermanentDrawer(this.elementList)) {
                         this.elementList.classList.add('mdc-permanent-drawer__content');
                     }
-                    if (drawerCommon.isPersistentDrawer(this.element)) {
+                    if (drawerCommon.isPersistentDrawer(this.elementList)) {
                         this.elementList.classList.add('mdc-persistent-drawer__content');
                     }
-                    if (drawerCommon.isTemporaryDrawer(this.element)) {
+                    if (drawerCommon.isTemporaryDrawer(this.elementList)) {
                         this.elementList.classList.add('mdc-temporary-drawer__content');
                     }
                     this.denseChanged(this.dense);
@@ -89,10 +88,10 @@ System.register(["aurelia-framework", "aurelia-logging", "./create-components", 
                 ], MdcList.prototype, "avatar", void 0);
                 MdcList = __decorate([
                     aurelia_framework_1.noView(),
+                    aurelia_framework_1.containerless(),
                     aurelia_framework_1.customElement('mdc-list'),
                     aurelia_framework_1.processContent(create_components_1.CreateListComponent),
-                    aurelia_framework_1.inject(Element),
-                    __metadata("design:paramtypes", [Element])
+                    __metadata("design:paramtypes", [])
                 ], MdcList);
                 return MdcList;
             }());

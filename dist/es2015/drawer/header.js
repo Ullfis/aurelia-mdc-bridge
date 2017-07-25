@@ -7,26 +7,25 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { inject, customElement } from 'aurelia-framework';
+import { customElement } from 'aurelia-framework';
 import { getLogger } from 'aurelia-logging';
 import * as drawerCommon from './common';
 let MdcDrawerHeader = class MdcDrawerHeader {
-    constructor(element) {
-        this.element = element;
+    constructor() {
         this.log = getLogger('mdc-drawer-header');
     }
     bind() { }
     unbind() { }
     attached() {
-        if (drawerCommon.isPermanentDrawer(this.element)) {
+        if (drawerCommon.isPermanentDrawer(this.elementHeader)) {
             this.elementHeader.classList.add('mdc-permanent-drawer__header');
             this.elementContent.classList.add('mdc-permanent-drawer__header-content');
         }
-        if (drawerCommon.isPersistentDrawer(this.element)) {
+        if (drawerCommon.isPersistentDrawer(this.elementHeader)) {
             this.elementHeader.classList.add('mdc-persistent-drawer__header');
             this.elementContent.classList.add('mdc-persistent-drawer__header-content');
         }
-        if (drawerCommon.isTemporaryDrawer(this.element)) {
+        if (drawerCommon.isTemporaryDrawer(this.elementHeader)) {
             this.elementHeader.classList.add('mdc-temporary-drawer__header');
             this.elementContent.classList.add('mdc-temporary-drawer__header-content');
         }
@@ -34,7 +33,6 @@ let MdcDrawerHeader = class MdcDrawerHeader {
 };
 MdcDrawerHeader = __decorate([
     customElement('mdc-drawer-header'),
-    inject(Element),
-    __metadata("design:paramtypes", [Element])
+    __metadata("design:paramtypes", [])
 ], MdcDrawerHeader);
 export { MdcDrawerHeader };

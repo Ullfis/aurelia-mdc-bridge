@@ -7,31 +7,29 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { inject, customElement } from 'aurelia-framework';
+import { customElement } from 'aurelia-framework';
 import { getLogger } from 'aurelia-logging';
 import * as drawerCommon from './common';
 let MdcDrawerSpacer = class MdcDrawerSpacer {
-    constructor(element) {
-        this.element = element;
+    constructor() {
         this.log = getLogger('mdc-drawer-spacer');
     }
     bind() { }
     unbind() { }
     attached() {
-        if (drawerCommon.isPermanentDrawer(this.element)) {
+        if (drawerCommon.isPermanentDrawer(this.elementSpacer)) {
             this.elementSpacer.classList.add('mdc-permanent-drawer__toolbar-spacer');
         }
-        if (drawerCommon.isPersistentDrawer(this.element)) {
+        if (drawerCommon.isPersistentDrawer(this.elementSpacer)) {
             this.elementSpacer.classList.add('mdc-persistent-drawer__toolbar-spacer');
         }
-        if (drawerCommon.isTemporaryDrawer(this.element)) {
+        if (drawerCommon.isTemporaryDrawer(this.elementSpacer)) {
             this.elementSpacer.classList.add('mdc-temporary-drawer__toolbar-spacer');
         }
     }
 };
 MdcDrawerSpacer = __decorate([
     customElement('mdc-drawer-spacer'),
-    inject(Element),
-    __metadata("design:paramtypes", [Element])
+    __metadata("design:paramtypes", [])
 ], MdcDrawerSpacer);
 export { MdcDrawerSpacer };

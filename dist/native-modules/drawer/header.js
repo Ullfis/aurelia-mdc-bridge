@@ -7,34 +7,32 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { inject, customElement } from 'aurelia-framework';
+import { customElement } from 'aurelia-framework';
 import { getLogger } from 'aurelia-logging';
 import * as drawerCommon from './common';
 var MdcDrawerHeader = (function () {
-    function MdcDrawerHeader(element) {
-        this.element = element;
+    function MdcDrawerHeader() {
         this.log = getLogger('mdc-drawer-header');
     }
     MdcDrawerHeader.prototype.bind = function () { };
     MdcDrawerHeader.prototype.unbind = function () { };
     MdcDrawerHeader.prototype.attached = function () {
-        if (drawerCommon.isPermanentDrawer(this.element)) {
+        if (drawerCommon.isPermanentDrawer(this.elementHeader)) {
             this.elementHeader.classList.add('mdc-permanent-drawer__header');
             this.elementContent.classList.add('mdc-permanent-drawer__header-content');
         }
-        if (drawerCommon.isPersistentDrawer(this.element)) {
+        if (drawerCommon.isPersistentDrawer(this.elementHeader)) {
             this.elementHeader.classList.add('mdc-persistent-drawer__header');
             this.elementContent.classList.add('mdc-persistent-drawer__header-content');
         }
-        if (drawerCommon.isTemporaryDrawer(this.element)) {
+        if (drawerCommon.isTemporaryDrawer(this.elementHeader)) {
             this.elementHeader.classList.add('mdc-temporary-drawer__header');
             this.elementContent.classList.add('mdc-temporary-drawer__header-content');
         }
     };
     MdcDrawerHeader = __decorate([
         customElement('mdc-drawer-header'),
-        inject(Element),
-        __metadata("design:paramtypes", [Element])
+        __metadata("design:paramtypes", [])
     ], MdcDrawerHeader);
     return MdcDrawerHeader;
 }());

@@ -7,14 +7,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { inject, bindable, bindingMode, customElement, processContent, noView } from 'aurelia-framework';
+import { bindable, bindingMode, customElement, processContent, containerless, noView } from 'aurelia-framework';
 import { getLogger } from 'aurelia-logging';
 import { CreateListComponent } from './create-components';
 import * as drawerCommon from '../drawer/common';
 import * as util from '../util';
 var MdcList = (function () {
-    function MdcList(element) {
-        this.element = element;
+    function MdcList() {
         this.tag = 'ul';
         this.dense = false;
         this.twoLine = false;
@@ -24,13 +23,13 @@ var MdcList = (function () {
     MdcList.prototype.bind = function () { };
     MdcList.prototype.unbind = function () { };
     MdcList.prototype.attached = function () {
-        if (drawerCommon.isPermanentDrawer(this.element)) {
+        if (drawerCommon.isPermanentDrawer(this.elementList)) {
             this.elementList.classList.add('mdc-permanent-drawer__content');
         }
-        if (drawerCommon.isPersistentDrawer(this.element)) {
+        if (drawerCommon.isPersistentDrawer(this.elementList)) {
             this.elementList.classList.add('mdc-persistent-drawer__content');
         }
-        if (drawerCommon.isTemporaryDrawer(this.element)) {
+        if (drawerCommon.isTemporaryDrawer(this.elementList)) {
             this.elementList.classList.add('mdc-temporary-drawer__content');
         }
         this.denseChanged(this.dense);
@@ -71,10 +70,10 @@ var MdcList = (function () {
     ], MdcList.prototype, "avatar", void 0);
     MdcList = __decorate([
         noView(),
+        containerless(),
         customElement('mdc-list'),
         processContent(CreateListComponent),
-        inject(Element),
-        __metadata("design:paramtypes", [Element])
+        __metadata("design:paramtypes", [])
     ], MdcList);
     return MdcList;
 }());

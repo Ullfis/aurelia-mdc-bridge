@@ -11,27 +11,25 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "./common"
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var MdcDrawerSpacer = (function () {
-        function MdcDrawerSpacer(element) {
-            this.element = element;
+        function MdcDrawerSpacer() {
             this.log = aurelia_logging_1.getLogger('mdc-drawer-spacer');
         }
         MdcDrawerSpacer.prototype.bind = function () { };
         MdcDrawerSpacer.prototype.unbind = function () { };
         MdcDrawerSpacer.prototype.attached = function () {
-            if (drawerCommon.isPermanentDrawer(this.element)) {
+            if (drawerCommon.isPermanentDrawer(this.elementSpacer)) {
                 this.elementSpacer.classList.add('mdc-permanent-drawer__toolbar-spacer');
             }
-            if (drawerCommon.isPersistentDrawer(this.element)) {
+            if (drawerCommon.isPersistentDrawer(this.elementSpacer)) {
                 this.elementSpacer.classList.add('mdc-persistent-drawer__toolbar-spacer');
             }
-            if (drawerCommon.isTemporaryDrawer(this.element)) {
+            if (drawerCommon.isTemporaryDrawer(this.elementSpacer)) {
                 this.elementSpacer.classList.add('mdc-temporary-drawer__toolbar-spacer');
             }
         };
         MdcDrawerSpacer = __decorate([
             aurelia_framework_1.customElement('mdc-drawer-spacer'),
-            aurelia_framework_1.inject(Element),
-            __metadata("design:paramtypes", [Element])
+            __metadata("design:paramtypes", [])
         ], MdcDrawerSpacer);
         return MdcDrawerSpacer;
     }());

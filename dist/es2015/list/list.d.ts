@@ -1,5 +1,4 @@
 export declare class MdcList {
-    private element;
     tag: string;
     class: string;
     dense: boolean;
@@ -7,7 +6,7 @@ export declare class MdcList {
     avatar: boolean;
     private log;
     private elementList;
-    constructor(element: Element);
+    constructor();
     private bind();
     private unbind();
     private attached();

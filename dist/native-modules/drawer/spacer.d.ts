@@ -1,8 +1,7 @@
 export declare class MdcDrawerSpacer {
-    private element;
     private log;
     private elementSpacer;
-    constructor(element: Element);
+    constructor();
     private bind();
     private unbind();
     private attached();

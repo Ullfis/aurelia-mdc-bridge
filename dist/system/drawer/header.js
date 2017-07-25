@@ -25,30 +25,28 @@ System.register(["aurelia-framework", "aurelia-logging", "./common"], function (
         ],
         execute: function () {
             MdcDrawerHeader = (function () {
-                function MdcDrawerHeader(element) {
-                    this.element = element;
+                function MdcDrawerHeader() {
                     this.log = aurelia_logging_1.getLogger('mdc-drawer-header');
                 }
                 MdcDrawerHeader.prototype.bind = function () { };
                 MdcDrawerHeader.prototype.unbind = function () { };
                 MdcDrawerHeader.prototype.attached = function () {
-                    if (drawerCommon.isPermanentDrawer(this.element)) {
+                    if (drawerCommon.isPermanentDrawer(this.elementHeader)) {
                         this.elementHeader.classList.add('mdc-permanent-drawer__header');
                         this.elementContent.classList.add('mdc-permanent-drawer__header-content');
                     }
-                    if (drawerCommon.isPersistentDrawer(this.element)) {
+                    if (drawerCommon.isPersistentDrawer(this.elementHeader)) {
                         this.elementHeader.classList.add('mdc-persistent-drawer__header');
                         this.elementContent.classList.add('mdc-persistent-drawer__header-content');
                     }
-                    if (drawerCommon.isTemporaryDrawer(this.element)) {
+                    if (drawerCommon.isTemporaryDrawer(this.elementHeader)) {
                         this.elementHeader.classList.add('mdc-temporary-drawer__header');
                         this.elementContent.classList.add('mdc-temporary-drawer__header-content');
                     }
                 };
                 MdcDrawerHeader = __decorate([
                     aurelia_framework_1.customElement('mdc-drawer-header'),
-                    aurelia_framework_1.inject(Element),
-                    __metadata("design:paramtypes", [Element])
+                    __metadata("design:paramtypes", [])
                 ], MdcDrawerHeader);
                 return MdcDrawerHeader;
             }());
