@@ -1,5 +1,8 @@
 
-// DESKTOP
+/* 
+ * DESKTOP
+ *
+*/
 @media (min-width: 840px) {
   .mdc-show-desktop {
     display: block;
@@ -20,7 +23,11 @@
     display: block;
   }
 }
-// TABLET
+
+/* 
+ * TABLET
+ *
+*/
 @media (min-width: 480px) and (max-width: 839px) {
   .mdc-show-desktop {
     display: none;
@@ -41,7 +48,11 @@
     display: block;
   }
 }
-// PHONE
+
+/* 
+ * PHONE
+ *
+*/
 @media (max-width: 479px) {
   .mdc-show-desktop {
     display: none;
@@ -59,18 +70,6 @@
     display: block;
   }    
   .mdc-hide-phone {
-    display: none;
-  }
-}
-
-// DRAWER
-@media (min-width: 720px) {
-  .mdc-show-drawer {
-    display: flex;
-  }
-}
-@media (max-width: 719px) {
-  .mdc-show-drawer {
     display: none;
   }
 }

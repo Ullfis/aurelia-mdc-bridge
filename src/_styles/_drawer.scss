@@ -1,0 +1,35 @@
+/* 
+ * DRAWER
+ *
+*/
+
+/* Permanent drawer layout */
+.container-permanent {
+  display: flex;
+  flex: 1 auto;
+  flex-flow: row;
+  box-sizing: border-box;
+
+  main {
+    padding: 16px 16px 72px 16px;
+  }
+}
+
+/* Show on large screen */
+@media (min-width: 720px) {
+  .mdc-show-drawer {
+    display: flex;
+  }
+}
+/* Hide on small screen */
+@media (max-width: 719px) {
+  .mdc-show-drawer {
+    display: none;
+  }
+}
+
+/* Adding space to menu child items */
+.drawer-menu-list--child {
+  padding-left: 12px;
+  padding-right: 12px;
+}

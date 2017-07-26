@@ -1,5 +1,4 @@
-
-// test
+/* test */
 $mdc-layout-grid-default-margin-desktop: 40px;
 $mdc-layout-grid-default-gutter-desktop: 40px;
 $mdc-layout-grid-default-margin-tablet: 16px;
@@ -7,7 +6,7 @@ $mdc-layout-grid-default-gutter-tablet: 16px;
 $mdc-layout-grid-default-margin-phone: 8px;
 $mdc-layout-grid-default-gutter-phone: 8px;
 
-// include @material styles (test)
+/* include @material styles (test) */
 @import "@material/animation/mdc-animation";
 @import "@material/button/mdc-button";
 @import "@material/card/mdc-card";

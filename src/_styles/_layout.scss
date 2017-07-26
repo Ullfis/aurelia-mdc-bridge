@@ -7,19 +7,3 @@ body {
   padding: 0;
   margin: 0;
 }
-
-.sample-sub-list-item {
-  padding-left: 12px;
-  padding-right: 12px;
-}
-
-.container-permanent {
-  display: flex;
-  flex: 1 auto;
-  flex-flow: row;
-  box-sizing: border-box;
-
-  main {
-    padding: 16px 16px 72px 16px;
-  }
-}
