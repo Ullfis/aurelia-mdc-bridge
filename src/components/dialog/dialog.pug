@@ -1,121 +1,121 @@
 template
 
   // SAMPLE
-  section
-    legend.mdc-typography--display1 Dialogs
-    mdc-grid
-      
-      // CONFIG AREA
-      mdc-grid-cell(span="4")
-        button(mdc-button="raised: true;" click.delegate="showDialog()") Show Dialog1          
-        p accept clicked: ${acceptClicked1}
-        button(mdc-button="raised: true;" click.delegate="showDialog2()") Show Dialog - scrollable dialog
-        p accept clicked: ${acceptClicked2}
-        p event counter: ${eventCounter}
+  mdc-grid
+    mdc-grid-cell(span="12")
+      span.mdc-typography--display1 Dialogs
 
-      mdc-grid-cell(span="8")
-        section
-          mdc-dialog(
-            view-model.ref="dialog"
-            header="Dialog"
-            scrollable="false"
+    // CONFIG AREA
+    mdc-grid-cell(span="4")
+      button(mdc-button="raised: true;" click.delegate="showDialog()") Show Dialog1          
+      p accept clicked: ${acceptClicked1}
+      button(mdc-button="raised: true;" click.delegate="showDialog2()") Show Dialog - scrollable dialog
+      p accept clicked: ${acceptClicked2}
+      p event counter: ${eventCounter}
+
+    mdc-grid-cell(span="8")
+      mdc-dialog(
+        view-model.ref="dialog"
+        header="Dialog"
+        scrollable="false"
+        accept="OK"
+        cancel="Cancel"
+        on-click.delegate="onDialogClick1($event)")
+        span Body elements
+
+
+      section.mdc-theme--dark              
+        mdc-dialog(
+          view-model.ref="dialog2"
+          header="Dialog with scrollable content"
+          scrollable="true"
+          accept="OK"
+          cancel="Close"
+          on-click.delegate="onDialogClick2($event)")
+          mdc-list
+            each i in [0,1,2,3,4,5,6,7,8,9]
+              mdc-list-item item #{i}
+
+
+    // LINKS
+    mdc-grid-cell(span="12")
+      hr
+      a(href="https://material.io/components/web/catalog/dialogs/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-dialog") Material components documentation
+      br
+      a(href="https://material.io/guidelines/components/dialogs.html" target="_blank" data-analytics-category="external" data-analytics-action="mdg-dialog") Material design guidelines
+      hr
+
+
+    // EXAMPLE
+    mdc-grid-cell(span="12")
+      // script
+      pre
+        code-prism(language="typescript").
+          import { MdcDialog, IMdcDialogClickEvent } from 'aurelia-mdc-bridge';
+          
+          private dialog: MdcDialog;
+          
+          private showDialog() {
+            this.dialog.show(true);
+          }
+
+          private onDialogClick(event: IMdcDialogClickEvent) {
+            const acceptClicked = event.detail;
+          }        
+
+      // html
+      pre
+        code-prism.
+          &lt;mdc-dialog
+            header="Dialog header"
             accept="OK"
             cancel="Cancel"
-            on-click.delegate="onDialogClick1($event)")
-            span Body elements
+            view-model.ref="dialog"
+            on-click.delegate="onDialogClick($event)"&gt;
+
+            &lt;p&gt;Dialog content&lt;/p&gt;
+          &lt;/mdc-dialog&gt;
 
 
-        section.mdc-theme--dark              
-          mdc-dialog(
-            view-model.ref="dialog2"
-            header="Dialog with scrollable content"
-            scrollable="true"
-            accept="OK"
-            cancel="Close"
-            on-click.delegate="onDialogClick2($event)")
-            mdc-list
-              each i in [0,1,2,3,4,5,6,7,8,9]
-                mdc-list-item item #{i}
+    // SCROLLABLE
+    mdc-grid-cell(span="12")
+      section
+        span.mdc-typography--headline Scrollable
+        p.
+          Set #[span.mark-text scrollable] attribute to #[span.mark-text true] to enable scrollable content:
+        pre
+          code-prism.
+            &lt;mdc-dialog
+              scrollable="true"
+              header="Dialog header"
+              accept="OK"
+              cancel="Cancel"
+              view-model.ref="dialog"
+              on-click.delegate="onDialogClick($event)"&gt;
 
+              &lt;mdc-list&gt;
+                &lt;mdc-list-item&gt;Item 0&lt;/mdc-list-item&gt;
+                ...
+              &lt;/mdc-list&gt;
+            &lt;/mdc-dialog&gt;
+        
 
-      mdc-grid-cell(span="12")
+    // THEMING
+    mdc-grid-cell(span="12")
+      section
+        span.mdc-typography--headline Theming
+        p.mdc-typography--subheading2 Dark Theme Considerations
+        p.
+          When using #[span.mark-text mdc-theme--dark] / #[span.mark-text mdc-dialog--theme-dark], 
+          the dialog by default sets its background color to #303030. 
+          You can override this by either overridding the 
+          #[span.mark-text --mdc-dialog-dark-theme-bg-color], overridding the 
+          #[span.mark-text $mdc-dialog-dark-theme-bg-color] sass variable, 
+          or directly in CSS:
 
-        // LINKS
-        hr
-        section
-          a(href="https://material.io/components/web/catalog/dialogs/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-dialog") Material components documentation
-        section
-          a(href="https://material.io/guidelines/components/dialogs.html" target="_blank" data-analytics-category="external" data-analytics-action="mdg-dialog") Material design guidelines
-        hr
-
-
-        // EXAMPLE
-        section
-
-          // script
-          pre
-            code-prism(language="typescript").
-              import { MdcDialog, IMdcDialogClickEvent } from 'aurelia-mdc-bridge';
-              
-              private dialog: MdcDialog;
-              
-              private showDialog() {
-                this.dialog.show(true);
-              }
-
-              private onDialogClick(event: IMdcDialogClickEvent) {
-                const acceptClicked = event.detail;
-              }        
-
-          // html
-          pre
-            code-prism.
-              &lt;mdc-dialog
-                header="Dialog header"
-                accept="OK"
-                cancel="Cancel"
-                view-model.ref="dialog"
-                on-click.delegate="onDialogClick($event)"&gt;
-
-                &lt;p&gt;Dialog content&lt;/p&gt;
-              &lt;/mdc-dialog&gt;
-
-          legend.mdc-typography--headline Scrollable
-          p.
-            Set #[span.mark-text scrollable] attribute to #[span.mark-text true] to enable scrollable content:
-          pre
-            code-prism.
-              &lt;mdc-dialog
-                scrollable="true"
-                header="Dialog header"
-                accept="OK"
-                cancel="Cancel"
-                view-model.ref="dialog"
-                on-click.delegate="onDialogClick($event)"&gt;
-
-                &lt;mdc-list&gt;
-                  &lt;mdc-list-item&gt;Item 0&lt;/mdc-list-item&gt;
-                  ...
-                &lt;/mdc-list&gt;
-              &lt;/mdc-dialog&gt;
-          
-
-          // THEMING
-          br
-          section
-            legend.mdc-typography--headline Theming
-            legend.mdc-typography--subheading2 Dark Theme Considerations
-            p.
-              When using #[span.mark-text mdc-theme--dark] / #[span.mark-text mdc-dialog--theme-dark], 
-              the dialog by default sets its background color to #303030. 
-              You can override this by either overridding the 
-              #[span.mark-text --mdc-dialog-dark-theme-bg-color], overridding the 
-              #[span.mark-text $mdc-dialog-dark-theme-bg-color] sass variable, 
-              or directly in CSS:
-
-            pre
-              code-prism(language="css").
-                .mdc-theme--dark .mdc-dialog__surface,
-                .mdc-dialog--theme-dark .mdc-dialog__surface {
-                  background-color: /* custom bg color */;
-                }      
+        pre
+          code-prism(language="css").
+            .mdc-theme--dark .mdc-dialog__surface,
+            .mdc-dialog--theme-dark .mdc-dialog__surface {
+              background-color: /* custom bg color */;
+            }      
