@@ -1,0 +1,51 @@
+
+/* Black on white background */
+svg-obj, .svg-inline {
+  path:not([fill]) {
+    fill: rgba(0, 0, 0, 0.54); 
+  }
+}
+svg-obj[disabled], .svg-inline.disabled {
+  path:not([fill]) {
+    fill: rgba(0, 0, 0, 0.26);
+  }
+}
+/* White on dark background */
+svg-obj.md-light, .svg-inline.md-light {
+  path:not([fill]) {
+    fill: rgba(255, 255, 255, 1); 
+  }
+}
+svg-obj[disabled].md-light, .svg-inline.disabled.md-light {
+  path:not([fill]) {
+    fill: rgba(255, 255, 255, 0.3); 
+  }
+}
+/* Theme colors */
+svg-obj.primary, .svg-inline.primary {
+  path:not([fill]) {
+    fill: $mdc-theme-primary; 
+  }
+}
+svg-obj.accent, .svg-inline.accent {
+  path:not([fill]) {
+    fill: $mdc-theme-accent; 
+  }
+}
+
+svg-obj.md-18 svg, .svg-inline.md-18 {
+  width: 18px;
+  height: 18px;
+}
+svg-obj.md-24 svg, .svg-inline.md-24 {
+  width: 24px;
+  height: 24px;
+}
+svg-obj.md-36 svg, .svg-inline.md-36 {
+  width: 36px;
+  height: 36px;
+}
+svg-obj.md-48 svg, .svg-inline.md-48 {
+  width: 48px;
+  height: 48px;
+}

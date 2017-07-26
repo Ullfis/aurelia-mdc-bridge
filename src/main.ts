@@ -2,8 +2,6 @@ import { Aurelia } from 'aurelia-framework';
 import environment from './environment';
 
 export function configure(aurelia: Aurelia) {
-  let useLogging = true;
-
   aurelia.use
     .standardConfiguration()
     .feature('./bridge/index')
@@ -11,19 +9,18 @@ export function configure(aurelia: Aurelia) {
 
   if (environment.debug) {
     aurelia.use.developmentLogging();
-    useLogging = false;
-  }
-  // document.baseURI = '';
 
-  aurelia.use.plugin('aurelia-google-analytics', config => {
+  } else {
+    aurelia.use.plugin('aurelia-google-analytics', config => {
       config.init('UA-103062249-1');
       config.attach({
         logging: { enabled: false },
-        pageTracking: { enabled: useLogging },
-        clickTracking: { enabled: useLogging },
-        exceptionTracking: { enabled: useLogging }
+        pageTracking: { enabled: true },
+        clickTracking: { enabled: true },
+        exceptionTracking: { enabled: true }
       });
     });
+  }
 
   aurelia.start().then(() => aurelia.setRoot());
 }

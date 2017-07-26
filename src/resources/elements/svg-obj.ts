@@ -1,39 +1,39 @@
-import { bindable, bindingMode, customAttribute, inject } from 'aurelia-framework';
+import { bindable, bindingMode, customElement, inject, noView } from 'aurelia-framework';
 import { getLogger, Logger } from 'aurelia-logging';
 
 /*
- * Replace element with inline SVG (no bindings possible)
+ * Load svg file and add it as inline svg child
  *
- * <i svg-inline="src: svg-url;"></i>
+ * <svg-obj src="svg-url"></svg-obj>
  *
- * Adding class 'svg-inline' to the svg element.
  * Styles (in this project): src/_styles/_svg.scss
- * - <i class="accent/primary/md-light/md-18/md-24/md-36/md-48" svg-inline="src: svg-url;"></i>
+ * - <svg-obj disable="true" class="accent/primary/md-light/md-18/md-24/md-36/md-48" src="svg-url"></svg-obj>
  *
  * Inspiration: https://stackoverflow.com/questions/24933430/img-src-svg-changing-the-fill-color
  */
-@customAttribute('svg-inline')
+@noView()
+@customElement('svg-obj')
 @inject(Element)
-export class SvgInline {
-  public static cacheStorage = {};
+export class SvgObj {
+  private static cacheStorage = {};
   @bindable({ defaultBindingMode: bindingMode.oneTime }) public src;
   private log: Logger;
 
   constructor(private element: Element) {
-    this.log = getLogger('svg-inline');
+    this.log = getLogger('svg-obj');
   }
+
+  private async bind() { /** */ }
 
   private async attached() {
     try {
-      const imgId = this.element.getAttribute('id');
-      const imgClass = this.element.getAttribute('class');
       const imgUrl = this.src;
       if (!imgUrl) { return; }
 
-      let svgText = SvgInline.cacheStorage[imgUrl];
+      let svgText = SvgObj.cacheStorage[imgUrl];
       if (!svgText) {
         svgText = await fetch(imgUrl).then(res => res.text());
-        SvgInline.cacheStorage[imgUrl] = svgText;
+        SvgObj.cacheStorage[imgUrl] = svgText;
       }
 
       const parser = new DOMParser();
@@ -41,16 +41,6 @@ export class SvgInline {
 
       // Get the SVG tag, ignore the rest
       const svg = xmlDoc.getElementsByTagName('svg')[0];
-
-      // Add replaced image's ID to the new SVG
-      if (typeof imgId !== 'undefined') {
-        svg.setAttribute('id', imgId);
-      }
-
-      // Add replaced image's classes to the new SVG
-      if (typeof imgClass !== 'undefined') {
-        svg.setAttribute('class', imgClass.replace('au-target', '') + ' svg-inline');
-      }
 
       // Remove any invalid XML tags as per http://validator.w3.org
       svg.removeAttribute('xmlns:a');
@@ -60,8 +50,8 @@ export class SvgInline {
         svg.setAttribute('viewBox', '0 0 ' + svg.getAttribute('height') + ' ' + svg.getAttribute('width'));
       }
 
-      // Replace image with new SVG
-      this.element.parentNode.replaceChild(svg, this.element);
+      // Add child
+      this.element.appendChild(svg);
 
     } catch (error) {
       this.log.error(error);
