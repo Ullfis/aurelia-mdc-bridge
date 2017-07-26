@@ -1,10 +1,19 @@
-/* test */
-$mdc-layout-grid-default-margin-desktop: 40px;
-$mdc-layout-grid-default-gutter-desktop: 40px;
-$mdc-layout-grid-default-margin-tablet: 16px;
-$mdc-layout-grid-default-gutter-tablet: 16px;
-$mdc-layout-grid-default-margin-phone: 8px;
-$mdc-layout-grid-default-gutter-phone: 8px;
+/* 
+ * Test 
+ *  https://material.io/components/web/catalog/layout-grids/
+ *
+*/
+$mdc-layout-grid-default-margin: (
+  desktop: 24px,
+  tablet: 16px,
+  phone: 8px
+);
+
+$mdc-layout-grid-default-gutter: (
+  desktop: 24px,
+  tablet: 16px,
+  phone: 8px
+);
 
 /* include @material styles (test) */
 @import "@material/animation/mdc-animation";
