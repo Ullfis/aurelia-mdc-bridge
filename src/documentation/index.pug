@@ -1,34 +1,33 @@
 template
 
-  // SAMPLE
-  section
-    legend.mdc-typography--display1 Documentation
-    mdc-grid
-      
-      mdc-grid-cell(span="12")
-        section
-          mdc-list-group(tag="nav" dense="false" two-line="true")
+  // DOCUMENTATION
+  mdc-grid
+    mdc-grid-cell(span="12")
+      span.mdc-typography--display1 Documentation
+    
+    mdc-grid-cell(span="12")
+      mdc-list-group(tag="nav" dense="false" two-line="true")
 
-            mdc-list-item(href="#/documentation/start" ripple="true")
-              span(slot="start")
-                svg.svg-inline(viewBox="0 0 24 24")
-                  path(d="M12,1C8.14,1 5,4.14 5,8A7,7 0 0,0 12,15C15.86,15 19,11.87 19,8C19,4.14 15.86,1 12,1M12,3.15C14.67,3.15 16.85,5.32 16.85,8C16.85,10.68 14.67,12.85 12,12.85A4.85,4.85 0 0,1 7.15,8A4.85,4.85 0 0,1 12,3.15M11,5V8.69L14.19,10.53L14.94,9.23L12.5,7.82V5M4,16V24H6V21H18V24L22,20L18,16V19H6V16")
-              span(slot="text") Getting started
-              span(slot="secondary")
-                span.mdc-hide-phone Install and configure your Aurelia project
+        mdc-list-item(href="#/documentation/start" ripple="true")
+          span(slot="start")
+            svg.svg-inline(viewBox="0 0 24 24")
+              path(d="M12,1C8.14,1 5,4.14 5,8A7,7 0 0,0 12,15C15.86,15 19,11.87 19,8C19,4.14 15.86,1 12,1M12,3.15C14.67,3.15 16.85,5.32 16.85,8C16.85,10.68 14.67,12.85 12,12.85A4.85,4.85 0 0,1 7.15,8A4.85,4.85 0 0,1 12,3.15M11,5V8.69L14.19,10.53L14.94,9.23L12.5,7.82V5M4,16V24H6V21H18V24L22,20L18,16V19H6V16")
+          span(slot="text") Getting started
+          span(slot="secondary")
+            span.mdc-hide-phone Install and configure your Aurelia project
 
-            mdc-list-item(href="#/documentation/offline" ripple="true")
-              span(slot="start")
-                svg.svg-inline(viewBox="0 0 24 24")
-                  path(d="M2.28,3L1,4.27L2.47,5.74C2.04,6 1.61,6.29 1.2,6.6L3,9C3.53,8.6 4.08,8.25 4.66,7.93L6.89,10.16C6.15,10.5 5.44,10.91 4.8,11.4L6.6,13.8C7.38,13.22 8.26,12.77 9.2,12.47L11.75,15C10.5,15.07 9.34,15.5 8.4,16.2L12,21L14.46,17.73L17.74,21L19,19.72M12,3C9.85,3 7.8,3.38 5.9,4.07L8.29,6.47C9.5,6.16 10.72,6 12,6C15.38,6 18.5,7.11 21,9L22.8,6.6C19.79,4.34 16.06,3 12,3M12,9C11.62,9 11.25,9 10.88,9.05L14.07,12.25C15.29,12.53 16.43,13.07 17.4,13.8L19.2,11.4C17.2,9.89 14.7,9 12,9Z")
-              span(slot="text") Icons and fonts offline
-              span(slot="secondary")
-                span.mdc-hide-phone Use Roboto fonts and Material Icons offline
+        mdc-list-item(href="#/documentation/offline" ripple="true")
+          span(slot="start")
+            svg.svg-inline(viewBox="0 0 24 24")
+              path(d="M2.28,3L1,4.27L2.47,5.74C2.04,6 1.61,6.29 1.2,6.6L3,9C3.53,8.6 4.08,8.25 4.66,7.93L6.89,10.16C6.15,10.5 5.44,10.91 4.8,11.4L6.6,13.8C7.38,13.22 8.26,12.77 9.2,12.47L11.75,15C10.5,15.07 9.34,15.5 8.4,16.2L12,21L14.46,17.73L17.74,21L19,19.72M12,3C9.85,3 7.8,3.38 5.9,4.07L8.29,6.47C9.5,6.16 10.72,6 12,6C15.38,6 18.5,7.11 21,9L22.8,6.6C19.79,4.34 16.06,3 12,3M12,9C11.62,9 11.25,9 10.88,9.05L14.07,12.25C15.29,12.53 16.43,13.07 17.4,13.8L19.2,11.4C17.2,9.89 14.7,9 12,9Z")
+          span(slot="text") Icons and fonts offline
+          span(slot="secondary")
+            span.mdc-hide-phone Use Roboto fonts and Material Icons offline
 
-            mdc-list-item(href="#/documentation/material-icons" ripple="true")
-              span(slot="start")
-                svg.svg-inline(viewBox="0 0 24 24")
-                  path(d="M19,10C19,11.38 16.88,12.5 15.5,12.5C14.12,12.5 12.75,11.38 12.75,10H11.25C11.25,11.38 9.88,12.5 8.5,12.5C7.12,12.5 5,11.38 5,10H4.25C4.09,10.64 4,11.31 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12C20,11.31 19.91,10.64 19.75,10H19M12,4C9.04,4 6.45,5.61 5.07,8H18.93C17.55,5.61 14.96,4 12,4M22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2A10,10 0 0,1 22,12M12,17.23C10.25,17.23 8.71,16.5 7.81,15.42L9.23,14C9.68,14.72 10.75,15.23 12,15.23C13.25,15.23 14.32,14.72 14.77,14L16.19,15.42C15.29,16.5 13.75,17.23 12,17.23Z")
-              span(slot="text") Material Icons tips
-              span(slot="secondary")
-                span.mdc-hide-phone Make your icons follow the guidelines
+        mdc-list-item(href="#/documentation/material-icons" ripple="true")
+          span(slot="start")
+            svg.svg-inline(viewBox="0 0 24 24")
+              path(d="M19,10C19,11.38 16.88,12.5 15.5,12.5C14.12,12.5 12.75,11.38 12.75,10H11.25C11.25,11.38 9.88,12.5 8.5,12.5C7.12,12.5 5,11.38 5,10H4.25C4.09,10.64 4,11.31 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12C20,11.31 19.91,10.64 19.75,10H19M12,4C9.04,4 6.45,5.61 5.07,8H18.93C17.55,5.61 14.96,4 12,4M22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2A10,10 0 0,1 22,12M12,17.23C10.25,17.23 8.71,16.5 7.81,15.42L9.23,14C9.68,14.72 10.75,15.23 12,15.23C13.25,15.23 14.32,14.72 14.77,14L16.19,15.42C15.29,16.5 13.75,17.23 12,17.23Z")
+          span(slot="text") Material Icons tips
+          span(slot="secondary")
+            span.mdc-hide-phone Make your icons follow the guidelines

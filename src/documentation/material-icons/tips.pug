@@ -1,61 +1,61 @@
 template
 
   // DOCUMENTATION
-  section
-    legend.mdc-typography--display1 Material-icons
-    mdc-grid
-      
-      mdc-grid-cell(span="12")
+  mdc-grid
+    mdc-grid-cell(span="12")
+      span.mdc-typography--display1 Material-icons
+    
+    mdc-grid-cell(span="12")
+      p.
+        This is copied from Material Icons Guide and I should have no credit for 
+        the wonderful work they have done building this.
+
+    mdc-grid-cell(span="12")
+
+      // LINKS
+      hr
+      section
+        a(href="http://google.github.io/material-design-icons/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-icons-guide") Material Icons Guide
+      section
+        a(href="https://www.google.com/design/icons/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-icons") Icons
+      hr
+
+      // EXAMPLE
+      section
+
+        // STYLING ICONS
+        span.mdc-typography--headline Styling icons
+        
         p.
-          This is copied from Material Icons Guide and I should have no credit for 
-          the wonderful work they have done building this.
+          These icons were designed to follow the material design guidelines 
+          and they look best when using the recommended icon sizes and colors. 
+          The styles below make it easy to apply recommended sizes, colors, and activity states.
 
-      mdc-grid-cell(span="12")
+        // SIZE
+        span.mdc-typography--headline Size
+        pre
+          code-prism(language="css").
+            /* Rules for sizing the icon. */
+            .material-icons.md-18 { font-size: 18px; }
+            .material-icons.md-24 { font-size: 24px; }
+            .material-icons.md-36 { font-size: 36px; }
+            .material-icons.md-48 { font-size: 48px; }
 
-        // LINKS
-        hr
-        section
-          a(href="http://google.github.io/material-design-icons/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-icons-guide") Material Icons Guide
-        section
-          a(href="https://www.google.com/design/icons/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-icons") Icons
-        hr
+        // LIGHT / DARK COLORS
+        span.mdc-typography--headline Light/dark colors
+        pre
+          code-prism(language="css").
+            /* Rules for using icons as black on a light background. */
+            .material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+            .material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
 
-        // EXAMPLE
-        section
+            /* Rules for using icons as white on a dark background. */
+            .material-icons.md-light { color: rgba(255, 255, 255, 1); }
+            .material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
 
-          // STYLING ICONS
-          legend.mdc-typography--headline Styling icons
-          
-          p.
-            These icons were designed to follow the material design guidelines 
-            and they look best when using the recommended icon sizes and colors. 
-            The styles below make it easy to apply recommended sizes, colors, and activity states.
-
-          // SIZE
-          legend.mdc-typography--headline Size
-          pre
-            code-prism(language="css").
-              /* Rules for sizing the icon. */
-              .material-icons.md-18 { font-size: 18px; }
-              .material-icons.md-24 { font-size: 24px; }
-              .material-icons.md-36 { font-size: 36px; }
-              .material-icons.md-48 { font-size: 48px; }
-
-          // LIGHT / DARK COLORS
-          legend.mdc-typography--headline Light/dark colors
-          pre
-            code-prism(language="css").
-              /* Rules for using icons as black on a light background. */
-              .material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
-              .material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
-
-              /* Rules for using icons as white on a dark background. */
-              .material-icons.md-light { color: rgba(255, 255, 255, 1); }
-              .material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
-
-          // CUSTOM COLORING
-          legend.mdc-typography--headline Custom coloring
-          pre
-            code-prism(language="css").
-              .material-icons.primary { color: $mdc-theme-primary; }
-              .material-icons.accent { color: $mdc-theme-accent; }
+        // CUSTOM COLORING
+        span.mdc-typography--headline Custom coloring
+        pre
+          code-prism(language="css").
+            .material-icons.primary { color: $mdc-theme-primary; }
+            .material-icons.accent { color: $mdc-theme-accent; }
