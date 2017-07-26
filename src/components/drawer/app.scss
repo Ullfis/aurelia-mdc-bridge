@@ -1,32 +1,5 @@
 @import "@material/theme/mixins";
 
-// FIELDSET
-fieldset {
-  margin: 24px;
-  margin-top: 0;
-  margin-bottom: 16px;
-  border: 0;
-
-  legend {
-    display: block;
-    padding: 16px;
-    padding-top: 64px;
-    padding-bottom: 24px;
-  }
-
-  .mdc-button {
-    margin: 16px;
-  }  
-}
-
-.mark-text {
-  background-color: #f5f2f0;
-}
-
-.main-sample-area {
-  padding: 16px 16px 72px 16px;
-}
-
 /* Header color */
 mdc-drawer-header {
   @include mdc-theme-prop(background-color, primary);
