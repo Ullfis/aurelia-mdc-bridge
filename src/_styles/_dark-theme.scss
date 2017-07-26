@@ -5,19 +5,27 @@
 .mdc-theme--dark {
   background-color: $my-dark-color;
 
-  legend {
-    color: $my-white-on-dark-color;
-  }
+  // // padding-left: 16px;
+  
+  // legend {
+  //   color: $my-white-on-dark-color;
+  // }
 
-  fieldset {
-    background-color: $my-dark-color;
+  // fieldset {
+  //   background-color: $my-dark-color;
 
-    legend {
-      color: $my-white-on-dark-color;
-    }
-  }
+  //   legend {
+  //     color: $my-white-on-dark-color;
+  //   }
+  // }
 
-  .mdc-switch-label, p, table {
-    color: $my-white-on-dark-color;
-  }
+  // .mdc-switch-label, p, table {
+  //   color: $my-white-on-dark-color;
+  // }
+}
+section.components {
+  padding: 8px 16px 8px 16px;
+}
+.mdc-theme--dark.components {
+  color: $my-white-on-dark-color;
 }

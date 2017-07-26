@@ -2,87 +2,78 @@ template
   require(from="./fab.css")
 
   // SAMPLE
-  section
-    legend.mdc-typography--display1 Floating Action Buttons
-    mdc-grid
-      
-      // CONFIG AREA
-      mdc-grid-cell(span="4")      
-        section
-          mdc-checkbox(checked.bind="plain") plain
-        section
-          mdc-checkbox(checked.bind="mini") mini
+  mdc-grid
+    mdc-grid-cell(span="12")
+      span.mdc-typography--display1 Floating Action Buttons
 
-      // DEMO AREA
-      mdc-grid-cell(span="8")
-        section
-          button(mdc-fab="plain.bind: plain; mini.bind: mini; aria-label: Star;") star
-        section
-          button(mdc-fab="plain.bind: plain; mini.bind: mini; aria-label: Fingerprint;") fingerprint
-          button(mdc-fab="plain.bind: plain; mini.bind: mini; aria-label: Https;") https
-          button(mdc-fab="plain.bind: plain; mini.bind: mini; aria-label.bind: ariaText;" click.delegate="changeAria()") done_all
-          button(mdc-fab="plain.bind: plain; mini.bind: mini; aria-label: Accessibility;") accessibility
-          button.my-fab--fixed(mdc-fab="aria-label: Accessibility;") accessibility
+    // CONFIG AREA
+    mdc-grid-cell(span="4")
+      mdc-checkbox(checked.bind="plain") plain
+      br
+      mdc-checkbox(checked.bind="mini") mini
+
+    // DEMO AREA
+    mdc-grid-cell(span="8")
+      button(mdc-fab="plain.bind: plain; mini.bind: mini; aria-label: Star;") star
+      button.my-fab--fixed(mdc-fab="aria-label: Accessibility;") accessibility
 
 
-      // LINKS
-      mdc-grid-cell(span="12")
-        hr
-        section
-          a(href="https://material.io/components/web/catalog/buttons/floating-action-buttons/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-fab") Material components documentation
-        section
-          a(href="https://material.io/guidelines/components/buttons-floating-action-button.html" target="_blank" data-analytics-category="external" data-analytics-action="mdg-fab") Material design guidelines
-        section
-          a(href="https://material.io/icons/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-icons") Icons
-        hr
+    // LINKS
+    mdc-grid-cell(span="12")
+      hr
+      a(href="https://material.io/components/web/catalog/buttons/floating-action-buttons/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-fab") Material components documentation
+      br
+      a(href="https://material.io/guidelines/components/buttons-floating-action-button.html" target="_blank" data-analytics-category="external" data-analytics-action="mdg-fab") Material design guidelines
+      br
+      a(href="https://material.io/icons/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-icons") Icons
+      hr
 
-      // EXAMPLE
-      mdc-grid-cell(span="12")
-        section
-          pre
-            code-prism.
-              &lt;button mdc-fab="aria-label: Hello World; plain: true; mini: true; ripple: true;"&gt;
-                favorite_border
-              &lt;/button&gt;
+    // EXAMPLE
+    mdc-grid-cell(span="12")
+      pre
+        code-prism.
+          &lt;button mdc-fab="aria-label: Hello World; plain: true; mini: true; ripple: true;"&gt;
+            favorite_border
+          &lt;/button&gt;
 
 
-      // RIPPLE
-      mdc-grid-cell(span="12")
-        section
-          legend.mdc-typography--headline Ripple
-          p.
-            By default the ripple effect is added automatically. To avoid that, set ripple to false:
-          pre
-            code-prism.
-              &lt;button mdc-fab="ripple: false;" ...&gt;
-                ...
-              &lt;/button&gt;
-            
+    // RIPPLE
+    mdc-grid-cell(span="12")
+      section
+        span.mdc-typography--headline Ripple
+        p.
+          By default the ripple effect is added automatically. To avoid that, set ripple to false:
+        pre
+          code-prism.
+            &lt;button mdc-fab="ripple: false;" ...&gt;
+              ...
+            &lt;/button&gt;
+          
 
-      // POSITION
-      mdc-grid-cell(span="12")
-        section
-          legend.mdc-typography--headline Position
-          p.
-            By default the FAB rests in the page where it sits in the content flow. 
-            Developers must position it as-needed within their applications designs.
-          pre
-            code-prism.
-              &lt;style&gt;
+    // POSITION
+    mdc-grid-cell(span="12")
+      section
+        span.mdc-typography--headline Position
+        p.
+          By default the FAB rests in the page where it sits in the content flow. 
+          Developers must position it as-needed within their applications designs.
+        pre
+          code-prism.
+            &lt;style&gt;
+              .my-fab--fixed {
+                position: fixed;
+                bottom: 1rem;
+                right: 1rem;
+              }
+
+              @media(min-width: 1024px) {
                 .my-fab--fixed {
-                  position: fixed;
-                  bottom: 1rem;
-                  right: 1rem;
+                  bottom: 3rem;
+                  right: 5rem;
                 }
+              }
+            &lt;/style&gt;
 
-                @media(min-width: 1024px) {
-                  .my-fab--fixed {
-                    bottom: 3rem;
-                    right: 5rem;
-                  }
-                }
-              &lt;/style&gt;
-
-              &lt;button class="my-fab--fixed" mdc-fab="aria-label: Accessibility;"&gt;
-                favorite_border
-              &lt;/button&gt;     
+            &lt;button class="my-fab--fixed" mdc-fab="aria-label: Accessibility;"&gt;
+              favorite_border
+            &lt;/button&gt;     
