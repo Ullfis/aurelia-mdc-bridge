@@ -75,3 +75,8 @@ a.toolbar-link__svg.primary {
     fill: $mdc-theme-primary; 
   }
 }
+
+/* Switches z-index under toolbar */
+.mdc-switch__background {
+  z-index: 0;
+}
