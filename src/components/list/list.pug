@@ -35,70 +35,70 @@ template
       section.components
         mdc-list-group
           mdc-list-group-header &lt;ul&gt; list and &lt;li&gt; items
-            mdc-list(dense.bind="dense" two-line.bind="twoLine" avatar.bind="avatar")
+          mdc-list(dense.bind="dense" two-line.bind="twoLine" avatar.bind="avatar")
 
-              // start detail
-              mdc-list-item
-                | start detail
-                div(slot="start")
-                  i.material-icons.md-dark(aria-hidden="true") network_wifi
+            // start detail
+            mdc-list-item
+              | start detail
+              div(slot="start")
+                i.material-icons.md-dark(aria-hidden="true") network_wifi
 
-              // end detail
-              mdc-list-divider(inset.bind="inset")
-              mdc-list-item 
-                | end detail
-                div(slot="end")
-                  a.material-icons.md-dark.no-text-decoration(href="#" aria-label="Remove from favorites" title="Remove from favorites") favorite
+            // end detail
+            mdc-list-divider(inset.bind="inset")
+            mdc-list-item 
+              | end detail
+              div(slot="end")
+                a.material-icons.md-dark.no-text-decoration(href="#" aria-label="Remove from favorites" title="Remove from favorites") favorite
 
-              // start and end detail
-              mdc-list-divider(inset.bind="inset")
-              mdc-list-item
-                | start and end detail
-                div(slot="start")
-                  i.material-icons.md-dark(aria-hidden="true") network_wifi
-                div(slot="end")
-                  i.material-icons.md-dark(aria-hidden="true") star
+            // start and end detail
+            mdc-list-divider(inset.bind="inset")
+            mdc-list-item
+              | start and end detail
+              div(slot="start")
+                i.material-icons.md-dark(aria-hidden="true") network_wifi
+              div(slot="end")
+                i.material-icons.md-dark(aria-hidden="true") star
 
-              // two line
-              mdc-list-divider(inset.bind="inset")
-              mdc-list-item
-                span(slot="text") Two-line item
-                span(slot="secondary") Secondary text
+            // two line
+            mdc-list-divider(inset.bind="inset")
+            mdc-list-item
+              span(slot="text") Two-line item
+              span(slot="secondary") Secondary text
 
-              // start and end detail two line
-              mdc-list-divider(inset.bind="inset")
-              mdc-list-item
-                span(slot="text") Two-line item
-                span(slot="secondary") Secondary text
-                div(slot="start")
-                  i.material-icons.md-dark(aria-hidden="true") network_wifi
-                div(slot="end")
-                  i.material-icons.md-dark(aria-hidden="true") star              
+            // start and end detail two line
+            mdc-list-divider(inset.bind="inset")
+            mdc-list-item
+              span(slot="text") Two-line item
+              span(slot="secondary") Secondary text
+              div(slot="start")
+                i.material-icons.md-dark(aria-hidden="true") network_wifi
+              div(slot="end")
+                i.material-icons.md-dark(aria-hidden="true") star              
 
-              // list divider
-              mdc-list-divider(inset.bind="inset")
-              mdc-list-item Simple List item
-              mdc-list-divider(inset.bind="inset")
-              mdc-list-item(ripple="true") Simple List item ripple
+            // list divider
+            mdc-list-divider(inset.bind="inset")
+            mdc-list-item Simple List item
+            mdc-list-divider(inset.bind="inset")
+            mdc-list-item(ripple="true") Simple List item ripple
 
-              mdc-list-divider(inset.bind="inset")
-              mdc-list-item(ripple="true")
-                div(slot="start")
-                  img(src="images/1-1.jpeg" alt="Picture of Janet Perkins")
-                | Avatar
+            mdc-list-divider(inset.bind="inset")
+            mdc-list-item(ripple="true")
+              div(slot="start")
+                img(src="images/1-1.jpeg" alt="Picture of Janet Perkins")
+              | Avatar
 
           mdc-list-group-header &lt;nav&gt; list and &lt;a&gt; items
-            mdc-list(tag="nav" dense.bind="dense" two-line.bind="twoLine" avatar.bind="avatar")
-              mdc-list-item(href="#/components/list" ripple="true")
-                div(slot="start")
-                  i.material-icons.md-dark(aria-hidden="true") inbox
-                | Inbox
-              mdc-list-divider(inset.bind="inset")
-              mdc-list-item(href="#/components/list" ripple="true" on-click.delegate="onClick($event)")
-                div(slot="start")
-                  i.material-icons.md-dark(aria-hidden="true") note
-                | Show dialog
-              mdc-list-divider(inset.bind="inset")
+          mdc-list(tag="nav" dense.bind="dense" two-line.bind="twoLine" avatar.bind="avatar")
+            mdc-list-item(href="#/components/list" ripple="true")
+              div(slot="start")
+                i.material-icons.md-dark(aria-hidden="true") inbox
+              | Inbox
+            mdc-list-divider(inset.bind="inset")
+            mdc-list-item(href="#/components/list" ripple="true" on-click.delegate="onClick($event)")
+              div(slot="start")
+                i.material-icons.md-dark(aria-hidden="true") note
+              | Show dialog
+            mdc-list-divider(inset.bind="inset")
 
 
     // LINKS
