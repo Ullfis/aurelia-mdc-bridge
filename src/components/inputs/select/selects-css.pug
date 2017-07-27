@@ -1,167 +1,181 @@
 template
-  require(from="./selects-css.css")
 
   // SAMPLE
-  section
-    legend.mdc-typography--display1 Select Menus (CSS only)
-    p.
-      For more active select component see #[a(href="#/components/inputs/selects") mdc-select]
-    mdc-grid
-      
-      // CONFIG AREA
-      mdc-grid-cell(span="4") 
-        section
-          button(mdc-button="raised: true;" click.delegate="addRow()") Add option
-          br
-          mdc-checkbox(checked.bind="disabled") disabled
+  mdc-grid
+    mdc-grid-cell(span="12")
+      span.mdc-typography--display1 Select Menus (CSS only)
+      p.
+        For more active select component see #[a(href="#/components/inputs/selects") mdc-select]
+    
+    // CONFIG AREA
+    mdc-grid-cell(span="4") 
+      button(mdc-button="raised: true;" click.delegate="addRow()") Add option
+      br
+      mdc-checkbox(checked.bind="disabled") disabled
+      br
+      mdc-list(dense="true")
+        mdc-list-item
+          a(href="#multiselect") Multiselect
+        mdc-list-item
+          a(href="#divider") Divider
+        mdc-list-item
+          a(href="#optgroup") Optgroup
+        mdc-list-item
+          a(href="#size") Multiselect size
 
-      // DEMO AREA
-      mdc-grid-cell(span="8")
-        // DEFAULT THEME
-        section
-          legend.mdc-typography--title Default theme
+    // DEMO AREA
+    mdc-grid-cell(span="8")
 
-          .demo-margin
-            select(mdc-select-css value.bind="selectedProductId" disabled.bind="disabled")
-              option(repeat.for="product of products"
-                model.bind="product.id") ${product.id} - ${product.name}
-              option(role="presentation" disabled)
-              option Item test
-              
-            section
-              span Selected id: ${selectedProductId}
-            
-            br
-            select(mdc-select-css multiple value.bind="selectedProducts" disabled.bind="disabled")
-              option(repeat.for="product of products"
-                model.bind="product.id") ${product.id} - ${product.name}
-              option(role="presentation" disabled)
-              option Item 2
-              optgroup(label="optgroup label")
-                option Group
-              option Item 3
+      // DEFAULT THEME
+      section.components
+        span.mdc-typography--title Default theme
+        br
 
-            section
-                span Selected selected ids: ${selectedProducts}
-              
+        select(mdc-select-css value.bind="selectedProductId" disabled.bind="disabled")
+          option(repeat.for="product of products"
+            model.bind="product.id") ${product.id} - ${product.name}
+          option(role="presentation" disabled)
+          option Item test
+        
+        br
+        span Selected id: ${selectedProductId}
           
-        // DARK THEME
-        section.mdc-theme--dark
-          legend.mdc-typography--title Dark theme
-          .demo-margin
-            select(mdc-select-css value.bind="selectedProductId" disabled.bind="disabled")
-              option(repeat.for="product of products"
-                model.bind="product.id") ${product.id} - ${product.name}
+        br
+        select(mdc-select-css multiple value.bind="selectedProducts" disabled.bind="disabled")
+          option(repeat.for="product of products"
+            model.bind="product.id") ${product.id} - ${product.name}
+          option(role="presentation" disabled)
+          option Item 2
+          optgroup(label="optgroup label")
+            option Group
+          option Item 3
+
+        br
+        span Selected selected ids: ${selectedProducts}
             
-            br
-            select(mdc-select-css multiple value.bind="selectedProducts" disabled.bind="disabled")
-              option(repeat.for="product of products"
-                model.bind="product.id") ${product.id} - ${product.name}
-              option(role="presentation" disabled)
-              option Item 2
-              optgroup(label="optgroup label")
-                option Group
-              option Item 3
-            br
-            br
+        
+      // DARK THEME
+      section.mdc-theme--dark.components
+        span.mdc-typography--title Dark theme
+        br
+        select(mdc-select-css value.bind="selectedProductId" disabled.bind="disabled")
+          option(repeat.for="product of products"
+            model.bind="product.id") ${product.id} - ${product.name}
+        
+        br
+        select(mdc-select-css multiple value.bind="selectedProducts" disabled.bind="disabled")
+          option(repeat.for="product of products"
+            model.bind="product.id") ${product.id} - ${product.name}
+          option(role="presentation" disabled)
+          option Item 2
+          optgroup(label="optgroup label")
+            option Group
+          option Item 3
+        br
 
 
-      mdc-grid-cell(span="12")
+    // LINKS
+    mdc-grid-cell(span="12")
+      hr
+      a(href="https://material.io/components/web/catalog/input-controls/select-menus/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-select-menus") Material components documentation
+      br
+      a(href="https://material.io/guidelines/components/text-fields.html" target="_blank" data-analytics-category="external" data-analytics-action="mdg-textfield") Material design guidelines text fields
+      br
+      a(href="https://material.io/guidelines/components/menus.html" target="_blank" data-analytics-category="external" data-analytics-action="mdg-menus") Material design guidelines menus
+      br
+      a(href="https://material.io/icons/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-icons") Icons
+      hr 
 
-        // LINKS
-        hr
-        section
-          a(href="https://material.io/components/web/catalog/input-controls/select-menus/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-select-menus") Material components documentation
-        section
-          a(href="https://material.io/guidelines/components/text-fields.html" target="_blank" data-analytics-category="external" data-analytics-action="mdg-textfield") Material design guidelines text fields
-        section
-          a(href="https://material.io/guidelines/components/menus.html" target="_blank" data-analytics-category="external" data-analytics-action="mdg-menus") Material design guidelines menus
-        section
-          a(href="https://material.io/icons/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-icons") Icons
-        hr 
+    // EXAMPLE
+    mdc-grid-cell(span="12")
+      pre
+        code-prism(language="typescript").
+          private products = [
+            { id: 0, name: 'Motherboard' },
+            { id: 1, name: 'CPU' },
+            { id: 2, name: 'Memory' },
+          ];
+          private selectedProductId = null;
+          private selectedProducts = [];
+            
+      pre
+        code-prism(language="html").
+          &lt;select mdc-select-css value.bind="selectedProductId"&gt;
+            &lt;option
+              repeat.for="product of products"
+              model.bind="product.id"&gt;${product.id} - ${product.name}
+            &lt;/option&gt;
+          &lt;/select&gt;
 
-        // EXAMPLE
-        section
+    // DARK THEME
+    mdc-grid-cell(span="12")
+      section(id="darktheme")
+        span.mdc-typography--title style dark theme
+        pre
+          code-prism(language="css").
+            .mdc-theme--dark select {
+              background-color: #333;
+            }
 
-          // script
-          pre
-            code-prism(language="typescript").
-              private products = [
-                { id: 0, name: 'Motherboard' },
-                { id: 1, name: 'CPU' },
-                { id: 2, name: 'Memory' },
-              ];
-              private selectedProductId = null;
-              private selectedProducts = [];
-              
-          // html
-          pre
-            code-prism(language="html").
-              &lt;select mdc-select-css value.bind="selectedProductId"&gt;
-                &lt;option
-                  repeat.for="product of products"
-                  model.bind="product.id"&gt;${product.id} - ${product.name}
-                &lt;/option&gt;
-              &lt;/select&gt;
+            .mdc-theme--dark select option {
+              background-color: #333;
+            }
 
-          // style
-          legend.mdc-typography--title style dark theme
-          pre
-            code-prism(language="css").
-              .mdc-theme--dark select {
-                background-color: #333;
-              }
+    // MULTI SELECT
+    mdc-grid-cell(span="12")
+      section(id="multiselect")
+        span.mdc-typography--title multi select
+        pre
+          code-prism(language="html").
+            &lt;select mdc-select-css multiple value.bind="selectedProducts"&gt;
+              &lt;option
+                repeat.for="product of products"
+                model.bind="product.id"&gt;${product.id} - ${product.name}&lt;/option&gt;
+            &lt;/select&gt;
 
-              .mdc-theme--dark select option {
-                background-color: #333;
-              }
+    // DIVIDERS
+    mdc-grid-cell(span="12")
+      section(id="divider")
+        span.mdc-typography--title divider
+        pre
+          code-prism(language="html").
+            &lt;select mdc-select-css multiple&gt;
+              &lt;option&gt;Item 1&lt;/option&gt;
+              &lt;option&gt;Item 2&lt;/option&gt;
+              &lt;option role="presentation" disabled /&gt;
+              &lt;option&gt;Item 3&lt;/option&gt;
+            &lt;/select&gt;        
 
-          // multi select
-          legend.mdc-typography--title multi select
-          pre
-            code-prism(language="html").
-              &lt;select mdc-select-css multiple value.bind="selectedProducts"&gt;
-                &lt;option
-                  repeat.for="product of products"
-                  model.bind="product.id"&gt;${product.id} - ${product.name}&lt;/option&gt;
-              &lt;/select&gt;
-
-          // dividers
-          legend.mdc-typography--title divider
-          pre
-            code-prism(language="html").
-              &lt;select mdc-select-css multiple&gt;
-                &lt;option&gt;Item 1&lt;/option&gt;
-                &lt;option&gt;Item 2&lt;/option&gt;
-                &lt;option role="presentation" disabled /&gt;
+    // OPTGROUP
+    mdc-grid-cell(span="12")
+      section(id="optgroup")
+        span.mdc-typography--title optgroup
+        pre
+          code-prism(language="html").
+            &lt;select mdc-select-css multiple&gt;
+              &lt;option&gt;Item 1&lt;/option&gt;
+              &lt;option&gt;Item 2&lt;/option&gt;
+              &lt;optgroup label="optgroup label"&gt;
                 &lt;option&gt;Item 3&lt;/option&gt;
-              &lt;/select&gt;        
+              &lt;/optgroup&gt;
+            &lt;/select&gt;
 
-          // optgroup
-          legend.mdc-typography--title optgroup
-          pre
-            code-prism(language="html").
-              &lt;select mdc-select-css multiple&gt;
-                &lt;option&gt;Item 1&lt;/option&gt;
-                &lt;option&gt;Item 2&lt;/option&gt;
-                &lt;optgroup label="optgroup label"&gt;
-                  &lt;option&gt;Item 3&lt;/option&gt;
-                &lt;/optgroup&gt;
-              &lt;/select&gt;
 
-          // size
-          legend.mdc-typography--title multiselect size
-          p Select elements take a size attribute to determine the height of the select box.
-          pre
-            code-prism(language="html").
-              &lt;select mdc-select-css multiple size="6"&gt;
-                ...
-              &lt;/select&gt;
+    // SIZE
+    mdc-grid-cell(span="12")
+      section(id="size")
+        span.mdc-typography--title multiselect size
+        p Select elements take a size attribute to determine the height of the select box.
+        pre
+          code-prism(language="html").
+            &lt;select mdc-select-css multiple size="6"&gt;
+              ...
+            &lt;/select&gt;
 
-          p If you’d like to maintain the width or height outside of the attribute, you’ll need to set it in your styles:
-          pre
-            code-prism(language="css").
-              .my-select-container .mdc-select {
-                width: 300px;
-                height: 550px;
-              }       
+        p If you’d like to maintain the width or height outside of the attribute, you’ll need to set it in your styles:
+        pre
+          code-prism(language="css").
+            .my-select-container .mdc-select {
+              width: 300px;
+              height: 550px;
+            }       
