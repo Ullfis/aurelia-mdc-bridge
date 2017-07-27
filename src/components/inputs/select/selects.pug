@@ -1,158 +1,151 @@
 template
-  require(from="./selects-css.css")
 
   // SAMPLE
-  section
-    legend.mdc-typography--display1 Select Menus
-    p.
-      If you need to support browser's native select or use 
-      multiselect, see #[a(href="#/components/inputs/selects-css") select-css]
-    mdc-grid
-      
-      // CONFIG AREA
-      mdc-grid-cell(span="4") 
-        section
-          button(mdc-button="raised: true;" click.delegate="addRow()") Add option
-          br
-          mdc-checkbox(checked.bind="disabled") disabled
+  mdc-grid
+    mdc-grid-cell(span="12")
+      span.mdc-typography--display1 Select Menus
+      p.
+        If you need to support browser's native select or use 
+        multiselect, see #[a(href="#/components/inputs/selects-css") mdc-select-css]
 
-      // DEMO AREA
-      mdc-grid-cell(span="8")
-        section
-          legend.mdc-typography--title Default theme
+    // CONFIG AREA
+    mdc-grid-cell(span="4")
+      button(mdc-button="raised: true;" click.delegate="addRow()") Add option
+      br
+      mdc-checkbox(checked.bind="disabled") disabled
+      br
+      mdc-list(dense="true")
+        mdc-list-item
+          a(href="#icons") Icons
+        mdc-list-item
+          a(href="#divider") Divider
+        mdc-list-item
+          a(href="#event") Event
 
-          .demo-margin
-            mdc-select(value.bind="selectedProductId" disabled.bind="disabled" on-change.delegate="onChange($event)")
-              mdc-list-item(repeat.for="product of products" model.bind="product.id")
-                span ${product.id} - ${product.name}
-              mdc-list-divider
-              mdc-list-item(model="999")
-                span Something
+    // DEMO AREA
+    mdc-grid-cell(span="8")
+      section.components
+        span.mdc-typography--title Default theme
+        br
+        mdc-select(value.bind="selectedProductId" disabled.bind="disabled" on-change.delegate="onChange($event)")
+          mdc-list-item(repeat.for="product of products" model.bind="product.id")
+            span ${product.id} - ${product.name}
+          mdc-list-divider
+          mdc-list-item(model="999")
+            span Something
 
-        section.mdc-theme--dark
-          legend.mdc-typography--title Dark theme
-          .demo-margin
-            mdc-select(value.bind="selectedProductId" disabled.bind="disabled" on-change.delegate="onChange($event)")
-              mdc-list-item(repeat.for="product of products" model.bind="product.id")
-                span ${product.id} - ${product.name}
-                span(slot="start")
-                  i.material-icons(aria-hidden="true") ${product.icon}
-              mdc-list-divider
-              mdc-list-item(model="999")
-                span Something
-                span(slot="start")
-                  i.material-icons(aria-hidden="true") gps_fixed
-          br
-          
-        section
-          p Selected product Id: ${selectedProductId}
-
-      mdc-grid-cell(span="12")
-
-        // LINKS
-        hr
-        section
-          a(href="https://material.io/components/web/catalog/input-controls/select-menus/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-select-menus") Material components documentation
-        section
-          a(href="https://material.io/guidelines/components/text-fields.html" target="_blank" data-analytics-category="external" data-analytics-action="mdg-textfield") Material design guidelines text fields
-        section
-          a(href="https://material.io/guidelines/components/menus.html" target="_blank" data-analytics-category="external" data-analytics-action="mdg-menus") Material design guidelines menus
-        section
-          a(href="https://material.io/icons/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-icons") Icons    
-        hr    
-  
-        // EXAMPLE
-        section
-
-          // script
-          pre
-            code-prism(language="typescript").
-              private products = [
-                { id: 0, name: 'WiFi' },
-                { id: 1, name: 'Bluetooth' },
-                { id: 2, name: 'USB' },
-              ];
-
-              private selectedProductId = 1;
-              
-          // html
-          pre
-            code-prism(language="html").
-              &lt;mdc-select value.bind="selectedProductId" disabled.bind="disabled"&gt;
-                &lt;mdc-list-item
-                  repeat.for="product of products"
-                  model.bind="product.id"&gt;${product.id} - ${product.name}
-                &lt;/mdc-list-item&gt;
-              &lt;/mdc-select&gt;  
+      section.mdc-theme--dark.components
+        span.mdc-typography--title Dark theme
+        br
+        mdc-select(value.bind="selectedProductId" disabled.bind="disabled" on-change.delegate="onChange($event)")
+          mdc-list-item(repeat.for="product of products" model.bind="product.id")
+            span ${product.id} - ${product.name}
+            span(slot="start")
+              i.material-icons(aria-hidden="true") ${product.icon}
+          mdc-list-divider
+          mdc-list-item(model="999")
+            span Something
+            span(slot="start")
+              i.material-icons(aria-hidden="true") gps_fixed
+        br
+      span Selected product Id: ${selectedProductId}
 
 
-        // ICONS
-        section
-          legend.mdc-typography--headline Icons
-          pre
-            code-prism.
-              &lt;span slot="start"&gt;
-                &lt;i class="material-icons" aria-hidden="true"&gt;icon_name&lt;/i&gt;
-              &lt;/span&gt;
+    // LINKS
+    mdc-grid-cell(span="12")
+      hr
+      a(href="https://material.io/components/web/catalog/input-controls/select-menus/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-select-menus") Material components documentation
+      br
+      a(href="https://material.io/guidelines/components/text-fields.html" target="_blank" data-analytics-category="external" data-analytics-action="mdg-textfield") Material design guidelines text fields
+      br
+      a(href="https://material.io/guidelines/components/menus.html" target="_blank" data-analytics-category="external" data-analytics-action="mdg-menus") Material design guidelines menus
+      br
+      a(href="https://material.io/icons/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-icons") Icons    
+      hr    
 
-          // script
-          pre
-            code-prism(language="typescript").
-              private products = [
-                { id: 0, name: 'WiFi', icon: 'network_wifi' },
-                { id: 1, name: 'Bluetooth', icon: 'bluetooth' },
-                { id: 2, name: 'USB', icon: 'usb' },
-              ];
+    // EXAMPLE
+    mdc-grid-cell(span="12")
+      pre
+        code-prism(language="typescript").
+          private products = [
+            { id: 0, name: 'WiFi' },
+            { id: 1, name: 'Bluetooth' },
+            { id: 2, name: 'USB' },
+          ];
 
-              private selectedProductId = 1;
-              
-          // html
-          pre
-            code-prism(language="html").
-              &lt;mdc-select value.bind="selectedProductId"&gt;
-                &lt;mdc-list-item
-                  repeat.for="product of products"
-                  model.bind="product.id"&gt;
-                  &lt;span&gt;${product.id} - ${product.name}&lt;/span&gt;
-                  &lt;span slot="start"&gt;
-                    &lt;i class="material-icons" aria-hidden="true"&gt;${product.icon}&lt;/i&gt;
-                  &lt;/span&gt;
-                &lt;/mdc-list-item&gt;
-              &lt;/mdc-select&gt;  
+          private selectedProductId = 1;
+      pre
+        code-prism(language="html").
+          &lt;mdc-select value.bind="selectedProductId" disabled.bind="disabled"&gt;
+            &lt;mdc-list-item
+              repeat.for="product of products"
+              model.bind="product.id"&gt;${product.id} - ${product.name}
+            &lt;/mdc-list-item&gt;
+          &lt;/mdc-select&gt;  
 
 
-        // DIVIDER
-        section
-          legend.mdc-typography--headline Divider
-          pre
-            code-prism(language="html").
+    // ICONS
+    mdc-grid-cell(span="12")
+      section(id="icons")
+        span.mdc-typography--headline Icons
+        pre
+          code-prism.
+            &lt;span slot="start"&gt;
+              &lt;i class="material-icons" aria-hidden="true"&gt;icon_name&lt;/i&gt;
+            &lt;/span&gt;
+        pre
+          code-prism(language="typescript").
+            private products = [
+              { id: 0, name: 'WiFi', icon: 'network_wifi' },
+              { id: 1, name: 'Bluetooth', icon: 'bluetooth' },
+              { id: 2, name: 'USB', icon: 'usb' },
+            ];
+
+            private selectedProductId = 1;
+        pre
+          code-prism(language="html").
+            &lt;mdc-select value.bind="selectedProductId"&gt;
+              &lt;mdc-list-item
+                repeat.for="product of products"
+                model.bind="product.id"&gt;
+                &lt;span&gt;${product.id} - ${product.name}&lt;/span&gt;
+                &lt;span slot="start"&gt;
+                  &lt;i class="material-icons" aria-hidden="true"&gt;${product.icon}&lt;/i&gt;
+                &lt;/span&gt;
+              &lt;/mdc-list-item&gt;
+            &lt;/mdc-select&gt;  
+
+
+    // DIVIDER
+    mdc-grid-cell(span="12")
+      section(id="divider")
+        span.mdc-typography--headline Divider
+        pre
+          code-prism(language="html").
+            &lt;mdc-list-divider&gt;&lt;/mdc-list-divider&gt;
+        pre
+          code-prism(language="html").
+            &lt;mdc-select value.bind="value"&gt;
+              &lt;mdc-list-item model="1"&gt;Item 1&lt;/mdc-list-item&gt;
+              &lt;mdc-list-item model="2"&gt;Item 2&lt;/mdc-list-item&gt;
               &lt;mdc-list-divider&gt;&lt;/mdc-list-divider&gt;
-          pre
-            code-prism(language="html").
-              &lt;mdc-select value.bind="value"&gt;
-                &lt;mdc-list-item model="1"&gt;Item 1&lt;/mdc-list-item&gt;
-                &lt;mdc-list-item model="2"&gt;Item 2&lt;/mdc-list-item&gt;
-                &lt;mdc-list-divider&gt;&lt;/mdc-list-divider&gt;
-                &lt;mdc-list-item model="3"&gt;Item 3&lt;/mdc-list-item&gt;
-              &lt;/mdc-select&gt;  
+              &lt;mdc-list-item model="3"&gt;Item 3&lt;/mdc-list-item&gt;
+            &lt;/mdc-select&gt;  
 
 
-        // EVENT
-        section
-          legend.mdc-typography--headline Event
-          
-          // script
-          pre
-            code-prism(language="typescript").
-              import { IMdcSelectChangeEvent } from 'aurelia-mdc-bridge';
-              
-              private onChange(e: IMdcSelectChangeEvent) {
-                // e.detail: MDCSelect
-              }
-
-          // html
-          pre
-            code-prism(language="html").
-              &lt;mdc-select on-change.delegate="onChange($event)" ... &gt;
-                ...
-              &lt;/mdc-select&gt;
+    // EVENT
+    mdc-grid-cell(span="12")
+      section(id="event")
+        span.mdc-typography--headline Event
+        pre
+          code-prism(language="typescript").
+            import { IMdcSelectChangeEvent } from 'aurelia-mdc-bridge';
+            
+            private onChange(e: IMdcSelectChangeEvent) {
+              // e.detail: MDCSelect
+            }
+        pre
+          code-prism(language="html").
+            &lt;mdc-select on-change.delegate="onChange($event)" ... &gt;
+              ...
+            &lt;/mdc-select&gt;
