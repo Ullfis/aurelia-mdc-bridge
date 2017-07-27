@@ -2,245 +2,223 @@ template
   require(from="./tabs.css")
 
   // SAMPLE
-  section
-    legend.mdc-typography--display1 Tabs
-    mdc-grid
-  
-      // CONFIG AREA
-      mdc-grid-cell(span="4")
-
-      // DEMO AREA
-      mdc-grid-cell(span="8")
+  mdc-grid
+    mdc-grid-cell(span="12")
+      span.mdc-typography--display1 Tabs
 
 
-      mdc-grid-cell(span="12")
-
-        // LINKS
-        hr
-        section
-          a(href="https://material.io/components/web/catalog/tabs/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-tabs") Material components documentation
-        section
-          a(href="https://material.io/guidelines/components/tabs.html" target="_blank" data-analytics-category="external" data-analytics-action="mdg-tabs") Material design guidelines
-        section
-          a(href="https://material.io/icons/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-icons") Icons
-        hr
+    // LINKS
+    mdc-grid-cell(span="12")
+      hr
+      a(href="https://material.io/components/web/catalog/tabs/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-tabs") Material components documentation
+      br
+      a(href="https://material.io/guidelines/components/tabs.html" target="_blank" data-analytics-category="external" data-analytics-action="mdg-tabs") Material design guidelines
+      br
+      a(href="https://material.io/icons/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-icons") Icons
+      hr
 
 
-      // BASIC
-      mdc-grid-cell(span="12")
-        section
-          legend.mdc-typography--headline Basic
+    // BASIC
+    mdc-grid-cell(span="12")
+      span.mdc-typography--headline Basic
 
-        section
-          mdc-tab-bar
-            mdc-tab(href="#") Home
-            mdc-tab(active="true" href="#") Merchandise
-            mdc-tab(href="#") About Us
+      mdc-tab-bar
+        mdc-tab(href="#") Home
+        mdc-tab(active="true" href="#") Merchandise
+        mdc-tab(href="#") About Us
 
-        pre
-          code-prism.
-            <mdc-tab-bar>
-              <mdc-tab href="#">Home</mdc-tab>
-              <mdc-tab href="#" active="true">Merchandise</mdc-tab>
-              <mdc-tab href="#">About Us</mdc-tab>
-            </mdc-tab-bar>
+      pre
+        code-prism.
+          <mdc-tab-bar>
+            <mdc-tab href="#">Home</mdc-tab>
+            <mdc-tab href="#" active="true">Merchandise</mdc-tab>
+            <mdc-tab href="#">About Us</mdc-tab>
+          </mdc-tab-bar>
 
-      // BINDING
-      mdc-grid-cell(span="12")
-        section
-          legend.mdc-typography--headline Binding
+    // BINDING
+    mdc-grid-cell(span="12")
+      span.mdc-typography--headline Binding
 
-        section
-          mdc-tab-bar(on-change.delegate="onChange($event)" active-tab-index.bind="index")
-            mdc-tab(href="#") Home
-            mdc-tab(href="#") Merchandise
-            mdc-tab(href="#") About Us
-        section
-          mdc-textfield(type="number" max="2" min="0" step="1" value.bind="index") index
-          p event detail.activeTabIndex: ${eventDetail}
+      mdc-tab-bar(on-change.delegate="onChange($event)" active-tab-index.bind="index")
+        mdc-tab(href="#") Home
+        mdc-tab(href="#") Merchandise
+        mdc-tab(href="#") About Us
 
-        pre
-          code-prism.
-            <mdc-tab-bar active-tab-index.bind="index" on-change.delegate="onChange($event)">
-              <mdc-tab href="#">Home</mdc-tab>
-              <mdc-tab href="#">Merchandise</mdc-tab>
-              <mdc-tab href="#">About Us</mdc-tab>
-            </mdc-tab-bar>
-        pre
-          code-prism(language="typescript").
-            import { IMdcTabBarChangeEvent } from 'aurelia-mdc-bridge';
+      mdc-textfield(type="number" max="2" min="0" step="1" value.bind="index") index
+      p event detail.activeTabIndex: ${eventDetail}
 
-            private index = 2;
+      pre
+        code-prism.
+          <mdc-tab-bar active-tab-index.bind="index" on-change.delegate="onChange($event)">
+            <mdc-tab href="#">Home</mdc-tab>
+            <mdc-tab href="#">Merchandise</mdc-tab>
+            <mdc-tab href="#">About Us</mdc-tab>
+          </mdc-tab-bar>
+      pre
+        code-prism(language="typescript").
+          import { IMdcTabBarChangeEvent } from 'aurelia-mdc-bridge';
 
-            onChange(e: IMdcTabBarChangeEvent) {
-              console.log(e.detail.activeTabIndex);
-            }
+          private index = 2;
 
-      // ICONS
-      mdc-grid-cell(span="12")
-        section
-          legend.mdc-typography--headline Icons
+          onChange(e: IMdcTabBarChangeEvent) {
+            console.log(e.detail.activeTabIndex);
+          }
 
-        section
-          mdc-tab-bar
-            mdc-tab(href="#" active="true")
-              i.material-icons(slot="icon" aria-label="Recents") phone
-            mdc-tab(href="#")
-              i.material-icons(slot="icon" aria-label="Favorite") favorite
-            mdc-tab(href="#")
-              i.material-icons(slot="icon" aria-label="Nearby") person_pin
+    // ICONS
+    mdc-grid-cell(span="12")
+      span.mdc-typography--headline Icons
 
-        pre
-          code-prism.
-            <mdc-tab-bar>
-              <mdc-tab href="#" active="true">
-                <i slot="icon" class="material-icons" aria-label="Recents">phone</i>
-              </mdc-tab>
-              <mdc-tab href="#">
-                <i slot="icon" class="material-icons" aria-label="Favorite">favorite</i>
-              </mdc-tab>
-              <mdc-tab href="#">
-                <i slot="icon" class="material-icons" aria-label="Nearby">person_pin</i>
-              </mdc-tab>
-            </mdc-tab-bar>
+      mdc-tab-bar
+        mdc-tab(href="#" active="true")
+          i.material-icons(slot="icon" aria-label="Recents") phone
+        mdc-tab(href="#")
+          i.material-icons(slot="icon" aria-label="Favorite") favorite
+        mdc-tab(href="#")
+          i.material-icons(slot="icon" aria-label="Nearby") person_pin
 
-      // ICONS AND TEXT
-      mdc-grid-cell(span="12")
-        section
-          legend.mdc-typography--headline Icons and text
+      pre
+        code-prism.
+          <mdc-tab-bar>
+            <mdc-tab href="#" active="true">
+              <i slot="icon" class="material-icons" aria-label="Recents">phone</i>
+            </mdc-tab>
+            <mdc-tab href="#">
+              <i slot="icon" class="material-icons" aria-label="Favorite">favorite</i>
+            </mdc-tab>
+            <mdc-tab href="#">
+              <i slot="icon" class="material-icons" aria-label="Nearby">person_pin</i>
+            </mdc-tab>
+          </mdc-tab-bar>
 
-        section
-          mdc-tab-bar
-            mdc-tab(href="#" active="true")
-              i.material-icons(slot="icon") phone
-              span(slot="icon-text") Recents
-            mdc-tab(href="#")
-              i.material-icons(slot="icon") favorite
-              span(slot="icon-text") Favorite
-            mdc-tab(href="#")
-              i.material-icons(slot="icon") person_pin
-              span(slot="icon-text") Nearby
+    // ICONS AND TEXT
+    mdc-grid-cell(span="12")
+      span.mdc-typography--headline Icons and text
 
-        pre
-          code-prism.
-            <mdc-tab-bar>
-              <mdc-tab href="#" active="true">
-                <i slot="icon" class="material-icons">phone</i>
-                <span slot="icon-text">Recents</span>
-              </mdc-tab>
-              <mdc-tab href="#">
-                <i slot="icon" class="material-icons">favorite</i>
-                <span slot="icon-text">Favorite</span>
-              </mdc-tab>
-              <mdc-tab href="#">
-                <i slot="icon" class="material-icons">person_pin</i>
-                <span slot="icon-text">Nearby</span>
-              </mdc-tab>
-            </mdc-tab-bar>
+      mdc-tab-bar
+        mdc-tab(href="#" active="true")
+          i.material-icons(slot="icon") phone
+          span(slot="icon-text") Recents
+        mdc-tab(href="#")
+          i.material-icons(slot="icon") favorite
+          span(slot="icon-text") Favorite
+        mdc-tab(href="#")
+          i.material-icons(slot="icon") person_pin
+          span(slot="icon-text") Nearby
 
-      // SCROLLER
-      mdc-grid-cell(span="12")
-        section
-          legend.mdc-typography--headline Scroller
+      pre
+        code-prism.
+          <mdc-tab-bar>
+            <mdc-tab href="#" active="true">
+              <i slot="icon" class="material-icons">phone</i>
+              <span slot="icon-text">Recents</span>
+            </mdc-tab>
+            <mdc-tab href="#">
+              <i slot="icon" class="material-icons">favorite</i>
+              <span slot="icon-text">Favorite</span>
+            </mdc-tab>
+            <mdc-tab href="#">
+              <i slot="icon" class="material-icons">person_pin</i>
+              <span slot="icon-text">Nearby</span>
+            </mdc-tab>
+          </mdc-tab-bar>
 
-        section
-          mdc-tab-bar-scroller(active-tab-index.bind="indexScroller" primary="true")
-            mdc-tab(href="#" repeat.for="itemNr of [0,1,2,3,4,5,6,7,8,9]") item ${itemNr}
-        
-        section
-          .panels
-            p.panel(repeat.for="itemNr of [0,1,2,3,4,5,6,7,8,9]" class.bind="indexScroller === itemNr ? 'active' : ''" role="tabpanel") 
-              span Item ${itemNr}
+    // SCROLLER
+    mdc-grid-cell(span="12")
+      span.mdc-typography--headline Scroller
 
-        pre
-          code-prism.
-            <mdc-tab-bar-scroller active-tab-index.bind="indexScroller" primary="true">
-              <mdc-tab href="#" repeat.for="itemNr of [0,1,2,3,4,5,6,7,8,9]">item ${itemNr}</mdc-tab>
-            </mdc-tab-bar-scroller>
+      mdc-tab-bar-scroller(active-tab-index.bind="indexScroller" primary="true")
+        mdc-tab(href="#" repeat.for="itemNr of [0,1,2,3,4,5,6,7,8,9]") item ${itemNr}
+      
+      .panels
+        p.panel(repeat.for="itemNr of [0,1,2,3,4,5,6,7,8,9]" class.bind="indexScroller === itemNr ? 'active' : ''" role="tabpanel") 
+          span Item ${itemNr}
 
-            <div class="panels">
-              <p class="panel" repeat.for="itemNr of [0,1,2,3,4,5,6,7,8,9]" class.bind="indexScroller === itemNr ? 'active' : ''" role="tabpanel">
-                <span>Item ${itemNr}</span>
-              </p>
-            </div>
+      pre
+        code-prism.
+          <mdc-tab-bar-scroller active-tab-index.bind="indexScroller" primary="true">
+            <mdc-tab href="#" repeat.for="itemNr of [0,1,2,3,4,5,6,7,8,9]">item ${itemNr}</mdc-tab>
+          </mdc-tab-bar-scroller>
 
-        pre
-          code-prism(language="css").
-            .panels {
-              padding: 8px;
-              border: 1px solid #ccc;
-              border-radius: 4px;
-              margin-top: 8px;
-            }
+          <div class="panels">
+            <p class="panel" repeat.for="itemNr of [0,1,2,3,4,5,6,7,8,9]" class.bind="indexScroller === itemNr ? 'active' : ''" role="tabpanel">
+              <span>Item ${itemNr}</span>
+            </p>
+          </div>
 
-            .panel {
-              display: none;
-            }
+      pre
+        code-prism(language="css").
+          .panels {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-top: 8px;
+          }
 
-            .panel.active {
-              display: block;
-            }
+          .panel {
+            display: none;
+          }
 
-      // COLORS
-      mdc-grid-cell(span="12")
-        section
-          legend.mdc-typography--headline Colors
+          .panel.active {
+            display: block;
+          }
 
-        section
-          legend.mdc-typography--title primary
-          mdc-tab-bar(primary="true")
-            mdc-tab
-              i.material-icons(slot="icon") phone
-              span(slot="icon-text") Recents
+    // COLORS
+    mdc-grid-cell(span="12")
+      span.mdc-typography--headline Colors
+      br
 
-            mdc-tab
-              i.material-icons(slot="icon") favorite
-              span(slot="icon-text") Favorites
+      span.mdc-typography--title primary
+      mdc-tab-bar(primary="true")
+        mdc-tab
+          i.material-icons(slot="icon") phone
+          span(slot="icon-text") Recents
 
-            mdc-tab
-              i.material-icons(slot="icon") person_pin
-              span(slot="icon-text") Nearby
+        mdc-tab
+          i.material-icons(slot="icon") favorite
+          span(slot="icon-text") Favorites
 
-        section
-          legend.mdc-typography--title accent
-          mdc-tab-bar(accent="true")
-            mdc-tab
-              i.material-icons(slot="icon") phone
-              span(slot="icon-text") Recents
+        mdc-tab
+          i.material-icons(slot="icon") person_pin
+          span(slot="icon-text") Nearby
 
-            mdc-tab
-              i.material-icons(slot="icon") favorite
-              span(slot="icon-text") Favorites
+      span.mdc-typography--title accent
+      mdc-tab-bar(accent="true")
+        mdc-tab
+          i.material-icons(slot="icon") phone
+          span(slot="icon-text") Recents
 
-            mdc-tab
-              i.material-icons(slot="icon") person_pin
-              span(slot="icon-text") Nearby
+        mdc-tab
+          i.material-icons(slot="icon") favorite
+          span(slot="icon-text") Favorites
 
-        section
-          legend.mdc-typography--title dark theme
-          mdc-tab-bar.mdc-theme--dark
-            mdc-tab
-              i.material-icons(slot="icon") phone
-              span(slot="icon-text") Recents
+        mdc-tab
+          i.material-icons(slot="icon") person_pin
+          span(slot="icon-text") Nearby
 
-            mdc-tab
-              i.material-icons(slot="icon") favorite
-              span(slot="icon-text") Favorites
+      span.mdc-typography--title dark theme
+      mdc-tab-bar.mdc-theme--dark
+        mdc-tab
+          i.material-icons(slot="icon") phone
+          span(slot="icon-text") Recents
 
-            mdc-tab
-              i.material-icons(slot="icon") person_pin
-              span(slot="icon-text") Nearby
+        mdc-tab
+          i.material-icons(slot="icon") favorite
+          span(slot="icon-text") Favorites
 
-        pre
-          code-prism.
-            <mdc-tab-bar primary="true">
-              ...
-            </mdc-tab-bar>
+        mdc-tab
+          i.material-icons(slot="icon") person_pin
+          span(slot="icon-text") Nearby
 
-            <mdc-tab-bar accent="true">
-              ...
-            </mdc-tab-bar>
+      pre
+        code-prism.
+          <mdc-tab-bar primary="true">
+            ...
+          </mdc-tab-bar>
 
-            <mdc-tab-bar class="mdc-theme--dark">
-              ...
-            </mdc-tab-bar>
+          <mdc-tab-bar accent="true">
+            ...
+          </mdc-tab-bar>
+
+          <mdc-tab-bar class="mdc-theme--dark">
+            ...
+          </mdc-tab-bar>
