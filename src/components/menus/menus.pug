@@ -1,0 +1,383 @@
+template
+  require(from="./menus.css")
+
+  // SAMPLE
+  mdc-grid
+    mdc-grid-cell(span="12")
+      span.mdc-typography--display1 Menus
+    
+    // CONFIG AREA
+    mdc-grid-cell(span="6")
+      mdc-list(dense="true")
+        mdc-list-item
+          a(href="#bindingmodel") Binding items model and menu value
+        mdc-list-item
+          a(href="#positioningthemenu") Positioning the menu
+        mdc-list-item
+          a(href="#menuopeningpoint") Menu opening point
+        mdc-list-item
+          a(href="#iconinmenuitem") Icon in menu item
+              
+
+    // DEMO AREA
+    mdc-grid-cell(span="6")
+
+      // default theme
+      section.components
+        span.mdc-typography--title Default theme
+        br
+        .mdc-menu-anchor
+          button(mdc-button="raised: true;" click.delegate="showMenu1()") Button 1
+          mdc-simple-menu(
+            view-model.ref="menuElement1" 
+            on-cancel.delegate="onCancel1()"
+            on-select.delegate="onSelect1($event)")
+            mdc-list-item 
+              | Item 1
+              span(slot="start")
+                i.material-icons(aria-hidden="true") network_wifi                  
+            mdc-list-item 
+              span(slot="start")
+                i.material-icons(aria-hidden="true") network_wifi
+              span(slot="text")
+                | Item 1.5
+            mdc-list-item(disabled="true") Item 2
+            mdc-list-item(model="item") Item 3
+            mdc-list-divider
+            mdc-list-item Item 4
+        p Last event menu 1: ${lastEvent1 | stringify}
+
+      // dark theme
+      section.mdc-theme--dark.components
+        span.mdc-typography--title Dark theme
+        br
+        .mdc-menu-anchor
+          button(mdc-button="raised: true;" click.delegate="showMenu2()") Button 2
+          mdc-simple-menu(
+            view-model.ref="menuElement2"
+            on-cancel.delegate="onCancel2()"
+            on-select.delegate="onSelect2($event)")
+
+            mdc-list-item Item 1
+            mdc-list-item(disabled="true") Item 2
+            mdc-list-item Item 3
+            mdc-list-divider
+            mdc-list-item Item 4
+        p Last event menu 2: ${lastEvent2 | stringify}
+
+
+    // LINKS
+    mdc-grid-cell(span="12")
+      hr
+      a(href="https://material.io/components/web/catalog/menus/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-simple-menu") Material components documentation
+      br
+      a(href="https://material.io/guidelines/components/menus.html" target="_blank" data-analytics-category="external" data-analytics-action="mdg-simple-menu") Material design guidelines
+      hr    
+
+    // EXAMPLE
+    mdc-grid-cell(span="12")
+      pre
+        code-prism(language="typescript").
+          import { MdcSimpleMenu, IMdcSimpleMenuSelectedEvent, MdcSimpleMenuOpenFrom } from 'aurelia-mdc-bridge';
+
+          private menuElement: MdcSimpleMenu;
+
+          // menu state
+          isOpen = menuElement.open;
+          // open menu
+          menuElement.open = true;
+          // close menu
+          menuElement.open = false;
+
+          // open menu
+          menuElement.show();
+          // show (open) menu, and focus the menu item at index 1.
+          menuElement.show({focusIndex: 1});
+          // close menu
+          menuElement.close();
+
+          // open menu from bottom right
+          menuElement.openFrom = MdcSimpleMenuOpenFrom.bottomRight;
+
+          // menu item is selected
+          private onSelect(event: IMdcSimpleMenuSelectedEvent) {
+            // event.detail.item: HTMLElement (The DOM element for the selected item)
+            // event.detail.index: number (The index of the selected item)
+          }
+
+          //  menu is closed with no selection made
+          private onCancel() {
+          }
+      
+      pre
+        code-prism(language="html").
+          &lt;mdc-simple-menu view-model.ref="menuElement"&gt;
+            &lt;mdc-list-item&gt;Item 1&lt;/mdc-list-item&gt;
+            &lt;mdc-list-item disabled="true"&gt;Item 2&lt;/mdc-list-item&gt;
+            &lt;mdc-list-item&gt;Item 3&lt;/mdc-list-item&gt;
+            &lt;mdc-list-divider&gt;&lt;/mdc-list-divider&gt;
+            &lt;mdc-list-item&gt;Item 4&lt;/mdc-list-item&gt;
+          &lt;/mdc-simple-menu&gt;
+    
+    
+    // BINDING MODEL
+    mdc-grid-cell(span="12")
+      section(id="bindingmodel")
+        span.mdc-typography--headline Binding items model and menu value
+        p.
+          You can bind a variable to #[span.mark-text value] attribute on #[span.mark-text mdc-simple-menu]
+          element and get a #[span.mark-text model] from selected #[span.mark-text mdc-list-item].
+        p.
+          It is also possible to focus item based on value.
+
+    mdc-grid-cell(span="6")
+      pre
+        code-prism(language="typescript").
+          private menuElement: MdcSimpleMenu;
+
+          private menuItems = [
+            { id: 1, text: 'Item 1' },
+            { id: 2, text: 'Item 2' },
+            { id: 3, text: 'Item 3' },
+            { id: 4, text: 'Item 4' }
+          ];            
+          private selectedMenuItem = this.menuItems[1];
+
+          private showMenu() {
+            this.menuElement.show({focusValue: true});
+          }
+
+    mdc-grid-cell(span="6")
+      .mdc-menu-anchor
+        button(mdc-button="raised: true;" click.delegate="showMenu3()") Show Menu
+        mdc-simple-menu(view-model.ref="menuElement3" value.bind="selectedMenuItem")
+          mdc-list-item(
+            repeat.for="item of menuItems3" 
+            model.bind="item") ${item.text}
+
+        br
+        p Selected item: ${selectedMenuItem | stringify}
+
+
+    mdc-grid-cell(span="12")
+      pre
+        code-prism.
+          &lt;mdc-simple-menu view-model.ref="menuElement" value.bind="selectedMenuItem"&gt;
+            &lt;mdc-list-item 
+              repeat.for="item of menuItems" 
+              model.bind="item"&gt;${item.text}
+            &lt;/mdc-list-item&gt;
+          &lt;/mdc-simple-menu&gt;
+
+          &lt;p&gt;${selectedMenuItem}&lt;/p&gt;
+
+
+    // POSITIONING THE MENU
+    mdc-grid-cell(span="12")
+      section(id="positioningthemenu")
+        span.mdc-typography--headline Positioning the menu
+        p.
+          The menu can either be positioned manually, or automatically, 
+          by anchoring it to an element.
+
+        // AUTOMATIC POSITIONING
+        span.mdc-typography--headline Automatic positioning
+        p.
+          The menu understands the concept of an anchor, which it can use 
+          to determine how to position itself, and which corner to open from.
+
+        p The anchor can either be a visible element that the menu is a child of:
+
+        pre
+          code-prism.
+            &lt;mdc-toolbar class="mdc-menu-anchor"&gt;
+              &lt;mdc-simple-menu&gt;
+                ...
+              &lt;/mdc-simple-menu&gt;
+            &lt;/mdc-toolbar&gt;
+
+        p or a wrapper element that contains the actual visible element to attach to:
+        pre
+          code-prism.
+            &lt;div class="mdc-menu-anchor"&gt;
+              &lt;button mdc-button&gt;Open menu&lt;/button&gt;
+              &lt;mdc-simple-menu&gt;
+                ...
+              &lt;/mdc-simple-menu&gt;
+            &lt;/div&gt;
+        p.
+          Note: #[span.mark-text overflow: visible] and #[span.mark-text position: relative] will be set 
+          on the element with #[span.mark-text mdc-menu-anchor] to ensure that the menu is positioned and 
+          displayed correctly.
+
+        p.
+          The menu will check if its parent element has the #[span.mark-text mdc-menu-anchor] class set, 
+          and if so, it will automatically position itself relative to this anchor element. 
+          It will open from the top left (top right in RTL) corner of the anchor by default, 
+          but will choose an appropriate different corner if close to the edge of the screen.
+    
+
+    // MANUAL POSITIONING
+    mdc-grid-cell(span="12")
+      section
+        span.mdc-typography--headline Manual positioning
+        p.
+          The menu is #[span.mark-text position: absolute] by default, and must be positioned 
+          by the user when doing manual positioning.
+
+        pre
+          code-prism.
+            <div class="container">
+              <mdc-simple-menu style="top:0; left: 0;">
+              ...
+              </mdc-simple-menu>
+            </div>          
+
+    mdc-grid-cell(span="6")
+      pre
+        code-prism(language="css").
+          .demo-menu-manual {
+            position: relative;
+            border: 1px solid #eee; 
+            margin: 0 0 32px 0;
+            width: 256px; 
+            height: 256px;
+          }
+          .demo-menu-topleft {
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
+          .demo-menu-topright {
+            position: absolute;
+            top: 0;
+            right: 0;
+          }
+          ...
+
+      pre
+        code-prism.
+          &lt;div class="demo-menu-manual"&gt;
+            &lt;mdc-simple-menu class="demo-menu-topright"&gt;
+              ...
+            &lt;/mdc-simple-menu&gt;
+          &lt;/div&gt;
+
+          &lt;button mdc-button&gt;Open menu&lt;/button&gt;
+
+    mdc-grid-cell(span="6")
+      .demo-menu-manual
+        mdc-simple-menu.demo-menu-topleft(view-model.ref="menuElement41" open-from="top-left")
+          mdc-list-item Item 1
+          mdc-list-item Item 2
+          mdc-list-item Item 3
+
+        mdc-simple-menu.demo-menu-topright(view-model.ref="menuElement42" open-from="top-right")
+          mdc-list-item Item 1
+          mdc-list-item Item 2
+          mdc-list-item Item 3
+
+        mdc-simple-menu.demo-menu-bottomleft(view-model.ref="menuElement43" open-from="bottom-left")
+          mdc-list-item Item 1
+          mdc-list-item Item 2
+          mdc-list-item Item 3
+
+        mdc-simple-menu.demo-menu-bottomright(view-model.ref="menuElement44" open-from="bottom-right")
+          mdc-list-item Item 1
+          mdc-list-item Item 2
+          mdc-list-item Item 3
+
+      br
+      button(mdc-button="raised: true;" click.delegate="showMenu41()") Top Left
+      br
+      button(mdc-button="raised: true;" click.delegate="showMenu42()") Top Right
+      br
+      button(mdc-button="raised: true;" click.delegate="showMenu43()") Bottom Left
+      br
+      button(mdc-button="raised: true;" click.delegate="showMenu44()") Bottom Right
+
+
+    // MENU OPENING POINT
+    mdc-grid-cell(span="12")
+      section
+        span.mdc-typography--headline(id="menuopeningpoint") Menu opening point
+        p.
+          The menu will open from the top left by default (top right in RTL). 
+          Depending on how you’ve positioned your button, you may want to change the 
+          point it opens from. To override the opening point, you can style 
+          #[span.mark-text transform-origin] directly, or use one of the following options:
+
+
+    mdc-grid-cell(span="8")
+      pre
+        code-prism.
+          &lt;div class="mdc-menu-anchor"&gt;
+            &lt;button mdc-button click.delegate="showMenu()"&gt;Open menu&lt;/button&gt;
+            &lt;mdc-simple-menu 
+              open-from="top-left / top-right / bottom-left / bottom-right"
+              view-model.ref="menuElement"&gt;
+              ...
+            &lt;/mdc-simple-menu&gt;
+          &lt;/div&gt;
+
+    mdc-grid-cell(span="4")
+      .mdc-menu-anchor
+        button(mdc-button="raised: true;" click.delegate="showMenu51()") Top Left
+        mdc-simple-menu(view-model.ref="menuElement51" open-from="top-left")
+          mdc-list-item Item 1
+          mdc-list-item Item 2
+          mdc-list-item Item 3
+      .mdc-menu-anchor
+        button(mdc-button="raised: true;" click.delegate="showMenu52()") Top Right
+        mdc-simple-menu(view-model.ref="menuElement52" open-from="top-right")
+          mdc-list-item Item 1
+          mdc-list-item Item 2
+          mdc-list-item Item 3
+      .mdc-menu-anchor
+        button(mdc-button="raised: true;" click.delegate="showMenu53()") Bottom left
+        mdc-simple-menu(view-model.ref="menuElement53" open-from="bottom-left")
+          mdc-list-item Item 1
+          mdc-list-item Item 2
+          mdc-list-item Item 3
+      .mdc-menu-anchor
+        button(mdc-button="raised: true;" click.delegate="showMenu54()") Bottom Right
+        mdc-simple-menu(view-model.ref="menuElement54" open-from="bottom-right")
+          mdc-list-item Item 1
+          mdc-list-item Item 2
+          mdc-list-item Item 3
+            
+
+    // ICON IN MENU ITEM
+    mdc-grid-cell(span="12")
+      span.mdc-typography--headline(id="iconinmenuitem") Icon in menu item
+    
+    mdc-grid-cell(span="8")
+      pre
+        code-prism.
+          &lt;mdc-simple-menu ...&gt;
+            &lt;mdc-list-item&gt;
+              Item 1
+              &lt;span slot="start"&gt;
+                &lt;i class="material-icons" aria-hidden="true"&gt;network_wifi&lt;/i&gt;
+              &lt;/span&gt;
+            &lt;/mdc-list-item&gt;
+            &lt;mdc-list-item&gt;
+              Item 2
+              &lt;span slot="start"&gt;
+                &lt;i class="material-icons" aria-hidden="true"&gt;star&lt;/i&gt;
+              &lt;/span&gt;
+            &lt;/mdc-list-item&gt;
+          &lt;/mdc-simple-menu&gt;
+
+    mdc-grid-cell(span="4")
+      .mdc-menu-anchor
+        button(mdc-button="raised: true;" click.delegate="showMenu6()") Open menu
+        mdc-simple-menu(view-model.ref="menuElement6")
+          mdc-list-item 
+            | Item 1
+            span(slot="start")
+              i.material-icons(aria-hidden="true") network_wifi                  
+          mdc-list-item 
+            | Item 2
+            span(slot="start")
+              i.material-icons(aria-hidden="true") star

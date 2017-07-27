@@ -1,0 +1,176 @@
+template
+
+  // SAMPLE
+  mdc-grid
+    mdc-grid-cell(span="12")
+      span.mdc-typography--display1 Text Fields
+
+    // CONFIG AREA
+    mdc-grid-cell(span="4")
+      mdc-checkbox(checked.bind="mDisabled") disabled
+      br
+      mdc-checkbox(checked.bind="mDense") dense
+      br
+      mdc-checkbox(checked.bind="mRequired") required
+      br
+      mdc-checkbox(checked.bind="mHelptextShow") Show Helptext
+      br
+      mdc-checkbox(checked.bind="mHelptextPersistent") Persistent Helptext
+      br
+      mdc-checkbox(checked.bind="mHelptextValidation") Validation Helptext
+      br
+      mdc-checkbox(checked.bind="mFullwidth") fullwidth              
+      br
+      mdc-textfield(value.bind="mHelptext") Help text
+      br
+      mdc-textfield(value.bind="numericText" type="number" min="0" max="10" step="1") number
+      br
+      mdc-textfield(value.bind="colorValue" type="color") color
+      br
+      mdc-textfield(value.bind="timeValue" type="time") time
+      br
+      mdc-textfield(value.bind="weekValue" type="week") week
+      br
+      mdc-textfield(value.bind="monthValue" type="month") month
+      br
+      mdc-textfield(value.bind="dateValue" type="date") date
+      br
+      mdc-textfield(value.bind="datetimeLocalValue" type="datetime-local") datetime-local
+      br
+      mdc-textfield(value.bind="datetimeLocalValue2" type="datetime-local" prefilled="true") prefilled
+      p (label always on top)
+
+    // DEMO AREA
+    mdc-grid-cell(span="8")
+
+      // DEFAULT THEME
+      section.components
+        span.mdc-typography--title Default theme
+        br
+        // demo textfield
+        mdc-textfield(
+          value.bind="mValue" 
+          disabled.bind="mDisabled"
+          dense.bind="mDense"
+          required.bind="mRequired"
+          helptext.bind="mHelptext"
+          helptext-show.bind="mHelptextShow"
+          helptext-persistent.bind="mHelptextPersistent"
+          helptext-validation.bind="mHelptextValidation") Label text
+
+        br
+        // multiline
+        mdc-grid-cell(span="6")
+          mdc-textfield(
+            value.bind="mValue" 
+            disabled.bind="mDisabled"
+            multiline="true"
+            dense.bind="mDense"
+            required.bind="mRequired"
+            helptext.bind="mHelptext"
+            helptext-show.bind="mHelptextShow"
+            helptext-persistent.bind="mHelptextPersistent"
+            helptext-validation.bind="mHelptextValidation") Multiline
+
+      // DARK THEME
+      section.mdc-theme--dark.components
+        span.mdc-typography--title Dark theme
+        br
+        mdc-textfield(
+          value.bind="mValue" 
+          disabled.bind="mDisabled"
+          dense.bind="mDense"
+          required.bind="mRequired"
+          helptext.bind="mHelptext"
+          helptext-show.bind="mHelptextShow"
+          helptext-persistent.bind="mHelptextPersistent"
+          helptext-validation.bind="mHelptextValidation") Label text
+
+      // password      
+      mdc-textfield(
+        value.bind="mPassword"
+        type="password"
+        aria-label="Password"
+        required="true"
+        pattern=".{8,}"
+        helptext-show="true"
+        helptext-validation="true"
+        helptext="Must be at least 8 characters long") Password
+
+      // password box      
+      mdc-textfield(
+        value.bind="mPassword"
+        type="password"
+        box="true"
+        aria-label="Password"
+        required="true"
+        pattern=".{8,}"
+        helptext-show="true"
+        helptext-validation="true"
+        helptext="Must be at least 8 characters long") Password
+
+      // placeholder
+      mdc-textfield(
+        value=""
+        fullwidth.bind="mFullwidth"
+        placeholder="Placeholder text")
+
+      // fullwidth
+      mdc-textfield(
+        value=""
+        fullwidth="true"
+        placeholder="Full width")
+      p Note that full-width text fields do not support floating labels.
+
+
+    // LINKS  
+    mdc-grid-cell(span="12")
+      hr
+      a(href="https://material.io/components/web/catalog/input-controls/text-fields/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-textfield") Material components documentation
+      br
+      a(href="https://material.io/guidelines/components/text-fields.html" target="_blank" data-analytics-category="external" data-analytics-action="mdg-textfield") Material design guidelines
+      hr
+
+
+    // EXAMPLE
+    mdc-grid-cell(span="12")
+      pre
+        code-prism.
+          &lt;mdc-textfield
+            value.bind="value"
+            type="text"
+            name="name"
+            box="false"
+            prefilled="false"
+            multiline="false"
+            multiline-rows.bind="multilineRows"
+            multiline-cols.bind="multilineCols"
+            disabled.bind="disabled"
+            placeholder.bind="placeholder"
+            aria-label.bind="ariaLabel"
+            dense.bind="dense"
+            fullwidth.bind="fullwidth"
+            required.bind="required"
+            pattern.bind="pattern"
+            helptext.bind="helptext"
+            helptext-show.bind="helptextShow"
+            helptext-persistent.bind="helptextPersistent"
+            helptext-validation.bind="helptextValidation"
+            min.bind="min"
+            max.bind="max"
+            step.bind="step"&gt;
+            Label text
+          &lt;/mdc-textfield&gt;
+
+    // FULL WIDTH
+    mdc-grid-cell(span="12")      
+      span.mdc-typography--headline Full width
+      pre
+        code-prism.
+          &lt;mdc-textfield
+            value.bind="value"
+            fullwidth="true"
+            placeholder="Full width"&gt;
+          &lt;/mdc-textfield&gt;
+          
+      p Full-width text fields do not support floating labels.

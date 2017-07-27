@@ -1,5 +1,7 @@
-
-// TOOLBAR TITLE
+/* 
+ * TOOLBAR TITLE
+ *
+*/
 .mdc-toolbar__title-link {
   color: $my-white-on-dark-color;
   text-decoration: none;
@@ -19,5 +21,62 @@
   }  
   .mdc-toolbar__title--small {
     display: block;
+  }
+}
+
+
+/* 
+ * BUTTONS AND LINKS 
+ *
+*/
+
+/* Different styles on buttons between Chrome/Firefox */
+.toolbar-link__button {
+  height: 36px;
+  margin-top: 10px;
+}
+
+/* Hide/show toolbar buttons/icons */
+@media(min-width: 570px) {
+  a.toolbar-link__full {
+    display: block;
+  }
+  a.toolbar-link__small {
+    display: none;
+  }
+}
+@media(max-width: 569px) {
+  a.toolbar-link__full {
+    display: none;
   }  
+  a.toolbar-link__small {
+    display: block;
+  }  
+}
+
+/* Color and size for toolbar svg icons */
+a.toolbar-link__svg {
+  height: 24px;
+  width: 24px;
+  align-items: center;
+  justify-content: center;
+
+  path:not([fill]) {
+    fill: rgba(255, 255, 255, 1); 
+  }
+}
+a.toolbar-link__svg.accent {
+  path:not([fill]) {
+    fill: $mdc-theme-accent; 
+  }
+}
+a.toolbar-link__svg.primary {
+  path:not([fill]) {
+    fill: $mdc-theme-primary; 
+  }
+}
+
+/* Switches z-index under toolbar */
+.mdc-switch__background {
+  z-index: 0;
 }

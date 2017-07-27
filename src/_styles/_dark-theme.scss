@@ -1,20 +1,23 @@
-// DARK THEME
+/* 
+ * DARK THEME
+ *
+*/
 .mdc-theme--dark {
   background-color: $my-dark-color;
+  color: $my-white-on-dark-color;
 
-  legend {
-    color: $my-white-on-dark-color;
+
+  /* mdc-select-css */
+  select {
+    background-color: #333;
   }
 
-  fieldset {
-    background-color: $my-dark-color;
-
-    legend {
-      color: $my-white-on-dark-color;
-    }
+  /* mdc-select-css */
+  select option {
+    background-color: #333;
   }
 
-  .mdc-switch-label, p, table {
-    color: $my-white-on-dark-color;
-  }
+}
+section.components {
+  padding: 8px 16px 8px 16px;
 }

@@ -1,11 +1,10 @@
 template
-  require(from="./index.css")
   require(from="./toolbar-links")
   require(from="./toolbar-title")
   
 
   // TOOLBAR
-  mdc-toolbar.mdc-theme--dark(fixed="true" waterfall="true")
+  mdc-toolbar.mdc-theme--dark(fixed="true" waterfall="false")
     mdc-toolbar-row
       mdc-toolbar-section(start="true")
         toolbar-title
@@ -13,10 +12,10 @@ template
       mdc-toolbar-section(end="true" fit="true")
         toolbar-links(doc="false" comp="false")
 
-  main.mdc-toolbar-fixed-adjust
-
-    .my-content.mdc-typography--body1
-      section
+  // MAIN
+  main.mdc-toolbar-fixed-adjust.mdc-typography--body1
+    mdc-grid
+      mdc-grid-cell(span="12")
         h1.mdc-typography--display1 What is Aurelia Mdc Bridge?
         p.mdc-typography--body1.
           Aurelia Mdc Bridge is a collection of wrappers for Material Components. 
@@ -25,57 +24,47 @@ template
 
         a(href="#/documentation/start" mdc-button="primary: true;") Get started
 
-        br
-        br
+
+      // AURELIA
+      mdc-grid-cell(span-desktop="6" span-tablet="8")
+        mdc-card
+          mdc-card-title(title="What is Aurelia?" subtitle="Create next generation JavaScript apps today.")
+            .aurelia-avatar
+
+          mdc-card-text
+            p.mdc-typography--body1.
+              Aurelia is a JavaScript client framework for mobile, desktop and web leveraging 
+              simple conventions and empowering creativity.
+            ul.mdc-typography--body2
+              li Forward thinking
+              li Modern Architecture
+              li Two-Way databinding
+              li Extensible HTML
+              li Routing & UI Composition
+              li MV* with Conventions
+              li Broad Language Support
+              li Testable
+          mdc-card-actions
+            a(href="http://aurelia.io/" target="_blank" mdc-button="primary: true;" data-analytics-category="external" data-analytics-action="aurelia.io") Check out Aurelia.io
         
-        style.
-          .my-grid-list .mdc-grid-tile {
-            width : 450px;
-          }
 
+      // MATERIAL
+      mdc-grid-cell(span-desktop="6" span-tablet="8")
+        mdc-card
+          mdc-card-title(title="What is Material Components?" subtitle="Combine theory, resources and tools for crafting digital experiences.")
+            .material-avatar
+          mdc-card-text
+            p.
+              Material Components provide a reliable development environment for apps and websites across 
+              Android, iOS, and the web. 
+            p.
+              Components are updated as the Material Design system evolves, 
+              ensuring consistent pixel-perfect implementation and adherence to Google’s front-end development 
+              standards, such as internationalization and accessibility support.
+          mdc-card-actions
+            a(href="https://material.io/" target="_blank" mdc-button="primary: true;" data-analytics-category="external" data-analytics-action="material.io") Check out Material.io
 
-        .mdc-grid-list.my-grid-list
-          ul.mdc-grid-list__tiles
-            li.mdc-grid-tile
-              mdc-card
-                mdc-card-title(title="What is Aurelia?" subtitle="Create next generation JavaScript apps today.")
-                  .aurelia-avatar
-
-                mdc-card-text
-                  p.mdc-typography--body1.
-                    Aurelia is a JavaScript client framework for mobile, desktop and web leveraging 
-                    simple conventions and empowering creativity.
-                  ul.mdc-typography--body2
-                    li Forward thinking
-                    li Modern Architecture
-                    li Two-Way databinding
-                    li Extensible HTML
-                    li Routing & UI Composition
-                    li MV* with Conventions
-                    li Broad Language Support
-                    li Testable
-                mdc-card-actions
-                  a(href="http://aurelia.io/" target="_blank" mdc-button="primary: true;" data-analytics-category="external" data-analytics-action="aurelia.io") Check out Aurelia.io
-
-
-            li.mdc-grid-tile
-              mdc-card
-                mdc-card-title(title="What is Material Components?" subtitle="Combine theory, resources and tools for crafting digital experiences.")
-                  .material-avatar
-                mdc-card-text
-                  p.
-                    Material Components provide a reliable development environment for apps and websites across 
-                    Android, iOS, and the web. 
-                  p.
-                    Components are updated as the Material Design system evolves, 
-                    ensuring consistent pixel-perfect implementation and adherence to Google’s front-end development 
-                    standards, such as internationalization and accessibility support.
-                mdc-card-actions
-                  a(href="https://material.io/" target="_blank" mdc-button="primary: true;" data-analytics-category="external" data-analytics-action="material.io") Check out Material.io
-
-  br
-  br
-  
+  // YEAH  
   footer.footer
     .footer-content
       p.mdc-typography--Headline Material Components Web license: #[a(href="https://github.com/material-components/material-components-web/blob/master/LICENSE" target="_blank" data-analytics-category="external" data-analytics-action="license-material") Apache 2.0]

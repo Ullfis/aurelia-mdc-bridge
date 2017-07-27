@@ -1,0 +1,200 @@
+template
+  require(from="./grid-lists.css")
+
+  // SAMPLE
+  mdc-grid
+    mdc-grid-cell(span="12")
+      span.mdc-typography--display1 Grid lists
+
+    mdc-grid-cell(span="12")
+      p.
+        MDC Grid List provides a RTL-aware Material Design Grid list component adhering to the 
+        #[span.mark-text Material Design Grid list spec]. Grid Lists are best suited for presenting homogeneous data, typically images. 
+        Each item in a grid list is called a #[span.mark-text tile]. Tiles maintain consistent width, height, and padding across screen sizes.
+
+    // LINKS
+    mdc-grid-cell(span="12")
+      hr
+      a(href="https://material.io/components/web/catalog/grid-lists/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-grid-list") Material components documentation
+      br
+      a(href="https://material.io/guidelines/components/grid-lists.html" target="_blank" data-analytics-category="external" data-analytics-action="mdg-grid-list") Material design guidelines
+      br
+      a(href="https://material.io/icons/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-icons") Icons
+      hr
+
+
+    // BASIC
+    mdc-grid-cell(span="6")
+      section
+        span.mdc-typography--headline Basic
+        pre
+          code-prism.
+            &lt;mdc-grid-list
+              header-top="false"
+              two-line="false"
+              icon-start="false"
+              icon-end="false"
+              aspect="1x1"
+              gutter="1"&gt;
+              <mdc-grid-tile>
+                Header Title
+              </mdc-grid-tile>
+            &lt;/mdc-grid-list&gt;
+      
+      mdc-checkbox(checked.bind="isRtl") rtl
+      br
+      mdc-checkbox(checked.bind="header") header-top
+      br
+      mdc-checkbox(checked.bind="twoLine") two-line
+      br
+      mdc-checkbox(checked.bind="iconStart") icon-start
+      br
+      mdc-checkbox(checked.bind="iconEnd") icon-end
+      br
+      .mdc-form-field
+        label(for="aspect") aspect:
+        select#aspect(mdc-select-css value.bind="aspect")
+          option(repeat.for="item of ['1x1', '16x9', '2x3', '3x2', '4x3', '3x4']" model.bind="item") ${item}
+      br
+      mdc-textfield(value.bind="gutter" type="number" min="0" max="10" step="1") gutter
+      p.mdc-typography--caption Grid list tiles can have 1px padding instead of 4px. Set this value to 1 to use 1px padding.
+
+    mdc-grid-cell(span="6")
+      section(dir.bind="isRtl ? 'rtl' : 'ltr'")
+        mdc-grid-list(header-top.bind="header" two-line.bind="twoLine" icon-start.bind="iconStart" icon-end.bind="iconEnd" aspect.bind="aspect" gutter.bind="gutter")
+          mdc-grid-tile(on-click.delegate="onPrimary(1)" img-src="images/1-1.jpeg" on-secondary.delegate="onSecondary(1)" support-text="Support text" support-icon="library_books" action-icon="star") Header Title 1
+          
+          mdc-grid-tile(on-click.delegate="onPrimary(2)" img-src="images/16-9.jpeg" on-secondary.delegate="onSecondary(2)" support-text="Support text" action-icon="star") Header Title 2
+
+          mdc-grid-tile(on-click.delegate="onPrimary(3)" img-src="images/1-1.jpeg" on-secondary.delegate="onSecondary(3)" action-icon="star") Header Title 3
+
+          mdc-grid-tile(on-click.delegate="onPrimary(4)" img-class="my-tile-image" on-secondary.delegate="onSecondary(4)" action-icon="star") Header Title 4
+
+        p Primary action: ${primaryItem}
+        p Secondary action: ${secondaryItem}
+
+
+    // GRID TILE
+    mdc-grid-cell(span="12")
+      section
+        span.mdc-typography--headline Grid Tile
+        pre
+          code-prism.
+            &lt;mdc-grid-list...&gt;
+              &lt;mdc-grid-tile
+                img-src="images/1-1.jpeg"
+                img-class="my-tile-image"
+                support-text="Support text"
+                support-icon="library_books"
+                action-icon="star"
+                on-click.delegate="onPrimary(1)"
+                on-secondary.delegate="onSecondary(1)"&gt;
+                Header Title 1
+              &lt;/mdc-grid-tile&gt;
+            &lt;/mdc-grid-list&gt;
+
+        p Use #[span.mark-text img-src] or #[span.mark-text img-class] to show a picture not both.
+        p If you use #[span.mark-text img-class] it will resize the assets to cover the tile and crop the assets to display the center part.
+
+        pre
+          code-prism(language="css").
+            .my-tile-image {
+              background-image: url(images/16-9.jpeg);
+            }              
+        pre
+          code-prism.
+            &lt;mdc-grid-tile                  
+              img-class="my-tile-image"
+              ...&gt;
+              Header Title 1
+            &lt;/mdc-grid-tile&gt;
+
+
+    // TILE WIDTH
+    mdc-grid-cell(span="6")
+      section
+        span.mdc-typography--headline Tile Width
+        pre
+          code-prism(language="css").
+            .my-grid-list .mdc-grid-tile {
+              width : 300px;
+            }
+        pre
+          code-prism.
+            &lt;mdc-grid-list class="my-grid-list" aspect="16x9" gutter="1"&gt;
+              &lt;mdc-grid-tile img-src="images/16-9.jpeg"&gt;&lt;/mdc-grid-tile&gt;
+              ...
+            &lt;/mdc-grid-list&gt;
+
+    mdc-grid-cell(span="6")
+      mdc-grid-list.my-grid-list(aspect="16x9" gutter="1")
+        mdc-grid-tile(img-src="images/16-9.jpeg")
+        mdc-grid-tile(img-src="images/16-9.jpeg")
+        mdc-grid-tile(img-src="images/16-9.jpeg")
+        mdc-grid-tile(img-src="images/16-9.jpeg")
+
+
+    // THEME
+    mdc-grid-cell(span="6")
+      section
+        span.mdc-typography--headline Theme
+        p.
+          #[span.mark-text mdc-grid-list] supports theming. #[span.mark-text mdc-grid-tile__primary] uses the theme’s background color 
+          for its background color. #[span.mark-text mdc-grid-tile__secondary] uses the theme’s primary color for 
+          it’s background color, and the theme’s #[span.mark-text text-primary-on-primary] color for its text color.
+        pre
+          code-prism(language="css").
+            /* background of secondary content */
+            .my-tile-color .mdc-grid-tile__secondary {
+              background: rgba(0, 0, 0, 0.2);
+            }
+            /* action icon */
+            .my-tile-color .mdc-grid-tile__icon {
+              cursor: pointer;
+              color: rgba(255, 255, 255, 0.3);
+            }
+            /* action icon hover */
+            .my-tile-color .mdc-grid-tile__icon:hover {
+              color: rgba(255, 255, 255, 0.7);
+            }
+            /* action icon active */
+            .my-tile-color .mdc-grid-tile__icon:active {
+              color: rgba(255, 255, 255, 1);
+            }              
+            /* support icon */
+            .my-tile-color .mdc-grid-tile__support-text i {
+              color: rgba(255, 255, 255, 0.7);
+            }
+        pre
+          code-prism.
+            &lt;mdc-grid-list class="my-tile-color my-tile-stuff" two-line="true" icon-end="true"&gt;
+              &lt;mdc-grid-tile 
+                img-src="images/1-1.jpeg" 
+                support-text="Support text" 
+                action-icon="info" 
+                support-icon="library_books"&gt;
+                Title
+              &lt;/mdc-grid-tile&gt;
+              ...
+            &lt;/mdc-grid-list&gt;
+
+    mdc-grid-cell(span="6")
+      section
+        mdc-grid-list.my-tile-color.my-tile-stuff(two-line="true" icon-end="true")
+          mdc-grid-tile(repeat.for="nr of [0,1,2,3,4,5,6,7,8]" img-src="images/1-1.jpeg" support-text="Support text" action-icon="info" support-icon="thumb_up") Title
+
+        p some sass..
+        pre
+          code-prism(language="css").
+            @import "@material/elevation/mixins";
+            
+            .my-tile-stuff {
+              .mdc-grid-tile {
+                @include mdc-elevation(0);
+                @include mdc-elevation-transition;
+              }
+              .mdc-grid-tile:active {
+                @include mdc-elevation(8);
+              }  
+            }
+        a(href="https://material.io/components/web/catalog/elevation/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-elevation") Elevation

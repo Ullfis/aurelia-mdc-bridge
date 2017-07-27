@@ -1,84 +1,78 @@
 template
-  require(from="./switches.css")
 
   // SAMPLE
-  section
-    legend.mdc-typography--display1 Switches
-    mdc-grid
-      
-      // CONFIG AREA
-      mdc-grid-cell(span="4") 
-        section
-          mdc-checkbox(checked.bind="switchDisable") Disable switch
+  mdc-grid
+    mdc-grid-cell(span="12")
+      span.mdc-typography--display1 Switches
 
-      // DEMO AREA
-      mdc-grid-cell(span="8")
-        section
-          legend.mdc-typography--title Default theme
-          mdc-switch(disabled.bind="switchDisable" checked.bind="switch1" on-change.delegate="onChange($event)") On/off
-          table.event-list
-            tbody
-              tr
-                td checked:
-                td ${switch1}
-              tr
-                td event value:
-                td ${isChecked}
+    // CONFIG AREA
+    mdc-grid-cell(span="4")
+      section
+        mdc-checkbox(checked.bind="switchDisable") Disable switch
 
-        section 
-          mdc-switch(disabled.bind="switchDisable" checked.bind="switch2" label-on="On" label-off="Off")
-          p checked: ${switch2}
-
-
-        section.mdc-theme--dark
-          legend.mdc-typography--title Dark theme
-          mdc-switch(disabled.bind="switchDisable" checked.bind="switch3") On/off
-          p checked: ${switch3}
-          mdc-switch(disabled.bind="switchDisable" checked.bind="switch4" label-on="On" label-off="Off")
-          p checked: ${switch4}
+    // DEMO AREA
+    mdc-grid-cell(span="8")
+      section.components
+        span.mdc-typography--title Default theme
+        br
+        mdc-switch(disabled.bind="switchDisable" checked.bind="switch1" on-change.delegate="onChange($event)") On/off
+        table.event-list
+          tbody
+            tr
+              td checked:
+              td ${switch1}
+            tr
+              td event value:
+              td ${isChecked}
+        br
+        mdc-switch(disabled.bind="switchDisable" checked.bind="switch2" label-on="On" label-off="Off")
+        p checked: ${switch2}
 
 
-      mdc-grid-cell(span="12")
+      section.mdc-theme--dark.components
+        span.mdc-typography--title Dark theme
+        br
+        mdc-switch(disabled.bind="switchDisable" checked.bind="switch3") On/off
+        p checked: ${switch3}
+        mdc-switch(disabled.bind="switchDisable" checked.bind="switch4" label-on="On" label-off="Off")
+        p checked: ${switch4}
 
-        // LINKS
-        hr
-        section
-          a(href="https://material.io/components/web/catalog/input-controls/switches/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-switch") Material components documentation
-        section
-          a(href="https://material.io/guidelines/components/selection-controls.html#selection-controls-switch" target="_blank" data-analytics-category="external" data-analytics-action="mdg-switch") Material design guidelines
-        hr
 
-        section
-          // css
-          pre
-            code-prism(language="css").
-              // z-index under toolbar
+    // LINKS
+    mdc-grid-cell(span="12")
+      hr
+      a(href="https://material.io/components/web/catalog/input-controls/switches/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-switch") Material components documentation
+      br
+      a(href="https://material.io/guidelines/components/selection-controls.html#selection-controls-switch" target="_blank" data-analytics-category="external" data-analytics-action="mdg-switch") Material design guidelines
+      hr
 
-              .mdc-switch__background {
-                z-index: 0;
-              }    
+    // EXAMPLE
+    mdc-grid-cell(span="12")
+      pre
+        code-prism(language="css").
+          // z-index under toolbar
 
-          // script
-          pre
-            code-prism(language="typescript").
-              import { IMdcSwitchEvent } from 'aurelia-mdc-bridge';
+          .mdc-switch__background {
+            z-index: 0;
+          }    
+      pre
+        code-prism(language="typescript").
+          import { IMdcSwitchEvent } from 'aurelia-mdc-bridge';
 
-              private onChange(event: IMdcSwitchEvent) {
-                this.isChecked = event.detail;
-                this.eventCounter++;
-              }
-              
-          // html
-          pre
-            code-prism(language="html").
-              &lt;mdc-switch checked.bind="switch1"&gt;
-                On/off
-              &lt;/mdc-switch&gt;
+          private onChange(event: IMdcSwitchEvent) {
+            this.isChecked = event.detail;
+            this.eventCounter++;
+          }
+      pre
+        code-prism(language="html").
+          &lt;mdc-switch checked.bind="switch1"&gt;
+            On/off
+          &lt;/mdc-switch&gt;
 
-              &lt;mdc-switch 
-                checked.bind="switch1"
-                disabled.bind="switchDisable"
-                label-on="On"
-                label-off="Off"
-                on-change.delegate="onChange($event)"&gt;
-              &lt;/mdc-switch&gt;
+          &lt;mdc-switch 
+            checked.bind="switch1"
+            disabled.bind="switchDisable"
+            label-on="On"
+            label-off="Off"
+            on-change.delegate="onChange($event)"&gt;
+          &lt;/mdc-switch&gt;

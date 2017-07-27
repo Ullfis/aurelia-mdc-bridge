@@ -1,0 +1,240 @@
+template
+
+  // SAMPLE
+  mdc-grid
+    mdc-grid-cell(span="4")
+      span.mdc-typography--display1 Toolbars
+
+
+    // LINKS
+    mdc-grid-cell(span="12")
+      hr
+      a(href="https://material.io/components/web/catalog/toolbar/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-toolbar") Material components documentation
+      br
+      a(href="https://material.io/guidelines/components/toolbars.html" target="_blank" data-analytics-category="external" data-analytics-action="mdg-toolbar") Material design guidelines
+      br
+      a(href="https://material.io/icons/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-icons") Icons
+      hr
+
+    // BASIC
+    mdc-grid-cell(span="12")
+      span.mdc-typography--headline Basic
+        
+    mdc-grid-cell(span="12")
+      mdc-toolbar
+        mdc-toolbar-row
+          mdc-toolbar-section(start="true")
+            a.material-icons.mdc-toolbar__icon--menu(href="#/components/toolbars") menu
+            mdc-toolbar-title Title
+
+      mdc-toolbar.mdc-theme--dark
+        mdc-toolbar-row
+          mdc-toolbar-section(start="true")
+            a.material-icons.mdc-toolbar__icon--menu(href="#/components/toolbars") menu
+            mdc-toolbar-title Title
+
+      pre
+        code-prism.
+          <mdc-toolbar>
+            <mdc-toolbar-row>
+              <mdc-toolbar-section start="true">
+                <a class="material-icons mdc-toolbar__icon--menu" href="#/components/toolbars">menu</a>
+                <mdc-toolbar-title>Title</mdc-toolbar-title>
+              </mdc-toolbar-section>              
+            </mdc-toolbar-row>
+          </mdc-toolbar>
+
+          <mdc-toolbar class="mdc-theme--dark">
+            ...
+          </mdc-toolbar>
+
+    // MULTIROW
+    mdc-grid-cell(span="12")
+      span.mdc-typography--headline Multi row
+
+    mdc-grid-cell(span="6")
+      pre
+        code-prism.
+          <mdc-toolbar>
+            <mdc-toolbar-row>
+              <span>row 1</span>
+            </mdc-toolbar-row>
+            <mdc-toolbar-row>
+              <span>row 2</span>
+            </mdc-toolbar-row>
+          </mdc-toolbar>
+
+    mdc-grid-cell(span="6")
+      mdc-toolbar
+        mdc-toolbar-row
+          span row 1
+        mdc-toolbar-row
+          span row 2
+
+
+    // SECTIONS
+    mdc-grid-cell(span="12")
+      span.mdc-typography--headline Sections
+
+    mdc-grid-cell(span="6")
+      pre
+        code-prism.
+          <mdc-toolbar>
+            <mdc-toolbar-row>
+              <mdc-toolbar-section start="true">start</mdc-toolbar-section>
+              <mdc-toolbar-section>center</mdc-toolbar-section>
+              <mdc-toolbar-section end="true">end</mdc-toolbar-section>
+            </mdc-toolbar-row>
+          </mdc-toolbar>
+
+    mdc-grid-cell(span="6")
+      mdc-toolbar
+        mdc-toolbar-row
+          mdc-toolbar-section(start="true")
+            | start
+          mdc-toolbar-section
+            | center
+          mdc-toolbar-section(end="true")
+            | end
+
+
+    // SHRINK TO FIT
+    mdc-grid-cell(span="12")
+      span.mdc-typography--headline Shrink to fit
+
+    mdc-grid-cell(span="6")
+      pre
+        code-prism.
+          <mdc-toolbar>
+            <mdc-toolbar-row>
+              <mdc-toolbar-section start="true">
+                <mdc-toolbar-title>This is a super super super super super super super super long title</mdc-toolbar-title>
+              </mdc-toolbar-section>
+              <mdc-toolbar-section end="true" fit="true">end</mdc-toolbar-section>
+            </mdc-toolbar-row>
+          </mdc-toolbar>
+
+    mdc-grid-cell(span="6")
+      mdc-toolbar
+        mdc-toolbar-row
+          mdc-toolbar-section(start="true")
+            mdc-toolbar-title This is a super super super super super super super super long title
+          mdc-toolbar-section(fit="true" end="true") end
+
+    // ICONS
+    mdc-grid-cell(span="12")
+      span.mdc-typography--headline Icons
+      p.
+        Icons can be added as anchor tags, spans, or buttons to #[span.mark-text mdc-toolbar]. There are two types of icons, 
+        #[span.mark-text mdc-toolbar__icon--menu] represents the left most icon in #[span.mark-text mdc-toolbar]
+        usually to the left of #[span.mark-text mdc-toolbar__title]. #[span.mark-text mdc-toolbar__icon]
+        represents any icons placed on the right side of an #[span.mark-text mdc-toolbar].
+
+      mdc-toolbar
+        mdc-toolbar-row
+          mdc-toolbar-section(start="true")
+            a.material-icons.mdc-toolbar__icon--menu(href="#/components/toolbars") menu
+            mdc-toolbar-title Title
+          mdc-toolbar-section(end="true")
+            span.material-icons.mdc-toolbar__icon star
+            button.mdc-toolbar__icon
+              i.material-icons star
+            a.material-icons.mdc-toolbar__icon(href="#/components/toolbars") star
+
+      pre
+        code-prism.
+          <mdc-toolbar>
+            <mdc-toolbar-row>
+              <mdc-toolbar-section start="true">
+                <a class="material-icons mdc-toolbar__icon--menu" href="#/components/toolbars">menu</a>
+                <mdc-toolbar-title>Title</mdc-toolbar-title>
+              </mdc-toolbar-section>
+              <mdc-toolbar-section end="true" fit="true">
+                <span class="materiale-icons mdc-toolbar__icon">star</span>
+                <button class="mdc-toolbar__icon">
+                  <i class="material-icons">star</i>
+                </button>
+                <a class="material-icons mdc-toolbar__icon" href="#/components/toolbars">star</a>
+              </mdc-toolbar-section>
+            </mdc-toolbar-row>
+          </mdc-toolbar>
+
+    // FIXED
+    mdc-grid-cell(span="12")
+      span.mdc-typography--headline Fixed toolbars
+      p.
+        By default, toolbars scroll with the page content. To keep the toolbar fixed to the 
+        top of the screen, add #[span.mark-text fixed="true"] to the toolbar element
+      
+      a(href="https://material.io/components/web/catalog/toolbar/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-toolbar") More here: Material components documentation
+          
+      pre
+        code-prism.
+          <mdc-toolbar fixed="true">
+            ...
+          </mdc-toolbar>
+
+          <main class="mdc-toolbar-fixed-adjust">
+            ...
+          </main>              
+
+    // WATERFALL
+    mdc-grid-cell(span="12")
+      span.mdc-typography--headline Waterfall toolbars
+      p.
+        By adding #[span.mark-text waterfall="true"] to #[span.mark-text fixed toolbars], fixed toolbars 
+        become waterfall toolbars. Waterfall toolbar is initially static and has no elevation, and then 
+        when the user starts scrolling becomes fixed and gains elevation.
+      a(href="https://material.io/components/web/catalog/toolbar/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-toolbar") More here: Material components documentation
+          
+      pre
+        code-prism.
+          <mdc-toolbar fixed="true" waterfall="true">
+            ...
+          </mdc-toolbar>
+
+          <main class="mdc-toolbar-fixed-adjust">
+            ...
+          </main>
+
+    // FIXED LAST ROW
+    mdc-grid-cell(span="12")
+      span.mdc-typography--headline Fixed last row toolbars
+      p.
+        By adding #[span.mark-text fixed-lastrow-only="true"] to #[span.mark-text fixed toolbars], 
+        fixed toolbars will anchor only the last row to the top.
+      a(href="https://material.io/components/web/catalog/toolbar/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-toolbar") More here: Material components documentation
+          
+      pre
+        code-prism.
+          <mdc-toolbar fixed="true" fixed-lastrow-only="true">
+            ...
+          </mdc-toolbar>
+
+          <main class="mdc-toolbar-fixed-adjust">
+            ...
+          </main>
+
+    // FLEXIBLE
+    mdc-grid-cell(span="12")
+      span.mdc-typography--headline Flexible toolbars
+      p.
+        Flexible behavior can be added to mdc-toolbar, whose height changes as the user scrolls.
+      a(href="https://material.io/components/web/catalog/toolbar/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-toolbar") More here: Material components documentation
+          
+      pre
+        code-prism.
+          <mdc-toolbar flexible="true" on-change.delegate="onChange($event)">
+            ...
+          </mdc-toolbar>
+      p.
+        Flexible toolbars emit a change custom event with a detail object containing flexibleExpansionRatio property. 
+        The flexibleExpansionRatio property is a number from 0-1 representing the ratio of flexible space that 
+        has already been collapsed divided by the total amount of flexible space.
+      pre
+        code-prism(language="typescript").
+          import { IMdcToolbarFlexibleChangeEvent } from 'aurelia-mdc-bridge';
+
+          private onChange(e: IMdcToolbarFlexibleChangeEvent) {
+            console.log(e.detail.toFixed(2));
+          }

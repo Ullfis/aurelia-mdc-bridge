@@ -1,0 +1,38 @@
+.aurelia-avatar {
+  background-image: url("images/aurelia.png");
+  background-size: cover;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+  margin-top: 0.8rem;
+}
+
+.material-avatar {
+  background-image: url("images/material.svg");
+  background-size: cover;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+  margin-top: 0.8rem;
+}
+
+.footer {
+  font-size: .875rem;
+  font-weight: 400;
+  letter-spacing: .04em;
+  line-height: 1.25rem;
+  height: 192px;
+  margin-top: 144px;      
+  background-color: rgb(250, 250, 250);
+  background: #fafafa;
+  padding-top: 32px;
+  padding-bottom: 24px;
+}
+.footer-content {
+  max-width: 987px;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
+}

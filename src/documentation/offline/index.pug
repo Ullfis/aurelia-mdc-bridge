@@ -1,68 +1,68 @@
 template
 
   // DOCUMENTATION
-  section
-    legend.mdc-typography--display1 Icons and fonts offline
-    mdc-grid
+  mdc-grid
+    mdc-grid-cell(span="12")
+      span.mdc-typography--display1 Icons and fonts offline
+    
+    mdc-grid-cell(span="12")
+      p.
+        Normally you want to use icons and fonts from googleapis but sometimes you need to 
+        build systems for computers who are never online. To do this you have to include
+        fonts and icons with your build.
+      p.
+        Here is online configuration in index.html:
+
+      pre
+        code-prism(language="html").
+          &lt;head&gt;
+            &lt;link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"&gt;    (icon)
+            &lt;link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet"&gt;        (fonts)
+            &lt;link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet"&gt; (fonts)
+            ...
+
+      span.mdc-typography--headline Icons
+      p 1. Install material design icons:
+      pre
+        code-prism(language="batch").
+          npm install material-design-icons
       
-      mdc-grid-cell(span="12")    
-        p.
-          Normally you want to use icons and fonts from googleapis but sometimes you need to 
-          build systems for computers who are never online. To do this you have to include
-          fonts and icons with your build.
-        p.
-          Here is online configuration in index.html:
+      p 2. Add this to aurelia.json build section:
+      pre
+        code-prism(language="json").
+          "build": {
+            ...
+            "copyFiles": {
+              "node_modules/material-design-icons/iconfont/**/*.*": "style/mdi"
+            },
 
-        pre
-          code-prism(language="html").
-            &lt;head&gt;
-              &lt;link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"&gt;    (icon)
-              &lt;link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet"&gt;        (fonts)
-              &lt;link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet"&gt; (fonts)
-              ...
-
-        legend.mdc-typography--headline Icons
-        p 1. Install material design icons:
-        pre
-          code-prism(language="batch").
-            npm install material-design-icons
-        
-        p 2. Add this to aurelia.json build section:
-        pre
-          code-prism(language="json").
-            "build": {
-              ...
-              "copyFiles": {
-                "node_modules/material-design-icons/iconfont/**/*.*": "style/mdi"
-              },
-
-        p 3. Replace icon stylesheet href in index.html header with this:
-        pre
-          code-prism(language="html").
-            &lt;head&gt;
-              &lt;link href="/style/mdi/material-icons.css" rel="stylesheet"&gt;
+      p 3. Replace icon stylesheet href in index.html header with this:
+      pre
+        code-prism(language="html").
+          &lt;head&gt;
+            &lt;link href="/style/mdi/material-icons.css" rel="stylesheet"&gt;
 
 
-        br
-        legend.mdc-typography--headline Fonts
-        p 1. Install roboto-npm-webfont:
-        pre
-          code-prism(language="batch").
-            npm install roboto-npm-webfont
+      br
+      span.mdc-typography--headline Fonts
+      p 1. Install roboto-npm-webfont:
+      pre
+        code-prism(language="batch").
+          npm install roboto-npm-webfont
 
-        p 2. Add this to aurelia.json build section:
-        pre
-          code-prism(language="json").
-            "build": {
-              ...
-              "copyFiles": {
-                "node_modules/roboto-npm-webfont/**/*.*": "style/roboto"
-              },
+      p 2. Add this to aurelia.json build section:
+      pre
+        code-prism(language="json").
+          "build": {
+            ...
+            "copyFiles": {
+              "node_modules/roboto-npm-webfont/**/*.*": "style/roboto"
+            },
 
-        p 3. Replace both fonts stylesheet href's in index.html header with this one:
-        pre
-          code-prism(language="html").
-            &lt;head&gt;
-              &lt;link href="/style/roboto/style.css" rel="stylesheet"&gt;                
+      p 3. Replace both fonts stylesheet href's in index.html header with this one:
+      pre
+        code-prism(language="html").
+          &lt;head&gt;
+            &lt;link href="/style/roboto/style.css" rel="stylesheet"&gt;                
 
-        p Include style folder during deploy
+      p Include style folder during deploy

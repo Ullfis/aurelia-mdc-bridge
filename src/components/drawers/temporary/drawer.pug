@@ -1,0 +1,187 @@
+template
+  // MENU LIST
+  require(from="../../app-menu")
+
+  // TOOLBAR
+  require(from="../sample-toolbar")
+
+
+  // DRAWER
+  mdc-drawer-temporary(
+    view-model.ref="mdcDrawer" 
+    open.bind="open" 
+    on-open.delegate="onOpen()" 
+    on-close.delegate="onClose()")
+
+    mdc-drawer-spacer.mdc-typography--headline Spacer
+    mdc-drawer-header.mdc-typography--headline Header
+    app-menu
+
+  // TOOLBAR
+  sample-toolbar(fixed.bind="fixed" show-menu="true" on-menu.delegate="onClick()")
+
+  // MAIN AREA
+  main.mdc-typography--body1(class.bind="fixed ? 'mdc-toolbar-fixed-adjust' : ''")
+
+
+    mdc-grid
+      mdc-grid-cell(span="12")
+        section
+          span.mdc-typography--display1 Temporary Drawer
+          div(ref="elementSpan")
+          p A temporary drawer is usually closed, sliding out at a higher elevation than the content when opened.
+          p It is appropriate for any display size.
+
+      // FIXED TOOLBAR
+      mdc-grid-cell(span="12")
+        mdc-checkbox(checked.bind="fixed") Fixed toolbar
+
+      // LINKS
+      mdc-grid-cell(span="12")
+        hr
+        a(href="https://material.io/components/web/catalog/drawers/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-drawer") Material components documentation
+        br
+        a(href="https://material.io/guidelines/patterns/navigation-drawer.html" target="_blank" data-analytics-category="external" data-analytics-action="mdg-drawer") Material design guidelines
+        hr
+        a(href="#/components/toolbars") mdc-toolbar
+        br
+        a(href="#/components/lists") mdc-list
+        hr
+        
+      // BASIC
+      mdc-grid-cell(span="12")
+        section
+          span.mdc-typography--headline Element
+          pre
+            code-prism.
+              <mdc-drawer-temporary></mdc-drawer-temporary>
+                        
+      // LAYOUT
+      mdc-grid-cell(span="12")
+        section
+          span.mdc-typography--headline Layout
+
+          pre
+            code-prism.
+              &lt;!-- DRAWER --&gt;
+              &lt;mdc-drawer-temporary
+                open.bind="open" 
+                on-open.delegate="onOpen()" 
+                on-close.delegate="onClose()"&gt;
+
+                &lt;!-- SPACER (optional) --&gt;
+                &lt;mdc-drawer-spacer class="mdc-typography--headline"&gt;
+                  Spacer
+                &lt;mdc-drawer-spacer&gt;
+
+                &lt;!-- HEADER (optional) --&gt;
+                &lt;mdc-drawer-header class="mdc-typography--headline"&gt;
+                  Header
+                &lt;mdc-drawer-header&gt;
+
+                &lt;!-- LIST ITEMS --&gt;
+                <mdc-list tag="nav">
+                  <mdc-list-item href="#">Item 1</mdc-list-item>
+                </mdc-list>
+
+              &lt;/mdc-drawer-temporary&gt;
+
+              &lt;!-- TOOLBAR --&gt;
+              <mdc-toolbar fixed="false">
+                <mdc-toolbar-row>
+                  <mdc-toolbar-section start="true">
+                    <a click.delegate="onTrigger()" class="material-icons mdc-toolbar__icon--menu" href="#">menu</a>
+                  </mdc-toolbar-section>
+                </mdc-toolbar-row>
+              </mdc-toolbar>
+
+              &lt;!-- MAIN AREA --&gt;
+              <main class="container-temporary-main">
+              </main>
+
+          pre
+            code-prism(language="css").
+              /* Main content padding */
+              .container-temporary-main {
+                padding: 16px 16px 0 16px;
+              }
+
+          pre
+            code-prism(language="typescript").
+              private open = false;
+
+              private onTrigger() {
+                this.open = !this.open;
+              }
+
+              private onOpen() {
+              }
+
+              private onClose() {
+              }
+
+      // HEADER
+      mdc-grid-cell(span="12")
+        section
+          span.mdc-typography--headline Header
+          p.
+            A header is a large rectangular area that maintains a 16:9 ratio. 
+            It’s often used for user account selection. The content will be bottom-aligned.
+
+          pre
+            code-prism.
+              &lt;mdc-drawer-temporary ...&gt;
+                ...
+
+                &lt;!-- HEADER --&gt;
+                &lt;mdc-drawer-header&gt;
+                  Header here
+                &lt;mdc-drawer-header&gt;
+              
+                ...
+              &lt;/mdc-drawer-temporary&gt;
+
+          pre
+            code-prism(language="css").
+              /* scss */
+              @import "@material/theme/mixins";
+
+              mdc-drawer-header {
+                @include mdc-theme-prop(background-color, primary);
+                @include mdc-theme-prop(color, text-primary-on-primary);
+              }
+
+          a(href="https://material.io/components/web/catalog/theme/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-theme") Material components Theme documentation
+
+
+      // SPACER
+      mdc-grid-cell(span="12")
+        section
+          span.mdc-typography--headline Spacer
+          p.
+              A toolbar spacer with the correct amount of space to match the toolbar height. You can place content inside the toolbar spacer.
+
+          pre
+            code-prism.
+              &lt;mdc-drawer-temporary ...&gt;
+                ...
+
+                &lt;!-- SPACER --&gt;
+                &lt;mdc-drawer-spacer&gt;
+                  Spacer here
+                &lt;mdc-drawer-spacer&gt;
+              
+                ...
+              &lt;/mdc-drawer-temporary&gt;
+
+          pre
+            code-prism(language="css").
+              /* scss */
+              @import "@material/theme/mixins";
+
+              mdc-drawer-spacer {
+                @include mdc-theme-prop(background-color, accent);
+                @include mdc-theme-prop(color, text-primary-on-primary);
+              }
+
+          a(href="https://material.io/components/web/catalog/theme/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-theme") Material components Theme documentation

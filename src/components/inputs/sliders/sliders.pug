@@ -1,0 +1,72 @@
+template
+
+  // SAMPLE
+  mdc-grid
+    mdc-grid-cell(span="12")
+      span.mdc-typography--display1 Sliders
+
+    // CONFIG AREA
+    mdc-grid-cell(span="4")
+      mdc-checkbox(checked.bind="disabled") disabled
+      br
+      mdc-textfield(value.bind="value" type="number" min.bind="min" max.bind="max" step.bind="step") value
+      br
+      mdc-textfield(value.bind="max" type="number" min.bind="min") max
+      br
+      mdc-textfield(value.bind="min" type="number" max.bind="max") min
+      br
+      mdc-textfield(value.bind="step" type="number" min="1" max.bind="max") step
+
+    // DEMO AREA
+    mdc-grid-cell(span="8")
+      section.components
+        mdc-slider(
+          value.bind="value" 
+          min.bind="min" 
+          max.bind="max"
+          step.bind="step"
+          disabled.bind="disabled"
+          aria-label="Aria label"
+          on-input.delegate="onInput($event)")
+
+      section.mdc-theme--dark.components
+        mdc-slider(
+          value.bind="value" 
+          min.bind="min" 
+          max.bind="max"
+          step.bind="step"
+          disabled.bind="disabled"
+          aria-label="Aria label"
+          on-input.delegate="onInput($event)")
+  
+      p.mdc-typography--caption input event value: ${inputValue}
+
+
+    // LINKS
+    mdc-grid-cell(span="12")
+      hr
+      a(href="https://material.io/components/web/catalog/input-controls/sliders/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-slider") Material components documentation
+      br
+      a(href="https://material.io/guidelines/components/sliders.html" target="_blank" data-analytics-category="external" data-analytics-action="mdg-slider") Material design guidelines
+      hr
+
+    // EXAMPLE
+    mdc-grid-cell(span="12")
+      pre
+        code-prism(language="typescript").
+          import { IMdcSliderEvent } from 'aurelia-mdc-bridge';
+
+          private onInput(event: IMdcSliderEvent) {
+            this.inputValue = event.detail;
+          }
+      pre
+        code-prism(language="html").
+          &lt;mdc-slider
+            value.bind="value" 
+            min.bind="min" 
+            max.bind="max"
+            step.bind="step"
+            disabled.bind="disabled"
+            aria-label="Aria label"
+            on-input.delegate="onInput($event)"&gt;
+          &lt;/mdc-slider&gt;

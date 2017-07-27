@@ -1,0 +1,68 @@
+template
+  require(from="./ripples.css")
+
+  // SAMPLE
+  mdc-grid
+    mdc-grid-cell(span="12")
+      span.mdc-typography--display1 Ripples
+      p.
+        MDC Ripple provides the Javascript and CSS required to provide components (or any element at all) 
+        with a material “ink ripple” interaction effect. It is designed to be efficient, uninvasive, and 
+        usable without adding any extra DOM to your elements.
+
+    // LINKS
+    mdc-grid-cell(span="12")
+      hr
+      a(href="https://material.io/components/web/catalog/ripples/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-ripple") Material components documentation
+      hr
+
+    // EXAMPLE
+    mdc-grid-cell(span="12")
+      pre
+        code-prism(language="css").
+          .my-custom-ripple-target {
+            height: 100px;
+            width: 100px;
+            border: 1px solid #333;
+          }
+
+    mdc-grid-cell(span="8")
+      pre
+        code-prism.
+          &lt;div class="my-custom-ripple-target" mdc-ripple&gt;&lt;/div&gt;
+
+    mdc-grid-cell(span="4")
+      .my-custom-ripple-target(mdc-ripple)
+
+    // UNBOUNDED
+    mdc-grid-cell(span="8")
+      span.mdc-typography--title unbounded
+      p Unbounded ripples. such as those used for checkboxes and radio buttons:
+      pre
+        code-prism.
+          &lt;div class="my-custom-ripple-target" mdc-ripple="unbounded: true;"&gt;&lt;/div&gt;
+
+    mdc-grid-cell(span="4")
+      .my-custom-ripple-target(mdc-ripple="unbounded: true;")
+
+    // ACCENT
+    mdc-grid-cell(span="8")
+      span.mdc-typography--title accent
+      p Styling ripple surface using the configured theme’s accent color:
+      pre
+        code-prism.
+          &lt;div class="my-custom-ripple-target" mdc-ripple="accent: true;"&gt;&lt;/div&gt;
+
+    mdc-grid-cell(span="4")
+      .my-custom-ripple-target(mdc-ripple="accent: true;")
+
+    // PRIMARY
+    mdc-grid-cell(span="8")
+      span.mdc-typography--title primary
+      p Styling ripple surface using the configured theme’s primary color:
+      pre
+        code-prism.
+          &lt;div class="my-custom-ripple-target" mdc-ripple="primary: true;"&gt;&lt;/div&gt;
+
+    mdc-grid-cell(span="4")
+      .my-custom-ripple-target(mdc-ripple="primary: true;")

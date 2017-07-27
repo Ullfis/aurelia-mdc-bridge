@@ -1,0 +1,13 @@
+@import "@material/theme/mixins";
+
+/* Header color */
+mdc-drawer-header {
+  @include mdc-theme-prop(background-color, primary);
+  @include mdc-theme-prop(color, text-primary-on-primary);
+}
+
+/* Spacer color */
+mdc-drawer-spacer {
+  @include mdc-theme-prop(background-color, accent);
+  @include mdc-theme-prop(color, text-primary-on-primary);
+}

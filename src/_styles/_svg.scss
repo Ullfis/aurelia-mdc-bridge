@@ -1,38 +1,43 @@
-
-/* Black on white background */
+/* Dark on white background */
 svg-obj, .svg-inline {
   path:not([fill]) {
     fill: rgba(0, 0, 0, 0.54); 
   }
 }
+/* Dark on white background - disabled */
 svg-obj[disabled], .svg-inline.disabled {
   path:not([fill]) {
     fill: rgba(0, 0, 0, 0.26);
   }
 }
+
 /* White on dark background */
 svg-obj.md-light, .svg-inline.md-light {
   path:not([fill]) {
     fill: rgba(255, 255, 255, 1); 
   }
 }
+/* White on dark background - disabled */
 svg-obj[disabled].md-light, .svg-inline.disabled.md-light {
   path:not([fill]) {
     fill: rgba(255, 255, 255, 0.3); 
   }
 }
-/* Theme colors */
+
+/* Theme colors - primary */
 svg-obj.primary, .svg-inline.primary {
   path:not([fill]) {
     fill: $mdc-theme-primary; 
   }
 }
+/* Theme colors - accent */
 svg-obj.accent, .svg-inline.accent {
   path:not([fill]) {
     fill: $mdc-theme-accent; 
   }
 }
 
+/* Svg size */
 svg-obj.md-18 svg, .svg-inline.md-18 {
   width: 18px;
   height: 18px;
