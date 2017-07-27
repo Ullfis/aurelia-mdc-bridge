@@ -1,6 +1,6 @@
 import { IMdcSliderEvent } from '../../../bridge/index';
 
-export class Slider {
+export class Sliders {
   private max = 10;
   private min = 0;
   private value = 2;

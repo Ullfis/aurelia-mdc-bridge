@@ -1,5 +1,5 @@
 import { MdcDialog, IMdcDialogClickEvent } from '../../bridge/index';
-export class Dialog {
+export class Dialogs {
   private eventCounter = 0;
   private dialog: MdcDialog;
   private dialog2: MdcDialog;

@@ -5,14 +5,14 @@ export class App {
 
   private configureRouter(config: RouterConfiguration, router: Router) {
     config.map([
-      { route: '',                moduleId: './checkbox/checkbox',        nav: true,  title: 'Checkbox' },
-      { route: 'checkbox',        moduleId: './checkbox/checkbox',        nav: true,  title: 'Checkbox' },
-      { route: 'radio',           moduleId: './radio/radio',              nav: true,  title: 'Radio' },
-      { route: 'selects-css',     moduleId: './select/selects-css',       nav: true,  title: 'Select-Css' },
-      { route: 'selects',         moduleId: './select/selects',           nav: true,  title: 'Select' },
-      { route: 'slider',          moduleId: './slider/slider',            nav: true,  title: 'Slider' },
-      { route: 'switches',        moduleId: './switches/switches',        nav: true,  title: 'Switches' },
-      { route: 'textfield',       moduleId: './textfield/textfield',      nav: true,  title: 'Textfield' }
+      { route: '',                 moduleId: './checkboxes/checkboxes',       nav: true,  title: 'Checkboxes' },
+      { route: 'checkboxes',       moduleId: './checkboxes/checkboxes',       nav: true,  title: 'Checkboxes' },
+      { route: 'radio-buttons',    moduleId: './radio-buttons/radio-buttons', nav: true,  title: 'Radio Buttons' },
+      { route: 'select-menus-css', moduleId: './select-menus/selects-css',    nav: true,  title: 'Select Menus Css' },
+      { route: 'select-menus',     moduleId: './select-menus/selects',        nav: true,  title: 'Select Menus' },
+      { route: 'sliders',          moduleId: './sliders/sliders',             nav: true,  title: 'Sliders' },
+      { route: 'switches',         moduleId: './switches/switches',           nav: true,  title: 'Switches' },
+      { route: 'text-fields',      moduleId: './text-fields/text-fields',     nav: true,  title: 'Text Fields' }
     ]);
     this.router = router;
   }

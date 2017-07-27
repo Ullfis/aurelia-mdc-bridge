@@ -1,5 +1,5 @@
 template
-  require(from="./list.css")
+  require(from="./lists.css")
 
   // SAMPLE
   mdc-grid
@@ -89,12 +89,12 @@ template
 
           mdc-list-group-header &lt;nav&gt; list and &lt;a&gt; items
           mdc-list(tag="nav" dense.bind="dense" two-line.bind="twoLine" avatar.bind="avatar")
-            mdc-list-item(href="#/components/list" ripple="true")
+            mdc-list-item(href="#/components/lists" ripple="true")
               div(slot="start")
                 i.material-icons.md-dark(aria-hidden="true") inbox
               | Inbox
             mdc-list-divider(inset.bind="inset")
-            mdc-list-item(href="#/components/list" ripple="true" on-click.delegate="onClick($event)")
+            mdc-list-item(href="#/components/lists" ripple="true" on-click.delegate="onClick($event)")
               div(slot="start")
                 i.material-icons.md-dark(aria-hidden="true") note
               | Show dialog
@@ -166,8 +166,8 @@ template
 
     mdc-grid-cell(span="4")
       mdc-list(tag="nav")
-        mdc-list-item(href="#/components/list") List item 1
-        mdc-list-item(href="#/components/list" target="_blank") List item 2
+        mdc-list-item(href="#/components/lists") List item 1
+        mdc-list-item(href="#/components/lists" target="_blank") List item 2
         mdc-list-item(href="#/" on-click.delegate="onClick($event)") List item 3
 
     // DENSE AND RIPPLE

@@ -16,10 +16,10 @@ export class App {
     config.title = this.title;
     config.addPipelineStep('postcomplete', PostCompleteStep);
     config.map([
-      { route: '',                  moduleId: 'index',                  nav: true, title: '', name: 'welcome' },
-      { route: 'documentation',     moduleId: 'documentation/app',      nav: true, title: 'Documentation' },
-      { route: 'components/drawer', moduleId: 'components/drawer/app',  nav: true, title: 'Drawer' },
-      { route: 'components',        moduleId: 'components/app',         nav: true, title: 'Samples' }
+      { route: '',                   moduleId: 'index',                  nav: true, title: '', name: 'welcome' },
+      { route: 'documentation',      moduleId: 'documentation/app',      nav: true, title: 'Documentation' },
+      { route: 'components/drawers', moduleId: 'components/drawers/app', nav: true, title: 'Drawers' },
+      { route: 'components',         moduleId: 'components/app',         nav: true, title: 'Components' }
     ]);
     this.router = router;
   }

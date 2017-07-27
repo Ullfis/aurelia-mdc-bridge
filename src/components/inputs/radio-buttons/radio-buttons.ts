@@ -1,6 +1,6 @@
 import { IMdcRadioEvent } from '../../../bridge/index';
 
-export class Radio {
+export class RadioButtons {
   private radioDisable = false;
   private radioChoise = 'option2';
   private likeCake = null;

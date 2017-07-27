@@ -1,6 +1,6 @@
 import { MdcDialog, IMdcListItemClickEvent } from '../../bridge/index';
 
-export class List {
+export class Lists {
   private dense = true;
   private twoLine = false;
   private avatar = false;

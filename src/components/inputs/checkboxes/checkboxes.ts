@@ -1,5 +1,5 @@
 import { IMdcCheckboxEvent } from '../../../bridge/index';
-export class Checkbox {
+export class Checkboxes {
   private eventCounter = 0;
   private isChecked: boolean;
 

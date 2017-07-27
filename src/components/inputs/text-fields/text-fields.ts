@@ -1,4 +1,4 @@
-export class Textfield {
+export class TextFields {
   private mValue = 'Hello world!';
   private mDisabled = false;
   private mDense = false;
