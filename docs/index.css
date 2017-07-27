@@ -7,16 +7,19 @@
 }
 
 .my-loader-content {
-  background-image: url(icons/favicon-96x96.png);
+  background-image: url(icons/android-icon-144x144.png);
+  background-size: cover;
   width: 96px;
   height: 96px;
   margin-left: auto;
   margin-right: auto;
   opacity: 0;
-  -webkit-transition: opacity 2000ms;
-  transition: opacity 2000ms;
+  -webkit-transition: opacity 3s, height 3s, width 3s;
+  transition: opacity 3s, height 3s, width 3s;
 }
 
 .my-loader-transaction {
   opacity: 1;
+  height: 104px;
+  width: 104px;
 }
