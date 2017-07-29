@@ -31,6 +31,7 @@ export class ConfigBuilder {
       .useLinearProgress()
       .useLists()
       .useMenus()
+      .useRipples()
       .useSnackbars()
       .useTabs()
       .useToolbars();
