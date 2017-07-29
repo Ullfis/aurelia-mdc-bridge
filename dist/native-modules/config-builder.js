@@ -26,6 +26,7 @@ var ConfigBuilder = (function () {
             .useLinearProgress()
             .useLists()
             .useMenus()
+            .useRipples()
             .useSnackbars()
             .useTabs()
             .useToolbars();

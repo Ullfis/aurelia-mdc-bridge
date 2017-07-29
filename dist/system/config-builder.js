@@ -36,6 +36,7 @@ System.register(["aurelia-pal"], function (exports_1, context_1) {
                         .useLinearProgress()
                         .useLists()
                         .useMenus()
+                        .useRipples()
                         .useSnackbars()
                         .useTabs()
                         .useToolbars();

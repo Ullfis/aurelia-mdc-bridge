@@ -28,6 +28,7 @@ define(["require", "exports", "aurelia-pal"], function (require, exports, aureli
                 .useLinearProgress()
                 .useLists()
                 .useMenus()
+                .useRipples()
                 .useSnackbars()
                 .useTabs()
                 .useToolbars();
