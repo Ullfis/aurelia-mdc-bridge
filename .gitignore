@@ -17,20 +17,20 @@ Thumbs.db
 # Ref: https://github.com/github/gitignore/blob/master/Global
 # Ref: https://github.com/github/gitignore/blob/master/Global/JetBrains.gitignore
 # Ref: https://github.com/github/gitignore/blob/master/Global/VisualStudioCode.gitignore
-.idea
-.vscode
+/.idea
+/.vscode
 
 # Dependencies
-node_modules
+/node_modules
 
 # Compiled files
 # - index.html is created durin build
 # - style if copied from node_modules
-scripts
-index.html
-index.css
-style
-aurelia-mdc-bridge*.tgz
+/scripts
+/index.html
+/index.css
+/style
+/aurelia-mdc-bridge*.tgz
 
 # do not ignore docs
 !docs/images

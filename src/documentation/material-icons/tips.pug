@@ -3,59 +3,57 @@ template
   // DOCUMENTATION
   mdc-grid
     mdc-grid-cell(span="12")
-      span.mdc-typography--display1 Material-icons
-    
-    mdc-grid-cell(span="12")
+      h4 Material-icons
       p.
         This is copied from Material Icons Guide and I should have no credit for 
         the wonderful work they have done building this.
 
+
+    // LINKS
     mdc-grid-cell(span="12")
-
-      // LINKS
       hr
-      section
-        a(href="http://google.github.io/material-design-icons/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-icons-guide") Material Icons Guide
-      section
-        a(href="https://www.google.com/design/icons/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-icons") Icons
+      a(href="http://google.github.io/material-design-icons/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-icons-guide") Material Icons Guide
+      br
+      a(href="https://www.google.com/design/icons/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-icons") Icons
       hr
 
-      // EXAMPLE
-      section
+    // STYLING ICONS
+    mdc-grid-cell(span="12")
+      h5 Styling icons
+      
+      p.
+        These icons were designed to follow the material design guidelines 
+        and they look best when using the recommended icon sizes and colors. 
+        The styles below make it easy to apply recommended sizes, colors, and activity states.
 
-        // STYLING ICONS
-        span.mdc-typography--headline Styling icons
-        
-        p.
-          These icons were designed to follow the material design guidelines 
-          and they look best when using the recommended icon sizes and colors. 
-          The styles below make it easy to apply recommended sizes, colors, and activity states.
+    // SIZE
+    mdc-grid-cell(span="12")
+      h5 Size
+      pre
+        code-prism(language="css").
+          /* Rules for sizing the icon. */
+          .material-icons.md-18 { font-size: 18px; }
+          .material-icons.md-24 { font-size: 24px; }
+          .material-icons.md-36 { font-size: 36px; }
+          .material-icons.md-48 { font-size: 48px; }
 
-        // SIZE
-        span.mdc-typography--headline Size
-        pre
-          code-prism(language="css").
-            /* Rules for sizing the icon. */
-            .material-icons.md-18 { font-size: 18px; }
-            .material-icons.md-24 { font-size: 24px; }
-            .material-icons.md-36 { font-size: 36px; }
-            .material-icons.md-48 { font-size: 48px; }
+    // LIGHT / DARK COLORS
+    mdc-grid-cell(span="12")
+      h5 Light/dark colors
+      pre
+        code-prism(language="css").
+          /* Rules for using icons as black on a light background. */
+          .material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+          .material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
 
-        // LIGHT / DARK COLORS
-        span.mdc-typography--headline Light/dark colors
-        pre
-          code-prism(language="css").
-            /* Rules for using icons as black on a light background. */
-            .material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
-            .material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+          /* Rules for using icons as white on a dark background. */
+          .material-icons.md-light { color: rgba(255, 255, 255, 1); }
+          .material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
 
-            /* Rules for using icons as white on a dark background. */
-            .material-icons.md-light { color: rgba(255, 255, 255, 1); }
-            .material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
-
-        // CUSTOM COLORING
-        span.mdc-typography--headline Custom coloring
-        pre
-          code-prism(language="css").
-            .material-icons.primary { color: $mdc-theme-primary; }
-            .material-icons.accent { color: $mdc-theme-accent; }
+    // CUSTOM COLORING
+    mdc-grid-cell(span="12")
+      h5 Custom coloring
+      pre
+        code-prism(language="css").
+          .material-icons.primary { color: $mdc-theme-primary; }
+          .material-icons.accent { color: $mdc-theme-accent; }

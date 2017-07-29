@@ -43,9 +43,19 @@ $mdc-layout-grid-default-gutter: (
 @import "@material/toolbar/mdc-toolbar";
 @import "@material/typography/mdc-typography";
 
-// @material/animation @material/button @material/card @material/checkbox @material/dialog @material/drawer 
-// @material/elevation @material/fab @material/form-field @material/grid-list @material/icon-toggle 
-// @material/layout-grid @material/linear-progress @material/list @material/menu @material/radio @material/ripple 
-// @material/select @material/slider @material/snackbar @material/switch @material/tabs @material/textfield 
-// @material/theme @material/toolbar @material/typography
-
+body {
+  @include mdc-typography(body1);
+}
+h4 {
+  @include mdc-typography(display1);
+  @include mdc-typography-adjust-margin(headline);
+  // margin: -.5rem 0 0 -.07em
+}
+h5 {
+  @include mdc-typography(headline);
+  @include mdc-typography-adjust-margin(headline);
+}
+h6 {
+  @include mdc-typography(title);
+  @include mdc-typography-adjust-margin(title);
+}
