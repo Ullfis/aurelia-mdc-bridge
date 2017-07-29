@@ -1,54 +1,20 @@
-System.register(["./button/button", "./button/fab/fab", "./button/icon-toggle/icon-toggle", "./card/card-actions", "./card/card-horizontal", "./card/card-media", "./card/card-text", "./card/card-title", "./card/card", "./dialog/dialog", "./drawer/header", "./drawer/permanent", "./drawer/persistent", "./drawer/spacer", "./drawer/temporary", "./grid/grid-cell", "./grid/grid", "./grid-list/grid-list", "./grid-list/grid-tile", "./inputs/checkbox/checkbox", "./inputs/radio/radio", "./inputs/select/select", "./inputs/select/select-css", "./inputs/slider/slider", "./inputs/switch/switch", "./inputs/textfield/textfield", "./list/list-divider", "./list/list-item", "./list/list", "./menu/simple-menu", "./progress/linear", "./ripple/ripple", "./snackbar/snackbar", "./tab/tab-bar-scroller", "./tab/tab-bar", "./tab/tab", "./toolbar/toolbar-row", "./toolbar/toolbar-section", "./toolbar/toolbar-title", "./toolbar/toolbar"], function (exports_1, context_1) {
+System.register(["./config-builder", "./button/button", "./button/fab/fab", "./button/icon-toggle/icon-toggle", "./card/card-actions", "./card/card-horizontal", "./card/card-media", "./card/card-text", "./card/card-title", "./card/card", "./dialog/dialog", "./drawer/header", "./drawer/permanent", "./drawer/persistent", "./drawer/spacer", "./drawer/temporary", "./grid/grid-cell", "./grid/grid", "./grid-list/grid-list", "./grid-list/grid-tile", "./inputs/checkbox/checkbox", "./inputs/radio/radio", "./inputs/select/select", "./inputs/select/select-css", "./inputs/slider/slider", "./inputs/switch/switch", "./inputs/textfield/textfield", "./list/list-divider", "./list/list-item", "./list/list", "./menu/simple-menu", "./progress/linear", "./ripple/ripple", "./snackbar/snackbar", "./tab/tab-bar-scroller", "./tab/tab-bar", "./tab/tab", "./toolbar/toolbar-row", "./toolbar/toolbar-section", "./toolbar/toolbar-title", "./toolbar/toolbar"], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    function configure(frameworkConfig) {
-        frameworkConfig.globalResources([
-            './button/button',
-            './button/fab/fab',
-            './button/icon-toggle/icon-toggle',
-            './card/card-actions',
-            './card/card-horizontal',
-            './card/card-media',
-            './card/card-text',
-            './card/card-title',
-            './card/card',
-            './dialog/dialog',
-            './drawer/header',
-            './drawer/permanent',
-            './drawer/persistent',
-            './drawer/spacer',
-            './drawer/temporary',
-            './grid/mdc-grid-inner.html',
-            './grid/grid-cell',
-            './grid/grid',
-            './grid-list/grid-list',
-            './grid-list/grid-tile',
-            './inputs/checkbox/checkbox',
-            './inputs/radio/radio',
-            './inputs/select/select-css',
-            './inputs/select/select',
-            './inputs/slider/slider',
-            './inputs/switch/switch',
-            './inputs/textfield/textfield',
-            './list/mdc-list-group.html',
-            './list/mdc-list-group-header.html',
-            './list/list-divider',
-            './list/list-item',
-            './list/list',
-            './menu/simple-menu',
-            './progress/linear',
-            './ripple/ripple',
-            './snackbar/snackbar',
-            './tab/tab-bar-scroller',
-            './tab/tab-bar',
-            './tab/tab',
-            './toolbar/toolbar-row',
-            './toolbar/toolbar-section',
-            './toolbar/toolbar-title',
-            './toolbar/toolbar'
-        ]);
+    function configure(aurelia, configCallback) {
+        var builder = aurelia.container.get(config_builder_1.ConfigBuilder);
+        if (configCallback !== undefined && typeof (configCallback) === 'function') {
+            configCallback(builder);
+        }
+        else {
+            builder.useAll();
+        }
+        if (builder.useGlobalResources) {
+            aurelia.globalResources(builder.globalResources);
+        }
     }
     exports_1("configure", configure);
+    var config_builder_1;
     var exportedNames_1 = {
         "configure": true
     };
@@ -61,6 +27,10 @@ System.register(["./button/button", "./button/fab/fab", "./button/icon-toggle/ic
     }
     return {
         setters: [
+            function (config_builder_1_1) {
+                config_builder_1 = config_builder_1_1;
+                exportStar_1(config_builder_1_1);
+            },
             function (button_1_1) {
                 exportStar_1(button_1_1);
             },

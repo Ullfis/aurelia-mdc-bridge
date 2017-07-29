@@ -3,54 +3,21 @@ function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
 Object.defineProperty(exports, "__esModule", { value: true });
-function configure(frameworkConfig) {
-    frameworkConfig.globalResources([
-        './button/button',
-        './button/fab/fab',
-        './button/icon-toggle/icon-toggle',
-        './card/card-actions',
-        './card/card-horizontal',
-        './card/card-media',
-        './card/card-text',
-        './card/card-title',
-        './card/card',
-        './dialog/dialog',
-        './drawer/header',
-        './drawer/permanent',
-        './drawer/persistent',
-        './drawer/spacer',
-        './drawer/temporary',
-        './grid/mdc-grid-inner.html',
-        './grid/grid-cell',
-        './grid/grid',
-        './grid-list/grid-list',
-        './grid-list/grid-tile',
-        './inputs/checkbox/checkbox',
-        './inputs/radio/radio',
-        './inputs/select/select-css',
-        './inputs/select/select',
-        './inputs/slider/slider',
-        './inputs/switch/switch',
-        './inputs/textfield/textfield',
-        './list/mdc-list-group.html',
-        './list/mdc-list-group-header.html',
-        './list/list-divider',
-        './list/list-item',
-        './list/list',
-        './menu/simple-menu',
-        './progress/linear',
-        './ripple/ripple',
-        './snackbar/snackbar',
-        './tab/tab-bar-scroller',
-        './tab/tab-bar',
-        './tab/tab',
-        './toolbar/toolbar-row',
-        './toolbar/toolbar-section',
-        './toolbar/toolbar-title',
-        './toolbar/toolbar'
-    ]);
+var config_builder_1 = require("./config-builder");
+function configure(aurelia, configCallback) {
+    var builder = aurelia.container.get(config_builder_1.ConfigBuilder);
+    if (configCallback !== undefined && typeof (configCallback) === 'function') {
+        configCallback(builder);
+    }
+    else {
+        builder.useAll();
+    }
+    if (builder.useGlobalResources) {
+        aurelia.globalResources(builder.globalResources);
+    }
 }
 exports.configure = configure;
+__export(require("./config-builder"));
 __export(require("./button/button"));
 __export(require("./button/fab/fab"));
 __export(require("./button/icon-toggle/icon-toggle"));

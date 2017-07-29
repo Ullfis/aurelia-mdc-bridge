@@ -1,5 +1,7 @@
 import { FrameworkConfiguration } from 'aurelia-framework';
-export declare function configure(frameworkConfig: FrameworkConfiguration): void;
+import { ConfigBuilder } from './config-builder';
+export declare function configure(aurelia: FrameworkConfiguration, configCallback: ConfigBuilder): void;
+export * from './config-builder';
 export * from './button/button';
 export * from './button/fab/fab';
 export * from './button/icon-toggle/icon-toggle';

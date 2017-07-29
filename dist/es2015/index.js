@@ -1,50 +1,17 @@
-export function configure(frameworkConfig) {
-    frameworkConfig.globalResources([
-        './button/button',
-        './button/fab/fab',
-        './button/icon-toggle/icon-toggle',
-        './card/card-actions',
-        './card/card-horizontal',
-        './card/card-media',
-        './card/card-text',
-        './card/card-title',
-        './card/card',
-        './dialog/dialog',
-        './drawer/header',
-        './drawer/permanent',
-        './drawer/persistent',
-        './drawer/spacer',
-        './drawer/temporary',
-        './grid/mdc-grid-inner.html',
-        './grid/grid-cell',
-        './grid/grid',
-        './grid-list/grid-list',
-        './grid-list/grid-tile',
-        './inputs/checkbox/checkbox',
-        './inputs/radio/radio',
-        './inputs/select/select-css',
-        './inputs/select/select',
-        './inputs/slider/slider',
-        './inputs/switch/switch',
-        './inputs/textfield/textfield',
-        './list/mdc-list-group.html',
-        './list/mdc-list-group-header.html',
-        './list/list-divider',
-        './list/list-item',
-        './list/list',
-        './menu/simple-menu',
-        './progress/linear',
-        './ripple/ripple',
-        './snackbar/snackbar',
-        './tab/tab-bar-scroller',
-        './tab/tab-bar',
-        './tab/tab',
-        './toolbar/toolbar-row',
-        './toolbar/toolbar-section',
-        './toolbar/toolbar-title',
-        './toolbar/toolbar'
-    ]);
+import { ConfigBuilder } from './config-builder';
+export function configure(aurelia, configCallback) {
+    const builder = aurelia.container.get(ConfigBuilder);
+    if (configCallback !== undefined && typeof (configCallback) === 'function') {
+        configCallback(builder);
+    }
+    else {
+        builder.useAll();
+    }
+    if (builder.useGlobalResources) {
+        aurelia.globalResources(builder.globalResources);
+    }
 }
+export * from './config-builder';
 export * from './button/button';
 export * from './button/fab/fab';
 export * from './button/icon-toggle/icon-toggle';
