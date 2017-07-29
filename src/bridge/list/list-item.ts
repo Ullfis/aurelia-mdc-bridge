@@ -12,6 +12,7 @@ import { getLogger, Logger } from 'aurelia-logging';
 import { MDCRipple } from '@material/ripple';
 import { CreateListItemComponent } from './create-components';
 import * as util from '../util';
+import * as common from './common';
 
 export interface IMdcListItemClickEvent extends CustomEvent {
 
@@ -58,7 +59,7 @@ export class MdcListItem {
   private unbind() { /** */ }
 
   private attached() {
-    this.parentElement = this.elementListItem.parentElement;
+    this.parentElement = common.getParentList(this.elementListItem) as HTMLElement;
 
     this.selectMenuItem();
     this.simpleMenuItem();
@@ -79,7 +80,7 @@ export class MdcListItem {
   }
 
   private selectMenuItem() {
-    this.isSelectMenuItem = this.parentElement.parentElement.classList.contains('mdc-select__menu');
+    this.isSelectMenuItem = common.findAncestor(this.parentElement, 'mdc-select__menu') ? true : false;
   }
 
   private rippleEffect() {
