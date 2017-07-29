@@ -1,6 +1,7 @@
 import { inject, bindable, customElement, containerless } from 'aurelia-framework';
 import { getLogger, Logger } from 'aurelia-logging';
 import * as util from '../util';
+import * as common from './common';
 
 @containerless()
 @customElement('mdc-list-divider')
@@ -15,10 +16,10 @@ export class MdcListDivider {
 
   constructor(private element: Element) {
     this.log = getLogger('mdc-list-divider');
-    const tag = this.element.parentElement.tagName;
-    const isList = this.element.parentElement.classList.contains('mdc-list');
+    const parentListElement = common.getParentList(this.element);
 
-    if (isList) {
+    if (parentListElement) {
+      const tag = parentListElement.tagName || 'ul';
       if (tag.toLowerCase() === 'ul') {
         this.isUlDivider = true;
       } else {
