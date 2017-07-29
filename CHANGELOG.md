@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.0"></a>
+# [0.5.0](https://github.com/ullfis/aurelia-mdc-bridge/compare/0.4.1...0.5.0) (2017-07-29)
+
+
+### Bug Fixes
+
+* **config-builder:** export config-builder from library ([376debe](https://github.com/ullfis/aurelia-mdc-bridge/commit/376debe))
+
+
+### Features
+
+* add config builder ([e252ac6](https://github.com/ullfis/aurelia-mdc-bridge/commit/e252ac6))
+
+
+
 <a name="0.4.1"></a>
 ## [0.4.1](https://github.com/ullfis/aurelia-mdc-bridge/compare/0.4.0...0.4.1) (2017-07-25)
 
