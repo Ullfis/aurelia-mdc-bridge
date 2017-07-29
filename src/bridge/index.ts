@@ -15,6 +15,8 @@ export function configure(aurelia: FrameworkConfiguration, configCallback: Confi
   }
 }
 
+export * from './config-builder';
+
 export * from './button/button';
 export * from './button/fab/fab';
 export * from './button/icon-toggle/icon-toggle';
