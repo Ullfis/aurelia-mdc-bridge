@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.1"></a>
+## [0.5.1](https://github.com/ullfis/aurelia-mdc-bridge/compare/0.5.0...0.5.1) (2017-07-29)
+
+
+### Bug Fixes
+
+* **mdc-list-divider:** find correct parent list element ([38f4249](https://github.com/ullfis/aurelia-mdc-bridge/commit/38f4249))
+* **mdc-list-item:** find correct parent list element ([0c0cd4d](https://github.com/ullfis/aurelia-mdc-bridge/commit/0c0cd4d))
+
+
+
 <a name="0.5.0"></a>
 # [0.5.0](https://github.com/ullfis/aurelia-mdc-bridge/compare/0.4.1...0.5.0) (2017-07-29)
 
