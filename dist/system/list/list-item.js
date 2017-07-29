@@ -1,4 +1,4 @@
-System.register(["aurelia-framework", "aurelia-logging", "@material/ripple", "./create-components", "../util"], function (exports_1, context_1) {
+System.register(["aurelia-framework", "aurelia-logging", "@material/ripple", "./create-components", "../util", "./common"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -10,7 +10,7 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/ripple", "./
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var aurelia_framework_1, aurelia_logging_1, ripple_1, create_components_1, util, MdcListItem;
+    var aurelia_framework_1, aurelia_logging_1, ripple_1, create_components_1, util, common, MdcListItem;
     return {
         setters: [
             function (aurelia_framework_1_1) {
@@ -27,6 +27,9 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/ripple", "./
             },
             function (util_1) {
                 util = util_1;
+            },
+            function (common_1) {
+                common = common_1;
             }
         ],
         execute: function () {
@@ -48,7 +51,7 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/ripple", "./
                 MdcListItem.prototype.bind = function () { };
                 MdcListItem.prototype.unbind = function () { };
                 MdcListItem.prototype.attached = function () {
-                    this.parentElement = this.elementListItem.parentElement;
+                    this.parentElement = common.getParentList(this.elementListItem);
                     this.selectMenuItem();
                     this.simpleMenuItem();
                     this.rippleEffect();
@@ -66,7 +69,7 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/ripple", "./
                     }
                 };
                 MdcListItem.prototype.selectMenuItem = function () {
-                    this.isSelectMenuItem = this.parentElement.parentElement.classList.contains('mdc-select__menu');
+                    this.isSelectMenuItem = common.findAncestor(this.parentElement, 'mdc-select__menu') ? true : false;
                 };
                 MdcListItem.prototype.rippleEffect = function () {
                     if (this.ripple) {

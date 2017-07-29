@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material/ripple", "./create-components", "../util"], function (require, exports, aurelia_framework_1, aurelia_logging_1, ripple_1, create_components_1, util) {
+define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material/ripple", "./create-components", "../util", "./common"], function (require, exports, aurelia_framework_1, aurelia_logging_1, ripple_1, create_components_1, util, common) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var MdcListItem = (function () {
@@ -28,7 +28,7 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material
         MdcListItem.prototype.bind = function () { };
         MdcListItem.prototype.unbind = function () { };
         MdcListItem.prototype.attached = function () {
-            this.parentElement = this.elementListItem.parentElement;
+            this.parentElement = common.getParentList(this.elementListItem);
             this.selectMenuItem();
             this.simpleMenuItem();
             this.rippleEffect();
@@ -46,7 +46,7 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material
             }
         };
         MdcListItem.prototype.selectMenuItem = function () {
-            this.isSelectMenuItem = this.parentElement.parentElement.classList.contains('mdc-select__menu');
+            this.isSelectMenuItem = common.findAncestor(this.parentElement, 'mdc-select__menu') ? true : false;
         };
         MdcListItem.prototype.rippleEffect = function () {
             if (this.ripple) {

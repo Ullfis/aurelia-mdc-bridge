@@ -12,6 +12,7 @@ import { getLogger } from 'aurelia-logging';
 import { MDCRipple } from '@material/ripple';
 import { CreateListItemComponent } from './create-components';
 import * as util from '../util';
+import * as common from './common';
 var MdcListItem = (function () {
     function MdcListItem(element) {
         this.element = element;
@@ -30,7 +31,7 @@ var MdcListItem = (function () {
     MdcListItem.prototype.bind = function () { };
     MdcListItem.prototype.unbind = function () { };
     MdcListItem.prototype.attached = function () {
-        this.parentElement = this.elementListItem.parentElement;
+        this.parentElement = common.getParentList(this.elementListItem);
         this.selectMenuItem();
         this.simpleMenuItem();
         this.rippleEffect();
@@ -48,7 +49,7 @@ var MdcListItem = (function () {
         }
     };
     MdcListItem.prototype.selectMenuItem = function () {
-        this.isSelectMenuItem = this.parentElement.parentElement.classList.contains('mdc-select__menu');
+        this.isSelectMenuItem = common.findAncestor(this.parentElement, 'mdc-select__menu') ? true : false;
     };
     MdcListItem.prototype.rippleEffect = function () {
         if (this.ripple) {

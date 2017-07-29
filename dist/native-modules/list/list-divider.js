@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 import { inject, bindable, customElement, containerless } from 'aurelia-framework';
 import { getLogger } from 'aurelia-logging';
 import * as util from '../util';
+import * as common from './common';
 var MdcListDivider = (function () {
     function MdcListDivider(element) {
         this.element = element;
@@ -17,9 +18,9 @@ var MdcListDivider = (function () {
         this.isUlDivider = false;
         this.isNavDivider = false;
         this.log = getLogger('mdc-list-divider');
-        var tag = this.element.parentElement.tagName;
-        var isList = this.element.parentElement.classList.contains('mdc-list');
-        if (isList) {
+        var parentListElement = common.getParentList(this.element);
+        if (parentListElement) {
+            var tag = parentListElement.tagName || 'ul';
             if (tag.toLowerCase() === 'ul') {
                 this.isUlDivider = true;
             }

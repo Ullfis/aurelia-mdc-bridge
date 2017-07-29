@@ -14,6 +14,7 @@ var aurelia_logging_1 = require("aurelia-logging");
 var ripple_1 = require("@material/ripple");
 var create_components_1 = require("./create-components");
 var util = require("../util");
+var common = require("./common");
 var MdcListItem = (function () {
     function MdcListItem(element) {
         this.element = element;
@@ -32,7 +33,7 @@ var MdcListItem = (function () {
     MdcListItem.prototype.bind = function () { };
     MdcListItem.prototype.unbind = function () { };
     MdcListItem.prototype.attached = function () {
-        this.parentElement = this.elementListItem.parentElement;
+        this.parentElement = common.getParentList(this.elementListItem);
         this.selectMenuItem();
         this.simpleMenuItem();
         this.rippleEffect();
@@ -50,7 +51,7 @@ var MdcListItem = (function () {
         }
     };
     MdcListItem.prototype.selectMenuItem = function () {
-        this.isSelectMenuItem = this.parentElement.parentElement.classList.contains('mdc-select__menu');
+        this.isSelectMenuItem = common.findAncestor(this.parentElement, 'mdc-select__menu') ? true : false;
     };
     MdcListItem.prototype.rippleEffect = function () {
         if (this.ripple) {

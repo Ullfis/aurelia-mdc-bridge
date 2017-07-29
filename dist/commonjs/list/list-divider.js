@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var aurelia_framework_1 = require("aurelia-framework");
 var aurelia_logging_1 = require("aurelia-logging");
 var util = require("../util");
+var common = require("./common");
 var MdcListDivider = (function () {
     function MdcListDivider(element) {
         this.element = element;
@@ -19,9 +20,9 @@ var MdcListDivider = (function () {
         this.isUlDivider = false;
         this.isNavDivider = false;
         this.log = aurelia_logging_1.getLogger('mdc-list-divider');
-        var tag = this.element.parentElement.tagName;
-        var isList = this.element.parentElement.classList.contains('mdc-list');
-        if (isList) {
+        var parentListElement = common.getParentList(this.element);
+        if (parentListElement) {
+            var tag = parentListElement.tagName || 'ul';
             if (tag.toLowerCase() === 'ul') {
                 this.isUlDivider = true;
             }
