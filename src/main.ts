@@ -1,12 +1,11 @@
 import { Aurelia } from 'aurelia-framework';
 import environment from './environment';
-import { ConfigBuilder } from './bridge/config-builder';
+import { ConfigBuilder } from './bridge/index';
 
 export function configure(aurelia: Aurelia) {
   aurelia.use
     .standardConfiguration()
     .feature('./bridge/index', (b: ConfigBuilder) => b.useAll() )
-    // .feature('./bridge/index')
     .feature('resources');
 
   if (environment.debug) {

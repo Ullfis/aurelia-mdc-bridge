@@ -3,9 +3,7 @@ template
   // DOCUMENTATION
   mdc-grid
     mdc-grid-cell(span="12")
-      span.mdc-typography--display1 Icons and fonts offline
-    
-    mdc-grid-cell(span="12")
+      h4 Icons and fonts offline
       p.
         Normally you want to use icons and fonts from googleapis but sometimes you need to 
         build systems for computers who are never online. To do this you have to include
@@ -21,7 +19,8 @@ template
             &lt;link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet"&gt; (fonts)
             ...
 
-      span.mdc-typography--headline Icons
+    mdc-grid-cell(span="12")
+      h5 Icons
       p 1. Install material design icons:
       pre
         code-prism(language="batch").
@@ -43,8 +42,8 @@ template
             &lt;link href="/style/mdi/material-icons.css" rel="stylesheet"&gt;
 
 
-      br
-      span.mdc-typography--headline Fonts
+    mdc-grid-cell(span="12")
+      h5 Fonts
       p 1. Install roboto-npm-webfont:
       pre
         code-prism(language="batch").

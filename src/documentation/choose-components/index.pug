@@ -1,0 +1,73 @@
+template
+
+  // DOCUMENTATION
+  mdc-grid
+    mdc-grid-cell(span="12")
+      h4 Choose Components
+      p.
+        When you register the plugin in main.js in src folder, the default 
+        action of the library is to use all components. You can choose to
+        use only the components you want by configure the plugin like this:
+
+
+    // DEFAULT
+    mdc-grid-cell(span="12")
+      h5 Default
+      pre
+        code-prism(language="typescript").
+          export function configure(aurelia) {
+            ...
+              aurelia.use.plugin('aurelia-mdc-bridge');
+            ...
+          }
+
+      p This is the same as default
+      pre
+        code-prism(language="typescript").
+          aurelia.use.plugin('aurelia-mdc-bridge', b => b.useAll());
+
+      p To use only #[span.mark-text Text Fields] and #[span.mark-text Buttons]:
+      pre
+        code-prism(language="typescript").
+          aurelia.use.plugin('aurelia-mdc-bridge', b => b.useTextFields().useButtons());
+
+      p IntelliSense
+      pre
+        code-prism(language="typescript").
+          import { ConfigBuilder } from 'aurelia-mdc-bridge';
+
+          export function configure(aurelia) {
+            ...
+              aurelia.use.plugin('aurelia-mdc-bridge', (b: ConfigBuilder) => b.useTextFields().useButtons());
+            ...
+          }
+
+    // COMPLETE LIST
+    mdc-grid-cell(span="12")
+      h5 Complete list
+      pre
+        code-prism(language="typescript").
+          .useAll()
+          .useButtons()
+          .useFab()
+          .useIconToggle()
+          .useCards()
+          .useDialogs()
+          .usePermanentDrawer()
+          .usePersistentDrawer()
+          .useTemporaryDrawer()
+          .useGridLists()
+          .useCheckboxes()
+          .useRadioButtons()
+          .useSelectMenus()
+          .useSelectMenusCss()
+          .useSliders()
+          .useSwitches()
+          .useTextFields()
+          .useLayoutGrids()
+          .useLinearProgress()
+          .useLists()
+          .useMenus()
+          .useSnackbars()
+          .useTabs()
+          .useToolbars()
