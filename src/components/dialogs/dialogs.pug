@@ -3,7 +3,7 @@ template
   // SAMPLE
   mdc-grid
     mdc-grid-cell(span="12")
-      span.mdc-typography--display1 Dialogs
+      h4 Dialogs
 
     // CONFIG AREA
     mdc-grid-cell(span="4")
@@ -80,7 +80,7 @@ template
     // SCROLLABLE
     mdc-grid-cell(span="12")
       section
-        span.mdc-typography--headline Scrollable
+        h5 Scrollable
         p.
           Set #[span.mark-text scrollable] attribute to #[span.mark-text true] to enable scrollable content:
         pre
@@ -103,8 +103,8 @@ template
     // THEMING
     mdc-grid-cell(span="12")
       section
-        span.mdc-typography--headline Theming
-        p.mdc-typography--subheading2 Dark Theme Considerations
+        h5 Theming
+        h6 Dark Theme Considerations
         p.
           When using #[span.mark-text mdc-theme--dark] / #[span.mark-text mdc-dialog--theme-dark], 
           the dialog by default sets its background color to #303030. 
@@ -119,3 +119,39 @@ template
             .mdc-dialog--theme-dark .mdc-dialog__surface {
               background-color: /* custom bg color */;
             }      
+
+    mdc-grid-cell(span="12")
+      h5 Opened / Closed events
+      p These events fire after the dialog has beed opened / closed.
+      pre
+        code-prism.
+          <mdc-dialog on-opened.delegate="onOpened()" on-closed.delegate="onClosed()"></mdc-dialog>
+      button(mdc-button="raised: true;" click.delegate="showDialog3()") Open dialog
+      mdc-dialog(
+        view-model.ref="dialog3"
+        header="Dialog"
+        accept="OK"
+        cancel="Cancel"
+        on-opened.delegate="onOpened3()"
+        on-closed.delegate="onClosed3()")
+        mdc-textfield(view-model.ref="focusMeElement") Should be focused
+      
+      p Event: ${openCloseStatus3}
+
+      pre
+        code-prism.
+          &lt;mdc-dialog
+            header="Dialog"
+            accept="OK"
+            cancel="Cancel"
+            on-opened.delegate="onOpened()"&gt;
+            &lt;mdc-textfield view-model.ref="focusMe"&gt;Should be focused&lt;/mdc-textfield&gt;
+          &lt;/mdc-dialog&gt;
+      pre
+        code-prism(language="typescript").
+          import { MdcTextfield } from 'aurelia-mdc-bridge';
+          private focusMe: MdcTextfield;
+
+          private onOpened() {
+            this.focusMe.focus();
+          }
