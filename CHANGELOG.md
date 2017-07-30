@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.2"></a>
+## [0.5.2](https://github.com/ullfis/aurelia-mdc-bridge/compare/0.5.1...0.5.2) (2017-07-30)
+
+
+### Bug Fixes
+
+* **config-builder:** add .useRipples() in .useAll() ([9eb4c3c](https://github.com/ullfis/aurelia-mdc-bridge/commit/9eb4c3c))
+* **mdc-dialog:** add on-opened and on-closed events ([48bb704](https://github.com/ullfis/aurelia-mdc-bridge/commit/48bb704))
+* **mdc-textfield:** add focus function ([9ad669a](https://github.com/ullfis/aurelia-mdc-bridge/commit/9ad669a))
+
+
+
 <a name="0.5.1"></a>
 ## [0.5.1](https://github.com/ullfis/aurelia-mdc-bridge/compare/0.5.0...0.5.1) (2017-07-29)
 
