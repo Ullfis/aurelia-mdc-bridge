@@ -1,7 +1,5 @@
-import { TaskQueue } from 'aurelia-framework';
 export declare class MdcTextfield {
     private element;
-    private taskQueue;
     private static id;
     value: string;
     type: string;
@@ -34,7 +32,8 @@ export declare class MdcTextfield {
     private elementHelpText;
     private elementInput;
     private styleHelptext;
-    constructor(element: Element, taskQueue: TaskQueue);
+    constructor(element: Element);
+    focus(): void;
     private bind();
     private unbind();
     private attached();

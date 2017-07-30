@@ -53,12 +53,20 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/dialog", "..
                 MdcDialog.prototype.attached = function () {
                     this.scrollableChanged(this.scrollable);
                     this.mdcElement = new dialog_1.MDCDialog(this.diagElement);
+                    this.mdcDialogFoundation = this.mdcElement.foundation_.adapter_;
+                    this.mdcDialogFoundation.registerTransitionEndHandler(this.onTransitionEnd.bind(this));
                     this.mdcElement.listen('MDCDialog:accept', this.onButtonAccept.bind(this));
                     this.mdcElement.listen('MDCDialog:cancel', this.onButtonCancel.bind(this));
+                    if (this.focusAt) {
+                        this.log.debug('this.focusAt:', this.focusAt);
+                        this.mdcElement.focusTrap_ = dialog_1.util.createFocusTrapInstance(this.mdcElement.dialogSurface_, this.focusAt);
+                    }
                 };
                 MdcDialog.prototype.detached = function () {
                     this.mdcElement.unlisten('MDCDialog:accept', this.onButtonAccept.bind(this));
                     this.mdcElement.unlisten('MDCDialog:cancel', this.onButtonCancel.bind(this));
+                    this.mdcDialogFoundation.deregisterTransitionEndHandler(this.onTransitionEnd.bind(this));
+                    this.mdcDialogFoundation = null;
                     this.mdcElement.destroy();
                 };
                 MdcDialog.prototype.onButtonAccept = function () {
@@ -69,6 +77,18 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/dialog", "..
                 };
                 MdcDialog.prototype.scrollableChanged = function (newValue) {
                     this.scrollable = util.getBoolean(newValue);
+                };
+                MdcDialog.prototype.onTransitionEnd = function (evt) {
+                    if (this.mdcDialogFoundation.isDialog(evt.target)) {
+                        if (evt.propertyName === 'opacity') {
+                            if (this.mdcElement.open) {
+                                util.fireEvent(this.diagElement, 'on-opened', {});
+                            }
+                            else {
+                                util.fireEvent(this.diagElement, 'on-closed', {});
+                            }
+                        }
+                    }
                 };
                 MdcDialog.id = 0;
                 __decorate([
@@ -87,6 +107,10 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/dialog", "..
                     aurelia_framework_1.bindable(),
                     __metadata("design:type", Object)
                 ], MdcDialog.prototype, "scrollable", void 0);
+                __decorate([
+                    aurelia_framework_1.bindable(),
+                    __metadata("design:type", HTMLElement)
+                ], MdcDialog.prototype, "focusAt", void 0);
                 MdcDialog = MdcDialog_1 = __decorate([
                     aurelia_framework_1.customElement('mdc-dialog'),
                     aurelia_framework_1.inject(Element),

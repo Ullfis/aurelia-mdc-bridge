@@ -11,9 +11,8 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var MdcTextfield = (function () {
-        function MdcTextfield(element, taskQueue) {
+        function MdcTextfield(element) {
             this.element = element;
-            this.taskQueue = taskQueue;
             this.value = '';
             this.type = '';
             this.multiline = false;
@@ -44,6 +43,9 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material
             this.log = aurelia_logging_1.getLogger('mdc-textfield');
         }
         MdcTextfield_1 = MdcTextfield;
+        MdcTextfield.prototype.focus = function () {
+            this.elementInput.focus();
+        };
         MdcTextfield.prototype.bind = function () { };
         MdcTextfield.prototype.unbind = function () { };
         MdcTextfield.prototype.attached = function () {
@@ -237,8 +239,8 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material
         ], MdcTextfield.prototype, "name", void 0);
         MdcTextfield = MdcTextfield_1 = __decorate([
             aurelia_framework_1.customElement('mdc-textfield'),
-            aurelia_framework_1.inject(Element, aurelia_framework_1.TaskQueue),
-            __metadata("design:paramtypes", [Element, aurelia_framework_1.TaskQueue])
+            aurelia_framework_1.inject(Element),
+            __metadata("design:paramtypes", [Element])
         ], MdcTextfield);
         return MdcTextfield;
         var MdcTextfield_1;

@@ -7,14 +7,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { inject, bindable, bindingMode, customElement, TaskQueue } from 'aurelia-framework';
+import { inject, bindable, bindingMode, customElement } from 'aurelia-framework';
 import { getLogger } from 'aurelia-logging';
 import { MDCTextfield } from '@material/textfield';
 import * as util from '../../util';
 var MdcTextfield = (function () {
-    function MdcTextfield(element, taskQueue) {
+    function MdcTextfield(element) {
         this.element = element;
-        this.taskQueue = taskQueue;
         this.value = '';
         this.type = '';
         this.multiline = false;
@@ -45,6 +44,9 @@ var MdcTextfield = (function () {
         this.log = getLogger('mdc-textfield');
     }
     MdcTextfield_1 = MdcTextfield;
+    MdcTextfield.prototype.focus = function () {
+        this.elementInput.focus();
+    };
     MdcTextfield.prototype.bind = function () { };
     MdcTextfield.prototype.unbind = function () { };
     MdcTextfield.prototype.attached = function () {
@@ -238,8 +240,8 @@ var MdcTextfield = (function () {
     ], MdcTextfield.prototype, "name", void 0);
     MdcTextfield = MdcTextfield_1 = __decorate([
         customElement('mdc-textfield'),
-        inject(Element, TaskQueue),
-        __metadata("design:paramtypes", [Element, TaskQueue])
+        inject(Element),
+        __metadata("design:paramtypes", [Element])
     ], MdcTextfield);
     return MdcTextfield;
     var MdcTextfield_1;

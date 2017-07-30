@@ -28,9 +28,8 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/textfield", 
         ],
         execute: function () {
             MdcTextfield = (function () {
-                function MdcTextfield(element, taskQueue) {
+                function MdcTextfield(element) {
                     this.element = element;
-                    this.taskQueue = taskQueue;
                     this.value = '';
                     this.type = '';
                     this.multiline = false;
@@ -61,6 +60,9 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/textfield", 
                     this.log = aurelia_logging_1.getLogger('mdc-textfield');
                 }
                 MdcTextfield_1 = MdcTextfield;
+                MdcTextfield.prototype.focus = function () {
+                    this.elementInput.focus();
+                };
                 MdcTextfield.prototype.bind = function () { };
                 MdcTextfield.prototype.unbind = function () { };
                 MdcTextfield.prototype.attached = function () {
@@ -254,8 +256,8 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/textfield", 
                 ], MdcTextfield.prototype, "name", void 0);
                 MdcTextfield = MdcTextfield_1 = __decorate([
                     aurelia_framework_1.customElement('mdc-textfield'),
-                    aurelia_framework_1.inject(Element, aurelia_framework_1.TaskQueue),
-                    __metadata("design:paramtypes", [Element, aurelia_framework_1.TaskQueue])
+                    aurelia_framework_1.inject(Element),
+                    __metadata("design:paramtypes", [Element])
                 ], MdcTextfield);
                 return MdcTextfield;
                 var MdcTextfield_1;
