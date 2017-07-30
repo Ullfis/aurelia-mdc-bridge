@@ -3,7 +3,7 @@ template
   // SAMPLE
   mdc-grid
     mdc-grid-cell(span="12")
-      span.mdc-typography--display1 Checkboxes
+      h4 Checkboxes
 
     // CONFIG AREA
     mdc-grid-cell(span="4")
@@ -20,7 +20,7 @@ template
     // DEMO AREA
     mdc-grid-cell(span="8")    
       section.components
-        span.mdc-typography--title Default theme
+        h6 Default theme
         br
         mdc-checkbox(
           checked.bind="checked1" 
@@ -29,7 +29,7 @@ template
           on-change.delegate="onChange($event)") DEMO checkbox. checked: ${checked1}
 
       section.mdc-theme--dark.components
-        span.mdc-typography--title Dark theme
+        h6 Dark theme
         br
         mdc-checkbox(checked.bind="checked2") Checkbox. checked: ${checked2}
 

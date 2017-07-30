@@ -3,7 +3,7 @@ template
   // SAMPLE
   mdc-grid
     mdc-grid-cell(span="12")
-      span.mdc-typography--display1 Snackbars
+      h4 Snackbars
 
     // DEMO
     mdc-grid-cell(span="12")
@@ -27,7 +27,7 @@ template
     // BASIC
     mdc-grid-cell(span="12")
       section
-        span.mdc-typography--headline Basic
+        h5 Basic
         pre
           code-prism.
             <mdc-snackbar view-model.ref="mdcSnackbar"></mdc-snackbar>
@@ -42,7 +42,7 @@ template
     // OPTIONS SHOW()
     mdc-grid-cell(span="12")
       section
-        span.mdc-typography--headline Options: show(options)
+        h5 Options: show(options)
         pre
           code-prism(language="typescript").
             import { MdcSnackbar, IMdcSnackbarOptions } from 'aurelia-mdc-bridge';
@@ -96,7 +96,7 @@ template
     // OPTIONS
     mdc-grid-cell(span="12")
       section
-        span.mdc-typography--headline Options on component
+        h5 Options on component
         pre
           code-prism.
             &lt;mdc-snackbar view-model.ref="mdcSnackbar"
@@ -121,7 +121,7 @@ template
     // WITHOUT ELEMENT
     mdc-grid-cell(span="12")
       section
-        span.mdc-typography--headline Snackbar without component
+        h5 Snackbar without component
         p.
           You can also use snackbar without using component &lt;mdc-snackbar&gt;. The constructor will
           add the needed html to document.body.main (if no main, document.body will be used). show function 

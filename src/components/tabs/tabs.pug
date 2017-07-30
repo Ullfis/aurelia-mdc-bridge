@@ -4,7 +4,7 @@ template
   // SAMPLE
   mdc-grid
     mdc-grid-cell(span="12")
-      span.mdc-typography--display1 Tabs
+      h4 Tabs
 
 
     // LINKS
@@ -20,7 +20,7 @@ template
 
     // BASIC
     mdc-grid-cell(span="12")
-      span.mdc-typography--headline Basic
+      h5 Basic
 
       mdc-tab-bar
         mdc-tab(href="#") Home
@@ -37,7 +37,7 @@ template
 
     // BINDING
     mdc-grid-cell(span="12")
-      span.mdc-typography--headline Binding
+      h5 Binding
 
       mdc-tab-bar(on-change.delegate="onChange($event)" active-tab-index.bind="index")
         mdc-tab(href="#") Home
@@ -66,7 +66,7 @@ template
 
     // ICONS
     mdc-grid-cell(span="12")
-      span.mdc-typography--headline Icons
+      h5 Icons
 
       mdc-tab-bar
         mdc-tab(href="#" active="true")
@@ -92,7 +92,7 @@ template
 
     // ICONS AND TEXT
     mdc-grid-cell(span="12")
-      span.mdc-typography--headline Icons and text
+      h5 Icons and text
 
       mdc-tab-bar
         mdc-tab(href="#" active="true")
@@ -124,7 +124,7 @@ template
 
     // SCROLLER
     mdc-grid-cell(span="12")
-      span.mdc-typography--headline Scroller
+      h5 Scroller
 
       mdc-tab-bar-scroller(active-tab-index.bind="indexScroller" primary="true")
         mdc-tab(href="#" repeat.for="itemNr of [0,1,2,3,4,5,6,7,8,9]") item ${itemNr}
@@ -164,10 +164,8 @@ template
 
     // COLORS
     mdc-grid-cell(span="12")
-      span.mdc-typography--headline Colors
-      br
-
-      span.mdc-typography--title primary
+      h5 Colors
+      h6 primary
       mdc-tab-bar(primary="true")
         mdc-tab
           i.material-icons(slot="icon") phone
@@ -181,7 +179,7 @@ template
           i.material-icons(slot="icon") person_pin
           span(slot="icon-text") Nearby
 
-      span.mdc-typography--title accent
+      h6 accent
       mdc-tab-bar(accent="true")
         mdc-tab
           i.material-icons(slot="icon") phone
@@ -195,7 +193,7 @@ template
           i.material-icons(slot="icon") person_pin
           span(slot="icon-text") Nearby
 
-      span.mdc-typography--title dark theme
+      h6 dark theme
       mdc-tab-bar.mdc-theme--dark
         mdc-tab
           i.material-icons(slot="icon") phone

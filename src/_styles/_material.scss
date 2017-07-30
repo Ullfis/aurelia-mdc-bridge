@@ -56,6 +56,7 @@ h5 {
   // @include mdc-typography-adjust-margin(headline);
 }
 h6 {
-  @include mdc-typography(subheading2);
-  @include mdc-typography-adjust-margin(subheading2);
+  @include mdc-typography(title);
+  margin: 0 0 0 -.07em
+  // @include mdc-typography-adjust-margin(title);
 }

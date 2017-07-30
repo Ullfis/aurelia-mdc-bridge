@@ -3,7 +3,7 @@ template
   // SAMPLE
   mdc-grid
     mdc-grid-cell(span="12")
-      span.mdc-typography--display1 Select Menus (CSS only)
+      h4 Select Menus (CSS only)
       p.
         For more active select component see #[a(href="#/components/inputs/select-menus") mdc-select]
     
@@ -28,9 +28,7 @@ template
 
       // DEFAULT THEME
       section.components
-        span.mdc-typography--title Default theme
-        br
-
+        h6 Default theme
         select(mdc-select-css value.bind="selectedProductId" disabled.bind="disabled")
           option(repeat.for="product of products"
             model.bind="product.id") ${product.id} - ${product.name}
@@ -56,8 +54,7 @@ template
         
       // DARK THEME
       section.mdc-theme--dark.components
-        span.mdc-typography--title Dark theme
-        br
+        h6 Dark theme
         select(mdc-select-css value.bind="selectedProductId" disabled.bind="disabled")
           option(repeat.for="product of products"
             model.bind="product.id") ${product.id} - ${product.name}
@@ -110,7 +107,7 @@ template
     // DARK THEME
     mdc-grid-cell(span="12")
       section(id="darktheme")
-        span.mdc-typography--title style dark theme
+        h5 style dark theme
         pre
           code-prism(language="css").
             .mdc-theme--dark select {
@@ -124,7 +121,7 @@ template
     // MULTI SELECT
     mdc-grid-cell(span="12")
       section(id="multiselect")
-        span.mdc-typography--title multi select
+        h5 multi select
         pre
           code-prism(language="html").
             &lt;select mdc-select-css multiple value.bind="selectedProducts"&gt;
@@ -136,7 +133,7 @@ template
     // DIVIDERS
     mdc-grid-cell(span="12")
       section(id="divider")
-        span.mdc-typography--title divider
+        h5 divider
         pre
           code-prism(language="html").
             &lt;select mdc-select-css multiple&gt;
@@ -149,7 +146,7 @@ template
     // OPTGROUP
     mdc-grid-cell(span="12")
       section(id="optgroup")
-        span.mdc-typography--title optgroup
+        h5 optgroup
         pre
           code-prism(language="html").
             &lt;select mdc-select-css multiple&gt;
@@ -164,7 +161,7 @@ template
     // SIZE
     mdc-grid-cell(span="12")
       section(id="size")
-        span.mdc-typography--title multiselect size
+        h5 multiselect size
         p Select elements take a size attribute to determine the height of the select box.
         pre
           code-prism(language="html").

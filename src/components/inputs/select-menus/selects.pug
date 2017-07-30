@@ -3,7 +3,7 @@ template
   // SAMPLE
   mdc-grid
     mdc-grid-cell(span="12")
-      span.mdc-typography--display1 Select Menus
+      h4 Select Menus
       p.
         If you need to support browser's native select or use 
         multiselect, see #[a(href="#/components/inputs/select-menus-css") mdc-select-css]
@@ -25,7 +25,7 @@ template
     // DEMO AREA
     mdc-grid-cell(span="8")
       section.components
-        span.mdc-typography--title Default theme
+        h6 Default theme
         br
         mdc-select(value.bind="selectedProductId" disabled.bind="disabled" on-change.delegate="onChange($event)")
           mdc-list-item(repeat.for="product of products" model.bind="product.id")
@@ -35,7 +35,7 @@ template
             span Something
 
       section.mdc-theme--dark.components
-        span.mdc-typography--title Dark theme
+        h6 Dark theme
         br
         mdc-select(value.bind="selectedProductId" disabled.bind="disabled" on-change.delegate="onChange($event)")
           mdc-list-item(repeat.for="product of products" model.bind="product.id")
@@ -87,7 +87,7 @@ template
     // ICONS
     mdc-grid-cell(span="12")
       section(id="icons")
-        span.mdc-typography--headline Icons
+        h5 Icons
         pre
           code-prism.
             &lt;span slot="start"&gt;
@@ -119,7 +119,7 @@ template
     // DIVIDER
     mdc-grid-cell(span="12")
       section(id="divider")
-        span.mdc-typography--headline Divider
+        h5 Divider
         pre
           code-prism(language="html").
             &lt;mdc-list-divider&gt;&lt;/mdc-list-divider&gt;
@@ -136,7 +136,7 @@ template
     // EVENT
     mdc-grid-cell(span="12")
       section(id="event")
-        span.mdc-typography--headline Event
+        h5 Event
         pre
           code-prism(language="typescript").
             import { IMdcSelectChangeEvent } from 'aurelia-mdc-bridge';

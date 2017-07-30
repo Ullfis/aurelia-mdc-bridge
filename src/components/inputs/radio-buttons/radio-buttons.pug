@@ -3,7 +3,7 @@ template
   // SAMPLE
   mdc-grid
     mdc-grid-cell(span="12")
-      span.mdc-typography--display1 Radio Buttons
+      h4 Radio Buttons
 
     // CONFIG AREA
     mdc-grid-cell(span="4")
@@ -15,7 +15,7 @@ template
 
       // DEFAULT THEME
       section.components
-        span.mdc-typography--title Default theme
+        h6 Default theme
         mdc-radio(
           checked.bind="radioChoise"
           disabled.bind="radioDisable"
@@ -50,7 +50,7 @@ template
 
       // DARK THEME
       section.mdc-theme--dark.components
-        span.mdc-typography--title Dark theme
+        h6 Dark theme
         mdc-radio(
           checked.bind="radioChoise"
           disabled.bind="radioDisable"
@@ -84,7 +84,7 @@ template
 
       // BOOLEAN
       section.components
-        span.mdc-typography--title Booleans
+        h6 Booleans
         mdc-radio(
           checked.bind="likeCake3"
           model.bind="null"
@@ -117,7 +117,7 @@ template
 
       // OBJECTS
       section.components
-        span.mdc-typography--title Binding to Objects
+        h6 Binding to Objects
         mdc-radio(
           repeat.for="color of colors"
           checked.bind="selectedColor"
@@ -139,7 +139,7 @@ template
 
       // OBJECTS WITH MATCHER
       section.components
-        span.mdc-typography--title Objects with Matcher
+        h6 Objects with Matcher
         mdc-radio(
           checked.bind="selectedProduct"
           model.bind="{ id: 0, name: 'Motherboard' }"
@@ -214,7 +214,7 @@ template
       // STRING
       hr
       section
-        span.mdc-typography--headline String
+        h5 String
         mdc-radio(
           checked.bind="dummy1"
           value="option1"
@@ -246,7 +246,7 @@ template
       // BOOLEAN
       hr
       section
-        span.mdc-typography--headline Booleans
+        h5 Booleans
         mdc-radio(
           checked.bind="likeCake2"
           model.bind="true"
@@ -288,7 +288,7 @@ template
       // OBJECT
       hr
       section
-        span.mdc-typography--headline Object
+        h5 Object
         mdc-radio(
           repeat.for="color of colors"
           checked.bind="selectedColor"
@@ -318,7 +318,7 @@ template
       // OBJECT WITH MATCHER
       hr
       section
-        span.mdc-typography--headline Object with Matcher
+        h5 Object with Matcher
         mdc-radio(
           checked.bind="selectedProduct"
           model.bind="{ id: 0, name: 'Motherboard' }"

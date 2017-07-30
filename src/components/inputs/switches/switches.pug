@@ -3,7 +3,7 @@ template
   // SAMPLE
   mdc-grid
     mdc-grid-cell(span="12")
-      span.mdc-typography--display1 Switches
+      h4 Switches
 
     // CONFIG AREA
     mdc-grid-cell(span="4")
@@ -13,8 +13,7 @@ template
     // DEMO AREA
     mdc-grid-cell(span="8")
       section.components
-        span.mdc-typography--title Default theme
-        br
+        h6 Default theme
         mdc-switch(disabled.bind="switchDisable" checked.bind="switch1" on-change.delegate="onChange($event)") On/off
         table.event-list
           tbody
@@ -30,7 +29,7 @@ template
 
 
       section.mdc-theme--dark.components
-        span.mdc-typography--title Dark theme
+        h6 Dark theme
         br
         mdc-switch(disabled.bind="switchDisable" checked.bind="switch3") On/off
         p checked: ${switch3}

@@ -4,7 +4,7 @@ template
   // SAMPLE
   mdc-grid
     mdc-grid-cell(span="12")
-      span.mdc-typography--display1 Menus
+      h4 Menus
     
     // CONFIG AREA
     mdc-grid-cell(span="6")
@@ -24,8 +24,7 @@ template
 
       // default theme
       section.components
-        span.mdc-typography--title Default theme
-        br
+        h5 Default theme
         .mdc-menu-anchor
           button(mdc-button="raised: true;" click.delegate="showMenu1()") Button 1
           mdc-simple-menu(
@@ -49,8 +48,7 @@ template
 
       // dark theme
       section.mdc-theme--dark.components
-        span.mdc-typography--title Dark theme
-        br
+        h6 Dark theme
         .mdc-menu-anchor
           button(mdc-button="raised: true;" click.delegate="showMenu2()") Button 2
           mdc-simple-menu(
@@ -123,7 +121,7 @@ template
     // BINDING MODEL
     mdc-grid-cell(span="12")
       section(id="bindingmodel")
-        span.mdc-typography--headline Binding items model and menu value
+        h5 Binding items model and menu value
         p.
           You can bind a variable to #[span.mark-text value] attribute on #[span.mark-text mdc-simple-menu]
           element and get a #[span.mark-text model] from selected #[span.mark-text mdc-list-item].
@@ -175,13 +173,13 @@ template
     // POSITIONING THE MENU
     mdc-grid-cell(span="12")
       section(id="positioningthemenu")
-        span.mdc-typography--headline Positioning the menu
+        h5 Positioning the menu
         p.
           The menu can either be positioned manually, or automatically, 
           by anchoring it to an element.
 
         // AUTOMATIC POSITIONING
-        span.mdc-typography--headline Automatic positioning
+        h5 Automatic positioning
         p.
           The menu understands the concept of an anchor, which it can use 
           to determine how to position itself, and which corner to open from.
@@ -220,7 +218,7 @@ template
     // MANUAL POSITIONING
     mdc-grid-cell(span="12")
       section
-        span.mdc-typography--headline Manual positioning
+        h5 Manual positioning
         p.
           The menu is #[span.mark-text position: absolute] by default, and must be positioned 
           by the user when doing manual positioning.
@@ -300,7 +298,7 @@ template
     // MENU OPENING POINT
     mdc-grid-cell(span="12")
       section
-        span.mdc-typography--headline(id="menuopeningpoint") Menu opening point
+        h5(id="menuopeningpoint") Menu opening point
         p.
           The menu will open from the top left by default (top right in RTL). 
           Depending on how you’ve positioned your button, you may want to change the 
@@ -349,7 +347,7 @@ template
 
     // ICON IN MENU ITEM
     mdc-grid-cell(span="12")
-      span.mdc-typography--headline(id="iconinmenuitem") Icon in menu item
+      h5(id="iconinmenuitem") Icon in menu item
     
     mdc-grid-cell(span="8")
       pre

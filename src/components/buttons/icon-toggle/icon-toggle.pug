@@ -3,7 +3,7 @@ template
   // SAMPLE
   mdc-grid
     mdc-grid-cell(span="12")
-      span.mdc-typography--display1 Icon Toggle Buttons
+      h4 Icon Toggle Buttons
 
     // CONFIG AREA
     mdc-grid-cell(span="4")
@@ -16,7 +16,7 @@ template
     // DEMO AREA
     mdc-grid-cell(span="8")
       section.components
-        span.mdc-typography--title Default theme
+        h6 Default theme
         mdc-icon-toggle(
           on.bind="on"
           accent.bind="accent" 
@@ -28,7 +28,7 @@ template
           on-toggle.delegate="onToggle($event)")
       
       section.mdc-theme--dark.components
-        span.mdc-typography--title Dark theme
+        h6 Dark theme
         mdc-icon-toggle(
           on.bind="on"
           accent.bind="accent" 
