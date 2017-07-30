@@ -1,10 +1,10 @@
-import { inject, bindable, bindingMode, customElement, TaskQueue } from 'aurelia-framework';
+import { inject, bindable, bindingMode, customElement } from 'aurelia-framework';
 import { getLogger, Logger } from 'aurelia-logging';
 import { MDCTextfield } from '@material/textfield';
 import * as util from '../../util';
 
 @customElement('mdc-textfield')
-@inject(Element, TaskQueue)
+@inject(Element)
 export class MdcTextfield {
   private static id = 0;
   @bindable({ defaultBindingMode: bindingMode.twoWay }) public value = '';
@@ -39,10 +39,14 @@ export class MdcTextfield {
   private elementInput: HTMLInputElement | HTMLTextAreaElement;
   private styleHelptext = 'display: none;';
 
-  constructor(private element: Element, private taskQueue: TaskQueue) {
+  constructor(private element: Element) {
     this.controlId = `mdc-textfield-${MdcTextfield.id++}`;
     this.helptextId = `mdc-helptextfield-${MdcTextfield.id}`;
     this.log = getLogger('mdc-textfield');
+  }
+
+  public focus() {
+    this.elementInput.focus();
   }
 
   private bind() { /** */ }
