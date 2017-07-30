@@ -3,7 +3,7 @@ template
   // SAMPLE
   mdc-grid
     mdc-grid-cell(span="12")
-      span.mdc-typography--display1 Text Fields
+      h4 Text Fields
 
     // CONFIG AREA
     mdc-grid-cell(span="4")
@@ -45,8 +45,8 @@ template
 
       // DEFAULT THEME
       section.components
-        span.mdc-typography--title Default theme
-        br
+        h5 Default theme
+
         // demo textfield
         mdc-textfield(
           value.bind="mValue" 
@@ -74,8 +74,7 @@ template
 
       // DARK THEME
       section.mdc-theme--dark.components
-        span.mdc-typography--title Dark theme
-        br
+        h5 Dark theme
         mdc-textfield(
           value.bind="mValue" 
           disabled.bind="mDisabled"
@@ -164,7 +163,7 @@ template
 
     // FULL WIDTH
     mdc-grid-cell(span="12")      
-      span.mdc-typography--headline Full width
+      h5 Full width
       pre
         code-prism.
           &lt;mdc-textfield
@@ -174,3 +173,19 @@ template
           &lt;/mdc-textfield&gt;
           
       p Full-width text fields do not support floating labels.
+
+    // FUNCTIONS
+    mdc-grid-cell(span="12")      
+      h5 Functions
+      pre
+        code-prism.
+          &lt;mdc-textfield model-view.ref="textfieldModel"&gt;&lt;/mdc-textfield&gt;
+
+      pre
+        code-prism(language="typescript").
+          import { MdcTextfield } from 'aurelia-mdc-bridge';
+          private textfieldModel: MdcTextfield;
+
+          ...
+            this.textfieldModel.focus();
+          ...

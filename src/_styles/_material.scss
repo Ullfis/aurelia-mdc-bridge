@@ -49,11 +49,11 @@ body {
 h4 {
   @include mdc-typography(display1);
   @include mdc-typography-adjust-margin(headline);
-  // margin: -.5rem 0 0 -.07em
 }
 h5 {
   @include mdc-typography(headline);
-  @include mdc-typography-adjust-margin(headline);
+  margin: 0 0 0 -.07em
+  // @include mdc-typography-adjust-margin(headline);
 }
 h6 {
   @include mdc-typography(subheading2);
