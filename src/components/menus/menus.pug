@@ -109,7 +109,7 @@ template
       
       pre
         code-prism(language="html").
-          &lt;mdc-simple-menu view-model.ref="menuElement"&gt;
+          &lt;mdc-simple-menu view-model.ref="menuElement" on-select.delegate="onSelect($event)" on-cancel.delegate="onCancel()"&gt;
             &lt;mdc-list-item&gt;Item 1&lt;/mdc-list-item&gt;
             &lt;mdc-list-item disabled="true"&gt;Item 2&lt;/mdc-list-item&gt;
             &lt;mdc-list-item&gt;Item 3&lt;/mdc-list-item&gt;
