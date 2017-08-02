@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.6.0"></a>
+# [0.6.0](https://github.com/ullfis/aurelia-mdc-bridge/compare/0.5.2...0.6.0) (2017-08-02)
+
+
+### Features
+
+* **mdc-textfield:** add blur and focus events also add focused attribute ([c6855c5](https://github.com/ullfis/aurelia-mdc-bridge/commit/c6855c5))
+* **mdc-textfield:** add getNativeInput() function ([49ce058](https://github.com/ullfis/aurelia-mdc-bridge/commit/49ce058))
+
+
+
 <a name="0.5.2"></a>
 ## [0.5.2](https://github.com/ullfis/aurelia-mdc-bridge/compare/0.5.1...0.5.2) (2017-07-30)
 
