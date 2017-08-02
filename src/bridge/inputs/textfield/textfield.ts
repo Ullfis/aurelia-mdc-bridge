@@ -50,6 +50,10 @@ export class MdcTextfield {
     this.elementInput.focus();
   }
 
+  public getNativeInput(): {value: string, disabled: boolean, badInput: boolean, checkValidity: () => boolean } {
+    return this.mdcTextfield.foundation_.adapter_.getNativeInput();
+  }
+
   private bind() { /** */ }
   private unbind() { /** */ }
 
