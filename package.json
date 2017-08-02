@@ -65,7 +65,7 @@
     "postdocs": "npm run builddocs",
     "prebuilddocs": "rimraf docs",
     "builddocs": "au build-docs",
-    "___end-dist-sample___": ""
+    "___end-docs___": ""
   },
   "standard-version": {
     "skip": {
