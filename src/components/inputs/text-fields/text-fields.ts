@@ -1,3 +1,6 @@
+import { getLogger, Logger } from 'aurelia-logging';
+import { MdcTextfield } from '../../../bridge/index';
+
 export class TextFields {
   private mValue = 'Hello world!';
   private mDisabled = false;
@@ -11,6 +14,10 @@ export class TextFields {
   private mBox = false;
   private mPassword = '';
   private numericText = 9;
+  private reportElement;
+  private demoTextfieldElement: MdcTextfield;
+
+  private mFocused = true;
 
   private colorValue = '#4459a0';
   private timeValue = new Date().toISOString().substr(11, 5);
@@ -18,6 +25,21 @@ export class TextFields {
   private weekValue = new Date().toISOString().substr(0, 5) + 'W' + this.getWeek();
   private dateValue = new Date().toISOString().substr(0, 10);
   private datetimeLocalValue = new Date().toISOString().substr(0, 16);
+
+  private log: Logger;
+  constructor(private element: Element) {
+    this.log = getLogger('Textfields');
+  }
+
+  private onEvent(name, event = null) {
+    this.log.debug(name);
+    this.reportElement.add(name);
+    return true;
+  }
+
+  private onClick() {
+    this.log.debug('test:', this.demoTextfieldElement.getNativeInput().value);
+  }
 
   private getWeek(): number {
     const date = new Date();

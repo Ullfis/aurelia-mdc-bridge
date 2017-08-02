@@ -21,6 +21,8 @@ template
       br
       mdc-checkbox(checked.bind="mFullwidth") fullwidth              
       br
+      mdc-checkbox(checked.bind="mFocused") focused
+      br      
       mdc-textfield(value.bind="mHelptext") Help text
       br
       mdc-textfield(value.bind="numericText" type="number" min="0" max="10" step="1") number
@@ -39,6 +41,8 @@ template
       br
       mdc-textfield(value.bind="datetimeLocalValue2" type="datetime-local" prefilled="true") prefilled
       p (label always on top)
+      button(mdc-button="raised: true;" click.delegate="onClick()") console.log native input
+      br
 
     // DEMO AREA
     mdc-grid-cell(span="8")
@@ -48,7 +52,8 @@ template
         h5 Default theme
 
         // demo textfield
-        mdc-textfield(
+        mdc-textfield#testid(
+          view-model.ref="demoTextfieldElement"
           value.bind="mValue" 
           disabled.bind="mDisabled"
           dense.bind="mDense"
@@ -56,21 +61,28 @@ template
           helptext.bind="mHelptext"
           helptext-show.bind="mHelptextShow"
           helptext-persistent.bind="mHelptextPersistent"
-          helptext-validation.bind="mHelptextValidation") Label text
+          helptext-validation.bind="mHelptextValidation"
+          blur-on-enter="true"
+          focused.bind="mFocused"
+          focus.delegate="onEvent('focus', $event)"          
+          blur.delegate="onEvent('blur', $event)") Label text
 
         br
+        // events
+        report-element(view-model.ref="reportElement")
+        br
+
         // multiline
-        mdc-grid-cell(span="6")
-          mdc-textfield(
-            value.bind="mValue" 
-            disabled.bind="mDisabled"
-            multiline="true"
-            dense.bind="mDense"
-            required.bind="mRequired"
-            helptext.bind="mHelptext"
-            helptext-show.bind="mHelptextShow"
-            helptext-persistent.bind="mHelptextPersistent"
-            helptext-validation.bind="mHelptextValidation") Multiline
+        mdc-textfield(
+          value.bind="mValue" 
+          disabled.bind="mDisabled"
+          multiline="true"
+          dense.bind="mDense"
+          required.bind="mRequired"
+          helptext.bind="mHelptext"
+          helptext-show.bind="mHelptextShow"
+          helptext-persistent.bind="mHelptextPersistent"
+          helptext-validation.bind="mHelptextValidation") Multiline
 
       // DARK THEME
       section.mdc-theme--dark.components
@@ -157,7 +169,10 @@ template
             helptext-validation.bind="helptextValidation"
             min.bind="min"
             max.bind="max"
-            step.bind="step"&gt;
+            step.bind="step"
+            focused.bind="focus"
+            focus.delegate="onFocus()"
+            blur.delegate="onBlur()"&gt;
             Label text
           &lt;/mdc-textfield&gt;
 
@@ -175,11 +190,11 @@ template
       p Full-width text fields do not support floating labels.
 
     // FUNCTIONS
-    mdc-grid-cell(span="12")      
-      h5 Functions
+    mdc-grid-cell(span="12") 
+      h5 Functions and properties
       pre
         code-prism.
-          &lt;mdc-textfield model-view.ref="textfieldModel"&gt;&lt;/mdc-textfield&gt;
+          &lt;mdc-textfield view-model.ref="textfieldModel"&gt;&lt;/mdc-textfield&gt;
 
       pre
         code-prism(language="typescript").
@@ -188,4 +203,6 @@ template
 
           ...
             this.textfieldModel.focus();
+            this.textfieldModel.focused = false;
+            const nativeInput = this.textfieldModel.getNativeInput();
           ...

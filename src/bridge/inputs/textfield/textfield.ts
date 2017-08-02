@@ -1,13 +1,14 @@
-import { inject, bindable, bindingMode, customElement } from 'aurelia-framework';
+import { autoinject, bindable, bindingMode, customElement, TaskQueue } from 'aurelia-framework';
 import { getLogger, Logger } from 'aurelia-logging';
 import { MDCTextfield } from '@material/textfield';
 import * as util from '../../util';
 
 @customElement('mdc-textfield')
-@inject(Element)
+@autoinject()
 export class MdcTextfield {
   private static id = 0;
   @bindable({ defaultBindingMode: bindingMode.twoWay }) public value = '';
+  @bindable({ defaultBindingMode: bindingMode.twoWay }) public focused = false;
   @bindable({ defaultBindingMode: bindingMode.oneTime }) public type = '';
   @bindable({ defaultBindingMode: bindingMode.oneTime }) public multiline = false;
   @bindable({ defaultBindingMode: bindingMode.oneTime }) public box = false;
@@ -39,7 +40,7 @@ export class MdcTextfield {
   private elementInput: HTMLInputElement | HTMLTextAreaElement;
   private styleHelptext = 'display: none;';
 
-  constructor(private element: Element) {
+  constructor(private element: Element, private taskQueue: TaskQueue) {
     this.controlId = `mdc-textfield-${MdcTextfield.id++}`;
     this.helptextId = `mdc-helptextfield-${MdcTextfield.id}`;
     this.log = getLogger('mdc-textfield');
@@ -47,6 +48,10 @@ export class MdcTextfield {
 
   public focus() {
     this.elementInput.focus();
+  }
+
+  public getNativeInput(): {value: string, disabled: boolean, badInput: boolean, checkValidity: () => boolean } {
+    return this.mdcTextfield.foundation_.adapter_.getNativeInput();
   }
 
   private bind() { /** */ }
@@ -71,11 +76,14 @@ export class MdcTextfield {
 
     this.helptextShowChanged(this.helptextShow);
     this.disabledChanged(this.disabled);
+    this.focusedChanged(this.focused);
 
     this.mdcTextfield.foundation_.adapter_.registerInputBlurHandler(this.onBlur.bind(this));
+    this.mdcTextfield.foundation_.adapter_.registerInputFocusHandler(this.onFocus.bind(this));
   }
 
   private detached() {
+    this.mdcTextfield.foundation_.adapter_.deregisterInputFocusHandler(this.onFocus.bind(this));
     this.mdcTextfield.foundation_.adapter_.deregisterInputBlurHandler(this.onBlur.bind(this));
     this.mdcTextfield.destroy();
   }
@@ -95,10 +103,27 @@ export class MdcTextfield {
     }
   }
 
+  private focusedChanged(newValue) {
+    if (util.getBoolean(newValue)) {
+      this.taskQueue.queueTask(() => {
+        this.elementInput.focus();
+      });
+    } else {
+      this.elementInput.blur();
+    }
+  }
+
   private onBlur() {
     if (util.getBoolean(this.prefilled)) {
       this.prefilledChanged(this.prefilled);
     }
+    util.fireEvent(this.element, 'blur', null);
+    this.focused = false;
+  }
+
+  private onFocus() {
+    util.fireEvent(this.element, 'focus', null);
+    this.focused = true;
   }
 
   private disabledChanged(newValue: boolean) {
