@@ -28,9 +28,11 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/textfield", 
         ],
         execute: function () {
             MdcTextfield = (function () {
-                function MdcTextfield(element) {
+                function MdcTextfield(element, taskQueue) {
                     this.element = element;
+                    this.taskQueue = taskQueue;
                     this.value = '';
+                    this.focused = false;
                     this.type = '';
                     this.multiline = false;
                     this.box = false;
@@ -63,6 +65,9 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/textfield", 
                 MdcTextfield.prototype.focus = function () {
                     this.elementInput.focus();
                 };
+                MdcTextfield.prototype.getNativeInput = function () {
+                    return this.mdcTextfield.foundation_.adapter_.getNativeInput();
+                };
                 MdcTextfield.prototype.bind = function () { };
                 MdcTextfield.prototype.unbind = function () { };
                 MdcTextfield.prototype.attached = function () {
@@ -79,9 +84,12 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/textfield", 
                     this.mdcTextfield = new textfield_1.MDCTextfield(this.elementMain);
                     this.helptextShowChanged(this.helptextShow);
                     this.disabledChanged(this.disabled);
+                    this.focusedChanged(this.focused);
                     this.mdcTextfield.foundation_.adapter_.registerInputBlurHandler(this.onBlur.bind(this));
+                    this.mdcTextfield.foundation_.adapter_.registerInputFocusHandler(this.onFocus.bind(this));
                 };
                 MdcTextfield.prototype.detached = function () {
+                    this.mdcTextfield.foundation_.adapter_.deregisterInputFocusHandler(this.onFocus.bind(this));
                     this.mdcTextfield.foundation_.adapter_.deregisterInputBlurHandler(this.onBlur.bind(this));
                     this.mdcTextfield.destroy();
                 };
@@ -98,10 +106,27 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/textfield", 
                         }
                     }
                 };
+                MdcTextfield.prototype.focusedChanged = function (newValue) {
+                    var _this = this;
+                    if (util.getBoolean(newValue)) {
+                        this.taskQueue.queueTask(function () {
+                            _this.elementInput.focus();
+                        });
+                    }
+                    else {
+                        this.elementInput.blur();
+                    }
+                };
                 MdcTextfield.prototype.onBlur = function () {
                     if (util.getBoolean(this.prefilled)) {
                         this.prefilledChanged(this.prefilled);
                     }
+                    util.fireEvent(this.element, 'blur', null);
+                    this.focused = false;
+                };
+                MdcTextfield.prototype.onFocus = function () {
+                    util.fireEvent(this.element, 'focus', null);
+                    this.focused = true;
                 };
                 MdcTextfield.prototype.disabledChanged = function (newValue) {
                     var value = util.getBoolean(newValue);
@@ -170,6 +195,10 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/textfield", 
                     aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
                     __metadata("design:type", Object)
                 ], MdcTextfield.prototype, "value", void 0);
+                __decorate([
+                    aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+                    __metadata("design:type", Object)
+                ], MdcTextfield.prototype, "focused", void 0);
                 __decorate([
                     aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.oneTime }),
                     __metadata("design:type", Object)
@@ -256,8 +285,8 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/textfield", 
                 ], MdcTextfield.prototype, "name", void 0);
                 MdcTextfield = MdcTextfield_1 = __decorate([
                     aurelia_framework_1.customElement('mdc-textfield'),
-                    aurelia_framework_1.inject(Element),
-                    __metadata("design:paramtypes", [Element])
+                    aurelia_framework_1.autoinject(),
+                    __metadata("design:paramtypes", [Element, aurelia_framework_1.TaskQueue])
                 ], MdcTextfield);
                 return MdcTextfield;
                 var MdcTextfield_1;
