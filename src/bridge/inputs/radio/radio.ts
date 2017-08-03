@@ -1,4 +1,4 @@
-import { inject, bindable, bindingMode, containerless, customElement, TaskQueue } from 'aurelia-framework';
+import { autoinject, bindable, bindingMode, customElement, TaskQueue } from 'aurelia-framework';
 import { getLogger, Logger } from 'aurelia-logging';
 import { MDCRadio } from '@material/radio';
 import * as util from '../../util';
@@ -20,9 +20,8 @@ export interface IMdcRadioEvent extends CustomEvent {
   };
 }
 
-@containerless()
 @customElement('mdc-radio')
-@inject(Element, TaskQueue)
+@autoinject()
 export class MdcRadio {
   private static id = 0;
   @bindable({ defaultBindingMode: bindingMode.twoWay }) public checked = null;
