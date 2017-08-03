@@ -1,4 +1,4 @@
-import { inject, bindable, bindingMode, customElement, containerless } from 'aurelia-framework';
+import { inject, bindable, bindingMode, customElement } from 'aurelia-framework';
 import { getLogger, Logger } from 'aurelia-logging';
 import { MDCIconToggle } from '@material/icon-toggle';
 import * as util from '../../util';
@@ -13,7 +13,6 @@ export interface IMdcIconToggleEvent extends CustomEvent {
   detail: boolean;
 }
 
-@containerless()
 @customElement('mdc-icon-toggle')
 @inject(Element)
 export class MdcIconToggle {
