@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.6.1"></a>
+## [0.6.1](https://github.com/ullfis/aurelia-mdc-bridge/compare/0.6.0...0.6.1) (2017-08-03)
+
+
+### Bug Fixes
+
+* **mdc-card-actions:** remove containerless ([3edcba5](https://github.com/ullfis/aurelia-mdc-bridge/commit/3edcba5))
+* **mdc-card-horizontal:** remove containerless ([04199bc](https://github.com/ullfis/aurelia-mdc-bridge/commit/04199bc))
+* **mdc-card-media:** remove containerless ([bbf47ed](https://github.com/ullfis/aurelia-mdc-bridge/commit/bbf47ed))
+* **mdc-card-text:** remove containerless ([585308c](https://github.com/ullfis/aurelia-mdc-bridge/commit/585308c))
+* **mdc-card-title:** remove containerless ([8d39bbc](https://github.com/ullfis/aurelia-mdc-bridge/commit/8d39bbc))
+* **mdc-grid:** remove containerless ([20e0ec6](https://github.com/ullfis/aurelia-mdc-bridge/commit/20e0ec6))
+* **mdc-icon-toggle:** remove containerless ([8c481b7](https://github.com/ullfis/aurelia-mdc-bridge/commit/8c481b7))
+* **mdc-linear-progress:** remove containerless ([7de7ff9](https://github.com/ullfis/aurelia-mdc-bridge/commit/7de7ff9))
+* **mdc-list:** remove containerless ([55549cd](https://github.com/ullfis/aurelia-mdc-bridge/commit/55549cd))
+* **mdc-list-divider:** remove containerless ([41926bf](https://github.com/ullfis/aurelia-mdc-bridge/commit/41926bf))
+* **mdc-list-item:** remove containerless ([c6a2b00](https://github.com/ullfis/aurelia-mdc-bridge/commit/c6a2b00))
+* **mdc-radio:** remove containerless ([1be3b19](https://github.com/ullfis/aurelia-mdc-bridge/commit/1be3b19))
+* **mdc-switch:** remove containerless ([ae772db](https://github.com/ullfis/aurelia-mdc-bridge/commit/ae772db))
+* **mdc-tab-bar:** remove containerless ([7451c94](https://github.com/ullfis/aurelia-mdc-bridge/commit/7451c94))
+* **mdc-tab-bar-scroller:** remove containerless ([b7fdcdc](https://github.com/ullfis/aurelia-mdc-bridge/commit/b7fdcdc))
+
+
+
 <a name="0.6.0"></a>
 # [0.6.0](https://github.com/ullfis/aurelia-mdc-bridge/compare/0.5.2...0.6.0) (2017-08-02)
 
