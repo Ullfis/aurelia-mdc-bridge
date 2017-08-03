@@ -1,8 +1,7 @@
-import { inject, bindable, bindingMode, customElement, containerless } from 'aurelia-framework';
+import { inject, bindable, bindingMode, customElement } from 'aurelia-framework';
 import { MDCLinearProgress } from '@material/linear-progress';
 import * as util from '../util';
 
-@containerless()
 @customElement('mdc-linear-progress')
 export class MdcLinearProgress {
   @bindable() public class: string;
