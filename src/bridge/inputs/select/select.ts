@@ -1,4 +1,4 @@
-import { children, inject, bindable, bindingMode, customElement, TaskQueue, containerless } from 'aurelia-framework';
+import { children, inject, bindable, bindingMode, customElement, TaskQueue } from 'aurelia-framework';
 import { getLogger, Logger } from 'aurelia-logging';
 import { MDCSelect, MDCSelectFoundation } from '@material/select';
 import * as util from '../../util';
