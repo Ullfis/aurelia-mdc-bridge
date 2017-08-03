@@ -1,4 +1,4 @@
-import { inject, bindable, bindingMode, containerless, TaskQueue } from 'aurelia-framework';
+import { autoinject, bindable, bindingMode, TaskQueue } from 'aurelia-framework';
 import { getLogger, Logger } from 'aurelia-logging';
 import { MDCTabBar, MDCTabBarFoundation } from '@material/tabs';
 import * as util from '../util';
@@ -14,8 +14,7 @@ export interface IMdcTabBarChangeEvent extends CustomEvent {
   };
 }
 
-@containerless()
-@inject(Element, TaskQueue)
+@autoinject()
 export class MdcTabBar {
   @bindable({ defaultBindingMode: bindingMode.twoWay }) public activeTabIndex = 0;
   @bindable() public class: string;

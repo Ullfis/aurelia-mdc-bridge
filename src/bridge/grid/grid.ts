@@ -1,7 +1,6 @@
-import { inject, bindable, bindingMode, customElement, containerless } from 'aurelia-framework';
+import { inject, bindable, bindingMode, customElement } from 'aurelia-framework';
 import * as util from '../util';
 
-@containerless()
 @customElement('mdc-grid')
 export class MdcGrid {
   @bindable() public class: string;

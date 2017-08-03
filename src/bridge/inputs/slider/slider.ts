@@ -1,4 +1,4 @@
-import { inject, bindable, bindingMode, containerless, customElement, TaskQueue } from 'aurelia-framework';
+import { inject, bindable, bindingMode, customElement, TaskQueue } from 'aurelia-framework';
 import { getLogger, Logger } from 'aurelia-logging';
 import { MDCSlider } from '@material/slider';
 import * as util from '../../util';
@@ -16,7 +16,6 @@ export interface IMdcSliderEvent extends CustomEvent {
   detail: number;
 }
 
-// @containerless()
 @customElement('mdc-slider')
 @inject(Element, TaskQueue)
 export class MdcSlider {

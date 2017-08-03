@@ -1,8 +1,7 @@
-import { inject, bindable, bindingMode, customElement, containerless } from 'aurelia-framework';
+import { inject, bindable, bindingMode, customElement } from 'aurelia-framework';
 import { getLogger, Logger } from 'aurelia-logging';
 import * as util from '../util';
 
-// @containerless()
 @customElement('mdc-card')
 @inject(Element)
 export class MdcCard {

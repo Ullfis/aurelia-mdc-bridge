@@ -1,9 +1,7 @@
-import { inject, bindable, customElement, containerless } from 'aurelia-framework';
+import { inject, bindable, customElement } from 'aurelia-framework';
 import { getLogger, Logger } from 'aurelia-logging';
 import * as util from '../util';
-import * as common from './common';
 
-@containerless()
 @customElement('mdc-list-divider')
 @inject(Element)
 export class MdcListDivider {
@@ -16,7 +14,7 @@ export class MdcListDivider {
 
   constructor(private element: Element) {
     this.log = getLogger('mdc-list-divider');
-    const parentListElement = common.getParentList(this.element);
+    const parentListElement = util.findAncestor(this.element, 'mdc-list');
 
     if (parentListElement) {
       const tag = parentListElement.tagName || 'ul';
