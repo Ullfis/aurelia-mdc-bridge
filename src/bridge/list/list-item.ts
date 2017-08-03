@@ -4,7 +4,6 @@ import {
   bindingMode,
   customElement,
   noView,
-  containerless,
   processContent
 } from 'aurelia-framework';
 
@@ -12,7 +11,6 @@ import { getLogger, Logger } from 'aurelia-logging';
 import { MDCRipple } from '@material/ripple';
 import { CreateListItemComponent } from './create-components';
 import * as util from '../util';
-import * as common from './common';
 
 export interface IMdcListItemClickEvent extends CustomEvent {
 
@@ -25,7 +23,6 @@ export interface IMdcListItemClickEvent extends CustomEvent {
 }
 
 @noView()
-@containerless()
 @customElement('mdc-list-item')
 @processContent(CreateListItemComponent)
 @inject(Element)
@@ -59,7 +56,7 @@ export class MdcListItem {
   private unbind() { /** */ }
 
   private attached() {
-    this.parentElement = common.getParentList(this.elementListItem) as HTMLElement;
+    this.parentElement = util.findAncestor(this.elementListItem, 'mdc-list') as HTMLElement;
 
     this.selectMenuItem();
     this.simpleMenuItem();
@@ -80,7 +77,7 @@ export class MdcListItem {
   }
 
   private selectMenuItem() {
-    this.isSelectMenuItem = common.findAncestor(this.parentElement, 'mdc-select__menu') ? true : false;
+    this.isSelectMenuItem = util.findAncestor(this.parentElement, 'mdc-select__menu') ? true : false;
   }
 
   private rippleEffect() {
