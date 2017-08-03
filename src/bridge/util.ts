@@ -15,3 +15,17 @@ export function getBoolean(value: any): boolean {
 export function hasProp(obj: any, prop: string): boolean {
   return Object.prototype.hasOwnProperty.call(obj, prop);
 }
+
+export function findAncestor(el: Element, className: string, maxSearchLevel: number = 6): Element {
+  let counter = 0;
+  while (counter < maxSearchLevel) {
+    el = el.parentElement || null;
+    if (!el) {
+      return null;
+    } else if (el.classList.contains(className)) {
+      return el;
+    }
+    counter++;
+  }
+  return null;
+}
