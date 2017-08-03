@@ -19,12 +19,12 @@ export function hasProp(obj: any, prop: string): boolean {
 export function findAncestor(el: Element, className: string, maxSearchLevel: number = 6): Element {
   let counter = 0;
   while (counter < maxSearchLevel) {
-    el = el.parentElement || null;
     if (!el) {
       return null;
     } else if (el.classList.contains(className)) {
       return el;
     }
+    el = el.parentElement || null;
     counter++;
   }
   return null;
