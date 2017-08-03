@@ -1,8 +1,7 @@
-import { inject, bindable, bindingMode, containerless, TaskQueue } from 'aurelia-framework';
+import { inject, bindable, bindingMode, TaskQueue } from 'aurelia-framework';
 import { MDCTabBarScroller } from '@material/tabs';
 import * as util from '../util';
 
-@containerless()
 @inject(Element, TaskQueue)
 export class MdcTabBarScroller {
   @bindable({ defaultBindingMode: bindingMode.twoWay }) public activeTabIndex = 0;
