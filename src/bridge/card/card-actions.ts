@@ -1,7 +1,6 @@
-import { bindable, bindingMode, customElement, containerless } from 'aurelia-framework';
+import { bindable, bindingMode, customElement } from 'aurelia-framework';
 import * as util from '../util';
 
-@containerless()
 @customElement('mdc-card-actions')
 export class MdcCardActions {
   @bindable({ defaultBindingMode: bindingMode.oneTime }) public vertical: boolean;
