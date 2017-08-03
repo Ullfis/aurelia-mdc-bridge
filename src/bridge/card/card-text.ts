@@ -1,6 +1,5 @@
-import { bindable, customElement, containerless } from 'aurelia-framework';
+import { bindable, customElement } from 'aurelia-framework';
 
-@containerless()
 @customElement('mdc-card-text')
 export class MdcCardText {
   @bindable() public class: string;
