@@ -28,7 +28,6 @@ define(["require", "exports", "aurelia-framework", "../util"], function (require
             __metadata("design:type", Boolean)
         ], MdcGrid.prototype, "fixedWidth", void 0);
         MdcGrid = __decorate([
-            aurelia_framework_1.containerless(),
             aurelia_framework_1.customElement('mdc-grid')
         ], MdcGrid);
         return MdcGrid;

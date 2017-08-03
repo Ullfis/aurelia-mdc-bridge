@@ -14,7 +14,6 @@ var aurelia_logging_1 = require("aurelia-logging");
 var ripple_1 = require("@material/ripple");
 var create_components_1 = require("./create-components");
 var util = require("../util");
-var common = require("./common");
 var MdcListItem = (function () {
     function MdcListItem(element) {
         this.element = element;
@@ -33,7 +32,7 @@ var MdcListItem = (function () {
     MdcListItem.prototype.bind = function () { };
     MdcListItem.prototype.unbind = function () { };
     MdcListItem.prototype.attached = function () {
-        this.parentElement = common.getParentList(this.elementListItem);
+        this.parentElement = util.findAncestor(this.elementListItem, 'mdc-list');
         this.selectMenuItem();
         this.simpleMenuItem();
         this.rippleEffect();
@@ -51,7 +50,7 @@ var MdcListItem = (function () {
         }
     };
     MdcListItem.prototype.selectMenuItem = function () {
-        this.isSelectMenuItem = common.findAncestor(this.parentElement, 'mdc-select__menu') ? true : false;
+        this.isSelectMenuItem = util.findAncestor(this.parentElement, 'mdc-select__menu') ? true : false;
     };
     MdcListItem.prototype.rippleEffect = function () {
         if (this.ripple) {
@@ -95,7 +94,6 @@ var MdcListItem = (function () {
     ], MdcListItem.prototype, "target", void 0);
     MdcListItem = __decorate([
         aurelia_framework_1.noView(),
-        aurelia_framework_1.containerless(),
         aurelia_framework_1.customElement('mdc-list-item'),
         aurelia_framework_1.processContent(create_components_1.CreateListItemComponent),
         aurelia_framework_1.inject(Element),

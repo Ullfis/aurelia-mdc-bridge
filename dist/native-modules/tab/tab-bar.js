@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { inject, bindable, bindingMode, containerless, TaskQueue } from 'aurelia-framework';
+import { autoinject, bindable, bindingMode, TaskQueue } from 'aurelia-framework';
 import { getLogger } from 'aurelia-logging';
 import { MDCTabBar } from '@material/tabs';
 import * as util from '../util';
@@ -136,8 +136,7 @@ var MdcTabBar = (function () {
         __metadata("design:type", Object)
     ], MdcTabBar.prototype, "accent", void 0);
     MdcTabBar = __decorate([
-        containerless(),
-        inject(Element, TaskQueue),
+        autoinject(),
         __metadata("design:paramtypes", [Element, TaskQueue])
     ], MdcTabBar);
     return MdcTabBar;

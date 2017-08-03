@@ -68,7 +68,6 @@ System.register(["aurelia-framework", "../util"], function (exports_1, context_1
                     __metadata("design:type", Object)
                 ], MdcCardTitle.prototype, "large", void 0);
                 MdcCardTitle = __decorate([
-                    aurelia_framework_1.containerless(),
                     aurelia_framework_1.customElement('mdc-card-title')
                 ], MdcCardTitle);
                 return MdcCardTitle;

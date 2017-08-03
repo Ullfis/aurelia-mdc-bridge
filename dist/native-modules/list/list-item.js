@@ -7,12 +7,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { inject, bindable, bindingMode, customElement, noView, containerless, processContent } from 'aurelia-framework';
+import { inject, bindable, bindingMode, customElement, noView, processContent } from 'aurelia-framework';
 import { getLogger } from 'aurelia-logging';
 import { MDCRipple } from '@material/ripple';
 import { CreateListItemComponent } from './create-components';
 import * as util from '../util';
-import * as common from './common';
 var MdcListItem = (function () {
     function MdcListItem(element) {
         this.element = element;
@@ -31,7 +30,7 @@ var MdcListItem = (function () {
     MdcListItem.prototype.bind = function () { };
     MdcListItem.prototype.unbind = function () { };
     MdcListItem.prototype.attached = function () {
-        this.parentElement = common.getParentList(this.elementListItem);
+        this.parentElement = util.findAncestor(this.elementListItem, 'mdc-list');
         this.selectMenuItem();
         this.simpleMenuItem();
         this.rippleEffect();
@@ -49,7 +48,7 @@ var MdcListItem = (function () {
         }
     };
     MdcListItem.prototype.selectMenuItem = function () {
-        this.isSelectMenuItem = common.findAncestor(this.parentElement, 'mdc-select__menu') ? true : false;
+        this.isSelectMenuItem = util.findAncestor(this.parentElement, 'mdc-select__menu') ? true : false;
     };
     MdcListItem.prototype.rippleEffect = function () {
         if (this.ripple) {
@@ -93,7 +92,6 @@ var MdcListItem = (function () {
     ], MdcListItem.prototype, "target", void 0);
     MdcListItem = __decorate([
         noView(),
-        containerless(),
         customElement('mdc-list-item'),
         processContent(CreateListItemComponent),
         inject(Element),

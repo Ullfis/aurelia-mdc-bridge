@@ -76,9 +76,8 @@ var MdcRadio = (function () {
         __metadata("design:type", Object)
     ], MdcRadio.prototype, "matcher", void 0);
     MdcRadio = MdcRadio_1 = __decorate([
-        aurelia_framework_1.containerless(),
         aurelia_framework_1.customElement('mdc-radio'),
-        aurelia_framework_1.inject(Element, aurelia_framework_1.TaskQueue),
+        aurelia_framework_1.autoinject(),
         __metadata("design:paramtypes", [Element, aurelia_framework_1.TaskQueue])
     ], MdcRadio);
     return MdcRadio;

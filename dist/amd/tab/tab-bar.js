@@ -135,8 +135,7 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material
             __metadata("design:type", Object)
         ], MdcTabBar.prototype, "accent", void 0);
         MdcTabBar = __decorate([
-            aurelia_framework_1.containerless(),
-            aurelia_framework_1.inject(Element, aurelia_framework_1.TaskQueue),
+            aurelia_framework_1.autoinject(),
             __metadata("design:paramtypes", [Element, aurelia_framework_1.TaskQueue])
         ], MdcTabBar);
         return MdcTabBar;

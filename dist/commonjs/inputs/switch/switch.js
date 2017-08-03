@@ -58,7 +58,6 @@ var MdcSwitch = (function () {
         __metadata("design:type", Object)
     ], MdcSwitch.prototype, "checked", void 0);
     MdcSwitch = MdcSwitch_1 = __decorate([
-        aurelia_framework_1.containerless(),
         aurelia_framework_1.customElement('mdc-switch'),
         aurelia_framework_1.inject(Element),
         __metadata("design:paramtypes", [Element])

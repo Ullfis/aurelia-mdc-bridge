@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { bindable, customElement, containerless } from 'aurelia-framework';
+import { bindable, customElement } from 'aurelia-framework';
 var MdcCardHorizontal = (function () {
     function MdcCardHorizontal() {
     }
@@ -16,7 +16,6 @@ var MdcCardHorizontal = (function () {
         __metadata("design:type", String)
     ], MdcCardHorizontal.prototype, "class", void 0);
     MdcCardHorizontal = __decorate([
-        containerless(),
         customElement('mdc-card-horizontal')
     ], MdcCardHorizontal);
     return MdcCardHorizontal;

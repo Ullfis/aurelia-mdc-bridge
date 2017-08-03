@@ -105,7 +105,6 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/icon-toggle"
                     __metadata("design:type", Object)
                 ], MdcIconToggle.prototype, "on", void 0);
                 MdcIconToggle = __decorate([
-                    aurelia_framework_1.containerless(),
                     aurelia_framework_1.customElement('mdc-icon-toggle'),
                     aurelia_framework_1.inject(Element),
                     __metadata("design:paramtypes", [Element])

@@ -7,12 +7,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { inject, bindable, bindingMode, customElement, noView, containerless, processContent } from 'aurelia-framework';
+import { inject, bindable, bindingMode, customElement, noView, processContent } from 'aurelia-framework';
 import { getLogger } from 'aurelia-logging';
 import { MDCRipple } from '@material/ripple';
 import { CreateListItemComponent } from './create-components';
 import * as util from '../util';
-import * as common from './common';
 let MdcListItem = class MdcListItem {
     constructor(element) {
         this.element = element;
@@ -31,7 +30,7 @@ let MdcListItem = class MdcListItem {
     bind() { }
     unbind() { }
     attached() {
-        this.parentElement = common.getParentList(this.elementListItem);
+        this.parentElement = util.findAncestor(this.elementListItem, 'mdc-list');
         this.selectMenuItem();
         this.simpleMenuItem();
         this.rippleEffect();
@@ -49,7 +48,7 @@ let MdcListItem = class MdcListItem {
         }
     }
     selectMenuItem() {
-        this.isSelectMenuItem = common.findAncestor(this.parentElement, 'mdc-select__menu') ? true : false;
+        this.isSelectMenuItem = util.findAncestor(this.parentElement, 'mdc-select__menu') ? true : false;
     }
     rippleEffect() {
         if (this.ripple) {
@@ -94,7 +93,6 @@ __decorate([
 ], MdcListItem.prototype, "target", void 0);
 MdcListItem = __decorate([
     noView(),
-    containerless(),
     customElement('mdc-list-item'),
     processContent(CreateListItemComponent),
     inject(Element),

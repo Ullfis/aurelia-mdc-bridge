@@ -1,23 +1,22 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var util = require("../util");
 function isPermanentDrawer(element) {
-    return isClassPresent(element.parentElement, 'mdc-permanent-drawer');
+    return isClassPresent(element, 'mdc-permanent-drawer');
 }
 exports.isPermanentDrawer = isPermanentDrawer;
 function isPersistentDrawer(element) {
-    return isClassPresent(element.parentElement, 'mdc-persistent-drawer__drawer');
+    return isClassPresent(element, 'mdc-persistent-drawer__drawer');
 }
 exports.isPersistentDrawer = isPersistentDrawer;
 function isTemporaryDrawer(element) {
-    return isClassPresent(element.parentElement, 'mdc-temporary-drawer__drawer');
+    return isClassPresent(element, 'mdc-temporary-drawer__drawer');
 }
 exports.isTemporaryDrawer = isTemporaryDrawer;
 function isClassPresent(parent, className) {
     if (parent) {
-        if (parent.classList.contains(className)) {
-            return true;
-        }
-        if (parent.parentElement && parent.parentElement.classList.contains(className)) {
+        var elementFound = util.findAncestor(parent, className, 5);
+        if (elementFound) {
             return true;
         }
     }

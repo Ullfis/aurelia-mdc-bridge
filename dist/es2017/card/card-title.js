@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { bindable, customElement, containerless } from 'aurelia-framework';
+import { bindable, customElement } from 'aurelia-framework';
 import * as util from '../util';
 let MdcCardTitle = class MdcCardTitle {
     constructor() {
@@ -57,7 +57,6 @@ __decorate([
     __metadata("design:type", Object)
 ], MdcCardTitle.prototype, "large", void 0);
 MdcCardTitle = __decorate([
-    containerless(),
     customElement('mdc-card-title')
 ], MdcCardTitle);
 export { MdcCardTitle };

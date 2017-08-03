@@ -145,7 +145,6 @@ define(["require", "exports", "aurelia-framework", "@material/tabs", "../util"],
             __metadata("design:type", Object)
         ], MdcTabBarScroller.prototype, "accent", void 0);
         MdcTabBarScroller = __decorate([
-            aurelia_framework_1.containerless(),
             aurelia_framework_1.inject(Element, aurelia_framework_1.TaskQueue),
             __metadata("design:paramtypes", [Element, aurelia_framework_1.TaskQueue])
         ], MdcTabBarScroller);

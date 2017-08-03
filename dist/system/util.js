@@ -18,6 +18,22 @@ System.register([], function (exports_1, context_1) {
         return Object.prototype.hasOwnProperty.call(obj, prop);
     }
     exports_1("hasProp", hasProp);
+    function findAncestor(el, className, maxSearchLevel) {
+        if (maxSearchLevel === void 0) { maxSearchLevel = 6; }
+        var counter = 0;
+        while (counter < maxSearchLevel) {
+            if (!el) {
+                return null;
+            }
+            else if (el.classList.contains(className)) {
+                return el;
+            }
+            el = el.parentElement || null;
+            counter++;
+        }
+        return null;
+    }
+    exports_1("findAncestor", findAncestor);
     return {
         setters: [],
         execute: function () {

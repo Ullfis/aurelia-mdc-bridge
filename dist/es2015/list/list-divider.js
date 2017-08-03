@@ -7,10 +7,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { inject, bindable, customElement, containerless } from 'aurelia-framework';
+import { inject, bindable, customElement } from 'aurelia-framework';
 import { getLogger } from 'aurelia-logging';
 import * as util from '../util';
-import * as common from './common';
 let MdcListDivider = class MdcListDivider {
     constructor(element) {
         this.element = element;
@@ -18,7 +17,7 @@ let MdcListDivider = class MdcListDivider {
         this.isUlDivider = false;
         this.isNavDivider = false;
         this.log = getLogger('mdc-list-divider');
-        const parentListElement = common.getParentList(this.element);
+        const parentListElement = util.findAncestor(this.element, 'mdc-list');
         if (parentListElement) {
             const tag = parentListElement.tagName || 'ul';
             if (tag.toLowerCase() === 'ul') {
@@ -51,7 +50,6 @@ __decorate([
     __metadata("design:type", Object)
 ], MdcListDivider.prototype, "inset", void 0);
 MdcListDivider = __decorate([
-    containerless(),
     customElement('mdc-list-divider'),
     inject(Element),
     __metadata("design:paramtypes", [Element])

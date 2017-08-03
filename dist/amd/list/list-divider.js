@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-define(["require", "exports", "aurelia-framework", "aurelia-logging", "../util", "./common"], function (require, exports, aurelia_framework_1, aurelia_logging_1, util, common) {
+define(["require", "exports", "aurelia-framework", "aurelia-logging", "../util"], function (require, exports, aurelia_framework_1, aurelia_logging_1, util) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var MdcListDivider = (function () {
@@ -17,7 +17,7 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "../util",
             this.isUlDivider = false;
             this.isNavDivider = false;
             this.log = aurelia_logging_1.getLogger('mdc-list-divider');
-            var parentListElement = common.getParentList(this.element);
+            var parentListElement = util.findAncestor(this.element, 'mdc-list');
             if (parentListElement) {
                 var tag = parentListElement.tagName || 'ul';
                 if (tag.toLowerCase() === 'ul') {
@@ -49,7 +49,6 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "../util",
             __metadata("design:type", Object)
         ], MdcListDivider.prototype, "inset", void 0);
         MdcListDivider = __decorate([
-            aurelia_framework_1.containerless(),
             aurelia_framework_1.customElement('mdc-list-divider'),
             aurelia_framework_1.inject(Element),
             __metadata("design:paramtypes", [Element])

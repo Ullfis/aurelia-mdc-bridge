@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { bindable, bindingMode, customElement, containerless } from 'aurelia-framework';
+import { bindable, bindingMode, customElement } from 'aurelia-framework';
 import * as util from '../util';
 var MdcGrid = (function () {
     function MdcGrid() {
@@ -27,7 +27,6 @@ var MdcGrid = (function () {
         __metadata("design:type", Boolean)
     ], MdcGrid.prototype, "fixedWidth", void 0);
     MdcGrid = __decorate([
-        containerless(),
         customElement('mdc-grid')
     ], MdcGrid);
     return MdcGrid;

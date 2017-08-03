@@ -1,18 +1,17 @@
+import * as util from '../util';
 export function isPermanentDrawer(element) {
-    return isClassPresent(element.parentElement, 'mdc-permanent-drawer');
+    return isClassPresent(element, 'mdc-permanent-drawer');
 }
 export function isPersistentDrawer(element) {
-    return isClassPresent(element.parentElement, 'mdc-persistent-drawer__drawer');
+    return isClassPresent(element, 'mdc-persistent-drawer__drawer');
 }
 export function isTemporaryDrawer(element) {
-    return isClassPresent(element.parentElement, 'mdc-temporary-drawer__drawer');
+    return isClassPresent(element, 'mdc-temporary-drawer__drawer');
 }
 function isClassPresent(parent, className) {
     if (parent) {
-        if (parent.classList.contains(className)) {
-            return true;
-        }
-        if (parent.parentElement && parent.parentElement.classList.contains(className)) {
+        var elementFound = util.findAncestor(parent, className, 5);
+        if (elementFound) {
             return true;
         }
     }

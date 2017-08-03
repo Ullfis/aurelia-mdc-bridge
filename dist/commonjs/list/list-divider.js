@@ -12,7 +12,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var aurelia_framework_1 = require("aurelia-framework");
 var aurelia_logging_1 = require("aurelia-logging");
 var util = require("../util");
-var common = require("./common");
 var MdcListDivider = (function () {
     function MdcListDivider(element) {
         this.element = element;
@@ -20,7 +19,7 @@ var MdcListDivider = (function () {
         this.isUlDivider = false;
         this.isNavDivider = false;
         this.log = aurelia_logging_1.getLogger('mdc-list-divider');
-        var parentListElement = common.getParentList(this.element);
+        var parentListElement = util.findAncestor(this.element, 'mdc-list');
         if (parentListElement) {
             var tag = parentListElement.tagName || 'ul';
             if (tag.toLowerCase() === 'ul') {
@@ -52,7 +51,6 @@ var MdcListDivider = (function () {
         __metadata("design:type", Object)
     ], MdcListDivider.prototype, "inset", void 0);
     MdcListDivider = __decorate([
-        aurelia_framework_1.containerless(),
         aurelia_framework_1.customElement('mdc-list-divider'),
         aurelia_framework_1.inject(Element),
         __metadata("design:paramtypes", [Element])

@@ -70,7 +70,6 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging"], function 
             __metadata("design:type", String)
         ], MdcCardMedia.prototype, "height", void 0);
         MdcCardMedia = __decorate([
-            aurelia_framework_1.containerless(),
             aurelia_framework_1.customElement('mdc-card-media'),
             aurelia_framework_1.inject(Element),
             __metadata("design:paramtypes", [Element])

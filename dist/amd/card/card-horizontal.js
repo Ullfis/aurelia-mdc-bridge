@@ -18,7 +18,6 @@ define(["require", "exports", "aurelia-framework"], function (require, exports, 
             __metadata("design:type", String)
         ], MdcCardHorizontal.prototype, "class", void 0);
         MdcCardHorizontal = __decorate([
-            aurelia_framework_1.containerless(),
             aurelia_framework_1.customElement('mdc-card-horizontal')
         ], MdcCardHorizontal);
         return MdcCardHorizontal;

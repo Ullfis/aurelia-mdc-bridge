@@ -1,4 +1,4 @@
-System.register(["aurelia-framework", "aurelia-logging", "../util", "./common"], function (exports_1, context_1) {
+System.register(["aurelia-framework", "aurelia-logging", "../util"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -10,7 +10,7 @@ System.register(["aurelia-framework", "aurelia-logging", "../util", "./common"],
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var aurelia_framework_1, aurelia_logging_1, util, common, MdcListDivider;
+    var aurelia_framework_1, aurelia_logging_1, util, MdcListDivider;
     return {
         setters: [
             function (aurelia_framework_1_1) {
@@ -21,9 +21,6 @@ System.register(["aurelia-framework", "aurelia-logging", "../util", "./common"],
             },
             function (util_1) {
                 util = util_1;
-            },
-            function (common_1) {
-                common = common_1;
             }
         ],
         execute: function () {
@@ -34,7 +31,7 @@ System.register(["aurelia-framework", "aurelia-logging", "../util", "./common"],
                     this.isUlDivider = false;
                     this.isNavDivider = false;
                     this.log = aurelia_logging_1.getLogger('mdc-list-divider');
-                    var parentListElement = common.getParentList(this.element);
+                    var parentListElement = util.findAncestor(this.element, 'mdc-list');
                     if (parentListElement) {
                         var tag = parentListElement.tagName || 'ul';
                         if (tag.toLowerCase() === 'ul') {
@@ -66,7 +63,6 @@ System.register(["aurelia-framework", "aurelia-logging", "../util", "./common"],
                     __metadata("design:type", Object)
                 ], MdcListDivider.prototype, "inset", void 0);
                 MdcListDivider = __decorate([
-                    aurelia_framework_1.containerless(),
                     aurelia_framework_1.customElement('mdc-list-divider'),
                     aurelia_framework_1.inject(Element),
                     __metadata("design:paramtypes", [Element])

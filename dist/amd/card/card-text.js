@@ -18,7 +18,6 @@ define(["require", "exports", "aurelia-framework"], function (require, exports, 
             __metadata("design:type", String)
         ], MdcCardText.prototype, "class", void 0);
         MdcCardText = __decorate([
-            aurelia_framework_1.containerless(),
             aurelia_framework_1.customElement('mdc-card-text')
         ], MdcCardText);
         return MdcCardText;

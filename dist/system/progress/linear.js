@@ -100,7 +100,6 @@ System.register(["aurelia-framework", "@material/linear-progress", "../util"], f
                     __metadata("design:type", Boolean)
                 ], MdcLinearProgress.prototype, "open", void 0);
                 MdcLinearProgress = __decorate([
-                    aurelia_framework_1.containerless(),
                     aurelia_framework_1.customElement('mdc-linear-progress')
                 ], MdcLinearProgress);
                 return MdcLinearProgress;

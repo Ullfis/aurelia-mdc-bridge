@@ -7,13 +7,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { bindable, bindingMode, customElement, processContent, containerless, noView } from 'aurelia-framework';
+import { autoinject, bindable, bindingMode, customElement, processContent, noView } from 'aurelia-framework';
 import { getLogger } from 'aurelia-logging';
 import { CreateListComponent } from './create-components';
 import * as drawerCommon from '../drawer/common';
 import * as util from '../util';
 var MdcList = (function () {
-    function MdcList() {
+    function MdcList(element) {
+        this.element = element;
         this.tag = 'ul';
         this.dense = false;
         this.twoLine = false;
@@ -23,14 +24,14 @@ var MdcList = (function () {
     MdcList.prototype.bind = function () { };
     MdcList.prototype.unbind = function () { };
     MdcList.prototype.attached = function () {
-        if (drawerCommon.isPermanentDrawer(this.elementList)) {
-            this.elementList.classList.add('mdc-permanent-drawer__content');
+        if (drawerCommon.isPermanentDrawer(this.element)) {
+            this.element.classList.add('mdc-permanent-drawer__content');
         }
-        if (drawerCommon.isPersistentDrawer(this.elementList)) {
-            this.elementList.classList.add('mdc-persistent-drawer__content');
+        if (drawerCommon.isPersistentDrawer(this.element)) {
+            this.element.classList.add('mdc-persistent-drawer__content');
         }
-        if (drawerCommon.isTemporaryDrawer(this.elementList)) {
-            this.elementList.classList.add('mdc-temporary-drawer__content');
+        if (drawerCommon.isTemporaryDrawer(this.element)) {
+            this.element.classList.add('mdc-temporary-drawer__content');
         }
         this.denseChanged(this.dense);
         this.twoLineChanged(this.twoLine);
@@ -70,10 +71,10 @@ var MdcList = (function () {
     ], MdcList.prototype, "avatar", void 0);
     MdcList = __decorate([
         noView(),
-        containerless(),
         customElement('mdc-list'),
         processContent(CreateListComponent),
-        __metadata("design:paramtypes", [])
+        autoinject(),
+        __metadata("design:paramtypes", [Element])
     ], MdcList);
     return MdcList;
 }());

@@ -18,4 +18,20 @@ define(["require", "exports"], function (require, exports) {
         return Object.prototype.hasOwnProperty.call(obj, prop);
     }
     exports.hasProp = hasProp;
+    function findAncestor(el, className, maxSearchLevel) {
+        if (maxSearchLevel === void 0) { maxSearchLevel = 6; }
+        var counter = 0;
+        while (counter < maxSearchLevel) {
+            if (!el) {
+                return null;
+            }
+            else if (el.classList.contains(className)) {
+                return el;
+            }
+            el = el.parentElement || null;
+            counter++;
+        }
+        return null;
+    }
+    exports.findAncestor = findAncestor;
 });

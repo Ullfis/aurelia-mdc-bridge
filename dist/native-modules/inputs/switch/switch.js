@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { inject, bindable, bindingMode, containerless, customElement } from 'aurelia-framework';
+import { inject, bindable, bindingMode, customElement } from 'aurelia-framework';
 import { getLogger } from 'aurelia-logging';
 import * as util from '../../util';
 var MdcSwitch = (function () {
@@ -56,7 +56,6 @@ var MdcSwitch = (function () {
         __metadata("design:type", Object)
     ], MdcSwitch.prototype, "checked", void 0);
     MdcSwitch = MdcSwitch_1 = __decorate([
-        containerless(),
         customElement('mdc-switch'),
         inject(Element),
         __metadata("design:paramtypes", [Element])

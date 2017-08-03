@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { inject, bindable, bindingMode, containerless, TaskQueue } from 'aurelia-framework';
+import { inject, bindable, bindingMode, TaskQueue } from 'aurelia-framework';
 import { MDCTabBarScroller } from '@material/tabs';
 import * as util from '../util';
 var MdcTabBarScroller = (function () {
@@ -145,7 +145,6 @@ var MdcTabBarScroller = (function () {
         __metadata("design:type", Object)
     ], MdcTabBarScroller.prototype, "accent", void 0);
     MdcTabBarScroller = __decorate([
-        containerless(),
         inject(Element, TaskQueue),
         __metadata("design:paramtypes", [Element, TaskQueue])
     ], MdcTabBarScroller);

@@ -42,7 +42,6 @@ System.register(["aurelia-framework", "../util"], function (exports_1, context_1
                     __metadata("design:type", String)
                 ], MdcCardActions.prototype, "class", void 0);
                 MdcCardActions = __decorate([
-                    aurelia_framework_1.containerless(),
                     aurelia_framework_1.customElement('mdc-card-actions')
                 ], MdcCardActions);
                 return MdcCardActions;
