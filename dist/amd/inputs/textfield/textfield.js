@@ -97,7 +97,9 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material
                 });
             }
             else {
-                this.elementInput.blur();
+                if (this.elementInput) {
+                    this.elementInput.blur();
+                }
             }
         };
         MdcTextfield.prototype.onBlur = function () {

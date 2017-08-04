@@ -114,7 +114,9 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/textfield", 
                         });
                     }
                     else {
-                        this.elementInput.blur();
+                        if (this.elementInput) {
+                            this.elementInput.blur();
+                        }
                     }
                 };
                 MdcTextfield.prototype.onBlur = function () {

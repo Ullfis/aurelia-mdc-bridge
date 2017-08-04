@@ -96,7 +96,9 @@ let MdcTextfield = MdcTextfield_1 = class MdcTextfield {
             });
         }
         else {
-            this.elementInput.blur();
+            if (this.elementInput) {
+                this.elementInput.blur();
+            }
         }
     }
     onBlur() {
