@@ -109,7 +109,9 @@ export class MdcTextfield {
         this.elementInput.focus();
       });
     } else {
-      this.elementInput.blur();
+      if (this.elementInput) {
+        this.elementInput.blur();
+      }
     }
   }
 
