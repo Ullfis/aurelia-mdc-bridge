@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.6.2"></a>
+## [0.6.2](https://github.com/ullfis/aurelia-mdc-bridge/compare/0.6.1...0.6.2) (2017-08-04)
+
+
+### Bug Fixes
+
+* **mdc-textfield:** fix error on blur ([06b4e87](https://github.com/ullfis/aurelia-mdc-bridge/commit/06b4e87))
+
+
+
 <a name="0.6.1"></a>
 ## [0.6.1](https://github.com/ullfis/aurelia-mdc-bridge/compare/0.6.0...0.6.1) (2017-08-03)
 
