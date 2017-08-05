@@ -39,6 +39,7 @@ export class MdcTextfield {
   private elementHelpText: HTMLParagraphElement;
   private elementInput: HTMLInputElement | HTMLTextAreaElement;
   private styleHelptext = 'display: none;';
+  private stopFocusedChanged = false;
 
   constructor(private element: Element, private taskQueue: TaskQueue) {
     this.controlId = `mdc-textfield-${MdcTextfield.id++}`;
@@ -104,9 +105,17 @@ export class MdcTextfield {
   }
 
   private focusedChanged(newValue) {
+    // do not focus or blur if focused variable
+    // is changed from focus or blur events.
+    if (this.stopFocusedChanged) {
+      this.stopFocusedChanged = false;
+      return;
+    }
     if (util.getBoolean(newValue)) {
       this.taskQueue.queueTask(() => {
-        this.elementInput.focus();
+        if (this.elementInput) {
+          this.elementInput.focus();
+        }
       });
     } else {
       if (this.elementInput) {
@@ -120,11 +129,13 @@ export class MdcTextfield {
       this.prefilledChanged(this.prefilled);
     }
     util.fireEvent(this.element, 'blur', null);
+    this.stopFocusedChanged = true;
     this.focused = false;
   }
 
   private onFocus() {
     util.fireEvent(this.element, 'focus', null);
+    this.stopFocusedChanged = true;
     this.focused = true;
   }
 
