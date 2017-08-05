@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.7.0"></a>
+# [0.7.0](https://github.com/ullfis/aurelia-mdc-bridge/compare/0.6.2...0.7.0) (2017-08-05)
+
+
+### Bug Fixes
+
+* **mdc-list-item:** check boolean value of ripple attribute ([57081ab](https://github.com/ullfis/aurelia-mdc-bridge/commit/57081ab))
+* **mdc-textfield:** stop focusedChanged event from onBlur and onFocus ([7d873ac](https://github.com/ullfis/aurelia-mdc-bridge/commit/7d873ac))
+
+
+### Features
+
+* **mdc-toolbar:** add flexible default behavior ([c267bc6](https://github.com/ullfis/aurelia-mdc-bridge/commit/c267bc6))
+
+
+
 <a name="0.6.2"></a>
 ## [0.6.2](https://github.com/ullfis/aurelia-mdc-bridge/compare/0.6.1...0.6.2) (2017-08-04)
 
