@@ -238,3 +238,19 @@ template
           private onChange(e: IMdcToolbarFlexibleChangeEvent) {
             console.log(e.detail.toFixed(2));
           }
+
+    // FLEXIBLE DEFAULT BEHAVIOR
+    mdc-grid-cell(span="12")
+      h5 Flexible Default Behavior
+      p Set the most common use cases:
+      ul
+        li Flexible has a fixed initial height 4 times the default size of mdc-toolbar-row.
+        li It further defines the background and title movement behavior.
+
+      a(href="https://material.io/components/web/catalog/toolbar/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-toolbar") More here: Material components documentation
+          
+      pre
+        code-prism.
+          <mdc-toolbar flexible="true" flexible-default="true" on-change.delegate="onChange($event)">
+            ...
+          </mdc-toolbar>
