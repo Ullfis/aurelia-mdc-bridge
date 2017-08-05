@@ -22,6 +22,7 @@ export class MdcToolbar {
   @bindable() public waterfall = false;
   @bindable() public fixedLastrowOnly = false;
   @bindable() public flexible = false;
+  @bindable() public flexibleDefault = false;
   private log: Logger;
   private elementToolbar: HTMLElement;
   private mdcToolbar;
@@ -42,6 +43,7 @@ export class MdcToolbar {
     this.waterfallChanged(this.waterfall);
     this.fixedLastrowOnlyChanged(this.fixedLastrowOnly);
     this.flexibleChanged(this.flexible);
+    this.flexibleDefaultChanged(this.flexibleDefault);
   }
 
   private detached() {
@@ -80,4 +82,8 @@ export class MdcToolbar {
     this.elementToolbar.classList[value ? 'add' : 'remove']('mdc-toolbar--flexible');
   }
 
+  private flexibleDefaultChanged(newValue: boolean) {
+    const value = util.getBoolean(newValue);
+    this.elementToolbar.classList[value ? 'add' : 'remove']('mdc-toolbar--flexible-default-behavior');
+  }
 }
