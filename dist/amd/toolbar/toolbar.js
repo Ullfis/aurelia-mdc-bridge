@@ -17,6 +17,7 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material
             this.waterfall = false;
             this.fixedLastrowOnly = false;
             this.flexible = false;
+            this.flexibleDefault = false;
             this.log = aurelia_logging_1.getLogger('mdc-toolbar');
         }
         MdcToolbar.prototype.bind = function () { };
@@ -29,6 +30,7 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material
             this.waterfallChanged(this.waterfall);
             this.fixedLastrowOnlyChanged(this.fixedLastrowOnly);
             this.flexibleChanged(this.flexible);
+            this.flexibleDefaultChanged(this.flexibleDefault);
         };
         MdcToolbar.prototype.detached = function () {
             this.mdcToolbar.unlisten('MDCToolbar:change', this.onChange.bind(this));
@@ -61,6 +63,10 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material
             var value = util.getBoolean(newValue);
             this.elementToolbar.classList[value ? 'add' : 'remove']('mdc-toolbar--flexible');
         };
+        MdcToolbar.prototype.flexibleDefaultChanged = function (newValue) {
+            var value = util.getBoolean(newValue);
+            this.elementToolbar.classList[value ? 'add' : 'remove']('mdc-toolbar--flexible-default-behavior');
+        };
         __decorate([
             aurelia_framework_1.bindable(),
             __metadata("design:type", Object)
@@ -81,6 +87,10 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material
             aurelia_framework_1.bindable(),
             __metadata("design:type", Object)
         ], MdcToolbar.prototype, "flexible", void 0);
+        __decorate([
+            aurelia_framework_1.bindable(),
+            __metadata("design:type", Object)
+        ], MdcToolbar.prototype, "flexibleDefault", void 0);
         MdcToolbar = __decorate([
             aurelia_framework_1.containerless(),
             aurelia_framework_1.inject(Element),

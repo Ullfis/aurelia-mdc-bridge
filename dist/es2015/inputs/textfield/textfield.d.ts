@@ -35,6 +35,7 @@ export declare class MdcTextfield {
     private elementHelpText;
     private elementInput;
     private styleHelptext;
+    private stopFocusedChanged;
     constructor(element: Element, taskQueue: TaskQueue);
     focus(): void;
     getNativeInput(): {

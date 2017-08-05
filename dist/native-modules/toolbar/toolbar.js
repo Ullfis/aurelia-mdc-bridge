@@ -18,6 +18,7 @@ var MdcToolbar = (function () {
         this.waterfall = false;
         this.fixedLastrowOnly = false;
         this.flexible = false;
+        this.flexibleDefault = false;
         this.log = getLogger('mdc-toolbar');
     }
     MdcToolbar.prototype.bind = function () { };
@@ -30,6 +31,7 @@ var MdcToolbar = (function () {
         this.waterfallChanged(this.waterfall);
         this.fixedLastrowOnlyChanged(this.fixedLastrowOnly);
         this.flexibleChanged(this.flexible);
+        this.flexibleDefaultChanged(this.flexibleDefault);
     };
     MdcToolbar.prototype.detached = function () {
         this.mdcToolbar.unlisten('MDCToolbar:change', this.onChange.bind(this));
@@ -62,6 +64,10 @@ var MdcToolbar = (function () {
         var value = util.getBoolean(newValue);
         this.elementToolbar.classList[value ? 'add' : 'remove']('mdc-toolbar--flexible');
     };
+    MdcToolbar.prototype.flexibleDefaultChanged = function (newValue) {
+        var value = util.getBoolean(newValue);
+        this.elementToolbar.classList[value ? 'add' : 'remove']('mdc-toolbar--flexible-default-behavior');
+    };
     __decorate([
         bindable(),
         __metadata("design:type", Object)
@@ -82,6 +88,10 @@ var MdcToolbar = (function () {
         bindable(),
         __metadata("design:type", Object)
     ], MdcToolbar.prototype, "flexible", void 0);
+    __decorate([
+        bindable(),
+        __metadata("design:type", Object)
+    ], MdcToolbar.prototype, "flexibleDefault", void 0);
     MdcToolbar = __decorate([
         containerless(),
         inject(Element),

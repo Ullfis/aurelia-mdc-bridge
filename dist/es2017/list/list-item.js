@@ -51,7 +51,7 @@ let MdcListItem = class MdcListItem {
         this.isSelectMenuItem = util.findAncestor(this.parentElement, 'mdc-select__menu') ? true : false;
     }
     rippleEffect() {
-        if (this.ripple) {
+        if (util.getBoolean(this.ripple)) {
             this.mdcRipple = new MDCRipple(this.elementListItem);
         }
     }

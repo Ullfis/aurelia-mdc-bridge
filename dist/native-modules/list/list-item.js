@@ -51,7 +51,7 @@ var MdcListItem = (function () {
         this.isSelectMenuItem = util.findAncestor(this.parentElement, 'mdc-select__menu') ? true : false;
     };
     MdcListItem.prototype.rippleEffect = function () {
-        if (this.ripple) {
+        if (util.getBoolean(this.ripple)) {
             this.mdcRipple = new MDCRipple(this.elementListItem);
         }
     };

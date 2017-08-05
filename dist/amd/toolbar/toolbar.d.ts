@@ -8,6 +8,7 @@ export declare class MdcToolbar {
     waterfall: boolean;
     fixedLastrowOnly: boolean;
     flexible: boolean;
+    flexibleDefault: boolean;
     private log;
     private elementToolbar;
     private mdcToolbar;
@@ -21,4 +22,5 @@ export declare class MdcToolbar {
     private waterfallChanged(newValue);
     private fixedLastrowOnlyChanged(newValue);
     private flexibleChanged(newValue);
+    private flexibleDefaultChanged(newValue);
 }

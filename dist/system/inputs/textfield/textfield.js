@@ -57,6 +57,7 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/textfield", 
                     this.controlId = '';
                     this.helptextId = '';
                     this.styleHelptext = 'display: none;';
+                    this.stopFocusedChanged = false;
                     this.controlId = "mdc-textfield-" + MdcTextfield_1.id++;
                     this.helptextId = "mdc-helptextfield-" + MdcTextfield_1.id;
                     this.log = aurelia_logging_1.getLogger('mdc-textfield');
@@ -108,9 +109,15 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/textfield", 
                 };
                 MdcTextfield.prototype.focusedChanged = function (newValue) {
                     var _this = this;
+                    if (this.stopFocusedChanged) {
+                        this.stopFocusedChanged = false;
+                        return;
+                    }
                     if (util.getBoolean(newValue)) {
                         this.taskQueue.queueTask(function () {
-                            _this.elementInput.focus();
+                            if (_this.elementInput) {
+                                _this.elementInput.focus();
+                            }
                         });
                     }
                     else {
@@ -124,10 +131,12 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/textfield", 
                         this.prefilledChanged(this.prefilled);
                     }
                     util.fireEvent(this.element, 'blur', null);
+                    this.stopFocusedChanged = true;
                     this.focused = false;
                 };
                 MdcTextfield.prototype.onFocus = function () {
                     util.fireEvent(this.element, 'focus', null);
+                    this.stopFocusedChanged = true;
                     this.focused = true;
                 };
                 MdcTextfield.prototype.disabledChanged = function (newValue) {
