@@ -81,7 +81,7 @@ export class MdcListItem {
   }
 
   private rippleEffect() {
-    if (this.ripple) {
+    if (util.getBoolean(this.ripple)) {
       this.mdcRipple = new MDCRipple(this.elementListItem);
     }
   }
