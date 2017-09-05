@@ -38,8 +38,7 @@ let MdcToolbar = class MdcToolbar {
         this.mdcToolbar.destroy();
     }
     onChange(evt) {
-        const flexibleER = evt.detail.flexibleExpansionRatio;
-        util.fireEvent(this.element, 'on-change', { detail: flexibleER });
+        util.fireEvent(this.element, 'on-change', { flexibleExpansionRatio: evt.detail.flexibleExpansionRatio });
     }
     fixedChanged(newValue) {
         const value = util.getBoolean(newValue);

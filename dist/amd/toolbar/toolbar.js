@@ -37,8 +37,7 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material
             this.mdcToolbar.destroy();
         };
         MdcToolbar.prototype.onChange = function (evt) {
-            var flexibleER = evt.detail.flexibleExpansionRatio;
-            util.fireEvent(this.element, 'on-change', { detail: flexibleER });
+            util.fireEvent(this.element, 'on-change', { flexibleExpansionRatio: evt.detail.flexibleExpansionRatio });
         };
         MdcToolbar.prototype.fixedChanged = function (newValue) {
             var value = util.getBoolean(newValue);

@@ -1,5 +1,7 @@
 export interface IMdcToolbarFlexibleChangeEvent extends CustomEvent {
-    detail: number;
+    detail: {
+        flexibleExpansionRatio: number;
+    };
 }
 export declare class MdcToolbar {
     private element;
