@@ -30,10 +30,10 @@ svg-obj.primary, .svg-inline.primary {
     fill: $mdc-theme-primary; 
   }
 }
-/* Theme colors - accent */
-svg-obj.accent, .svg-inline.accent {
+/* Theme colors - secondary */
+svg-obj.secondary, .svg-inline.secondary {
   path:not([fill]) {
-    fill: $mdc-theme-accent; 
+    fill: $mdc-theme-secondary; 
   }
 }
 

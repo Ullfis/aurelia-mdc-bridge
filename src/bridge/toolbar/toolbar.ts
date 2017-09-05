@@ -11,7 +11,9 @@ export interface IMdcToolbarFlexibleChangeEvent extends CustomEvent {
    *
    * @type {number}
    */
-  detail: number;
+  detail: {
+    flexibleExpansionRatio: number;
+  };
 }
 
 @containerless()
@@ -52,8 +54,7 @@ export class MdcToolbar {
   }
 
   private onChange(evt) {
-    const flexibleER = evt.detail.flexibleExpansionRatio;
-    util.fireEvent(this.element, 'on-change', { detail: flexibleER });
+    util.fireEvent(this.element, 'on-change', { flexibleExpansionRatio: evt.detail.flexibleExpansionRatio });
   }
 
   private fixedChanged(newValue: boolean) {

@@ -8,7 +8,7 @@ import { getLogger, Logger } from 'aurelia-logging';
  *
  * Adding class 'svg-inline' to the svg element.
  * Styles (in this project): src/_styles/_svg.scss
- * - <i class="accent/primary/md-light/md-18/md-24/md-36/md-48" svg-inline="src: svg-url;"></i>
+ * - <i class="secondary/primary/md-light/md-18/md-24/md-36/md-48" svg-inline="src: svg-url;"></i>
  *
  * Inspiration: https://stackoverflow.com/questions/24933430/img-src-svg-changing-the-fill-color
  */

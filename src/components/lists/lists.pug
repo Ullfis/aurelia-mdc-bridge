@@ -294,14 +294,16 @@ template
         code-prism.
           <mdc-list two-line="true" avatar="true">
             <mdc-list-item>
-              <span slot="start" class="list-avatar1"></span>
+              <span slot="start">
+                <div class="list-avatar1"></div>
+              </span>
               <span slot="text">List item 1</span>
               <span slot="secondary">Line 2 secondary text</span>
             </mdc-list-item>              
 
             <mdc-list-item>
               <span slot="start">
-                <i class="material-icons md-dark md-36 accent">face</i>
+                <i class="material-icons md-dark md-36 secondary">face</i>
               </span>
               <span slot="text">List item 2</span>
               <span slot="secondary">Line 2 secondary text</span>
@@ -325,7 +327,7 @@ template
           span(slot="text") List item 2
           span(slot="secondary") Line 2 secondary text
           div(slot="start")
-            i.material-icons.md-dark.md-36.accent face
+            i.material-icons.md-dark.md-36.secondary face
         mdc-list-item
           div(slot="start")
             img(src="images/1-1.jpeg" width="56" height="56" alt="Picture of Janet Perkins")
