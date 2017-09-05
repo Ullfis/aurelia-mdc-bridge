@@ -14,35 +14,52 @@ import copyFiles from './copy-files';
 const debounceWaitTime = 100;
 let isBuilding = false;
 const pendingRefreshPaths = [];
-const watches = {};
 let watchCallback = () => { /** nothing */ };
+const watches = [
+  { name: 'transpile', callback: transpile, source: project.transpiler.source },
+  { name: 'markup', callback: processMarkup, source: project.markupProcessor.source },
+  { name: 'pugmarkup', callback: processPug, source: project.markupPug.source },
+  { name: 'CSS', callback: processCSS, source: project.cssProcessor.source }
+];
 
-watches[project.transpiler.source] = { name: 'transpile', callback: transpile };
-watches[project.markupProcessor.source] = { name: 'markup', callback: processMarkup };
-watches[project.markupPug.source] = { name: 'pugmarkup', callback: processPug };
-watches[project.cssProcessor.source] = { name: 'CSS', callback: processCSS };
 if (typeof project.build.copyFiles === 'object') {
   for (const src of Object.keys(project.build.copyFiles)) {
-    watches[src] = { name: 'file copy', callback: copyFiles };
+    watches.push({ name: 'file copy', callback: copyFiles, source: src });
   }
 }
 
 const watch = (callback?) => {
   watchCallback = callback || watchCallback;
-  return gulpWatch(
-    Object.keys(watches),
+
+  // watch every glob individually
+  for (const watcher of watches) {
+    if (Array.isArray(watcher.source)) {
+      for (const glob of watcher.source) {
+        watchPath(glob);
+      }
+    } else {
+      watchPath(watcher.source);
+    }
+  }
+};
+
+const watchPath = (p) => {
+  gulpWatch(
+    p,
     {
       read: false, // performance optimization: do not read actual file contents
       verbose: true
     },
-    (vinyl) => {
-      if (vinyl.path && vinyl.cwd && vinyl.path.startsWith(vinyl.cwd)) {
-        const pathToAdd = vinyl.path.substr(vinyl.cwd.length + 1);
-        log(`Watcher: Adding path ${pathToAdd} to pending build changes...`);
-        pendingRefreshPaths.push(pathToAdd);
-        refresh();
-      }
-    });
+    (vinyl) => processChange(vinyl));
+};
+
+const processChange = (vinyl) => {
+  if (vinyl.path && vinyl.cwd && vinyl.path.startsWith(vinyl.cwd)) {
+    const pathToAdd = vinyl.path.substr(vinyl.cwd.length + 1);
+    log(`Watcher: Adding path ${pathToAdd} to pending build changes...`);
+    pendingRefreshPaths.push(pathToAdd);
+    refresh();
+  }
 };
 
 const refresh = debounce(() => {
@@ -56,11 +73,20 @@ const refresh = debounce(() => {
   const paths = pendingRefreshPaths.splice(0);
   const refreshTasks = [];
 
-  // Dynamically compose tasks
-  for (const src of Object.keys(watches)) {
-    if (paths.find((x) => minimatch(x, src))) {
-      log(`Watcher: Adding ${watches[src].name} task to next build...`);
-      refreshTasks.push(watches[src].callback);
+  // determine which tasks need to be executed
+  // based on the files that have changed
+  for (const watcher of watches) {
+    if (Array.isArray(watcher.source)) {
+      for (const source of watcher.source) {
+        if (paths.find(path => minimatch(path, source))) {
+          refreshTasks.push(watcher);
+        }
+      }
+
+    } else {
+      if (paths.find(path => minimatch(path, watcher.source))) {
+        refreshTasks.push(watcher);
+      }
     }
   }
 
@@ -70,9 +96,11 @@ const refresh = debounce(() => {
     return;
   }
 
+  log(`Watcher: Running ${refreshTasks.map(x => x.name).join(', ')} tasks on next build...`);
+
   const toExecute = gulp.series(
     readProjectConfiguration,
-    gulp.parallel(refreshTasks),
+    gulp.parallel(refreshTasks.map(x => x.callback)),
     writeBundles,
     (done) => {
       isBuilding = false;
