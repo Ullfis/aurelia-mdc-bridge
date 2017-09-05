@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.7.1"></a>
+## [0.7.1](https://github.com/ullfis/aurelia-mdc-bridge/compare/0.7.0...0.7.1) (2017-09-05)
+
+
+### Bug Fixes
+
+* **mdc-toolbar:** flexible expand ratio event ([34e3721](https://github.com/ullfis/aurelia-mdc-bridge/commit/34e3721))
+
+
+
 <a name="0.7.0"></a>
 # [0.7.0](https://github.com/ullfis/aurelia-mdc-bridge/compare/0.6.2...0.7.0) (2017-08-05)
 
