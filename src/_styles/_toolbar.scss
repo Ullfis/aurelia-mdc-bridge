@@ -65,9 +65,9 @@ a.toolbar-link__svg {
     fill: rgba(255, 255, 255, 1); 
   }
 }
-a.toolbar-link__svg.accent {
+a.toolbar-link__svg.secondary {
   path:not([fill]) {
-    fill: $mdc-theme-accent; 
+    fill: $mdc-theme-secondary; 
   }
 }
 a.toolbar-link__svg.primary {

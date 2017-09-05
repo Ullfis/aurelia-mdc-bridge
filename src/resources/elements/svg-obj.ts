@@ -7,7 +7,7 @@ import { getLogger, Logger } from 'aurelia-logging';
  * <svg-obj src="svg-url"></svg-obj>
  *
  * Styles (in this project): src/_styles/_svg.scss
- * - <svg-obj disable="true" class="accent/primary/md-light/md-18/md-24/md-36/md-48" src="svg-url"></svg-obj>
+ * - <svg-obj disable="true" class="secondary/primary/md-light/md-18/md-24/md-36/md-48" src="svg-url"></svg-obj>
  *
  * Inspiration: https://stackoverflow.com/questions/24933430/img-src-svg-changing-the-fill-color
  */
