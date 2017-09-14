@@ -6,14 +6,14 @@ template
       h4 Dialogs
 
     // CONFIG AREA
-    mdc-grid-cell(span="4")
-      button(mdc-button="raised: true;" click.delegate="showDialog()") Show Dialog1          
+    mdc-grid-cell(span="12")
+      button(mdc-button="raised: true;" click.delegate="showDialog()") Show Dialog
+      button(mdc-button="raised: true;" click.delegate="showDialog4()") Show dialog with colored footer button
       p accept clicked: ${acceptClicked1}
       button(mdc-button="raised: true;" click.delegate="showDialog2()") Show Dialog - scrollable dialog
       p accept clicked: ${acceptClicked2}
       p event counter: ${eventCounter}
-
-    mdc-grid-cell(span="8")
+    
       mdc-dialog(
         view-model.ref="dialog"
         header="Dialog"
@@ -22,7 +22,6 @@ template
         cancel="Cancel"
         on-click.delegate="onDialogClick1($event)")
         span Body elements
-
 
       section.mdc-theme--dark              
         mdc-dialog(
@@ -36,6 +35,13 @@ template
             each i in [0,1,2,3,4,5,6,7,8,9]
               mdc-list-item item #{i}
 
+      mdc-dialog(
+        view-model.ref="dialog4"
+        accept="Agree"
+        accept-action="true"
+        cancel="Disagree"
+        on-click.delegate="onDialogClick1($event)")
+        p Colored footer button
 
     // LINKS
     mdc-grid-cell(span="12")
@@ -100,6 +106,28 @@ template
             &lt;/mdc-dialog&gt;
         
 
+    // DIALOG ACTION COLOR
+    mdc-grid-cell(span="12")
+      section
+        h5 Dialog Action Color
+        p.
+          Dialog actions use system colors by default, but you can use a contrasting color, such as the palette’s secondary color, 
+          to distinguish dialog actions from dialog content.
+        p.
+          To apply secondary color use attribute #[span.mark-text accept-action="true"] for accept button
+          and #[span.mark-text cancel-action="true"] for cancel button:
+
+      pre
+        code-prism.
+          &lt;mdc-dialog
+            accept="OK"
+            accept-action="true"
+            cancel="Cancel"
+            view-model.ref="dialog"&gt;
+
+            &lt;p&gt;Dialog content&lt;/p&gt;
+          &lt;/mdc-dialog&gt;
+
     // THEMING
     mdc-grid-cell(span="12")
       section
@@ -149,9 +177,15 @@ template
           &lt;/mdc-dialog&gt;
       pre
         code-prism(language="typescript").
+          import { TaskQueue, autoinject } from 'aurelia-framework';
           import { MdcTextfield } from 'aurelia-mdc-bridge';
+          ...
           private focusMe: MdcTextfield;
 
+          constructor(private taskQueue: TaskQueue) {}
+
           private onOpened() {
-            this.focusMe.focus();
+            this.taskQueue.queueTask(() => {
+              this.focusMe.focus();
+            });
           }
