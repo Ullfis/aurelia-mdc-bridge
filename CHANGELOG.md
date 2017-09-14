@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.7.2"></a>
+## [0.7.2](https://github.com/ullfis/aurelia-mdc-bridge/compare/0.7.1...0.7.2) (2017-09-14)
+
+
+### Bug Fixes
+
+* **dialog:** add colored action button option ([5c5eabc](https://github.com/ullfis/aurelia-mdc-bridge/commit/5c5eabc))
+* **dialog:** hide header element if no header text ([caf22e2](https://github.com/ullfis/aurelia-mdc-bridge/commit/caf22e2))
+
+
+
 <a name="0.7.1"></a>
 ## [0.7.1](https://github.com/ullfis/aurelia-mdc-bridge/compare/0.7.0...0.7.1) (2017-09-05)
 
