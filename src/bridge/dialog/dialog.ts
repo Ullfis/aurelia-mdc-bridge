@@ -21,10 +21,14 @@ export class MdcDialog {
   @bindable() public header = '';
   @bindable() public accept = '';
   @bindable() public cancel = '';
+  @bindable() public acceptAction = false;
+  @bindable() public cancelAction = false;
   @bindable() public scrollable = false;
   @bindable() public focusAt: HTMLElement;
   private log: Logger;
   private diagElement: HTMLElement;
+  private acceptButtonElement: HTMLButtonElement;
+  private cancelButtonElement: HTMLButtonElement;
   private mdcElement: MDCDialog;
   private mdcDialogFoundation: MDCDialogFoundation;
   private controlId = '';
@@ -53,6 +57,9 @@ export class MdcDialog {
     this.mdcElement.listen('MDCDialog:accept', this.onButtonAccept.bind(this));
     this.mdcElement.listen('MDCDialog:cancel', this.onButtonCancel.bind(this));
 
+    this.acceptActionChanged(this.acceptAction);
+    this.cancelActionChanged(this.cancelAction);
+
     // not working with mdc-textfield (it works with input type="text")
     // <input type="text" ref="focusMeOnOpen" ..
     // <mdc-dialog focus-at.bind="focusMeOnOpen" ..
@@ -74,6 +81,14 @@ export class MdcDialog {
   }
   private onButtonCancel() {
     util.fireEvent(this.diagElement, 'on-click', false);
+  }
+  private acceptActionChanged(newValue) {
+    const value = util.getBoolean(newValue);
+    this.acceptButtonElement.classList[value ? 'add' : 'remove']('mdc-dialog__action');
+  }
+  private cancelActionChanged(newValue) {
+    const value = util.getBoolean(newValue);
+    this.cancelButtonElement.classList[value ? 'add' : 'remove']('mdc-dialog__action');
   }
   private scrollableChanged(newValue) {
     this.scrollable = util.getBoolean(newValue);
