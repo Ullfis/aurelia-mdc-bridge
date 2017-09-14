@@ -9,7 +9,7 @@ template
     .mdc-dialog__surface
 
       // HEADER
-      header.mdc-dialog__header
+      header.mdc-dialog__header(show.bind="header.length !== 0")
         h2.mdc-dialog__header__title(id="${controlId}-label") ${header}
 
       // BODY
