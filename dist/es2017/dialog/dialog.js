@@ -17,6 +17,8 @@ let MdcDialog = MdcDialog_1 = class MdcDialog {
         this.header = '';
         this.accept = '';
         this.cancel = '';
+        this.acceptAction = false;
+        this.cancelAction = false;
         this.scrollable = false;
         this.controlId = '';
         this.controlId = `mdc-dialog-${MdcDialog_1.id++}`;
@@ -39,6 +41,8 @@ let MdcDialog = MdcDialog_1 = class MdcDialog {
         this.mdcDialogFoundation.registerTransitionEndHandler(this.onTransitionEnd.bind(this));
         this.mdcElement.listen('MDCDialog:accept', this.onButtonAccept.bind(this));
         this.mdcElement.listen('MDCDialog:cancel', this.onButtonCancel.bind(this));
+        this.acceptActionChanged(this.acceptAction);
+        this.cancelActionChanged(this.cancelAction);
         if (this.focusAt) {
             this.log.debug('this.focusAt:', this.focusAt);
             this.mdcElement.focusTrap_ = MDCUtil.createFocusTrapInstance(this.mdcElement.dialogSurface_, this.focusAt);
@@ -56,6 +60,14 @@ let MdcDialog = MdcDialog_1 = class MdcDialog {
     }
     onButtonCancel() {
         util.fireEvent(this.diagElement, 'on-click', false);
+    }
+    acceptActionChanged(newValue) {
+        const value = util.getBoolean(newValue);
+        this.acceptButtonElement.classList[value ? 'add' : 'remove']('mdc-dialog__action');
+    }
+    cancelActionChanged(newValue) {
+        const value = util.getBoolean(newValue);
+        this.cancelButtonElement.classList[value ? 'add' : 'remove']('mdc-dialog__action');
     }
     scrollableChanged(newValue) {
         this.scrollable = util.getBoolean(newValue);
@@ -86,6 +98,14 @@ __decorate([
     bindable(),
     __metadata("design:type", Object)
 ], MdcDialog.prototype, "cancel", void 0);
+__decorate([
+    bindable(),
+    __metadata("design:type", Object)
+], MdcDialog.prototype, "acceptAction", void 0);
+__decorate([
+    bindable(),
+    __metadata("design:type", Object)
+], MdcDialog.prototype, "cancelAction", void 0);
 __decorate([
     bindable(),
     __metadata("design:type", Object)

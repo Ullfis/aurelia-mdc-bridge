@@ -7,10 +7,14 @@ export declare class MdcDialog {
     header: string;
     accept: string;
     cancel: string;
+    acceptAction: boolean;
+    cancelAction: boolean;
     scrollable: boolean;
     focusAt: HTMLElement;
     private log;
     private diagElement;
+    private acceptButtonElement;
+    private cancelButtonElement;
     private mdcElement;
     private mdcDialogFoundation;
     private controlId;
@@ -22,6 +26,8 @@ export declare class MdcDialog {
     private detached();
     private onButtonAccept();
     private onButtonCancel();
+    private acceptActionChanged(newValue);
+    private cancelActionChanged(newValue);
     private scrollableChanged(newValue);
     private onTransitionEnd(evt);
 }

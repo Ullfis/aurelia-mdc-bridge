@@ -17,6 +17,8 @@ var MdcDialog = (function () {
         this.header = '';
         this.accept = '';
         this.cancel = '';
+        this.acceptAction = false;
+        this.cancelAction = false;
         this.scrollable = false;
         this.controlId = '';
         this.controlId = "mdc-dialog-" + MdcDialog_1.id++;
@@ -41,6 +43,8 @@ var MdcDialog = (function () {
         this.mdcDialogFoundation.registerTransitionEndHandler(this.onTransitionEnd.bind(this));
         this.mdcElement.listen('MDCDialog:accept', this.onButtonAccept.bind(this));
         this.mdcElement.listen('MDCDialog:cancel', this.onButtonCancel.bind(this));
+        this.acceptActionChanged(this.acceptAction);
+        this.cancelActionChanged(this.cancelAction);
         if (this.focusAt) {
             this.log.debug('this.focusAt:', this.focusAt);
             this.mdcElement.focusTrap_ = MDCUtil.createFocusTrapInstance(this.mdcElement.dialogSurface_, this.focusAt);
@@ -58,6 +62,14 @@ var MdcDialog = (function () {
     };
     MdcDialog.prototype.onButtonCancel = function () {
         util.fireEvent(this.diagElement, 'on-click', false);
+    };
+    MdcDialog.prototype.acceptActionChanged = function (newValue) {
+        var value = util.getBoolean(newValue);
+        this.acceptButtonElement.classList[value ? 'add' : 'remove']('mdc-dialog__action');
+    };
+    MdcDialog.prototype.cancelActionChanged = function (newValue) {
+        var value = util.getBoolean(newValue);
+        this.cancelButtonElement.classList[value ? 'add' : 'remove']('mdc-dialog__action');
     };
     MdcDialog.prototype.scrollableChanged = function (newValue) {
         this.scrollable = util.getBoolean(newValue);
@@ -87,6 +99,14 @@ var MdcDialog = (function () {
         bindable(),
         __metadata("design:type", Object)
     ], MdcDialog.prototype, "cancel", void 0);
+    __decorate([
+        bindable(),
+        __metadata("design:type", Object)
+    ], MdcDialog.prototype, "acceptAction", void 0);
+    __decorate([
+        bindable(),
+        __metadata("design:type", Object)
+    ], MdcDialog.prototype, "cancelAction", void 0);
     __decorate([
         bindable(),
         __metadata("design:type", Object)
