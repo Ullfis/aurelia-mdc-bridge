@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.8.0"></a>
+# [0.8.0](https://github.com/ullfis/aurelia-mdc-bridge/compare/0.7.2...0.8.0) (2017-09-16)
+
+
+### Bug Fixes
+
+* **mdc-card-title:** card error using avatar icon ([5956229](https://github.com/ullfis/aurelia-mdc-bridge/commit/5956229))
+
+
+### Features
+
+* **mdc-dialog:**  add accept-disabled attribute ([c3b8e32](https://github.com/ullfis/aurelia-mdc-bridge/commit/c3b8e32))
+
+
+
 <a name="0.7.2"></a>
 ## [0.7.2](https://github.com/ullfis/aurelia-mdc-bridge/compare/0.7.1...0.7.2) (2017-09-14)
 
