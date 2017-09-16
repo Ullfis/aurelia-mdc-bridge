@@ -9,6 +9,7 @@ export declare class MdcDialog {
     cancel: string;
     acceptAction: boolean;
     cancelAction: boolean;
+    acceptDisabled: boolean;
     scrollable: boolean;
     focusAt: HTMLElement;
     private log;

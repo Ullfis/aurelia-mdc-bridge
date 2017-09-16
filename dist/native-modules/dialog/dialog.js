@@ -19,6 +19,7 @@ var MdcDialog = (function () {
         this.cancel = '';
         this.acceptAction = false;
         this.cancelAction = false;
+        this.acceptDisabled = false;
         this.scrollable = false;
         this.controlId = '';
         this.controlId = "mdc-dialog-" + MdcDialog_1.id++;
@@ -107,6 +108,10 @@ var MdcDialog = (function () {
         bindable(),
         __metadata("design:type", Object)
     ], MdcDialog.prototype, "cancelAction", void 0);
+    __decorate([
+        bindable(),
+        __metadata("design:type", Object)
+    ], MdcDialog.prototype, "acceptDisabled", void 0);
     __decorate([
         bindable(),
         __metadata("design:type", Object)

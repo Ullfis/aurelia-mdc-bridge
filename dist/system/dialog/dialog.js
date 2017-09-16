@@ -35,6 +35,7 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/dialog", "..
                     this.cancel = '';
                     this.acceptAction = false;
                     this.cancelAction = false;
+                    this.acceptDisabled = false;
                     this.scrollable = false;
                     this.controlId = '';
                     this.controlId = "mdc-dialog-" + MdcDialog_1.id++;
@@ -123,6 +124,10 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/dialog", "..
                     aurelia_framework_1.bindable(),
                     __metadata("design:type", Object)
                 ], MdcDialog.prototype, "cancelAction", void 0);
+                __decorate([
+                    aurelia_framework_1.bindable(),
+                    __metadata("design:type", Object)
+                ], MdcDialog.prototype, "acceptDisabled", void 0);
                 __decorate([
                     aurelia_framework_1.bindable(),
                     __metadata("design:type", Object)

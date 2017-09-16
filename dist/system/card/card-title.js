@@ -30,7 +30,7 @@ System.register(["aurelia-framework", "../util"], function (exports_1, context_1
                 }
                 MdcCardTitle.prototype.attached = function () {
                     if (!this.isAvatar) {
-                        var avatarElement = this.elementPrimary.firstChild;
+                        var avatarElement = this.elementPrimary.firstElementChild;
                         if (avatarElement) {
                             avatarElement.style.position = 'absolute';
                         }

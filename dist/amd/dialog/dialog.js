@@ -18,6 +18,7 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material
             this.cancel = '';
             this.acceptAction = false;
             this.cancelAction = false;
+            this.acceptDisabled = false;
             this.scrollable = false;
             this.controlId = '';
             this.controlId = "mdc-dialog-" + MdcDialog_1.id++;
@@ -106,6 +107,10 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material
             aurelia_framework_1.bindable(),
             __metadata("design:type", Object)
         ], MdcDialog.prototype, "cancelAction", void 0);
+        __decorate([
+            aurelia_framework_1.bindable(),
+            __metadata("design:type", Object)
+        ], MdcDialog.prototype, "acceptDisabled", void 0);
         __decorate([
             aurelia_framework_1.bindable(),
             __metadata("design:type", Object)

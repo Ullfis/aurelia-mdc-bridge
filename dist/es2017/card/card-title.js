@@ -18,7 +18,7 @@ let MdcCardTitle = class MdcCardTitle {
     }
     attached() {
         if (!this.isAvatar) {
-            const avatarElement = this.elementPrimary.firstChild;
+            const avatarElement = this.elementPrimary.firstElementChild;
             if (avatarElement) {
                 avatarElement.style.position = 'absolute';
             }
