@@ -15,7 +15,7 @@ export class MdcCardTitle {
 
   private attached() {
     if (!this.isAvatar) {
-      const avatarElement = this.elementPrimary.firstChild as HTMLElement;
+      const avatarElement = this.elementPrimary.firstElementChild as HTMLElement;
       if (avatarElement) {
         avatarElement.style.position = 'absolute';
       }
@@ -25,14 +25,17 @@ export class MdcCardTitle {
     this.subtitleChanged(this.subtitle);
     this.largeChanged(this.large);
   }
+
   private titleChanged(newValue: string) {
     this.showTitle = false;
     this.showTitle = (newValue && newValue.length > 0);
   }
+
   private subtitleChanged(newValue: string) {
     this.showSubtitle = false;
     this.showSubtitle = (newValue && newValue.length > 0);
   }
+
   private largeChanged(newValue: boolean) {
     this.showLarge = util.getBoolean(newValue);
   }
