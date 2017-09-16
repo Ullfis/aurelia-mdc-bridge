@@ -8,10 +8,12 @@ export class Dialogs {
   private dialog2: MdcDialog;
   private dialog3: MdcDialog;
   private dialog4: MdcDialog;
+  private dialog5: MdcDialog;
   private acceptClicked1: boolean;
   private acceptClicked2: boolean;
   private openCloseStatus3 = '';
   private focusMeElement: MdcTextfield;
+  private accessPermission = null;
 
   constructor(private taskQueue: TaskQueue) {}
 
@@ -34,6 +36,10 @@ export class Dialogs {
   }
   private showDialog4() {
     this.dialog4.show(true);
+  }
+  private showDialog5() {
+    this.accessPermission = null;
+    this.dialog5.show(true);
   }
   private onOpened3() {
     this.openCloseStatus3 = 'opened event fired';

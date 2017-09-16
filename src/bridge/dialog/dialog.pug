@@ -19,6 +19,6 @@ template
       // FOOTER
       footer.mdc-dialog__footer
         button.mdc-button.mdc-dialog__footer__button.mdc-dialog__footer__button--cancel(type="button" ref="cancelButtonElement") ${cancel}
-        button.mdc-button.mdc-dialog__footer__button.mdc-dialog__footer__button--accept(type="button" ref="acceptButtonElement") ${accept}
-          
+        button.mdc-button.mdc-dialog__footer__button.mdc-dialog__footer__button--accept(type="button" ref="acceptButtonElement" disabled.bind="acceptDisabled") ${accept}
+
     .mdc-dialog__backdrop

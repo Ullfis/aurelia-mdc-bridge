@@ -128,6 +128,41 @@ template
             &lt;p&gt;Dialog content&lt;/p&gt;
           &lt;/mdc-dialog&gt;
 
+    // DISABLE ACCEPT BUTTON
+    mdc-grid-cell(span="12")
+      section
+        h5 Disable Accept Button
+        p.
+          It is possible to disable affirmative action until a choise is made. 
+          This can be useful if you need to validate before accepting dialog.
+        p To disable accept button set attribute #[span.mark-text accept-disabled="true"]:
+
+      pre
+        code-prism.
+          &lt;mdc-dialog
+            accept="OK"
+            cancel="Cancel"
+            accept-disabled.bind="!isValid"
+            view-model.ref="dialog"&gt;
+
+            &lt;p&gt;Dialog content&lt;/p&gt;
+          &lt;/mdc-dialog&gt;
+      
+      // DISABLE ACCEPT EXAMPLE
+      button(mdc-button="raised: true;" click.delegate="showDialog5()") Disable Accept Button Example
+      mdc-dialog(
+        view-model.ref="dialog5"
+        header="Access permission"
+        accept="OK"
+        cancel="Cancel"
+        accept-action="true"
+        accept-disabled.bind="!accessPermission")
+
+        mdc-radio(name="parentPermission" value="sister" checked.bind="accessPermission") Give sister access to room
+        br
+        mdc-radio(name="parentPermission" value="brother" checked.bind="accessPermission") Give brother access to room
+        
+
     // THEMING
     mdc-grid-cell(span="12")
       section

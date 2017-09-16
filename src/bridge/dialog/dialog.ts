@@ -23,6 +23,7 @@ export class MdcDialog {
   @bindable() public cancel = '';
   @bindable() public acceptAction = false;
   @bindable() public cancelAction = false;
+  @bindable() public acceptDisabled = false;
   @bindable() public scrollable = false;
   @bindable() public focusAt: HTMLElement;
   private log: Logger;
