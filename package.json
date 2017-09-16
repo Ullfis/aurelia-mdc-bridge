@@ -52,12 +52,8 @@
     "prerelease:dist": "npm run build",
     "release:dist": "git add dist",
     "postrelease:dist": "git commit -m \"chore(dist): build dist\"",
-    "prerelease:changelog": "standard-version -a",
     "release:changelog": "git add -A",
-    "postrelease:changelog": "npm run release:tag",
-    "prerelease:tag": "git commit -m \"chore(version): bump to version ${npm_package_version}\"",
-    "release:tag": "git tag ${npm_package_version}",
-    "_postrelease:tag": "",
+    "postrelease:changelog": "standard-version -a",
     "___end-release___": "",
     "___DOCS___": "---- BUILD DOCS ----",
     "predocs": "rimraf scripts",
@@ -66,12 +62,6 @@
     "prebuilddocs": "rimraf docs",
     "builddocs": "au build-docs",
     "___end-docs___": ""
-  },
-  "standard-version": {
-    "skip": {
-      "tag": true,
-      "commit": true
-    }
   },
   "dependencies": {
     "material-components-web": "*"
