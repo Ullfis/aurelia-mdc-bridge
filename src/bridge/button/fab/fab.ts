@@ -29,6 +29,10 @@ export class MdcFab {
   private attached() {
     this.element.classList.add('mdc-fab', 'material-icons');
 
+    this.miniChanged(this.mini);
+    this.plainChanged(this.plain);
+    this.ariaLabelChanged(this.ariaLabel);
+
     // add ripple effect
     if (util.getBoolean(this.ripple)) {
       MDCRipple.attachTo(this.element);
