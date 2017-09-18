@@ -47,6 +47,13 @@ export class MdcDialog {
     }
   }
 
+  public get foundation(): any {
+    if (this.mdcElement) {
+      return this.mdcElement.foundation_;
+    }
+    return null;
+  }
+
   private bind() { /** */ }
   private unbind() { /** */ }
 
