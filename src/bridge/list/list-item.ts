@@ -88,13 +88,9 @@ export class MdcListItem {
 
   private disabledChanged(newValue: boolean) {
     const value = util.getBoolean(newValue);
-    // simple list / select item disabled
-    if (value && this.isSimpleMenuItem) {
-      this.elementListItem.setAttribute('tabindex', '-1');
-      this.elementListItem.setAttribute('aria-disabled', 'true');
-    } else {
-      this.elementListItem.setAttribute('tabindex', '0');
-      this.elementListItem.removeAttribute('aria-disabled');
+    if (this.isSimpleMenuItem || this.isSelectMenuItem) {
+      this.elementListItem.setAttribute('tabindex', value ? '-1' : '0');
+      this.elementListItem.setAttribute('aria-disabled', value ? 'true' : 'false');
     }
   }
 }
