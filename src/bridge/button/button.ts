@@ -27,6 +27,12 @@ export class MdcButton {
       this.compact = true;
     }
 
+    this.accentChanged(this.accent);
+    this.primaryChanged(this.primary);
+    this.denseChanged(this.dense);
+    this.raisedChanged(this.raised);
+    this.compactChanged(this.compact);
+
     // add ripple effect
     if (util.getBoolean(this.ripple)) {
       MDCRipple.attachTo(this.element);
