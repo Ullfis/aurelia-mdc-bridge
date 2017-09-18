@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.9.0"></a>
+# [0.9.0](https://github.com/ullfis/aurelia-mdc-bridge/compare/v0.8.0...v0.9.0) (2017-09-18)
+
+
+### Bug Fixes
+
+* **mdc-list-item:** ugly focus box on selected item ([c0f89c6](https://github.com/ullfis/aurelia-mdc-bridge/commit/c0f89c6))
+
+
+### Features
+
+* **mdc-dialog:** make foundation public ([50eab29](https://github.com/ullfis/aurelia-mdc-bridge/commit/50eab29)), closes [#13](https://github.com/ullfis/aurelia-mdc-bridge/issues/13)
+
+
+
 <a name="0.8.0"></a>
 # [0.8.0](https://github.com/ullfis/aurelia-mdc-bridge/compare/0.7.2...0.8.0) (2017-09-16)
 
@@ -23,8 +38,8 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Bug Fixes
 
-* **dialog:** add colored action button option ([5c5eabc](https://github.com/ullfis/aurelia-mdc-bridge/commit/5c5eabc))
-* **dialog:** hide header element if no header text ([caf22e2](https://github.com/ullfis/aurelia-mdc-bridge/commit/caf22e2))
+* **mdc-dialog:** add colored action button option ([5c5eabc](https://github.com/ullfis/aurelia-mdc-bridge/commit/5c5eabc))
+* **mdc-dialog:** hide header element if no header text ([caf22e2](https://github.com/ullfis/aurelia-mdc-bridge/commit/caf22e2))
 
 
 
