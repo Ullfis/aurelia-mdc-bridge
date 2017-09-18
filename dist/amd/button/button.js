@@ -28,6 +28,11 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material
                 this.element.classList.add('mdc-card__action');
                 this.compact = true;
             }
+            this.accentChanged(this.accent);
+            this.primaryChanged(this.primary);
+            this.denseChanged(this.dense);
+            this.raisedChanged(this.raised);
+            this.compactChanged(this.compact);
             if (util.getBoolean(this.ripple)) {
                 ripple_1.MDCRipple.attachTo(this.element);
             }
