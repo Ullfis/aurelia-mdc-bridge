@@ -30,6 +30,9 @@ let MdcFab = class MdcFab {
     }
     attached() {
         this.element.classList.add('mdc-fab', 'material-icons');
+        this.miniChanged(this.mini);
+        this.plainChanged(this.plain);
+        this.ariaLabelChanged(this.ariaLabel);
         if (util.getBoolean(this.ripple)) {
             MDCRipple.attachTo(this.element);
         }

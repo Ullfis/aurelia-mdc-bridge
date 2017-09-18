@@ -46,6 +46,9 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/ripple", "..
                 }
                 MdcFab.prototype.attached = function () {
                     this.element.classList.add('mdc-fab', 'material-icons');
+                    this.miniChanged(this.mini);
+                    this.plainChanged(this.plain);
+                    this.ariaLabelChanged(this.ariaLabel);
                     if (util.getBoolean(this.ripple)) {
                         ripple_1.MDCRipple.attachTo(this.element);
                     }
