@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.9.3"></a>
+## [0.9.3](https://github.com/ullfis/aurelia-mdc-bridge/compare/v0.9.2...v0.9.3) (2017-09-18)
+
+
+### Bug Fixes
+
+* **mdc-fab:** keep inner span during if-bind ([326d1ca](https://github.com/ullfis/aurelia-mdc-bridge/commit/326d1ca))
+
+
+
 <a name="0.9.2"></a>
 ## [0.9.2](https://github.com/ullfis/aurelia-mdc-bridge/compare/v0.9.1...v0.9.2) (2017-09-18)
 
