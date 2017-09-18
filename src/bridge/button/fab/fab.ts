@@ -11,23 +11,24 @@ export class MdcFab {
   @bindable() public ariaLabel = '';
   @bindable({ defaultBindingMode: bindingMode.oneTime }) public ripple = true;
   private log: Logger;
+  private icon = null;
 
   constructor(private element: Element) {
     this.log = getLogger('mdc-fab');
 
-    // icon is the element text
-    const icon = this.element.firstChild;
+    // icon is the element child
+    this.icon = this.element.firstChild;
     this.removeChildren();
-
-    // add icon node
-    const spanNode = document.createElement('span');
-    spanNode.classList.add('mdc-fab__icon');
-    if (icon) { spanNode.appendChild(icon); }
-    this.element.appendChild(spanNode);
   }
 
   private attached() {
     this.element.classList.add('mdc-fab', 'material-icons');
+
+    // add icon node
+    const spanNode = document.createElement('span');
+    spanNode.classList.add('mdc-fab__icon');
+    if (this.icon) { spanNode.appendChild(this.icon); }
+    this.element.appendChild(spanNode);
 
     this.miniChanged(this.mini);
     this.plainChanged(this.plain);
