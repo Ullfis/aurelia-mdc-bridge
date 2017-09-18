@@ -5,6 +5,7 @@ export declare class MdcFab {
     ariaLabel: string;
     ripple: boolean;
     private log;
+    private icon;
     constructor(element: Element);
     private attached();
     private detached();

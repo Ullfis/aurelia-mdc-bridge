@@ -17,18 +17,19 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material
             this.plain = false;
             this.ariaLabel = '';
             this.ripple = true;
+            this.icon = null;
             this.log = aurelia_logging_1.getLogger('mdc-fab');
-            var icon = this.element.firstChild;
+            this.icon = this.element.firstChild;
             this.removeChildren();
-            var spanNode = document.createElement('span');
-            spanNode.classList.add('mdc-fab__icon');
-            if (icon) {
-                spanNode.appendChild(icon);
-            }
-            this.element.appendChild(spanNode);
         }
         MdcFab.prototype.attached = function () {
             this.element.classList.add('mdc-fab', 'material-icons');
+            var spanNode = document.createElement('span');
+            spanNode.classList.add('mdc-fab__icon');
+            if (this.icon) {
+                spanNode.appendChild(this.icon);
+            }
+            this.element.appendChild(spanNode);
             this.miniChanged(this.mini);
             this.plainChanged(this.plain);
             this.ariaLabelChanged(this.ariaLabel);

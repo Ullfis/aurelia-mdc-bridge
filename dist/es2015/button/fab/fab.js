@@ -18,18 +18,19 @@ let MdcFab = class MdcFab {
         this.plain = false;
         this.ariaLabel = '';
         this.ripple = true;
+        this.icon = null;
         this.log = getLogger('mdc-fab');
-        const icon = this.element.firstChild;
+        this.icon = this.element.firstChild;
         this.removeChildren();
-        const spanNode = document.createElement('span');
-        spanNode.classList.add('mdc-fab__icon');
-        if (icon) {
-            spanNode.appendChild(icon);
-        }
-        this.element.appendChild(spanNode);
     }
     attached() {
         this.element.classList.add('mdc-fab', 'material-icons');
+        const spanNode = document.createElement('span');
+        spanNode.classList.add('mdc-fab__icon');
+        if (this.icon) {
+            spanNode.appendChild(this.icon);
+        }
+        this.element.appendChild(spanNode);
         this.miniChanged(this.mini);
         this.plainChanged(this.plain);
         this.ariaLabelChanged(this.ariaLabel);
