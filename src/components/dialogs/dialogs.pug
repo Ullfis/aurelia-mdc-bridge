@@ -161,6 +161,39 @@ template
         mdc-radio(name="parentPermission" value="sister" checked.bind="accessPermission") Give sister access to room
         br
         mdc-radio(name="parentPermission" value="brother" checked.bind="accessPermission") Give brother access to room
+
+
+    // CUSTOM ACCEPT FUNCTION
+    mdc-grid-cell(span="12")
+      section
+        h5 Custom Accept Function
+        p.
+          If you have to to send a API request to validate before closing the
+          dialog, you must create a custom accept function. 
+        p Custom accept function:
+
+      pre
+        code-prism(language="typescript").
+          private onAccept() {
+            apiRequest(..).then(() => {
+              this.dialog.show(false);
+            })
+          }
+
+      p Replace accept function:
+      pre
+        code-prism(language="typescript").
+          this.dialog.foundation.accept = this.onAccept.bind(this);
+      
+      // CUSTOM ACCEPT FUNCTION EXAMPLE
+      button(mdc-button="raised: true;" click.delegate="showDialog6()") Example
+      mdc-dialog(
+        view-model.ref="dialog6"
+        accept="Accept"
+        cancel="Cancel")
+
+        p Press Accept button to start close counter
+        p Counter: ${dialog6Counter}
         
 
     // THEMING

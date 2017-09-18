@@ -9,11 +9,13 @@ export class Dialogs {
   private dialog3: MdcDialog;
   private dialog4: MdcDialog;
   private dialog5: MdcDialog;
+  private dialog6: MdcDialog;
   private acceptClicked1: boolean;
   private acceptClicked2: boolean;
   private openCloseStatus3 = '';
   private focusMeElement: MdcTextfield;
   private accessPermission = null;
+  private dialog6Counter = 3;
 
   constructor(private taskQueue: TaskQueue) {}
 
@@ -41,6 +43,11 @@ export class Dialogs {
     this.accessPermission = null;
     this.dialog5.show(true);
   }
+  private showDialog6() {
+    this.dialog6.foundation.accept = this.onAccept.bind(this);
+    this.dialog6Counter = 3;
+    this.dialog6.show(true);
+  }
   private onOpened3() {
     this.openCloseStatus3 = 'opened event fired';
     this.taskQueue.queueTask(() => {
@@ -49,5 +56,16 @@ export class Dialogs {
   }
   private onClosed3() {
     this.openCloseStatus3 = 'closed event fired';
+  }
+
+  private onAccept() {
+    this.dialog6.acceptDisabled = true;
+    const intervalId = setInterval(() => {
+      if (--this.dialog6Counter <= 0) {
+        this.dialog6.acceptDisabled = false;
+        this.dialog6.show(false);
+        clearInterval(intervalId);
+      }
+    }, 1000);
   }
 }
