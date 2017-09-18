@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.9.1"></a>
+## [0.9.1](https://github.com/ullfis/aurelia-mdc-bridge/compare/v0.9.0...v0.9.1) (2017-09-18)
+
+
+### Bug Fixes
+
+* **mdc-button:** set element classes during attached ([f2cc820](https://github.com/ullfis/aurelia-mdc-bridge/commit/f2cc820)), closes [#17](https://github.com/ullfis/aurelia-mdc-bridge/issues/17)
+
+
+
 <a name="0.9.0"></a>
 # [0.9.0](https://github.com/ullfis/aurelia-mdc-bridge/compare/v0.8.0...v0.9.0) (2017-09-18)
 
