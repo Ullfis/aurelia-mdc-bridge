@@ -21,6 +21,7 @@ export declare class MdcDialog {
     private controlId;
     constructor(element: Element);
     show(showDialog?: boolean): void;
+    readonly foundation: any;
     private bind();
     private unbind();
     private attached();

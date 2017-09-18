@@ -51,6 +51,16 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/dialog", "..
                         this.mdcElement.close();
                     }
                 };
+                Object.defineProperty(MdcDialog.prototype, "foundation", {
+                    get: function () {
+                        if (this.mdcElement) {
+                            return this.mdcElement.foundation_;
+                        }
+                        return null;
+                    },
+                    enumerable: true,
+                    configurable: true
+                });
                 MdcDialog.prototype.bind = function () { };
                 MdcDialog.prototype.unbind = function () { };
                 MdcDialog.prototype.attached = function () {

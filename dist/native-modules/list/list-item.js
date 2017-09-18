@@ -57,13 +57,9 @@ var MdcListItem = (function () {
     };
     MdcListItem.prototype.disabledChanged = function (newValue) {
         var value = util.getBoolean(newValue);
-        if (value && this.isSimpleMenuItem) {
-            this.elementListItem.setAttribute('tabindex', '-1');
-            this.elementListItem.setAttribute('aria-disabled', 'true');
-        }
-        else {
-            this.elementListItem.setAttribute('tabindex', '0');
-            this.elementListItem.removeAttribute('aria-disabled');
+        if (this.isSimpleMenuItem || this.isSelectMenuItem) {
+            this.elementListItem.setAttribute('tabindex', value ? '-1' : '0');
+            this.elementListItem.setAttribute('aria-disabled', value ? 'true' : 'false');
         }
     };
     __decorate([

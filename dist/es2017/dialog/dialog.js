@@ -33,6 +33,12 @@ let MdcDialog = MdcDialog_1 = class MdcDialog {
             this.mdcElement.close();
         }
     }
+    get foundation() {
+        if (this.mdcElement) {
+            return this.mdcElement.foundation_;
+        }
+        return null;
+    }
     bind() { }
     unbind() { }
     attached() {
