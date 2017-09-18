@@ -18,6 +18,8 @@ template
         mdc-list-item
           a(href="#icons") Icons
         mdc-list-item
+          a(href="#disableditem") Disabled item          
+        mdc-list-item
           a(href="#divider") Divider
         mdc-list-item
           a(href="#event") Event
@@ -30,6 +32,8 @@ template
         mdc-select(value.bind="selectedProductId" disabled.bind="disabled" on-change.delegate="onChange($event)")
           mdc-list-item(repeat.for="product of products" model.bind="product.id")
             span ${product.id} - ${product.name}
+          mdc-list-item(model="998" disabled="true")
+            span 998 - Disabled
           mdc-list-divider
           mdc-list-item(model="999")
             span Something
@@ -43,6 +47,8 @@ template
             span(slot="start")
               i.material-icons(aria-hidden="true") ${product.icon}
           mdc-list-divider
+          mdc-list-item(model="998" disabled="true")
+            span 998 - Disabled
           mdc-list-item(model="999")
             span Something
             span(slot="start")
@@ -114,6 +120,19 @@ template
                 &lt;/span&gt;
               &lt;/mdc-list-item&gt;
             &lt;/mdc-select&gt;  
+
+
+    // DISABLE ITEM
+    mdc-grid-cell(span="12")
+      section(id="disableditem")
+        h5 Disabled item
+        pre
+          code-prism.
+            ...
+            &lt;mdc-list-item
+              disabled="true"
+              ...&gt;
+        pre
 
 
     // DIVIDER
