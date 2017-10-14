@@ -79,13 +79,13 @@ export class MdcTextfield {
     this.disabledChanged(this.disabled);
     this.focusedChanged(this.focused);
 
-    this.mdcTextfield.foundation_.adapter_.registerInputBlurHandler(this.onBlur.bind(this));
-    this.mdcTextfield.foundation_.adapter_.registerInputFocusHandler(this.onFocus.bind(this));
+    this.mdcTextfield.foundation_.adapter_.registerInputInteractionHandler('blur', this.onBlur.bind(this));
+    this.mdcTextfield.foundation_.adapter_.registerInputInteractionHandler('focus', this.onFocus.bind(this));
   }
 
   private detached() {
-    this.mdcTextfield.foundation_.adapter_.deregisterInputFocusHandler(this.onFocus.bind(this));
-    this.mdcTextfield.foundation_.adapter_.deregisterInputBlurHandler(this.onBlur.bind(this));
+    this.mdcTextfield.foundation_.adapter_.deregisterInputInteractionHandler('focus', this.onFocus.bind(this));
+    this.mdcTextfield.foundation_.adapter_.deregisterInputInteractionHandler('blur', this.onBlur.bind(this));
     this.mdcTextfield.destroy();
   }
 
