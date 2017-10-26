@@ -24,13 +24,13 @@ template
       mdc-toolbar
         mdc-toolbar-row
           mdc-toolbar-section(start="true")
-            a.material-icons.mdc-toolbar__icon--menu(href="#/components/toolbars") menu
+            a.material-icons.mdc-toolbar__menu-icon(href="#/components/toolbars") menu
             mdc-toolbar-title Title
 
       mdc-toolbar.mdc-theme--dark
         mdc-toolbar-row
           mdc-toolbar-section(start="true")
-            a.material-icons.mdc-toolbar__icon--menu(href="#/components/toolbars") menu
+            a.material-icons.mdc-toolbar__menu-icon(href="#/components/toolbars") menu
             mdc-toolbar-title Title
 
       pre
@@ -38,7 +38,7 @@ template
           <mdc-toolbar>
             <mdc-toolbar-row>
               <mdc-toolbar-section start="true">
-                <a class="material-icons mdc-toolbar__icon--menu" href="#/components/toolbars">menu</a>
+                <a class="material-icons mdc-toolbar__menu-icon" href="#/components/toolbars">menu</a>
                 <mdc-toolbar-title>Title</mdc-toolbar-title>
               </mdc-toolbar-section>              
             </mdc-toolbar-row>
@@ -126,14 +126,14 @@ template
       h5 Icons
       p.
         Icons can be added as anchor tags, spans, or buttons to #[span.mark-text mdc-toolbar]. There are two types of icons, 
-        #[span.mark-text mdc-toolbar__icon--menu] represents the left most icon in #[span.mark-text mdc-toolbar]
+        #[span.mark-text mdc-toolbar__menu-icon] represents the left most icon in #[span.mark-text mdc-toolbar]
         usually to the left of #[span.mark-text mdc-toolbar__title]. #[span.mark-text mdc-toolbar__icon]
         represents any icons placed on the right side of an #[span.mark-text mdc-toolbar].
 
       mdc-toolbar
         mdc-toolbar-row
           mdc-toolbar-section(start="true")
-            a.material-icons.mdc-toolbar__icon--menu(href="#/components/toolbars") menu
+            a.material-icons.mdc-toolbar__menu-icon(href="#/components/toolbars") menu
             mdc-toolbar-title Title
           mdc-toolbar-section(end="true")
             span.material-icons.mdc-toolbar__icon star
@@ -146,7 +146,7 @@ template
           <mdc-toolbar>
             <mdc-toolbar-row>
               <mdc-toolbar-section start="true">
-                <a class="material-icons mdc-toolbar__icon--menu" href="#/components/toolbars">menu</a>
+                <a class="material-icons mdc-toolbar__menu-icon" href="#/components/toolbars">menu</a>
                 <mdc-toolbar-title>Title</mdc-toolbar-title>
               </mdc-toolbar-section>
               <mdc-toolbar-section end="true" fit="true">
