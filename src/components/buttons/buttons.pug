@@ -9,22 +9,22 @@ template
     mdc-grid-cell(span="4")
       mdc-checkbox(checked.bind="aureliaDisabled") disabled
       br
-      mdc-checkbox(checked.bind="accent") accent
-      br
-      mdc-checkbox(checked.bind="primary") primary
-      br
       mdc-checkbox(checked.bind="raised") raised
       br
       mdc-checkbox(checked.bind="dense") dense
       br
       mdc-checkbox(checked.bind="compact") compact
+      br
+      mdc-checkbox(checked.bind="stroked") stroked
+      br
+      mdc-checkbox(checked.bind="unelevated") unelevated
 
     // DEMO AREA
     mdc-grid-cell(span="8")
       section.components
         h6 Default theme
         button(
-          mdc-button="accent.bind: accent; primary.bind: primary; raised.bind: raised; dense.bind: dense; compact.bind: compact;"              
+          mdc-button="raised.bind: raised; dense.bind: dense; compact.bind: compact; stroked.bind: stroked; unelevated.bind: unelevated;"              
           disabled.bind="aureliaDisabled") Button 1
         br
         br
@@ -32,7 +32,7 @@ template
       section.mdc-theme--dark.components
         h6 Dark theme
         button(
-          mdc-button="accent.bind: accent; primary.bind: primary; raised.bind: raised; dense.bind: dense; compact.bind: compact;"
+          mdc-button="raised.bind: raised; dense.bind: dense; compact.bind: compact; stroked.bind: stroked; unelevated.bind: unelevated;"
           disabled.bind="aureliaDisabled") Button 2
         br
         br
@@ -51,7 +51,7 @@ template
       pre
         code-prism.
           &lt;button
-            mdc-button="accent.bind: accent; primary.bind: primary; raised.bind: raised; dense.bind: dense; compact.bind: compact; ripple: true;" 
+            mdc-button="raised.bind: raised; dense.bind: dense; compact.bind: compact; stroked.bind: stroked; unelevated.bind: unelevated;" 
             disabled.bind="disabled"&gt;
             Button text
           &lt;/button&gt;
@@ -68,148 +68,111 @@ template
               ...
             &lt;/button&gt;
 
+    // ICON
+    mdc-grid-cell(span="12")
+      section
+        h5 Icon
+        p Add #[span.mark-text mdc-button__icon] class to icon tag:
+        button(mdc-button="stroked: true;")
+          i.material-icons.mdc-button__icon star
+          | Button with icon
+        br
+        pre
+          code-prism.
+            &lt;button mdc-button="stroked: true;" ...&gt;
+              <i class="material-icons mdc-button__icon">star</i>
+              Button with icon              
+            &lt;/button&gt;
 
     // WALL OF BUTTONS
     mdc-grid-cell(span="12")
       hr
-      mdc-checkbox(checked.bind="disabled") Disable buttons
+      mdc-checkbox(checked.bind="darkTheme") Dark theme
+      mdc-checkbox(checked.bind="disabled") Disable buttons (excluding links and divs)
       hr
 
       // BUTTONS
-      section.components
-        h5 Buttons
+      section.components(class.bind="darkTheme ? 'mdc-theme--dark' : ''")
+        h5 Text Button
         fieldset(disabled.bind="disabled")
-          button(mdc-button="accent: false; primary: false; raised: false; dense: false; compact: false;") Default
+          button(mdc-button="raised: false; dense: false; compact: false;") Default
 
-          button(mdc-button="accent: false; primary: false; raised: true; dense: false; compact: false;") Raised
+          button(mdc-button="raised: false; dense: false; compact: true;") Compact
 
-          button(mdc-button="accent: false; primary: false; raised: false; dense: true; compact: false;") Dense Default
+          button(mdc-button="raised: false; dense: true; compact: false;") Dense
 
-          button(mdc-button="accent: false; primary: false; raised: true; dense: true; compact: false;") Dense Raised
+          button(mdc-button="raised: false; dense: false; compact: false;") Secondary
 
-          button(mdc-button="accent: false; primary: false; raised: false; dense: false; compact: true;") Compact
+          button(mdc-button="raised: false; dense: false; compact: false;")
+            i.material-icons.mdc-button__icon favorite
+            | Icon
 
-          button(mdc-button="accent: false; primary: false; raised: true; dense: false; compact: true;") Compact Raised
+          div(mdc-button="raised: false; dense: false; compact: false;" role="button") Div
 
-          button(mdc-button="accent: false; primary: true; raised: false; dense: false; compact: false;") Default with primary
-
-          button(mdc-button="accent: false; primary: true; raised: true; dense: false; compact: false;") Raised with primary
-
-          button(mdc-button="accent: true; primary: false; raised: false; dense: false; compact: false;") Default with accent
-
-          button(mdc-button="accent: true; primary: false; raised: true; dense: false; compact: false;") Raised with accent
-
-          div(mdc-button="accent: false; primary: false; raised: true; dense: false; compact: false;" role="button") Div
+          a(href="#/components/buttons"
+            mdc-button="raised: false; dense: false; compact: false;") Link
+          
           hr
 
-      
-    // LINKS
-    mdc-grid-cell(span="12")
-      section.components
-        h5 Links
+        h5 Raised Button
         fieldset(disabled.bind="disabled")
-          a(href="#/components/buttons"
-            mdc-button="accent: false; primary: false; raised: false; dense: false; compact: false;") Default
+          button(mdc-button="raised: true; dense: false; compact: false;") Default
+
+          button(mdc-button="raised: true; dense: false; compact: true;") Compact
+
+          button(mdc-button="raised: true; dense: true; compact: false;") Dense
+
+          button(mdc-button="raised: true; dense: false; compact: false;") Secondary
+
+          button(mdc-button="raised: true; dense: false; compact: false;")
+            i.material-icons.mdc-button__icon favorite
+            | Icon
+
+          div(mdc-button="raised: true; dense: false; compact: false;" role="button") Div
 
           a(href="#/components/buttons"
-            mdc-button="accent: false; primary: false; raised: true; dense: false; compact: false;") Raised
-
-          a(href="#/components/buttons"
-            mdc-button="accent: false; primary: false; raised: false; dense: true; compact: false;") Dense Default
-
-          a(href="#/components/buttons"
-            mdc-button="accent: false; primary: false; raised: true; dense: true; compact: false;") Dense Raised
-
-          a(href="#/components/buttons"
-            mdc-button="accent: false; primary: false; raised: false; dense: false; compact: true;") Compact
-
-          a(href="#/components/buttons"
-            mdc-button="accent: false; primary: false; raised: true; dense: false; compact: true;") Compact Raised
-
-          a(href="#/components/buttons"
-            mdc-button="accent: false; primary: true; raised: false; dense: false; compact: false;") Default with primary
-
-          a(href="#/components/buttons"
-            mdc-button="accent: false; primary: true; raised: true; dense: false; compact: false;") Raised with primary
-
-          a(href="#/components/buttons"
-            mdc-button="accent: true; primary: false; raised: false; dense: false; compact: false;") Default with accent
-
-          a(href="#/components/buttons"
-            mdc-button="accent: true; primary: false; raised: true; dense: false; compact: false;") Raised with accent
+            mdc-button="raised: true; dense: false; compact: false;") Link
+          
           hr
 
-
-    // BUTTONS DARK THEME
-    mdc-grid-cell(span="12")
-      section.mdc-theme--dark.components
-        h5 Dark Theme Buttons
+        h5 Unelevated Button (Experimental)
         fieldset(disabled.bind="disabled")
-          button(
-            mdc-button="accent: false; primary: false; raised: false; dense: false; compact: false;") Default
+          button(mdc-button="unelevated: true; raised: false; dense: false; compact: false;") Default
 
-          button(
-            mdc-button="accent: false; primary: false; raised: true; dense: false; compact: false;") Raised
+          button(mdc-button="unelevated: true; raised: false; dense: false; compact: true;") Compact
 
-          button(
-            mdc-button="accent: false; primary: false; raised: false; dense: true; compact: false;") Dense Default
+          button(mdc-button="unelevated: true; raised: false; dense: true; compact: false;") Dense
 
-          button(
-            mdc-button="accent: false; primary: false; raised: true; dense: true; compact: false;") Dense Raised
+          button(mdc-button="unelevated: true; raised: false; dense: false; compact: false;") Secondary
 
-          button(
-            mdc-button="accent: false; primary: false; raised: false; dense: false; compact: true;") Compact
+          button(mdc-button="unelevated: true; raised: false; dense: false; compact: false;")
+            i.material-icons.mdc-button__icon favorite
+            | Icon
 
-          button(
-            mdc-button="accent: false; primary: false; raised: true; dense: false; compact: true;") Compact Raised
+          div(mdc-button="unelevated: true; raised: false; dense: false; compact: false;" role="button") Div
 
-          button(
-            mdc-button="accent: false; primary: true; raised: false; dense: false; compact: false;") Default with primary
+          a(href="#/components/buttons"
+            mdc-button="unelevated: true; raised: false; dense: false; compact: false;") Link
+          
+          hr
 
-          button(
-            mdc-button="accent: false; primary: true; raised: true; dense: false; compact: false;") Raised with primary
-
-          button(
-            mdc-button="accent: true; primary: false; raised: false; dense: false; compact: false;") Default with accent
-
-          button(
-            mdc-button="accent: true; primary: false; raised: true; dense: false; compact: false;") Raised with accent
-
-          div(
-            mdc-button="accent: false; primary: false; raised: true; dense: false; compact: false;" role="button") Div
-
-
-    // LINKS DARK THEME
-    mdc-grid-cell(span="12")
-      section.mdc-theme--dark.components
-        h5 Dark Theme Links
+        h5 Stroked Button (Experimental)
         fieldset(disabled.bind="disabled")
-          a(href="#/components/buttons"
-            mdc-button="accent: false; primary: false; raised: false; dense: false; compact: false;") Default
+          button(mdc-button="stroked: true; raised: false; dense: false; compact: false;") Default
+
+          button(mdc-button="stroked: true; raised: false; dense: false; compact: true;") Compact
+
+          button(mdc-button="stroked: true; raised: false; dense: true; compact: false;") Dense
+
+          button(mdc-button="stroked: true; raised: false; dense: false; compact: false;") Secondary
+
+          button(mdc-button="stroked: true; raised: false; dense: false; compact: false;")
+            i.material-icons.mdc-button__icon favorite
+            | Icon
+
+          div(mdc-button="stroked: true; raised: false; dense: false; compact: false;" role="button") Div
 
           a(href="#/components/buttons"
-            mdc-button="accent: false; primary: false; raised: true; dense: false; compact: false;") Raised
-
-          a(href="#/components/buttons"
-            mdc-button="accent: false; primary: false; raised: false; dense: true; compact: false;") Dense Default
-
-          a(href="#/components/buttons"
-            mdc-button="accent: false; primary: false; raised: true; dense: true; compact: false;") Dense Raised
-
-          a(href="#/components/buttons"
-            mdc-button="accent: false; primary: false; raised: false; dense: false; compact: true;") Compact
-
-          a(href="#/components/buttons"
-            mdc-button="accent: false; primary: false; raised: true; dense: false; compact: true;") Compact Raised
-
-          a(href="#/components/buttons"
-            mdc-button="accent: false; primary: true; raised: false; dense: false; compact: false;") Default with primary
-
-          a(href="#/components/buttons"
-            mdc-button="accent: false; primary: true; raised: true; dense: false; compact: false;") Raised with primary
-
-          a(href="#/components/buttons"
-            mdc-button="accent: true; primary: false; raised: false; dense: false; compact: false;") Default with accent
-
-          a(href="#/components/buttons"
-            mdc-button="accent: true; primary: false; raised: true; dense: false; compact: false;") Raised with accent
+            mdc-button="stroked: true; raised: false; dense: false; compact: false;") Link
+          
+          hr

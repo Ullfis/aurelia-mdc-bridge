@@ -6,11 +6,11 @@ import * as util from '../util';
 @customAttribute('mdc-button')
 @inject(Element)
 export class MdcButton {
-  @bindable({ defaultBindingMode: bindingMode.twoWay }) public accent = false;
-  @bindable({ defaultBindingMode: bindingMode.twoWay }) public primary = false;
+  @bindable() public compact = false;
   @bindable() public dense = false;
   @bindable() public raised = false;
-  @bindable() public compact = false;
+  @bindable() public stroked = false;
+  @bindable() public unelevated = false;
   @bindable({ defaultBindingMode: bindingMode.oneTime }) public ripple = true;
   private log: Logger;
 
@@ -27,11 +27,11 @@ export class MdcButton {
       this.compact = true;
     }
 
-    this.accentChanged(this.accent);
-    this.primaryChanged(this.primary);
+    this.compactChanged(this.compact);
     this.denseChanged(this.dense);
     this.raisedChanged(this.raised);
-    this.compactChanged(this.compact);
+    this.strokedChanged(this.stroked);
+    this.unelevatedChanged(this.unelevated);
 
     // add ripple effect
     if (util.getBoolean(this.ripple)) {
@@ -42,26 +42,19 @@ export class MdcButton {
   private detached() {
     const classes = [
       'mdc-button',
-      'mdc-button--accent',
-      'mdc-button--primary',
       'mdc-button--dense',
       'mdc-button--raised',
       'mdc-button--compact',
+      'mdc-button--stroked',
+      'mdc-button--unelevated',
       'mdc-card__action'
     ];
     this.element.classList.remove(...classes);
   }
 
-  private accentChanged(newValue) {
+  private compactChanged(newValue) {
     const value = util.getBoolean(newValue);
-    if (value) { this.primary = false; }
-    this.element.classList[value ? 'add' : 'remove']('mdc-button--accent');
-  }
-
-  private primaryChanged(newValue) {
-    const value = util.getBoolean(newValue);
-    if (value) { this.accent = false; }
-    this.element.classList[value ? 'add' : 'remove']('mdc-button--primary');
+    this.element.classList[value ? 'add' : 'remove']('mdc-button--compact');
   }
 
   private denseChanged(newValue) {
@@ -74,8 +67,13 @@ export class MdcButton {
     this.element.classList[value ? 'add' : 'remove']('mdc-button--raised');
   }
 
-  private compactChanged(newValue) {
+  private strokedChanged(newValue) {
     const value = util.getBoolean(newValue);
-    this.element.classList[value ? 'add' : 'remove']('mdc-button--compact');
+    this.element.classList[value ? 'add' : 'remove']('mdc-button--stroked');
+  }
+
+  private unelevatedChanged(newValue) {
+    const value = util.getBoolean(newValue);
+    this.element.classList[value ? 'add' : 'remove']('mdc-button--unelevated');
   }
 }
