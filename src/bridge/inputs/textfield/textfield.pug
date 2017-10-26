@@ -2,6 +2,9 @@ template
   // TEXTFIELD
   .mdc-textfield(ref="elementMain")
 
+    div(ref="leadingIconSlot")
+      slot(name="leading-icon")
+    
     // INPUT
     input.mdc-textfield__input.amdc_input_element(
       id="${controlId}"
@@ -32,6 +35,9 @@ template
     label.mdc-textfield__label(for="${controlId}" ref="elementLabel")
       slot
 
+    div(ref="trailingIconSlot")
+      slot(name="trailing-icon")
+  
     // BOX BOTTOM LINE
     .mdc-textfield__bottom-line(if.bind="box")
 
