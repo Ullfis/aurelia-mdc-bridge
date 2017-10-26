@@ -133,6 +133,17 @@ template
         placeholder="Full width")
       p Note that full-width text fields do not support floating labels.
 
+      // leading-icon
+      br
+      mdc-textfield(value.bind="leadingIcon" box="true")
+        i.material-icons(slot="leading-icon" tabindex="0") event
+        | Leading Icon
+
+      // trailing-icon
+      br
+      mdc-textfield(value.bind="leadingIcon" box="true")
+        i.material-icons(slot="trailing-icon") event
+        | Trailing Icon
 
     // LINKS  
     mdc-grid-cell(span="12")
@@ -188,6 +199,23 @@ template
           &lt;/mdc-textfield&gt;
           
       p Full-width text fields do not support floating labels.
+
+
+    // LEADING AND TRAILING ICONS
+    mdc-grid-cell(span="12")
+      h5 Leading and Trailing Icons
+      pre
+        code-prism.
+          &lt;mdc-textfield value.bind="value" box="true"&gt;
+            <i slot="leading-icon" class="material-icons">event</i>
+            Label text
+          &lt;/mdc-textfield&gt;
+
+          &lt;mdc-textfield value.bind="value" box="true"&gt;
+            <i slot="trailing-icon" class="material-icons">event</i>
+            Label text
+          &lt;/mdc-textfield&gt;          
+          
 
     // FUNCTIONS
     mdc-grid-cell(span="12") 

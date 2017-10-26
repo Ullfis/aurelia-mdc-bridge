@@ -40,6 +40,8 @@ export class MdcTextfield {
   private elementInput: HTMLInputElement | HTMLTextAreaElement;
   private styleHelptext = 'display: none;';
   private stopFocusedChanged = false;
+  private leadingIconSlot: HTMLDivElement;
+  private trailingIconSlot: HTMLDivElement;
 
   constructor(private element: Element, private taskQueue: TaskQueue) {
     this.controlId = `mdc-textfield-${MdcTextfield.id++}`;
@@ -79,14 +81,36 @@ export class MdcTextfield {
     this.disabledChanged(this.disabled);
     this.focusedChanged(this.focused);
 
-    this.mdcTextfield.foundation_.adapter_.registerInputBlurHandler(this.onBlur.bind(this));
-    this.mdcTextfield.foundation_.adapter_.registerInputFocusHandler(this.onFocus.bind(this));
+    if (this.isIcon(this.leadingIconSlot)) {
+      this.elementMain.classList.add('mdc-textfield--with-leading-icon');
+    }
+    if (this.isIcon(this.trailingIconSlot)) {
+      this.elementMain.classList.add('mdc-textfield--with-trailing-icon');
+    }
+
+    this.mdcTextfield.foundation_.adapter_.registerInputInteractionHandler('blur', this.onBlur.bind(this));
+    this.mdcTextfield.foundation_.adapter_.registerInputInteractionHandler('focus', this.onFocus.bind(this));
   }
 
   private detached() {
-    this.mdcTextfield.foundation_.adapter_.deregisterInputFocusHandler(this.onFocus.bind(this));
-    this.mdcTextfield.foundation_.adapter_.deregisterInputBlurHandler(this.onBlur.bind(this));
+    this.mdcTextfield.foundation_.adapter_.deregisterInputInteractionHandler('focus', this.onFocus.bind(this));
+    this.mdcTextfield.foundation_.adapter_.deregisterInputInteractionHandler('blur', this.onBlur.bind(this));
     this.mdcTextfield.destroy();
+  }
+
+  // check if there is an leading or trailing icon child
+  // and add classes if so
+  private isIcon(el: HTMLDivElement): boolean {
+    for (let i = 0; i < el.children.length; i++) {
+      const item = el.children[i];
+      if (item.tagName === 'I') {
+        if (!el.children[i].classList.contains('mdc-textfield__icon')) {
+          el.children[i].classList.add('mdc-textfield__icon');
+        }
+        return true;
+      }
+    }
+    return false;
   }
 
   private valueChanged(newValue: string) {
@@ -179,7 +203,7 @@ export class MdcTextfield {
   }
   private multilineChanged(newValue) {
     const value = util.getBoolean(newValue);
-    this.elementMain.classList[value ? 'add' : 'remove']('mdc-textfield--multiline');
+    this.elementMain.classList[value ? 'add' : 'remove']('mdc-textfield--textarea');
   }
   private denseChanged(newValue) {
     const value = util.getBoolean(newValue);
