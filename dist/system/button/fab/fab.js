@@ -31,7 +31,7 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/ripple", "..
                 function MdcFab(element) {
                     this.element = element;
                     this.mini = false;
-                    this.plain = false;
+                    this.exited = false;
                     this.ariaLabel = '';
                     this.ripple = true;
                     this.icon = null;
@@ -48,7 +48,7 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/ripple", "..
                     }
                     this.element.appendChild(spanNode);
                     this.miniChanged(this.mini);
-                    this.plainChanged(this.plain);
+                    this.exitedChanged(this.exited);
                     this.ariaLabelChanged(this.ariaLabel);
                     if (util.getBoolean(this.ripple)) {
                         ripple_1.MDCRipple.attachTo(this.element);
@@ -59,7 +59,7 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/ripple", "..
                         'mdc-fab',
                         'material-icons',
                         'mdc-fab--mini',
-                        'mdc-fab--plain'
+                        'mdc-fab--exited'
                     ];
                     (_a = this.element.classList).remove.apply(_a, classes);
                     this.element.removeAttribute('aria-label');
@@ -70,9 +70,9 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/ripple", "..
                     var value = util.getBoolean(newValue);
                     this.element.classList[value ? 'add' : 'remove']('mdc-fab--mini');
                 };
-                MdcFab.prototype.plainChanged = function (newValue) {
+                MdcFab.prototype.exitedChanged = function (newValue) {
                     var value = util.getBoolean(newValue);
-                    this.element.classList[value ? 'add' : 'remove']('mdc-fab--plain');
+                    this.element.classList[value ? 'add' : 'remove']('mdc-fab--exited');
                 };
                 MdcFab.prototype.ariaLabelChanged = function (newValue) {
                     this.element.setAttribute('aria-label', newValue);
@@ -89,7 +89,7 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/ripple", "..
                 __decorate([
                     aurelia_framework_1.bindable(),
                     __metadata("design:type", Object)
-                ], MdcFab.prototype, "plain", void 0);
+                ], MdcFab.prototype, "exited", void 0);
                 __decorate([
                     aurelia_framework_1.bindable(),
                     __metadata("design:type", Object)

@@ -86,13 +86,31 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/textfield", 
                     this.helptextShowChanged(this.helptextShow);
                     this.disabledChanged(this.disabled);
                     this.focusedChanged(this.focused);
-                    this.mdcTextfield.foundation_.adapter_.registerInputBlurHandler(this.onBlur.bind(this));
-                    this.mdcTextfield.foundation_.adapter_.registerInputFocusHandler(this.onFocus.bind(this));
+                    if (this.isIcon(this.leadingIconSlot)) {
+                        this.elementMain.classList.add('mdc-textfield--with-leading-icon');
+                    }
+                    if (this.isIcon(this.trailingIconSlot)) {
+                        this.elementMain.classList.add('mdc-textfield--with-trailing-icon');
+                    }
+                    this.mdcTextfield.foundation_.adapter_.registerInputInteractionHandler('blur', this.onBlur.bind(this));
+                    this.mdcTextfield.foundation_.adapter_.registerInputInteractionHandler('focus', this.onFocus.bind(this));
                 };
                 MdcTextfield.prototype.detached = function () {
-                    this.mdcTextfield.foundation_.adapter_.deregisterInputFocusHandler(this.onFocus.bind(this));
-                    this.mdcTextfield.foundation_.adapter_.deregisterInputBlurHandler(this.onBlur.bind(this));
+                    this.mdcTextfield.foundation_.adapter_.deregisterInputInteractionHandler('focus', this.onFocus.bind(this));
+                    this.mdcTextfield.foundation_.adapter_.deregisterInputInteractionHandler('blur', this.onBlur.bind(this));
                     this.mdcTextfield.destroy();
+                };
+                MdcTextfield.prototype.isIcon = function (el) {
+                    for (var i = 0; i < el.children.length; i++) {
+                        var item = el.children[i];
+                        if (item.tagName === 'I') {
+                            if (!el.children[i].classList.contains('mdc-textfield__icon')) {
+                                el.children[i].classList.add('mdc-textfield__icon');
+                            }
+                            return true;
+                        }
+                    }
+                    return false;
                 };
                 MdcTextfield.prototype.valueChanged = function (newValue) {
                     var isAbove = this.elementLabel.classList.contains('mdc-textfield__label--float-above');
@@ -178,7 +196,7 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/textfield", 
                 };
                 MdcTextfield.prototype.multilineChanged = function (newValue) {
                     var value = util.getBoolean(newValue);
-                    this.elementMain.classList[value ? 'add' : 'remove']('mdc-textfield--multiline');
+                    this.elementMain.classList[value ? 'add' : 'remove']('mdc-textfield--textarea');
                 };
                 MdcTextfield.prototype.denseChanged = function (newValue) {
                     var value = util.getBoolean(newValue);

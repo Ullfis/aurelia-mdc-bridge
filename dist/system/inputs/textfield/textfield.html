@@ -2,6 +2,9 @@
 <template>
   <!-- TEXTFIELD-->
   <div class="mdc-textfield" ref="elementMain">
+    <div ref="leadingIconSlot">
+      <slot name="leading-icon"></slot>
+    </div>
     <!-- INPUT-->
     <input class="mdc-textfield__input amdc_input_element" id="${controlId}" ref="elementInput" if.bind="!multiline" type="${type}" name.bind="name" value.bind="value" min.bind="min" max.bind="max" step.bind="step" required.bind="required" aria-controls="${helptextId}"/>
     <!-- TEXTAREA-->
@@ -10,6 +13,9 @@
     <label class="mdc-textfield__label" for="${controlId}" ref="elementLabel">
       <slot></slot>
     </label>
+    <div ref="trailingIconSlot">
+      <slot name="trailing-icon"></slot>
+    </div>
     <!-- BOX BOTTOM LINE-->
     <div class="mdc-textfield__bottom-line" if.bind="box"></div>
   </div>

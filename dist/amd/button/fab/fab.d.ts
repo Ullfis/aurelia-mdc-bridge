@@ -1,7 +1,7 @@
 export declare class MdcFab {
     private element;
     mini: boolean;
-    plain: boolean;
+    exited: boolean;
     ariaLabel: string;
     ripple: boolean;
     private log;
@@ -10,7 +10,7 @@ export declare class MdcFab {
     private attached();
     private detached();
     private miniChanged(newValue);
-    private plainChanged(newValue);
+    private exitedChanged(newValue);
     private ariaLabelChanged(newValue);
     private removeChildren();
 }

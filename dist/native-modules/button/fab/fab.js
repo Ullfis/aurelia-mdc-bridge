@@ -15,7 +15,7 @@ var MdcFab = (function () {
     function MdcFab(element) {
         this.element = element;
         this.mini = false;
-        this.plain = false;
+        this.exited = false;
         this.ariaLabel = '';
         this.ripple = true;
         this.icon = null;
@@ -32,7 +32,7 @@ var MdcFab = (function () {
         }
         this.element.appendChild(spanNode);
         this.miniChanged(this.mini);
-        this.plainChanged(this.plain);
+        this.exitedChanged(this.exited);
         this.ariaLabelChanged(this.ariaLabel);
         if (util.getBoolean(this.ripple)) {
             MDCRipple.attachTo(this.element);
@@ -43,7 +43,7 @@ var MdcFab = (function () {
             'mdc-fab',
             'material-icons',
             'mdc-fab--mini',
-            'mdc-fab--plain'
+            'mdc-fab--exited'
         ];
         (_a = this.element.classList).remove.apply(_a, classes);
         this.element.removeAttribute('aria-label');
@@ -54,9 +54,9 @@ var MdcFab = (function () {
         var value = util.getBoolean(newValue);
         this.element.classList[value ? 'add' : 'remove']('mdc-fab--mini');
     };
-    MdcFab.prototype.plainChanged = function (newValue) {
+    MdcFab.prototype.exitedChanged = function (newValue) {
         var value = util.getBoolean(newValue);
-        this.element.classList[value ? 'add' : 'remove']('mdc-fab--plain');
+        this.element.classList[value ? 'add' : 'remove']('mdc-fab--exited');
     };
     MdcFab.prototype.ariaLabelChanged = function (newValue) {
         this.element.setAttribute('aria-label', newValue);
@@ -73,7 +73,7 @@ var MdcFab = (function () {
     __decorate([
         bindable(),
         __metadata("design:type", Object)
-    ], MdcFab.prototype, "plain", void 0);
+    ], MdcFab.prototype, "exited", void 0);
     __decorate([
         bindable(),
         __metadata("design:type", Object)

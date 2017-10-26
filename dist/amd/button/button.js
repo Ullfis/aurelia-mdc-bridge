@@ -13,11 +13,11 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material
     var MdcButton = (function () {
         function MdcButton(element) {
             this.element = element;
-            this.accent = false;
-            this.primary = false;
+            this.compact = false;
             this.dense = false;
             this.raised = false;
-            this.compact = false;
+            this.stroked = false;
+            this.unelevated = false;
             this.ripple = true;
             this.log = aurelia_logging_1.getLogger('mdc-button');
         }
@@ -28,11 +28,11 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material
                 this.element.classList.add('mdc-card__action');
                 this.compact = true;
             }
-            this.accentChanged(this.accent);
-            this.primaryChanged(this.primary);
+            this.compactChanged(this.compact);
             this.denseChanged(this.dense);
             this.raisedChanged(this.raised);
-            this.compactChanged(this.compact);
+            this.strokedChanged(this.stroked);
+            this.unelevatedChanged(this.unelevated);
             if (util.getBoolean(this.ripple)) {
                 ripple_1.MDCRipple.attachTo(this.element);
             }
@@ -40,29 +40,19 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material
         MdcButton.prototype.detached = function () {
             var classes = [
                 'mdc-button',
-                'mdc-button--accent',
-                'mdc-button--primary',
                 'mdc-button--dense',
                 'mdc-button--raised',
                 'mdc-button--compact',
+                'mdc-button--stroked',
+                'mdc-button--unelevated',
                 'mdc-card__action'
             ];
             (_a = this.element.classList).remove.apply(_a, classes);
             var _a;
         };
-        MdcButton.prototype.accentChanged = function (newValue) {
+        MdcButton.prototype.compactChanged = function (newValue) {
             var value = util.getBoolean(newValue);
-            if (value) {
-                this.primary = false;
-            }
-            this.element.classList[value ? 'add' : 'remove']('mdc-button--accent');
-        };
-        MdcButton.prototype.primaryChanged = function (newValue) {
-            var value = util.getBoolean(newValue);
-            if (value) {
-                this.accent = false;
-            }
-            this.element.classList[value ? 'add' : 'remove']('mdc-button--primary');
+            this.element.classList[value ? 'add' : 'remove']('mdc-button--compact');
         };
         MdcButton.prototype.denseChanged = function (newValue) {
             var value = util.getBoolean(newValue);
@@ -72,18 +62,18 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material
             var value = util.getBoolean(newValue);
             this.element.classList[value ? 'add' : 'remove']('mdc-button--raised');
         };
-        MdcButton.prototype.compactChanged = function (newValue) {
+        MdcButton.prototype.strokedChanged = function (newValue) {
             var value = util.getBoolean(newValue);
-            this.element.classList[value ? 'add' : 'remove']('mdc-button--compact');
+            this.element.classList[value ? 'add' : 'remove']('mdc-button--stroked');
+        };
+        MdcButton.prototype.unelevatedChanged = function (newValue) {
+            var value = util.getBoolean(newValue);
+            this.element.classList[value ? 'add' : 'remove']('mdc-button--unelevated');
         };
         __decorate([
-            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
+            aurelia_framework_1.bindable(),
             __metadata("design:type", Object)
-        ], MdcButton.prototype, "accent", void 0);
-        __decorate([
-            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
-            __metadata("design:type", Object)
-        ], MdcButton.prototype, "primary", void 0);
+        ], MdcButton.prototype, "compact", void 0);
         __decorate([
             aurelia_framework_1.bindable(),
             __metadata("design:type", Object)
@@ -95,7 +85,11 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material
         __decorate([
             aurelia_framework_1.bindable(),
             __metadata("design:type", Object)
-        ], MdcButton.prototype, "compact", void 0);
+        ], MdcButton.prototype, "stroked", void 0);
+        __decorate([
+            aurelia_framework_1.bindable(),
+            __metadata("design:type", Object)
+        ], MdcButton.prototype, "unelevated", void 0);
         __decorate([
             aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.oneTime }),
             __metadata("design:type", Object)

@@ -15,7 +15,7 @@ let MdcFab = class MdcFab {
     constructor(element) {
         this.element = element;
         this.mini = false;
-        this.plain = false;
+        this.exited = false;
         this.ariaLabel = '';
         this.ripple = true;
         this.icon = null;
@@ -32,7 +32,7 @@ let MdcFab = class MdcFab {
         }
         this.element.appendChild(spanNode);
         this.miniChanged(this.mini);
-        this.plainChanged(this.plain);
+        this.exitedChanged(this.exited);
         this.ariaLabelChanged(this.ariaLabel);
         if (util.getBoolean(this.ripple)) {
             MDCRipple.attachTo(this.element);
@@ -43,7 +43,7 @@ let MdcFab = class MdcFab {
             'mdc-fab',
             'material-icons',
             'mdc-fab--mini',
-            'mdc-fab--plain'
+            'mdc-fab--exited'
         ];
         this.element.classList.remove(...classes);
         this.element.removeAttribute('aria-label');
@@ -53,9 +53,9 @@ let MdcFab = class MdcFab {
         const value = util.getBoolean(newValue);
         this.element.classList[value ? 'add' : 'remove']('mdc-fab--mini');
     }
-    plainChanged(newValue) {
+    exitedChanged(newValue) {
         const value = util.getBoolean(newValue);
-        this.element.classList[value ? 'add' : 'remove']('mdc-fab--plain');
+        this.element.classList[value ? 'add' : 'remove']('mdc-fab--exited');
     }
     ariaLabelChanged(newValue) {
         this.element.setAttribute('aria-label', newValue);
@@ -73,7 +73,7 @@ __decorate([
 __decorate([
     bindable(),
     __metadata("design:type", Object)
-], MdcFab.prototype, "plain", void 0);
+], MdcFab.prototype, "exited", void 0);
 __decorate([
     bindable(),
     __metadata("design:type", Object)

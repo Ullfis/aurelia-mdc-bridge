@@ -14,11 +14,11 @@ import * as util from '../util';
 let MdcButton = class MdcButton {
     constructor(element) {
         this.element = element;
-        this.accent = false;
-        this.primary = false;
+        this.compact = false;
         this.dense = false;
         this.raised = false;
-        this.compact = false;
+        this.stroked = false;
+        this.unelevated = false;
         this.ripple = true;
         this.log = getLogger('mdc-button');
     }
@@ -29,11 +29,11 @@ let MdcButton = class MdcButton {
             this.element.classList.add('mdc-card__action');
             this.compact = true;
         }
-        this.accentChanged(this.accent);
-        this.primaryChanged(this.primary);
+        this.compactChanged(this.compact);
         this.denseChanged(this.dense);
         this.raisedChanged(this.raised);
-        this.compactChanged(this.compact);
+        this.strokedChanged(this.stroked);
+        this.unelevatedChanged(this.unelevated);
         if (util.getBoolean(this.ripple)) {
             MDCRipple.attachTo(this.element);
         }
@@ -41,28 +41,18 @@ let MdcButton = class MdcButton {
     detached() {
         const classes = [
             'mdc-button',
-            'mdc-button--accent',
-            'mdc-button--primary',
             'mdc-button--dense',
             'mdc-button--raised',
             'mdc-button--compact',
+            'mdc-button--stroked',
+            'mdc-button--unelevated',
             'mdc-card__action'
         ];
         this.element.classList.remove(...classes);
     }
-    accentChanged(newValue) {
+    compactChanged(newValue) {
         const value = util.getBoolean(newValue);
-        if (value) {
-            this.primary = false;
-        }
-        this.element.classList[value ? 'add' : 'remove']('mdc-button--accent');
-    }
-    primaryChanged(newValue) {
-        const value = util.getBoolean(newValue);
-        if (value) {
-            this.accent = false;
-        }
-        this.element.classList[value ? 'add' : 'remove']('mdc-button--primary');
+        this.element.classList[value ? 'add' : 'remove']('mdc-button--compact');
     }
     denseChanged(newValue) {
         const value = util.getBoolean(newValue);
@@ -72,19 +62,19 @@ let MdcButton = class MdcButton {
         const value = util.getBoolean(newValue);
         this.element.classList[value ? 'add' : 'remove']('mdc-button--raised');
     }
-    compactChanged(newValue) {
+    strokedChanged(newValue) {
         const value = util.getBoolean(newValue);
-        this.element.classList[value ? 'add' : 'remove']('mdc-button--compact');
+        this.element.classList[value ? 'add' : 'remove']('mdc-button--stroked');
+    }
+    unelevatedChanged(newValue) {
+        const value = util.getBoolean(newValue);
+        this.element.classList[value ? 'add' : 'remove']('mdc-button--unelevated');
     }
 };
 __decorate([
-    bindable({ defaultBindingMode: bindingMode.twoWay }),
+    bindable(),
     __metadata("design:type", Object)
-], MdcButton.prototype, "accent", void 0);
-__decorate([
-    bindable({ defaultBindingMode: bindingMode.twoWay }),
-    __metadata("design:type", Object)
-], MdcButton.prototype, "primary", void 0);
+], MdcButton.prototype, "compact", void 0);
 __decorate([
     bindable(),
     __metadata("design:type", Object)
@@ -96,7 +86,11 @@ __decorate([
 __decorate([
     bindable(),
     __metadata("design:type", Object)
-], MdcButton.prototype, "compact", void 0);
+], MdcButton.prototype, "stroked", void 0);
+__decorate([
+    bindable(),
+    __metadata("design:type", Object)
+], MdcButton.prototype, "unelevated", void 0);
 __decorate([
     bindable({ defaultBindingMode: bindingMode.oneTime }),
     __metadata("design:type", Object)

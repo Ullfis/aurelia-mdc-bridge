@@ -36,6 +36,8 @@ export declare class MdcTextfield {
     private elementInput;
     private styleHelptext;
     private stopFocusedChanged;
+    private leadingIconSlot;
+    private trailingIconSlot;
     constructor(element: Element, taskQueue: TaskQueue);
     focus(): void;
     getNativeInput(): {
@@ -48,6 +50,7 @@ export declare class MdcTextfield {
     private unbind();
     private attached();
     private detached();
+    private isIcon(el);
     private valueChanged(newValue);
     private focusedChanged(newValue);
     private onBlur();
