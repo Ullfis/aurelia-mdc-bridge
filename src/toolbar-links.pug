@@ -1,12 +1,12 @@
 template
   //- DOCUMENTATION
-  a.toolbar-link__full.toolbar-link__button(mdc-button="accent.bind: doc;" href="#/documentation") Documentation
+  a.toolbar-link__full.toolbar-link__button(mdc-button class.bind="doc ? 'active' : ''" href="#/documentation") Documentation
   a.toolbar-link__small.mdc-toolbar__icon.toolbar-link__svg(href="#/documentation" class="${doc ? 'accent' : ''}")
     svg(xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"  viewBox="0 0 24 24")
       path(d="M13,9H18.5L13,3.5V9M6,2H14L20,8V20A2,2 0 0,1 18,22H6C4.89,22 4,21.1 4,20V4C4,2.89 4.89,2 6,2M15,18V16H6V18H15M18,14V12H6V14H18Z")
 
   //- COMPONENTS
-  a.toolbar-link__full.toolbar-link__button(mdc-button="accent.bind: comp;" href="#/components") Components
+  a.toolbar-link__full.toolbar-link__button(mdc-button class.bind="comp ? 'active' : ''" href="#/components") Components
   a.toolbar-link__small.mdc-toolbar__icon.toolbar-link__svg(href="#/components" class="${comp ? 'accent' : ''}")
     svg(xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 24 24")
       path(d="M20.5,11H19V7C19,5.89 18.1,5 17,5H13V3.5A2.5,2.5 0 0,0 10.5,1A2.5,2.5 0 0,0 8,3.5V5H4A2,2 0 0,0 2,7V10.8H3.5C5,10.8 6.2,12 6.2,13.5C6.2,15 5,16.2 3.5,16.2H2V20A2,2 0 0,0 4,22H7.8V20.5C7.8,19 9,17.8 10.5,17.8C12,17.8 13.2,19 13.2,20.5V22H17A2,2 0 0,0 19,20V16H20.5A2.5,2.5 0 0,0 23,13.5A2.5,2.5 0 0,0 20.5,11Z")

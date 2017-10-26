@@ -8,9 +8,6 @@
 }
 
 @media(min-width: 680px) {
-  .mdc-toolbar__title--full {
-    display: block;
-  }
   .mdc-toolbar__title--small {
     display: none;
   }  
@@ -19,9 +16,6 @@
   .mdc-toolbar__title--full {
     display: none;
   }  
-  .mdc-toolbar__title--small {
-    display: block;
-  }
 }
 
 
@@ -34,13 +28,16 @@
 .toolbar-link__button {
   height: 36px;
   margin-top: 10px;
+  &:not(.active) {
+    @include mdc-button-ink-color($my-white-on-dark-color);
+  }
+  &.active {
+    @include mdc-button-ink-color($mdc-theme-secondary);
+  }
 }
 
 /* Hide/show toolbar buttons/icons */
 @media(min-width: 570px) {
-  a.toolbar-link__full {
-    display: block;
-  }
   a.toolbar-link__small {
     display: none;
   }
