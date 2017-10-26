@@ -7,7 +7,7 @@ import * as util from '../../util';
 @inject(Element)
 export class MdcFab {
   @bindable() public mini = false;
-  @bindable() public plain = false;
+  @bindable() public exited = false;
   @bindable() public ariaLabel = '';
   @bindable({ defaultBindingMode: bindingMode.oneTime }) public ripple = true;
   private log: Logger;
@@ -31,7 +31,7 @@ export class MdcFab {
     this.element.appendChild(spanNode);
 
     this.miniChanged(this.mini);
-    this.plainChanged(this.plain);
+    this.exitedChanged(this.exited);
     this.ariaLabelChanged(this.ariaLabel);
 
     // add ripple effect
@@ -45,7 +45,7 @@ export class MdcFab {
       'mdc-fab',
       'material-icons',
       'mdc-fab--mini',
-      'mdc-fab--plain'
+      'mdc-fab--exited'
     ];
     this.element.classList.remove(...classes);
     this.element.removeAttribute('aria-label');
@@ -57,9 +57,9 @@ export class MdcFab {
     this.element.classList[value ? 'add' : 'remove']('mdc-fab--mini');
   }
 
-  private plainChanged(newValue) {
+  private exitedChanged(newValue) {
     const value = util.getBoolean(newValue);
-    this.element.classList[value ? 'add' : 'remove']('mdc-fab--plain');
+    this.element.classList[value ? 'add' : 'remove']('mdc-fab--exited');
   }
 
   private ariaLabelChanged(newValue) {

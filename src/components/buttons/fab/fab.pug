@@ -8,13 +8,13 @@ template
 
     // CONFIG AREA
     mdc-grid-cell(span="4")
-      mdc-checkbox(checked.bind="plain") plain
-      br
       mdc-checkbox(checked.bind="mini") mini
+      br
+      mdc-checkbox(checked.bind="exited") exited
 
     // DEMO AREA
     mdc-grid-cell(span="8")
-      button(mdc-fab="plain.bind: plain; mini.bind: mini; aria-label: Star;") star
+      button(mdc-fab="exited.bind: exited; mini.bind: mini; aria-label: Star;") star
       button.my-fab--fixed(mdc-fab="aria-label: Accessibility;") accessibility
 
 
@@ -32,7 +32,7 @@ template
     mdc-grid-cell(span="12")
       pre
         code-prism.
-          &lt;button mdc-fab="aria-label: Hello World; plain: true; mini: true; ripple: true;"&gt;
+          &lt;button mdc-fab="aria-label: Hello World; mini: true; exited: false;"&gt;
             favorite_border
           &lt;/button&gt;
 
