@@ -16,7 +16,6 @@ $mdc-layout-grid-default-gutter: (
 );
 
 /* include @material styles (test) */
-@import "@material/animation/mdc-animation";
 @import "@material/button/mdc-button";
 @import "@material/card/mdc-card";
 @import "@material/checkbox/mdc-checkbox";
