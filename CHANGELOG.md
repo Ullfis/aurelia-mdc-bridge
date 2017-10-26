@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.10.0"></a>
+# [0.10.0](https://github.com/ullfis/aurelia-mdc-bridge/compare/v0.9.3...v0.10.0) (2017-10-26)
+
+
+### Bug Fixes
+
+* **mdc-snackbar:** remove dependency of mdc-button ([b5c3519](https://github.com/ullfis/aurelia-mdc-bridge/commit/b5c3519))
+* **mdc-textfield:** use the new registerInputInteractionHandler for registering blur & focus handlers ([911f4d9](https://github.com/ullfis/aurelia-mdc-bridge/commit/911f4d9))
+
+
+### Features
+
+* **mdc-button:** add stroked and unelevated attributes ([d7885ed](https://github.com/ullfis/aurelia-mdc-bridge/commit/d7885ed))
+* **mdc-fab:** add exited and remove plain attribute ([3494a3c](https://github.com/ullfis/aurelia-mdc-bridge/commit/3494a3c))
+* **mdc-textfield:** add leading and trailing icon ([99b0eae](https://github.com/ullfis/aurelia-mdc-bridge/commit/99b0eae))
+
+
+
 <a name="0.9.3"></a>
 ## [0.9.3](https://github.com/ullfis/aurelia-mdc-bridge/compare/v0.9.2...v0.9.3) (2017-09-18)
 
