@@ -10,7 +10,8 @@ template
 
       // HEADER
       header.mdc-dialog__header(show.bind="header.length !== 0")
-        h2.mdc-dialog__header__title(id="${controlId}-label") ${header}
+        slot(name="header")
+          h2.mdc-dialog__header__title(id="${controlId}-label") ${header}
 
       // BODY
       section.mdc-dialog__body(id="${controlId}-description" class.bind="scrollable ? 'mdc-dialog__body--scrollable' : ''")
@@ -18,7 +19,8 @@ template
 
       // FOOTER
       footer.mdc-dialog__footer
-        button.mdc-button.mdc-dialog__footer__button.mdc-dialog__footer__button--cancel(type="button" ref="cancelButtonElement") ${cancel}
-        button.mdc-button.mdc-dialog__footer__button.mdc-dialog__footer__button--accept(type="button" ref="acceptButtonElement" disabled.bind="acceptDisabled") ${accept}
+        slot(name="footer")
+          button.mdc-button.mdc-dialog__footer__button.mdc-dialog__footer__button--cancel(type="button" ref="cancelButtonElement") ${cancel}
+          button.mdc-button.mdc-dialog__footer__button.mdc-dialog__footer__button--accept(type="button" ref="acceptButtonElement" disabled.bind="acceptDisabled") ${accept}
 
     .mdc-dialog__backdrop
