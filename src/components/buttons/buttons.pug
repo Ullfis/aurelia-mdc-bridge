@@ -92,11 +92,11 @@ template
           code-prism(language="css").
             button.secondary-text {
               @include mdc-button-ink-color($mdc-theme-secondary);
-              @include mdc-button-ripple((theme-style: secondary, opacity: $mdc-unfilled-button-ripple-opacity));
+              @include mdc-ripple-color(secondary, $mdc-unfilled-button-ripple-opacity);
 
               @include mdc-theme-dark(".mdc-button") {
                 @include mdc-button-ink-color($mdc-theme-secondary);
-                @include mdc-button-ripple((theme-style: secondary, opacity: $mdc-unfilled-button-ripple-opacity));
+                @include mdc-ripple-color(secondary, $mdc-unfilled-button-ripple-opacity);
               }
             }
 
@@ -111,12 +111,12 @@ template
             button.secondary-stroked {
               @include mdc-button-ink-color($mdc-theme-secondary);
               @include mdc-button-stroke-color($mdc-theme-secondary);
-              @include mdc-button-ripple((theme-style: secondary, opacity: $mdc-unfilled-button-ripple-opacity));
+              @include mdc-ripple-color(secondary, $mdc-unfilled-button-ripple-opacity);
 
               @include mdc-theme-dark(".mdc-button") {
                 @include mdc-button-ink-color($mdc-theme-secondary);
                 @include mdc-button-stroke-color($mdc-theme-secondary);
-                @include mdc-button-ripple((theme-style: secondary, opacity: $mdc-unfilled-button-ripple-opacity));
+                @include mdc-ripple-color(secondary, $mdc-unfilled-button-ripple-opacity);
               }
             }
 
