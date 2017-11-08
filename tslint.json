@@ -8,6 +8,7 @@
     "interface-name": [true, "always-prefix"],
     "no-shadowed-variable": false,
     "no-string-literal": false,
+    "no-implicit-dependencies": false,
     "trailing-comma": [false],
     "member-ordering": [true, {"order": "fields-first"}],
     "array-type": ["array-simple"],
