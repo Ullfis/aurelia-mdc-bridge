@@ -11,7 +11,7 @@
     "no-implicit-dependencies": false,
     "trailing-comma": [false],
     "member-ordering": [true, {"order": "fields-first"}],
-    "array-type": ["array-simple"],
+    "array-type": [true, "array-simple"],
     "arrow-parens": false,
     "max-classes-per-file": [false],
     "prefer-for-of": false,
