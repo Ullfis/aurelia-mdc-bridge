@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.10.1"></a>
+## [0.10.1](https://github.com/ullfis/aurelia-mdc-bridge/compare/v0.10.0...v0.10.1) (2017-11-11)
+
+
+### Bug Fixes
+
+* **mdc-drawer-persistent:** allow click event on A tag ([70e69e6](https://github.com/ullfis/aurelia-mdc-bridge/commit/70e69e6))
+* **mdc-drawer-temporary:** allow click event on A tag ([f6b35a3](https://github.com/ullfis/aurelia-mdc-bridge/commit/f6b35a3))
+
+
+
 <a name="0.10.0"></a>
 # [0.10.0](https://github.com/ullfis/aurelia-mdc-bridge/compare/v0.9.3...v0.10.0) (2017-10-26)
 
