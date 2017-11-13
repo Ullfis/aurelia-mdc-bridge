@@ -11,15 +11,18 @@ import { inject, bindable, bindingMode, customElement, noView, processContent } 
 import { getLogger } from 'aurelia-logging';
 import { MDCRipple } from '@material/ripple';
 import { CreateListItemComponent } from './create-components';
+import * as drawerCommon from '../drawer/common';
 import * as util from '../util';
 let MdcListItem = class MdcListItem {
     constructor(element) {
         this.element = element;
         this.ripple = false;
+        this.selected = false;
         this.disabled = false;
         this.target = '_self';
         this.isSimpleMenuItem = false;
         this.isSelectMenuItem = false;
+        this.selectedClass = '';
         this.log = getLogger('mdc-list-item');
     }
     elementClick(e) {
@@ -31,10 +34,20 @@ let MdcListItem = class MdcListItem {
     unbind() { }
     attached() {
         this.parentElement = util.findAncestor(this.elementListItem, 'mdc-list');
+        if (drawerCommon.isPermanentDrawer(this.element)) {
+            this.selectedClass = 'mdc-permanent-drawer--selected';
+        }
+        if (drawerCommon.isPersistentDrawer(this.element)) {
+            this.selectedClass = 'mdc-persistent-drawer--selected';
+        }
+        if (drawerCommon.isTemporaryDrawer(this.element)) {
+            this.selectedClass = 'mdc-temporary-drawer--selected';
+        }
         this.selectMenuItem();
         this.simpleMenuItem();
         this.rippleEffect();
         this.disabledChanged(this.disabled);
+        this.selectedChanged(this.selected);
     }
     detached() {
         if (this.mdcRipple) {
@@ -62,6 +75,12 @@ let MdcListItem = class MdcListItem {
             this.elementListItem.setAttribute('aria-disabled', value ? 'true' : 'false');
         }
     }
+    selectedChanged(newValue) {
+        const value = util.getBoolean(newValue);
+        if (this.selectedClass !== '') {
+            this.elementListItem.classList[value ? 'add' : 'remove'](this.selectedClass);
+        }
+    }
 };
 __decorate([
     bindable(),
@@ -75,6 +94,10 @@ __decorate([
     bindable(),
     __metadata("design:type", Object)
 ], MdcListItem.prototype, "model", void 0);
+__decorate([
+    bindable(),
+    __metadata("design:type", Object)
+], MdcListItem.prototype, "selected", void 0);
 __decorate([
     bindable({ defaultBindingMode: bindingMode.oneTime }),
     __metadata("design:type", Object)

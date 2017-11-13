@@ -6,6 +6,7 @@ export declare class MdcListItem {
     class: any;
     ripple: boolean;
     model: any;
+    selected: boolean;
     disabled: boolean;
     href: string;
     target: string;
@@ -15,6 +16,7 @@ export declare class MdcListItem {
     private isSimpleMenuItem;
     private isSelectMenuItem;
     private mdcRipple;
+    private selectedClass;
     constructor(element: Element);
     private elementClick(e);
     private bind();
@@ -25,4 +27,5 @@ export declare class MdcListItem {
     private selectMenuItem();
     private rippleEffect();
     private disabledChanged(newValue);
+    private selectedChanged(newValue);
 }
