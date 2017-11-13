@@ -1,7 +1,7 @@
 {
   "name": "aurelia-mdc-bridge",
   "description": "Use Material Design Components in Aurelia projects",
-  "version": "0.10.0",
+  "version": "0.10.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/ullfis/aurelia-mdc-bridge.git"
@@ -64,22 +64,22 @@
     "___end-docs___": ""
   },
   "dependencies": {
-    "material-components-web": "^0.23.0"
+    "material-components-web": "^0.24.0"
   },
   "peerDependencies": {},
   "devDependencies": {
-    "@types/node": "^8.0.47",
+    "@types/node": "^8.0.50",
     "@types/prismjs": "^1.6.5",
     "aurelia-bootstrapper": "^2.1.1",
     "aurelia-cli": "^0.32.0",
-    "aurelia-google-analytics": "^2.3.0",
+    "aurelia-google-analytics": "^2.3.1",
     "aurelia-tools": "^1.0.0",
     "bluebird": "^3.5.1",
     "browser-sync": "^2.18.13",
     "concurrently": "^3.5.0",
-    "connect-history-api-fallback": "^1.4.0",
-    "cross-env": "^5.1.0",
-    "debounce": "^1.0.2",
+    "connect-history-api-fallback": "^1.5.0",
+    "cross-env": "^5.1.1",
+    "debounce": "^1.1.0",
     "event-stream": "^3.3.4",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-autoprefixer": "^4.0.0",
@@ -98,7 +98,7 @@
     "html-minifier": "^3.5.6",
     "material-design-icons": "^3.0.1",
     "minimatch": "^3.0.4",
-    "prismjs": "^1.8.3",
+    "prismjs": "^1.8.4",
     "requirejs": "^2.3.5",
     "rimraf": "^2.6.2",
     "roboto-npm-webfont": "^1.0.1",
@@ -106,8 +106,8 @@
     "text": "github:requirejs/text#latest",
     "through2": "^2.0.3",
     "tslint": "^5.8.0",
-    "typescript": "^2.5.3",
-    "uglify-js": "^3.1.5",
+    "typescript": "^2.6.1",
+    "uglify-js": "^3.1.8",
     "vinyl-fs": "^2.4.4"
   },
   "aurelia": {

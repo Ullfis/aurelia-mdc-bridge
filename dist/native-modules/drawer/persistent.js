@@ -20,6 +20,18 @@ var MdcDrawerPersistent = (function () {
     MdcDrawerPersistent.prototype.bind = function () { };
     MdcDrawerPersistent.prototype.unbind = function () { };
     MdcDrawerPersistent.prototype.attached = function () {
+        if (!MDCPersistentDrawer.prototype.getDefaultFoundation_) {
+            MDCPersistentDrawer.prototype.getDefaultFoundation_ = MDCPersistentDrawer.prototype.getDefaultFoundation;
+            MDCPersistentDrawer.prototype.getDefaultFoundation = function () {
+                var foundation = this.getDefaultFoundation_();
+                foundation.drawerClickHandler_ = function (e) {
+                    if (e.target.tagName !== 'A') {
+                        e.stopPropagation();
+                    }
+                };
+                return foundation;
+            };
+        }
         this.mdcDrawer = new MDCPersistentDrawer(this.elementDrawer);
         this.elementDrawer.addEventListener('MDCPersistentDrawer:open', this.onOpenEvent.bind(this));
         this.elementDrawer.addEventListener('MDCPersistentDrawer:close', this.onCloseEvent.bind(this));

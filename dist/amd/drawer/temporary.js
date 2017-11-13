@@ -19,6 +19,18 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material
         MdcDrawerTemporary.prototype.bind = function () { };
         MdcDrawerTemporary.prototype.unbind = function () { };
         MdcDrawerTemporary.prototype.attached = function () {
+            if (!drawer_1.MDCTemporaryDrawer.prototype.getDefaultFoundation_) {
+                drawer_1.MDCTemporaryDrawer.prototype.getDefaultFoundation_ = drawer_1.MDCTemporaryDrawer.prototype.getDefaultFoundation;
+                drawer_1.MDCTemporaryDrawer.prototype.getDefaultFoundation = function () {
+                    var foundation = this.getDefaultFoundation_();
+                    foundation.drawerClickHandler_ = function (e) {
+                        if (e.target.tagName !== 'A') {
+                            e.stopPropagation();
+                        }
+                    };
+                    return foundation;
+                };
+            }
             this.mdcDrawer = new drawer_1.MDCTemporaryDrawer(this.elementDrawer);
             this.elementDrawer.addEventListener('MDCTemporaryDrawer:open', this.onOpenEvent.bind(this));
             this.elementDrawer.addEventListener('MDCTemporaryDrawer:close', this.onCloseEvent.bind(this));

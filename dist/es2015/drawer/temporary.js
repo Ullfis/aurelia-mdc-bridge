@@ -20,6 +20,18 @@ let MdcDrawerTemporary = class MdcDrawerTemporary {
     bind() { }
     unbind() { }
     attached() {
+        if (!MDCTemporaryDrawer.prototype.getDefaultFoundation_) {
+            MDCTemporaryDrawer.prototype.getDefaultFoundation_ = MDCTemporaryDrawer.prototype.getDefaultFoundation;
+            MDCTemporaryDrawer.prototype.getDefaultFoundation = function () {
+                const foundation = this.getDefaultFoundation_();
+                foundation.drawerClickHandler_ = (e) => {
+                    if (e.target.tagName !== 'A') {
+                        e.stopPropagation();
+                    }
+                };
+                return foundation;
+            };
+        }
         this.mdcDrawer = new MDCTemporaryDrawer(this.elementDrawer);
         this.elementDrawer.addEventListener('MDCTemporaryDrawer:open', this.onOpenEvent.bind(this));
         this.elementDrawer.addEventListener('MDCTemporaryDrawer:close', this.onCloseEvent.bind(this));

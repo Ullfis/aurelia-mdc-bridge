@@ -12,7 +12,7 @@ export class App {
       { route: 'dialogs',         moduleId: './dialogs/dialogs',                 nav: true, title: 'Dialogs' },
       { route: 'grid-lists',      moduleId: './grid-lists/grid-lists',           nav: true, title: 'Grid Lists' },
       { route: 'inputs',          moduleId: './inputs/app',                      nav: true, title: 'Inputs' },
-      { route: 'layout-grids',    moduleId: './layout-grids/layout-grids',       nav: true, title: 'Layout Grids' },
+      { route: 'layout-grids',    moduleId: './layout-grids/layout-grids',       nav: true, title: 'Layout Grid' },
       { route: 'linear-progress', moduleId: './linear-progress/linear-progress', nav: true, title: 'Linear Progress' },
       { route: 'lists',           moduleId: './lists/lists',                     nav: true, title: 'Lists' },
       { route: 'menus',           moduleId: './menus/menus',                     nav: true, title: 'Menus' },

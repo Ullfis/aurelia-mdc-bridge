@@ -20,6 +20,21 @@ export class MdcDrawerPersistent {
   private unbind() { /** */ }
 
   private attached() {
+    // TODO: https://github.com/material-components/material-components-web/issues/1004
+    if (!MDCPersistentDrawer.prototype.getDefaultFoundation_) {
+      MDCPersistentDrawer.prototype.getDefaultFoundation_ = MDCPersistentDrawer.prototype.getDefaultFoundation;
+      MDCPersistentDrawer.prototype.getDefaultFoundation = function () {
+        const foundation = this.getDefaultFoundation_();
+
+        foundation.drawerClickHandler_ = (e) => {
+          if (e.target.tagName !== 'A') {
+            e.stopPropagation();
+          }
+        };
+
+        return foundation;
+      };
+    }
     this.mdcDrawer = new MDCPersistentDrawer(this.elementDrawer);
     this.elementDrawer.addEventListener('MDCPersistentDrawer:open', this.onOpenEvent.bind(this));
     this.elementDrawer.addEventListener('MDCPersistentDrawer:close', this.onCloseEvent.bind(this));
