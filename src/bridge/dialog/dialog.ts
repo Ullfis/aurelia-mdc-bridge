@@ -62,11 +62,17 @@ export class MdcDialog {
     this.mdcElement = new MDCDialog(this.diagElement);
     this.mdcDialogFoundation = this.mdcElement.foundation_.adapter_;
     this.mdcDialogFoundation.registerTransitionEndHandler(this.onTransitionEnd.bind(this));
-    this.mdcElement.listen('MDCDialog:accept', this.onButtonAccept.bind(this));
-    this.mdcElement.listen('MDCDialog:cancel', this.onButtonCancel.bind(this));
 
-    this.acceptActionChanged(this.acceptAction);
-    this.cancelActionChanged(this.cancelAction);
+    // check if accept button is present
+    if (this.acceptButtonElement) {
+      this.mdcElement.listen('MDCDialog:accept', this.onButtonAccept.bind(this));
+      this.acceptActionChanged(this.acceptAction);
+    }
+    // check if cancel button is present
+    if (this.cancelButtonElement) {
+      this.mdcElement.listen('MDCDialog:cancel', this.onButtonCancel.bind(this));
+      this.cancelActionChanged(this.cancelAction);
+    }
 
     // not working with mdc-textfield (it works with input type="text")
     // <input type="text" ref="focusMeOnOpen" ..
