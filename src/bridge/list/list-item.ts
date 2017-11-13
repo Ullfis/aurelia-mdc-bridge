@@ -10,6 +10,7 @@ import {
 import { getLogger, Logger } from 'aurelia-logging';
 import { MDCRipple } from '@material/ripple';
 import { CreateListItemComponent } from './create-components';
+import * as drawerCommon from '../drawer/common';
 import * as util from '../util';
 
 export interface IMdcListItemClickEvent extends CustomEvent {
@@ -31,6 +32,7 @@ export class MdcListItem {
   // list item
   @bindable() public ripple = false;
   @bindable() public model;
+  @bindable() public selected = false;
   @bindable({ defaultBindingMode: bindingMode.oneTime }) public disabled = false;
   // <a> tag
   @bindable({ defaultBindingMode: bindingMode.oneTime }) public href: string;
@@ -41,6 +43,7 @@ export class MdcListItem {
   private isSimpleMenuItem = false;
   private isSelectMenuItem = false;
   private mdcRipple;
+  private selectedClass = '';
 
   constructor(private element: Element) {
     this.log = getLogger('mdc-list-item');
@@ -58,10 +61,21 @@ export class MdcListItem {
   private attached() {
     this.parentElement = util.findAncestor(this.elementListItem, 'mdc-list') as HTMLElement;
 
+    if (drawerCommon.isPermanentDrawer(this.element)) {
+      this.selectedClass = 'mdc-permanent-drawer--selected';
+    }
+    if (drawerCommon.isPersistentDrawer(this.element)) {
+      this.selectedClass = 'mdc-persistent-drawer--selected';
+    }
+    if (drawerCommon.isTemporaryDrawer(this.element)) {
+      this.selectedClass = 'mdc-temporary-drawer--selected';
+    }
+
     this.selectMenuItem();
     this.simpleMenuItem();
     this.rippleEffect();
     this.disabledChanged(this.disabled);
+    this.selectedChanged(this.selected);
   }
 
   private detached() {
@@ -91,6 +105,13 @@ export class MdcListItem {
     if (this.isSimpleMenuItem || this.isSelectMenuItem) {
       this.elementListItem.setAttribute('tabindex', value ? '-1' : '0');
       this.elementListItem.setAttribute('aria-disabled', value ? 'true' : 'false');
+    }
+  }
+
+  private selectedChanged(newValue: boolean) {
+    const value = util.getBoolean(newValue);
+    if (this.selectedClass !== '') {
+      this.elementListItem.classList[value ? 'add' : 'remove'](this.selectedClass);
     }
   }
 }
