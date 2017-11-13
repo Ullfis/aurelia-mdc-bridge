@@ -10,6 +10,7 @@ export class Dialogs {
   private dialog4: MdcDialog;
   private dialog5: MdcDialog;
   private dialog6: MdcDialog;
+  private dialog7: MdcDialog;
   private acceptClicked1: boolean;
   private acceptClicked2: boolean;
   private openCloseStatus3 = '';
@@ -47,6 +48,9 @@ export class Dialogs {
     this.dialog6.foundation.accept = this.onAccept.bind(this);
     this.dialog6Counter = 3;
     this.dialog6.show(true);
+  }
+  private showDialog7() {
+    this.dialog7.show(true);
   }
   private onOpened3() {
     this.openCloseStatus3 = 'opened event fired';
