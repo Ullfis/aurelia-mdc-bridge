@@ -68,7 +68,7 @@
   },
   "peerDependencies": {},
   "devDependencies": {
-    "@types/node": "^8.0.50",
+    "@types/node": "^8.0.51",
     "@types/prismjs": "^1.6.5",
     "aurelia-bootstrapper": "^2.1.1",
     "aurelia-cli": "^0.32.0",
@@ -107,7 +107,7 @@
     "through2": "^2.0.3",
     "tslint": "^5.8.0",
     "typescript": "^2.6.1",
-    "uglify-js": "^3.1.8",
+    "uglify-js": "^3.1.9",
     "vinyl-fs": "^2.4.4"
   },
   "aurelia": {
