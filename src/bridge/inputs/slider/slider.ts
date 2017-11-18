@@ -25,6 +25,7 @@ export class MdcSlider {
   @bindable() public step = 1;
   @bindable() public ariaLabel = 'Slider';
   @bindable() public disabled = false;
+  @bindable() public discrete = false;
   private log: Logger;
   private elementSlider: HTMLDivElement;
   private mdcSlider: MDCSlider;
@@ -39,6 +40,7 @@ export class MdcSlider {
   private unbind() { /** */ }
 
   private attached() {
+    this.discreteChanged(this.discrete);
     this.taskQueue.queueTask(() => {
       this.mdcSlider = new MDCSlider(this.elementSlider);
       this.mdcSlider.listen('MDCSlider:change', this.onChange.bind(this));
@@ -100,5 +102,10 @@ export class MdcSlider {
 
   private disabledChanged(newValue: boolean) {
     this.mdcSlider.disabled = util.getBoolean(newValue);
+  }
+
+  private discreteChanged(newValue) {
+    const value = util.getBoolean(newValue);
+    this.elementSlider.classList[value ? 'add' : 'remove']('mdc-slider--discrete');
   }
 }
