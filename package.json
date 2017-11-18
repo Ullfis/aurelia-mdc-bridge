@@ -64,11 +64,11 @@
     "___end-docs___": ""
   },
   "dependencies": {
-    "material-components-web": "^0.24.0"
+    "material-components-web": "^0.25.0"
   },
   "peerDependencies": {},
   "devDependencies": {
-    "@types/node": "^8.0.51",
+    "@types/node": "^8.0.53",
     "@types/prismjs": "^1.6.5",
     "aurelia-bootstrapper": "^2.1.1",
     "aurelia-cli": "^0.32.0",
