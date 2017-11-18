@@ -1,0 +1,14 @@
+.linear-progress-secondary {
+  // Sets the color of the progress bar
+  @include mdc-linear-progress-bar-color($mdc-theme-secondary);
+
+  // Sets the color of the buffer bar and dots
+  @include mdc-linear-progress-buffer-color(#eee);
+}
+
+.mdc-theme--dark {
+  mdc-linear-progress {
+    // Sets the color of the buffer bar and dots
+    @include mdc-linear-progress-buffer-color(#222);
+  }
+}

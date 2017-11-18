@@ -1,5 +1,5 @@
 import { TaskQueue, autoinject } from 'aurelia-framework';
-import { MdcDialog, IMdcDialogClickEvent, MdcTextfield } from '../../bridge/index';
+import { MdcDialog, IMdcDialogClickEvent, MdcTextField } from '../../bridge/index';
 
 @autoinject()
 export class Dialogs {
@@ -13,7 +13,7 @@ export class Dialogs {
   private acceptClicked1: boolean;
   private acceptClicked2: boolean;
   private openCloseStatus3 = '';
-  private focusMeElement: MdcTextfield;
+  private focusMeElement: MdcTextField;
   private accessPermission = null;
   private dialog6Counter = 3;
 

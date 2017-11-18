@@ -230,7 +230,7 @@ template
         cancel="Cancel"
         on-opened.delegate="onOpened3()"
         on-closed.delegate="onClosed3()")
-        mdc-textfield(view-model.ref="focusMeElement") Should be focused
+        mdc-text-field(view-model.ref="focusMeElement") Should be focused
       
       p Event: ${openCloseStatus3}
 
@@ -241,14 +241,14 @@ template
             accept="OK"
             cancel="Cancel"
             on-opened.delegate="onOpened()"&gt;
-            &lt;mdc-textfield view-model.ref="focusMe"&gt;Should be focused&lt;/mdc-textfield&gt;
+            &lt;mdc-text-field view-model.ref="focusMe"&gt;Should be focused&lt;/mdc-text-field&gt;
           &lt;/mdc-dialog&gt;
       pre
         code-prism(language="typescript").
           import { TaskQueue, autoinject } from 'aurelia-framework';
-          import { MdcTextfield } from 'aurelia-mdc-bridge';
+          import { MdcTextField } from 'aurelia-mdc-bridge';
           ...
-          private focusMe: MdcTextfield;
+          private focusMe: MdcTextField;
 
           constructor(private taskQueue: TaskQueue) {}
 

@@ -9,29 +9,45 @@ template
     mdc-grid-cell(span="4")
       mdc-checkbox(checked.bind="open") open
       br
-      mdc-checkbox(checked.bind="accent") accent
-      br
       mdc-checkbox(checked.bind="indeterminate") indeterminate
       br
       mdc-checkbox(checked.bind="reversed") reversed
       br
-      mdc-textfield(type="number" max="1" min="0" step="0.1" value.bind="buffer") buffer
+      mdc-text-field(type="number" max="1" min="0" step="0.1" value.bind="buffer") buffer
       p A number between 0 and 1
       br
-      mdc-textfield(type="number" max="1" min="0" step="0.1" value.bind="progress") progress
+      mdc-text-field(type="number" max="1" min="0" step="0.1" value.bind="progress") progress
       p A number between 0 and 1
 
     // DEMO AREA
     mdc-grid-cell(span="8")
-      mdc-linear-progress(
-        open.bind="open" 
-        accent.bind="accent"
-        indeterminate.bind="indeterminate"
-        reversed.bind="reversed"
-        buffer.bind="buffer"
-        progress.bind="progress"
-      )
-      
+      section.components
+        mdc-linear-progress(
+          open.bind="open" 
+          indeterminate.bind="indeterminate"
+          reversed.bind="reversed"
+          buffer.bind="buffer"
+          progress.bind="progress"
+        )
+
+      section.mdc-theme--dark.components
+        mdc-linear-progress(
+          open.bind="open" 
+          indeterminate.bind="indeterminate"
+          reversed.bind="reversed"
+          buffer.bind="buffer"
+          progress.bind="progress"          
+        )      
+
+      section.linear-progress-secondary.components
+        mdc-linear-progress(
+          open.bind="open" 
+          indeterminate.bind="indeterminate"
+          reversed.bind="reversed"
+          buffer.bind="buffer"
+          progress.bind="progress"          
+        )      
+
 
     // LINKS
     mdc-grid-cell(span="12")
@@ -47,9 +63,34 @@ template
         code-prism.
           &lt;mdc-linear-progress
             open.bind="open" 
-            accent.bind="accent"
             indeterminate.bind="indeterminate"
             reversed.bind="reversed"
             buffer.bind="buffer"
             progress.bind="progress"&gt;
+          &lt;/mdc-linear-progress&gt;
+
+    mdc-grid-cell(span="12")
+      h5 Themed
+      pre
+        code-prism(language="css").
+          .linear-progress-secondary {
+            // Sets the color of the progress bar
+            @include mdc-linear-progress-bar-color($mdc-theme-secondary);
+
+            // Sets the color of the buffer bar and dots
+            @include mdc-linear-progress-buffer-color(#eee);
+          }
+
+          .mdc-theme--dark {
+            mdc-linear-progress {
+              // Sets the color of the buffer bar and dots
+              @include mdc-linear-progress-buffer-color(#222);
+            }
+          }
+
+      pre
+        code-prism.
+          &lt;mdc-linear-progress
+            class="linear-progress-secondary"
+            ...&gt;
           &lt;/mdc-linear-progress&gt;
