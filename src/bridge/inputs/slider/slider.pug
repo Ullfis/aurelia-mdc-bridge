@@ -12,8 +12,12 @@ template
 
     .mdc-slider__track-container
       .mdc-slider__track
+      .mdc-slider__track-marker-container(if.bind="markers")
     
     .mdc-slider__thumb-container
+      .mdc-slider__pin(if.bind="discrete")
+        span.mdc-slider__pin-value-marker
+
       svg.mdc-slider__thumb(width="21" height="21")
         circle(cx="10.5" cy="10.5" r="7.875")
       

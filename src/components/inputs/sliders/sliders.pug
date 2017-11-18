@@ -19,6 +19,8 @@ template
 
     // DEMO AREA
     mdc-grid-cell(span="8")
+
+      h5 Continuous Slider
       section.components
         mdc-slider(
           value.bind="value" 
@@ -41,7 +43,46 @@ template
   
       p.mdc-typography--caption input event value: ${inputValue}
 
+      h5 Descrete Slider 
+      span.mdc-typography--caption (descrete="true")
+      section.components
+        mdc-slider(
+          value.bind="value" 
+          min.bind="min" 
+          max.bind="max"
+          step.bind="step"
+          disabled.bind="disabled"
+          discrete="true"
+          markers="false"
+          aria-label="Aria label"
+          on-input.delegate="onInput($event)")      
 
+      h5 Display tracker markers 
+      span.mdc-typography--caption (discrete slider only. markers="true")
+      section.components
+        mdc-slider(
+          value.bind="value" 
+          min.bind="min" 
+          max.bind="max"
+          step.bind="step"
+          disabled.bind="disabled"
+          discrete="true"
+          markers="true"
+          aria-label="Aria label"
+          on-input.delegate="onInput($event)") 
+
+      h5 Themed 
+      section.components
+        mdc-slider.slider--primary(
+          value.bind="value" 
+          min.bind="min" 
+          max.bind="max"
+          step.bind="step"
+          disabled.bind="disabled"
+          discrete="true"
+          markers="true"
+          aria-label="Aria label"
+          on-input.delegate="onInput($event)") 
     // LINKS
     mdc-grid-cell(span="12")
       hr
@@ -67,6 +108,23 @@ template
             max.bind="max"
             step.bind="step"
             disabled.bind="disabled"
+            discrete="true"
+            markers="true"
             aria-label="Aria label"
             on-input.delegate="onInput($event)"&gt;
           &lt;/mdc-slider&gt;
+
+
+    mdc-grid-cell(span="12")
+      h5 Themed
+      pre
+        code-prism(language="css").
+          .slider--primary {
+            @include mdc-slider-color-accessible($mdc-theme-primary);
+          }
+      pre
+        code-prism(language="html").
+          &lt;mdc-slider
+            class="slider--primary"
+            ...&gt;
+          &lt;/mdc-slider&gt;          
