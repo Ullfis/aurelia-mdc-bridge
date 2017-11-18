@@ -1,0 +1,3 @@
+.slider--primary {
+  @include mdc-slider-color-accessible($mdc-theme-primary);
+}

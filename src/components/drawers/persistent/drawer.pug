@@ -158,6 +158,22 @@ template
                   private onClose() {
                   }
 
+
+          // SELECTED LIST ITEM
+          mdc-grid-cell(span="12")
+            section
+              h5 Selected List Item
+              p.
+                You can specify which item in the drawer is selected by setting selected="true" on the mdc-list-item:
+
+              pre
+                code-prism.
+                  <mdc-list tag="nav">
+                    <mdc-list-item href="#/" selected="true">Link 1</mdc-list-item>
+                    ...
+                  </mdc-list>
+
+
           // HEADER
           mdc-grid-cell(span="12")
             section

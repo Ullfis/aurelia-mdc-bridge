@@ -5,7 +5,6 @@ import * as util from '../util';
 @customElement('mdc-linear-progress')
 export class MdcLinearProgress {
   @bindable() public class: string;
-  @bindable() public accent: boolean = false;
   @bindable() public indeterminate: boolean = false;
   @bindable() public reversed: boolean = false;
   // Sets the progress bar to this value. Value should be between [0, 1].
@@ -19,7 +18,6 @@ export class MdcLinearProgress {
   private bind() {/** */}
   private attached() {
     this.mdcElement = new MDCLinearProgress(this.elementDiv);
-    this.accentChanged(this.accent);
     this.indeterminateChanged(this.indeterminate);
     this.reversedChanged(this.reversed);
     this.progressChanged(this.progress);
@@ -30,10 +28,6 @@ export class MdcLinearProgress {
     this.mdcElement.destroy();
   }
 
-  private accentChanged(newValue: boolean) {
-    const value = util.getBoolean(newValue);
-    this.elementDiv.classList[value ? 'add' : 'remove']('mdc-linear-progress--accent');
-  }
   private indeterminateChanged(newValue: boolean) {
     const value = util.getBoolean(newValue);
     this.elementDiv.classList[value ? 'add' : 'remove']('mdc-linear-progress--indeterminate');

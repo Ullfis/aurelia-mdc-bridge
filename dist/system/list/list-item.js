@@ -1,4 +1,4 @@
-System.register(["aurelia-framework", "aurelia-logging", "@material/ripple", "./create-components", "../util"], function (exports_1, context_1) {
+System.register(["aurelia-framework", "aurelia-logging", "@material/ripple", "./create-components", "../drawer/common", "../util"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -10,7 +10,7 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/ripple", "./
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var aurelia_framework_1, aurelia_logging_1, ripple_1, create_components_1, util, MdcListItem;
+    var aurelia_framework_1, aurelia_logging_1, ripple_1, create_components_1, drawerCommon, util, MdcListItem;
     return {
         setters: [
             function (aurelia_framework_1_1) {
@@ -25,6 +25,9 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/ripple", "./
             function (create_components_1_1) {
                 create_components_1 = create_components_1_1;
             },
+            function (drawerCommon_1) {
+                drawerCommon = drawerCommon_1;
+            },
             function (util_1) {
                 util = util_1;
             }
@@ -34,10 +37,12 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/ripple", "./
                 function MdcListItem(element) {
                     this.element = element;
                     this.ripple = false;
+                    this.selected = false;
                     this.disabled = false;
                     this.target = '_self';
                     this.isSimpleMenuItem = false;
                     this.isSelectMenuItem = false;
+                    this.selectedClass = '';
                     this.log = aurelia_logging_1.getLogger('mdc-list-item');
                 }
                 MdcListItem.prototype.elementClick = function (e) {
@@ -49,10 +54,20 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/ripple", "./
                 MdcListItem.prototype.unbind = function () { };
                 MdcListItem.prototype.attached = function () {
                     this.parentElement = util.findAncestor(this.elementListItem, 'mdc-list');
+                    if (drawerCommon.isPermanentDrawer(this.element)) {
+                        this.selectedClass = 'mdc-permanent-drawer--selected';
+                    }
+                    if (drawerCommon.isPersistentDrawer(this.element)) {
+                        this.selectedClass = 'mdc-persistent-drawer--selected';
+                    }
+                    if (drawerCommon.isTemporaryDrawer(this.element)) {
+                        this.selectedClass = 'mdc-temporary-drawer--selected';
+                    }
                     this.selectMenuItem();
                     this.simpleMenuItem();
                     this.rippleEffect();
                     this.disabledChanged(this.disabled);
+                    this.selectedChanged(this.selected);
                 };
                 MdcListItem.prototype.detached = function () {
                     if (this.mdcRipple) {
@@ -80,6 +95,12 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/ripple", "./
                         this.elementListItem.setAttribute('aria-disabled', value ? 'true' : 'false');
                     }
                 };
+                MdcListItem.prototype.selectedChanged = function (newValue) {
+                    var value = util.getBoolean(newValue);
+                    if (this.selectedClass !== '') {
+                        this.elementListItem.classList[value ? 'add' : 'remove'](this.selectedClass);
+                    }
+                };
                 __decorate([
                     aurelia_framework_1.bindable(),
                     __metadata("design:type", Object)
@@ -92,6 +113,10 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/ripple", "./
                     aurelia_framework_1.bindable(),
                     __metadata("design:type", Object)
                 ], MdcListItem.prototype, "model", void 0);
+                __decorate([
+                    aurelia_framework_1.bindable(),
+                    __metadata("design:type", Object)
+                ], MdcListItem.prototype, "selected", void 0);
                 __decorate([
                     aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.oneTime }),
                     __metadata("design:type", Object)

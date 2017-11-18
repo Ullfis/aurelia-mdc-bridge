@@ -74,7 +74,7 @@ export class MdcDialog {
       this.cancelActionChanged(this.cancelAction);
     }
 
-    // not working with mdc-textfield (it works with input type="text")
+    // not working with mdc-text-field (it works with input type="text")
     // <input type="text" ref="focusMeOnOpen" ..
     // <mdc-dialog focus-at.bind="focusMeOnOpen" ..
     if (this.focusAt) {
