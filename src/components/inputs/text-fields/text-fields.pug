@@ -23,23 +23,23 @@ template
       br
       mdc-checkbox(checked.bind="mFocused") focused
       br      
-      mdc-textfield(value.bind="mHelptext") Help text
+      mdc-text-field(value.bind="mHelptext") Help text
       br
-      mdc-textfield(value.bind="numericText" type="number" min="0" max="10" step="1") number
+      mdc-text-field(value.bind="numericText" type="number" min="0" max="10" step="1") number
       br
-      mdc-textfield(value.bind="colorValue" type="color") color
+      mdc-text-field(value.bind="colorValue" type="color") color
       br
-      mdc-textfield(value.bind="timeValue" type="time") time
+      mdc-text-field(value.bind="timeValue" type="time") time
       br
-      mdc-textfield(value.bind="weekValue" type="week") week
+      mdc-text-field(value.bind="weekValue" type="week") week
       br
-      mdc-textfield(value.bind="monthValue" type="month") month
+      mdc-text-field(value.bind="monthValue" type="month") month
       br
-      mdc-textfield(value.bind="dateValue" type="date") date
+      mdc-text-field(value.bind="dateValue" type="date") date
       br
-      mdc-textfield(value.bind="datetimeLocalValue" type="datetime-local") datetime-local
+      mdc-text-field(value.bind="datetimeLocalValue" type="datetime-local") datetime-local
       br
-      mdc-textfield(value.bind="datetimeLocalValue2" type="datetime-local" prefilled="true") prefilled
+      mdc-text-field(value.bind="datetimeLocalValue2" type="datetime-local" prefilled="true") prefilled
       p (label always on top)
       button(mdc-button="raised: true;" click.delegate="onClick()") console.log native input
       br
@@ -52,7 +52,7 @@ template
         h5 Default theme
 
         // demo textfield
-        mdc-textfield#testid(
+        mdc-text-field#testid(
           view-model.ref="demoTextfieldElement"
           value.bind="mValue" 
           disabled.bind="mDisabled"
@@ -73,7 +73,7 @@ template
         br
 
         // multiline
-        mdc-textfield(
+        mdc-text-field(
           value.bind="mValue" 
           disabled.bind="mDisabled"
           multiline="true"
@@ -87,7 +87,7 @@ template
       // DARK THEME
       section.mdc-theme--dark.components
         h5 Dark theme
-        mdc-textfield(
+        mdc-text-field(
           value.bind="mValue" 
           disabled.bind="mDisabled"
           dense.bind="mDense"
@@ -98,7 +98,7 @@ template
           helptext-validation.bind="mHelptextValidation") Label text
 
       // password      
-      mdc-textfield(
+      mdc-text-field(
         value.bind="mPassword"
         type="password"
         aria-label="Password"
@@ -109,7 +109,7 @@ template
         helptext="Must be at least 8 characters long") Password
 
       // password box      
-      mdc-textfield(
+      mdc-text-field(
         value.bind="mPassword"
         type="password"
         box="true"
@@ -121,13 +121,13 @@ template
         helptext="Must be at least 8 characters long") Password
 
       // placeholder
-      mdc-textfield(
+      mdc-text-field(
         value=""
         fullwidth.bind="mFullwidth"
         placeholder="Placeholder text")
 
       // fullwidth
-      mdc-textfield(
+      mdc-text-field(
         value=""
         fullwidth="true"
         placeholder="Full width")
@@ -135,20 +135,20 @@ template
 
       // leading-icon
       br
-      mdc-textfield(value.bind="leadingIcon" box="true")
+      mdc-text-field(value.bind="leadingIcon" box="true")
         i.material-icons(slot="leading-icon" tabindex="0") event
         | Leading Icon
 
       // trailing-icon
       br
-      mdc-textfield(value.bind="leadingIcon" box="true")
+      mdc-text-field(value.bind="leadingIcon" box="true")
         i.material-icons(slot="trailing-icon") event
         | Trailing Icon
 
     // LINKS  
     mdc-grid-cell(span="12")
       hr
-      a(href="https://material.io/components/web/catalog/input-controls/text-fields/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-textfield") Material components documentation
+      a(href="https://material.io/components/web/catalog/input-controls/text-fields/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-text-field") Material components documentation
       br
       a(href="https://material.io/guidelines/components/text-fields.html" target="_blank" data-analytics-category="external" data-analytics-action="mdg-textfield") Material design guidelines
       hr
@@ -158,7 +158,7 @@ template
     mdc-grid-cell(span="12")
       pre
         code-prism.
-          &lt;mdc-textfield
+          &lt;mdc-text-field
             value.bind="value"
             type="text"
             name="name"
@@ -185,18 +185,18 @@ template
             focus.delegate="onFocus()"
             blur.delegate="onBlur()"&gt;
             Label text
-          &lt;/mdc-textfield&gt;
+          &lt;/mdc-text-field&gt;
 
     // FULL WIDTH
     mdc-grid-cell(span="12")      
       h5 Full width
       pre
         code-prism.
-          &lt;mdc-textfield
+          &lt;mdc-text-field
             value.bind="value"
             fullwidth="true"
             placeholder="Full width"&gt;
-          &lt;/mdc-textfield&gt;
+          &lt;/mdc-text-field&gt;
           
       p Full-width text fields do not support floating labels.
 
@@ -206,15 +206,15 @@ template
       h5 Leading and Trailing Icons
       pre
         code-prism.
-          &lt;mdc-textfield value.bind="value" box="true"&gt;
+          &lt;mdc-text-field value.bind="value" box="true"&gt;
             <i slot="leading-icon" class="material-icons">event</i>
             Label text
-          &lt;/mdc-textfield&gt;
+          &lt;/mdc-text-field&gt;
 
-          &lt;mdc-textfield value.bind="value" box="true"&gt;
+          &lt;mdc-text-field value.bind="value" box="true"&gt;
             <i slot="trailing-icon" class="material-icons">event</i>
             Label text
-          &lt;/mdc-textfield&gt;          
+          &lt;/mdc-text-field&gt;          
           
 
     // FUNCTIONS
@@ -222,12 +222,12 @@ template
       h5 Functions and properties
       pre
         code-prism.
-          &lt;mdc-textfield view-model.ref="textfieldModel"&gt;&lt;/mdc-textfield&gt;
+          &lt;mdc-text-field view-model.ref="textfieldModel"&gt;&lt;/mdc-text-field&gt;
 
       pre
         code-prism(language="typescript").
-          import { MdcTextfield } from 'aurelia-mdc-bridge';
-          private textfieldModel: MdcTextfield;
+          import { MdcTextField } from 'aurelia-mdc-bridge';
+          private textfieldModel: MdcTextField;
 
           ...
             this.textfieldModel.focus();

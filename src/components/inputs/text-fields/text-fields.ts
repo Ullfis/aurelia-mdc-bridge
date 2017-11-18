@@ -1,5 +1,5 @@
 import { getLogger, Logger } from 'aurelia-logging';
-import { MdcTextfield } from '../../../bridge/index';
+import { MdcTextField } from '../../../bridge/index';
 
 export class TextFields {
   private mValue = 'Hello world!';
@@ -15,7 +15,7 @@ export class TextFields {
   private mPassword = '';
   private numericText = 9;
   private reportElement;
-  private demoTextfieldElement: MdcTextfield;
+  private demoTextfieldElement: MdcTextField;
 
   private mFocused = true;
 

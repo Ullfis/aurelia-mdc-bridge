@@ -9,13 +9,13 @@ template
     mdc-grid-cell(span="4")
       mdc-checkbox(checked.bind="disabled") disabled
       br
-      mdc-textfield(value.bind="value" type="number" min.bind="min" max.bind="max" step.bind="step") value
+      mdc-text-field(value.bind="value" type="number" min.bind="min" max.bind="max" step.bind="step") value
       br
-      mdc-textfield(value.bind="max" type="number" min.bind="min") max
+      mdc-text-field(value.bind="max" type="number" min.bind="min") max
       br
-      mdc-textfield(value.bind="min" type="number" max.bind="max") min
+      mdc-text-field(value.bind="min" type="number" max.bind="max") min
       br
-      mdc-textfield(value.bind="step" type="number" min="1" max.bind="max") step
+      mdc-text-field(value.bind="step" type="number" min="1" max.bind="max") step
 
     // DEMO AREA
     mdc-grid-cell(span="8")

@@ -54,7 +54,7 @@ template
         select#aspect(mdc-select-css value.bind="aspect")
           option(repeat.for="item of ['1x1', '16x9', '2x3', '3x2', '4x3', '3x4']" model.bind="item") ${item}
       br
-      mdc-textfield(value.bind="gutter" type="number" min="0" max="10" step="1") gutter
+      mdc-text-field(value.bind="gutter" type="number" min="0" max="10" step="1") gutter
       p.mdc-typography--caption Grid list tiles can have 1px padding instead of 4px. Set this value to 1 to use 1px padding.
 
     mdc-grid-cell(span="6")
