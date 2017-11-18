@@ -9,9 +9,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { autoinject, bindable, bindingMode, customElement, TaskQueue } from 'aurelia-framework';
 import { getLogger } from 'aurelia-logging';
-import { MDCTextfield } from '@material/textfield';
+import { MDCTextField } from '@material/textfield';
 import * as util from '../../util';
-let MdcTextfield = MdcTextfield_1 = class MdcTextfield {
+let MdcTextField = MdcTextField_1 = class MdcTextField {
     constructor(element, taskQueue) {
         this.element = element;
         this.taskQueue = taskQueue;
@@ -42,9 +42,9 @@ let MdcTextfield = MdcTextfield_1 = class MdcTextfield {
         this.helptextId = '';
         this.styleHelptext = 'display: none;';
         this.stopFocusedChanged = false;
-        this.controlId = `mdc-textfield-${MdcTextfield_1.id++}`;
-        this.helptextId = `mdc-helptextfield-${MdcTextfield_1.id}`;
-        this.log = getLogger('mdc-textfield');
+        this.controlId = `mdc-text-field-${MdcTextField_1.id++}`;
+        this.helptextId = `mdc-helptextfield-${MdcTextField_1.id}`;
+        this.log = getLogger('mdc-text-field');
     }
     focus() {
         this.elementInput.focus();
@@ -65,15 +65,15 @@ let MdcTextfield = MdcTextfield_1 = class MdcTextfield {
         this.helptextPersistentChanged(this.helptextPersistent);
         this.helptextValidationChanged(this.helptextValidation);
         this.prefilledChanged(this.prefilled);
-        this.mdcTextfield = new MDCTextfield(this.elementMain);
+        this.mdcTextfield = new MDCTextField(this.elementMain);
         this.helptextShowChanged(this.helptextShow);
         this.disabledChanged(this.disabled);
         this.focusedChanged(this.focused);
         if (this.isIcon(this.leadingIconSlot)) {
-            this.elementMain.classList.add('mdc-textfield--with-leading-icon');
+            this.elementMain.classList.add('mdc-text-field--with-leading-icon');
         }
         if (this.isIcon(this.trailingIconSlot)) {
-            this.elementMain.classList.add('mdc-textfield--with-trailing-icon');
+            this.elementMain.classList.add('mdc-text-field--with-trailing-icon');
         }
         this.mdcTextfield.foundation_.adapter_.registerInputInteractionHandler('blur', this.onBlur.bind(this));
         this.mdcTextfield.foundation_.adapter_.registerInputInteractionHandler('focus', this.onFocus.bind(this));
@@ -87,8 +87,8 @@ let MdcTextfield = MdcTextfield_1 = class MdcTextfield {
         for (let i = 0; i < el.children.length; i++) {
             const item = el.children[i];
             if (item.tagName === 'I') {
-                if (!el.children[i].classList.contains('mdc-textfield__icon')) {
-                    el.children[i].classList.add('mdc-textfield__icon');
+                if (!el.children[i].classList.contains('mdc-text-field__icon')) {
+                    el.children[i].classList.add('mdc-text-field__icon');
                 }
                 return true;
             }
@@ -96,15 +96,15 @@ let MdcTextfield = MdcTextfield_1 = class MdcTextfield {
         return false;
     }
     valueChanged(newValue) {
-        const isAbove = this.elementLabel.classList.contains('mdc-textfield__label--float-above');
+        const isAbove = this.elementLabel.classList.contains('mdc-text-field__label--float-above');
         if (newValue && newValue.length > 0) {
             if (!isAbove) {
-                this.elementLabel.classList.add('mdc-textfield__label--float-above');
+                this.elementLabel.classList.add('mdc-text-field__label--float-above');
             }
         }
         else {
             if (isAbove) {
-                this.elementLabel.classList.remove('mdc-textfield__label--float-above');
+                this.elementLabel.classList.remove('mdc-text-field__label--float-above');
             }
         }
     }
@@ -174,131 +174,131 @@ let MdcTextfield = MdcTextfield_1 = class MdcTextfield {
     }
     boxChanged(newValue) {
         const value = util.getBoolean(newValue);
-        this.elementMain.classList[value ? 'add' : 'remove']('mdc-textfield--box');
+        this.elementMain.classList[value ? 'add' : 'remove']('mdc-text-field--box');
     }
     multilineChanged(newValue) {
         const value = util.getBoolean(newValue);
-        this.elementMain.classList[value ? 'add' : 'remove']('mdc-textfield--textarea');
+        this.elementMain.classList[value ? 'add' : 'remove']('mdc-text-field--textarea');
     }
     denseChanged(newValue) {
         const value = util.getBoolean(newValue);
-        this.elementMain.classList[value ? 'add' : 'remove']('mdc-textfield--dense');
+        this.elementMain.classList[value ? 'add' : 'remove']('mdc-text-field--dense');
     }
     fullwidthChanged(newValue) {
         const value = util.getBoolean(newValue);
-        this.elementMain.classList[value ? 'add' : 'remove']('mdc-textfield--fullwidth');
+        this.elementMain.classList[value ? 'add' : 'remove']('mdc-text-field--fullwidth');
     }
     prefilledChanged(newValue) {
         const value = util.getBoolean(newValue);
-        this.elementMain.classList[value ? 'add' : 'remove']('mdc-textfield--upgraded');
-        this.elementLabel.classList[value ? 'add' : 'remove']('mdc-textfield__label--float-above');
+        this.elementMain.classList[value ? 'add' : 'remove']('mdc-text-field--upgraded');
+        this.elementLabel.classList[value ? 'add' : 'remove']('mdc-text-field__label--float-above');
     }
     helptextPersistentChanged(newValue) {
         const value = util.getBoolean(newValue);
-        this.elementHelpText.classList[value ? 'add' : 'remove']('mdc-textfield-helptext--persistent');
+        this.elementHelpText.classList[value ? 'add' : 'remove']('mdc-text-field-helptext--persistent');
     }
     helptextValidationChanged(newValue) {
         const value = util.getBoolean(newValue);
-        this.elementHelpText.classList[value ? 'add' : 'remove']('mdc-textfield-helptext--validation-msg');
+        this.elementHelpText.classList[value ? 'add' : 'remove']('mdc-text-field-helptext--validation-msg');
     }
 };
-MdcTextfield.id = 0;
+MdcTextField.id = 0;
 __decorate([
     bindable({ defaultBindingMode: bindingMode.twoWay }),
     __metadata("design:type", Object)
-], MdcTextfield.prototype, "value", void 0);
+], MdcTextField.prototype, "value", void 0);
 __decorate([
     bindable({ defaultBindingMode: bindingMode.twoWay }),
     __metadata("design:type", Object)
-], MdcTextfield.prototype, "focused", void 0);
+], MdcTextField.prototype, "focused", void 0);
 __decorate([
     bindable({ defaultBindingMode: bindingMode.oneTime }),
     __metadata("design:type", Object)
-], MdcTextfield.prototype, "type", void 0);
+], MdcTextField.prototype, "type", void 0);
 __decorate([
     bindable({ defaultBindingMode: bindingMode.oneTime }),
     __metadata("design:type", Object)
-], MdcTextfield.prototype, "multiline", void 0);
+], MdcTextField.prototype, "multiline", void 0);
 __decorate([
     bindable({ defaultBindingMode: bindingMode.oneTime }),
     __metadata("design:type", Object)
-], MdcTextfield.prototype, "box", void 0);
+], MdcTextField.prototype, "box", void 0);
 __decorate([
     bindable(),
     __metadata("design:type", Object)
-], MdcTextfield.prototype, "multilineRows", void 0);
+], MdcTextField.prototype, "multilineRows", void 0);
 __decorate([
     bindable(),
     __metadata("design:type", Object)
-], MdcTextfield.prototype, "multilineCols", void 0);
+], MdcTextField.prototype, "multilineCols", void 0);
 __decorate([
     bindable(),
     __metadata("design:type", Object)
-], MdcTextfield.prototype, "disabled", void 0);
+], MdcTextField.prototype, "disabled", void 0);
 __decorate([
     bindable(),
     __metadata("design:type", Object)
-], MdcTextfield.prototype, "placeholder", void 0);
+], MdcTextField.prototype, "placeholder", void 0);
 __decorate([
     bindable(),
     __metadata("design:type", Object)
-], MdcTextfield.prototype, "ariaLabel", void 0);
+], MdcTextField.prototype, "ariaLabel", void 0);
 __decorate([
     bindable(),
     __metadata("design:type", Object)
-], MdcTextfield.prototype, "dense", void 0);
+], MdcTextField.prototype, "dense", void 0);
 __decorate([
     bindable(),
     __metadata("design:type", Object)
-], MdcTextfield.prototype, "fullwidth", void 0);
+], MdcTextField.prototype, "fullwidth", void 0);
 __decorate([
     bindable(),
     __metadata("design:type", Object)
-], MdcTextfield.prototype, "required", void 0);
+], MdcTextField.prototype, "required", void 0);
 __decorate([
     bindable(),
     __metadata("design:type", Object)
-], MdcTextfield.prototype, "pattern", void 0);
+], MdcTextField.prototype, "pattern", void 0);
 __decorate([
     bindable(),
     __metadata("design:type", Object)
-], MdcTextfield.prototype, "helptext", void 0);
+], MdcTextField.prototype, "helptext", void 0);
 __decorate([
     bindable(),
     __metadata("design:type", Object)
-], MdcTextfield.prototype, "helptextShow", void 0);
+], MdcTextField.prototype, "helptextShow", void 0);
 __decorate([
     bindable(),
     __metadata("design:type", Object)
-], MdcTextfield.prototype, "helptextPersistent", void 0);
+], MdcTextField.prototype, "helptextPersistent", void 0);
 __decorate([
     bindable(),
     __metadata("design:type", Object)
-], MdcTextfield.prototype, "helptextValidation", void 0);
+], MdcTextField.prototype, "helptextValidation", void 0);
 __decorate([
     bindable(),
     __metadata("design:type", Object)
-], MdcTextfield.prototype, "prefilled", void 0);
+], MdcTextField.prototype, "prefilled", void 0);
 __decorate([
     bindable(),
     __metadata("design:type", Number)
-], MdcTextfield.prototype, "min", void 0);
+], MdcTextField.prototype, "min", void 0);
 __decorate([
     bindable(),
     __metadata("design:type", Number)
-], MdcTextfield.prototype, "max", void 0);
+], MdcTextField.prototype, "max", void 0);
 __decorate([
     bindable(),
     __metadata("design:type", Number)
-], MdcTextfield.prototype, "step", void 0);
+], MdcTextField.prototype, "step", void 0);
 __decorate([
     bindable(),
     __metadata("design:type", String)
-], MdcTextfield.prototype, "name", void 0);
-MdcTextfield = MdcTextfield_1 = __decorate([
-    customElement('mdc-textfield'),
+], MdcTextField.prototype, "name", void 0);
+MdcTextField = MdcTextField_1 = __decorate([
+    customElement('mdc-text-field'),
     autoinject(),
     __metadata("design:paramtypes", [Element, TaskQueue])
-], MdcTextfield);
-export { MdcTextfield };
-var MdcTextfield_1;
+], MdcTextField);
+export { MdcTextField };
+var MdcTextField_1;

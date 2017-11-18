@@ -20,6 +20,8 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material
             this.step = 1;
             this.ariaLabel = 'Slider';
             this.disabled = false;
+            this.discrete = false;
+            this.markers = false;
             this.stopChangeEvent = false;
             this.log = aurelia_logging_1.getLogger('mdc-slider');
         }
@@ -27,6 +29,8 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material
         MdcSlider.prototype.unbind = function () { };
         MdcSlider.prototype.attached = function () {
             var _this = this;
+            this.discreteChanged(this.discrete);
+            this.markersChanged(this.markers);
             this.taskQueue.queueTask(function () {
                 _this.mdcSlider = new slider_1.MDCSlider(_this.elementSlider);
                 _this.mdcSlider.listen('MDCSlider:change', _this.onChange.bind(_this));
@@ -80,6 +84,14 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material
         MdcSlider.prototype.disabledChanged = function (newValue) {
             this.mdcSlider.disabled = util.getBoolean(newValue);
         };
+        MdcSlider.prototype.discreteChanged = function (newValue) {
+            var value = util.getBoolean(newValue);
+            this.elementSlider.classList[value ? 'add' : 'remove']('mdc-slider--discrete');
+        };
+        MdcSlider.prototype.markersChanged = function (newValue) {
+            var value = util.getBoolean(newValue);
+            this.elementSlider.classList[value ? 'add' : 'remove']('mdc-slider--display-markers');
+        };
         __decorate([
             aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
             __metadata("design:type", Object)
@@ -104,6 +116,14 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material
             aurelia_framework_1.bindable(),
             __metadata("design:type", Object)
         ], MdcSlider.prototype, "disabled", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.oneTime }),
+            __metadata("design:type", Object)
+        ], MdcSlider.prototype, "discrete", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.oneTime }),
+            __metadata("design:type", Object)
+        ], MdcSlider.prototype, "markers", void 0);
         MdcSlider = __decorate([
             aurelia_framework_1.customElement('mdc-slider'),
             aurelia_framework_1.inject(Element, aurelia_framework_1.TaskQueue),

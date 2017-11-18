@@ -13,8 +13,8 @@ var aurelia_framework_1 = require("aurelia-framework");
 var aurelia_logging_1 = require("aurelia-logging");
 var textfield_1 = require("@material/textfield");
 var util = require("../../util");
-var MdcTextfield = (function () {
-    function MdcTextfield(element, taskQueue) {
+var MdcTextField = (function () {
+    function MdcTextField(element, taskQueue) {
         this.element = element;
         this.taskQueue = taskQueue;
         this.value = '';
@@ -44,20 +44,20 @@ var MdcTextfield = (function () {
         this.helptextId = '';
         this.styleHelptext = 'display: none;';
         this.stopFocusedChanged = false;
-        this.controlId = "mdc-textfield-" + MdcTextfield_1.id++;
-        this.helptextId = "mdc-helptextfield-" + MdcTextfield_1.id;
-        this.log = aurelia_logging_1.getLogger('mdc-textfield');
+        this.controlId = "mdc-text-field-" + MdcTextField_1.id++;
+        this.helptextId = "mdc-helptextfield-" + MdcTextField_1.id;
+        this.log = aurelia_logging_1.getLogger('mdc-text-field');
     }
-    MdcTextfield_1 = MdcTextfield;
-    MdcTextfield.prototype.focus = function () {
+    MdcTextField_1 = MdcTextField;
+    MdcTextField.prototype.focus = function () {
         this.elementInput.focus();
     };
-    MdcTextfield.prototype.getNativeInput = function () {
+    MdcTextField.prototype.getNativeInput = function () {
         return this.mdcTextfield.foundation_.adapter_.getNativeInput();
     };
-    MdcTextfield.prototype.bind = function () { };
-    MdcTextfield.prototype.unbind = function () { };
-    MdcTextfield.prototype.attached = function () {
+    MdcTextField.prototype.bind = function () { };
+    MdcTextField.prototype.unbind = function () { };
+    MdcTextField.prototype.attached = function () {
         this.boxChanged(this.box);
         this.multilineChanged(this.multiline);
         this.denseChanged(this.dense);
@@ -68,50 +68,50 @@ var MdcTextfield = (function () {
         this.helptextPersistentChanged(this.helptextPersistent);
         this.helptextValidationChanged(this.helptextValidation);
         this.prefilledChanged(this.prefilled);
-        this.mdcTextfield = new textfield_1.MDCTextfield(this.elementMain);
+        this.mdcTextfield = new textfield_1.MDCTextField(this.elementMain);
         this.helptextShowChanged(this.helptextShow);
         this.disabledChanged(this.disabled);
         this.focusedChanged(this.focused);
         if (this.isIcon(this.leadingIconSlot)) {
-            this.elementMain.classList.add('mdc-textfield--with-leading-icon');
+            this.elementMain.classList.add('mdc-text-field--with-leading-icon');
         }
         if (this.isIcon(this.trailingIconSlot)) {
-            this.elementMain.classList.add('mdc-textfield--with-trailing-icon');
+            this.elementMain.classList.add('mdc-text-field--with-trailing-icon');
         }
         this.mdcTextfield.foundation_.adapter_.registerInputInteractionHandler('blur', this.onBlur.bind(this));
         this.mdcTextfield.foundation_.adapter_.registerInputInteractionHandler('focus', this.onFocus.bind(this));
     };
-    MdcTextfield.prototype.detached = function () {
+    MdcTextField.prototype.detached = function () {
         this.mdcTextfield.foundation_.adapter_.deregisterInputInteractionHandler('focus', this.onFocus.bind(this));
         this.mdcTextfield.foundation_.adapter_.deregisterInputInteractionHandler('blur', this.onBlur.bind(this));
         this.mdcTextfield.destroy();
     };
-    MdcTextfield.prototype.isIcon = function (el) {
+    MdcTextField.prototype.isIcon = function (el) {
         for (var i = 0; i < el.children.length; i++) {
             var item = el.children[i];
             if (item.tagName === 'I') {
-                if (!el.children[i].classList.contains('mdc-textfield__icon')) {
-                    el.children[i].classList.add('mdc-textfield__icon');
+                if (!el.children[i].classList.contains('mdc-text-field__icon')) {
+                    el.children[i].classList.add('mdc-text-field__icon');
                 }
                 return true;
             }
         }
         return false;
     };
-    MdcTextfield.prototype.valueChanged = function (newValue) {
-        var isAbove = this.elementLabel.classList.contains('mdc-textfield__label--float-above');
+    MdcTextField.prototype.valueChanged = function (newValue) {
+        var isAbove = this.elementLabel.classList.contains('mdc-text-field__label--float-above');
         if (newValue && newValue.length > 0) {
             if (!isAbove) {
-                this.elementLabel.classList.add('mdc-textfield__label--float-above');
+                this.elementLabel.classList.add('mdc-text-field__label--float-above');
             }
         }
         else {
             if (isAbove) {
-                this.elementLabel.classList.remove('mdc-textfield__label--float-above');
+                this.elementLabel.classList.remove('mdc-text-field__label--float-above');
             }
         }
     };
-    MdcTextfield.prototype.focusedChanged = function (newValue) {
+    MdcTextField.prototype.focusedChanged = function (newValue) {
         var _this = this;
         if (this.stopFocusedChanged) {
             this.stopFocusedChanged = false;
@@ -130,7 +130,7 @@ var MdcTextfield = (function () {
             }
         }
     };
-    MdcTextfield.prototype.onBlur = function () {
+    MdcTextField.prototype.onBlur = function () {
         if (util.getBoolean(this.prefilled)) {
             this.prefilledChanged(this.prefilled);
         }
@@ -138,16 +138,16 @@ var MdcTextfield = (function () {
         this.stopFocusedChanged = true;
         this.focused = false;
     };
-    MdcTextfield.prototype.onFocus = function () {
+    MdcTextField.prototype.onFocus = function () {
         util.fireEvent(this.element, 'focus', null);
         this.stopFocusedChanged = true;
         this.focused = true;
     };
-    MdcTextfield.prototype.disabledChanged = function (newValue) {
+    MdcTextField.prototype.disabledChanged = function (newValue) {
         var value = util.getBoolean(newValue);
         this.mdcTextfield.disabled = value;
     };
-    MdcTextfield.prototype.placeholderChanged = function (newValue) {
+    MdcTextField.prototype.placeholderChanged = function (newValue) {
         if (newValue && newValue.length > 0) {
             this.elementInput.setAttribute('placeholder', newValue);
         }
@@ -155,7 +155,7 @@ var MdcTextfield = (function () {
             this.elementInput.removeAttribute('placeholder');
         }
     };
-    MdcTextfield.prototype.ariaLabelChanged = function (newValue) {
+    MdcTextField.prototype.ariaLabelChanged = function (newValue) {
         if (newValue && newValue.length > 0) {
             this.elementInput.setAttribute('aria-label', newValue);
         }
@@ -163,7 +163,7 @@ var MdcTextfield = (function () {
             this.elementInput.removeAttribute('aria-label');
         }
     };
-    MdcTextfield.prototype.patternChanged = function (newValue) {
+    MdcTextField.prototype.patternChanged = function (newValue) {
         if (!newValue || newValue.length === 0) {
             this.elementInput.removeAttribute('pattern');
         }
@@ -171,139 +171,139 @@ var MdcTextfield = (function () {
             this.elementInput.setAttribute('pattern', newValue);
         }
     };
-    MdcTextfield.prototype.helptextShowChanged = function (newValue) {
+    MdcTextField.prototype.helptextShowChanged = function (newValue) {
         var value = util.getBoolean(newValue);
         this.mdcTextfield.elementHelpText = value ? this.elementHelpText : null;
         this.styleHelptext = 'display: ' + (value ? 'block;' : 'none;');
     };
-    MdcTextfield.prototype.boxChanged = function (newValue) {
+    MdcTextField.prototype.boxChanged = function (newValue) {
         var value = util.getBoolean(newValue);
-        this.elementMain.classList[value ? 'add' : 'remove']('mdc-textfield--box');
+        this.elementMain.classList[value ? 'add' : 'remove']('mdc-text-field--box');
     };
-    MdcTextfield.prototype.multilineChanged = function (newValue) {
+    MdcTextField.prototype.multilineChanged = function (newValue) {
         var value = util.getBoolean(newValue);
-        this.elementMain.classList[value ? 'add' : 'remove']('mdc-textfield--textarea');
+        this.elementMain.classList[value ? 'add' : 'remove']('mdc-text-field--textarea');
     };
-    MdcTextfield.prototype.denseChanged = function (newValue) {
+    MdcTextField.prototype.denseChanged = function (newValue) {
         var value = util.getBoolean(newValue);
-        this.elementMain.classList[value ? 'add' : 'remove']('mdc-textfield--dense');
+        this.elementMain.classList[value ? 'add' : 'remove']('mdc-text-field--dense');
     };
-    MdcTextfield.prototype.fullwidthChanged = function (newValue) {
+    MdcTextField.prototype.fullwidthChanged = function (newValue) {
         var value = util.getBoolean(newValue);
-        this.elementMain.classList[value ? 'add' : 'remove']('mdc-textfield--fullwidth');
+        this.elementMain.classList[value ? 'add' : 'remove']('mdc-text-field--fullwidth');
     };
-    MdcTextfield.prototype.prefilledChanged = function (newValue) {
+    MdcTextField.prototype.prefilledChanged = function (newValue) {
         var value = util.getBoolean(newValue);
-        this.elementMain.classList[value ? 'add' : 'remove']('mdc-textfield--upgraded');
-        this.elementLabel.classList[value ? 'add' : 'remove']('mdc-textfield__label--float-above');
+        this.elementMain.classList[value ? 'add' : 'remove']('mdc-text-field--upgraded');
+        this.elementLabel.classList[value ? 'add' : 'remove']('mdc-text-field__label--float-above');
     };
-    MdcTextfield.prototype.helptextPersistentChanged = function (newValue) {
+    MdcTextField.prototype.helptextPersistentChanged = function (newValue) {
         var value = util.getBoolean(newValue);
-        this.elementHelpText.classList[value ? 'add' : 'remove']('mdc-textfield-helptext--persistent');
+        this.elementHelpText.classList[value ? 'add' : 'remove']('mdc-text-field-helptext--persistent');
     };
-    MdcTextfield.prototype.helptextValidationChanged = function (newValue) {
+    MdcTextField.prototype.helptextValidationChanged = function (newValue) {
         var value = util.getBoolean(newValue);
-        this.elementHelpText.classList[value ? 'add' : 'remove']('mdc-textfield-helptext--validation-msg');
+        this.elementHelpText.classList[value ? 'add' : 'remove']('mdc-text-field-helptext--validation-msg');
     };
-    MdcTextfield.id = 0;
+    MdcTextField.id = 0;
     __decorate([
         aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
         __metadata("design:type", Object)
-    ], MdcTextfield.prototype, "value", void 0);
+    ], MdcTextField.prototype, "value", void 0);
     __decorate([
         aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
         __metadata("design:type", Object)
-    ], MdcTextfield.prototype, "focused", void 0);
+    ], MdcTextField.prototype, "focused", void 0);
     __decorate([
         aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.oneTime }),
         __metadata("design:type", Object)
-    ], MdcTextfield.prototype, "type", void 0);
+    ], MdcTextField.prototype, "type", void 0);
     __decorate([
         aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.oneTime }),
         __metadata("design:type", Object)
-    ], MdcTextfield.prototype, "multiline", void 0);
+    ], MdcTextField.prototype, "multiline", void 0);
     __decorate([
         aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.oneTime }),
         __metadata("design:type", Object)
-    ], MdcTextfield.prototype, "box", void 0);
+    ], MdcTextField.prototype, "box", void 0);
     __decorate([
         aurelia_framework_1.bindable(),
         __metadata("design:type", Object)
-    ], MdcTextfield.prototype, "multilineRows", void 0);
+    ], MdcTextField.prototype, "multilineRows", void 0);
     __decorate([
         aurelia_framework_1.bindable(),
         __metadata("design:type", Object)
-    ], MdcTextfield.prototype, "multilineCols", void 0);
+    ], MdcTextField.prototype, "multilineCols", void 0);
     __decorate([
         aurelia_framework_1.bindable(),
         __metadata("design:type", Object)
-    ], MdcTextfield.prototype, "disabled", void 0);
+    ], MdcTextField.prototype, "disabled", void 0);
     __decorate([
         aurelia_framework_1.bindable(),
         __metadata("design:type", Object)
-    ], MdcTextfield.prototype, "placeholder", void 0);
+    ], MdcTextField.prototype, "placeholder", void 0);
     __decorate([
         aurelia_framework_1.bindable(),
         __metadata("design:type", Object)
-    ], MdcTextfield.prototype, "ariaLabel", void 0);
+    ], MdcTextField.prototype, "ariaLabel", void 0);
     __decorate([
         aurelia_framework_1.bindable(),
         __metadata("design:type", Object)
-    ], MdcTextfield.prototype, "dense", void 0);
+    ], MdcTextField.prototype, "dense", void 0);
     __decorate([
         aurelia_framework_1.bindable(),
         __metadata("design:type", Object)
-    ], MdcTextfield.prototype, "fullwidth", void 0);
+    ], MdcTextField.prototype, "fullwidth", void 0);
     __decorate([
         aurelia_framework_1.bindable(),
         __metadata("design:type", Object)
-    ], MdcTextfield.prototype, "required", void 0);
+    ], MdcTextField.prototype, "required", void 0);
     __decorate([
         aurelia_framework_1.bindable(),
         __metadata("design:type", Object)
-    ], MdcTextfield.prototype, "pattern", void 0);
+    ], MdcTextField.prototype, "pattern", void 0);
     __decorate([
         aurelia_framework_1.bindable(),
         __metadata("design:type", Object)
-    ], MdcTextfield.prototype, "helptext", void 0);
+    ], MdcTextField.prototype, "helptext", void 0);
     __decorate([
         aurelia_framework_1.bindable(),
         __metadata("design:type", Object)
-    ], MdcTextfield.prototype, "helptextShow", void 0);
+    ], MdcTextField.prototype, "helptextShow", void 0);
     __decorate([
         aurelia_framework_1.bindable(),
         __metadata("design:type", Object)
-    ], MdcTextfield.prototype, "helptextPersistent", void 0);
+    ], MdcTextField.prototype, "helptextPersistent", void 0);
     __decorate([
         aurelia_framework_1.bindable(),
         __metadata("design:type", Object)
-    ], MdcTextfield.prototype, "helptextValidation", void 0);
+    ], MdcTextField.prototype, "helptextValidation", void 0);
     __decorate([
         aurelia_framework_1.bindable(),
         __metadata("design:type", Object)
-    ], MdcTextfield.prototype, "prefilled", void 0);
+    ], MdcTextField.prototype, "prefilled", void 0);
     __decorate([
         aurelia_framework_1.bindable(),
         __metadata("design:type", Number)
-    ], MdcTextfield.prototype, "min", void 0);
+    ], MdcTextField.prototype, "min", void 0);
     __decorate([
         aurelia_framework_1.bindable(),
         __metadata("design:type", Number)
-    ], MdcTextfield.prototype, "max", void 0);
+    ], MdcTextField.prototype, "max", void 0);
     __decorate([
         aurelia_framework_1.bindable(),
         __metadata("design:type", Number)
-    ], MdcTextfield.prototype, "step", void 0);
+    ], MdcTextField.prototype, "step", void 0);
     __decorate([
         aurelia_framework_1.bindable(),
         __metadata("design:type", String)
-    ], MdcTextfield.prototype, "name", void 0);
-    MdcTextfield = MdcTextfield_1 = __decorate([
-        aurelia_framework_1.customElement('mdc-textfield'),
+    ], MdcTextField.prototype, "name", void 0);
+    MdcTextField = MdcTextField_1 = __decorate([
+        aurelia_framework_1.customElement('mdc-text-field'),
         aurelia_framework_1.autoinject(),
         __metadata("design:paramtypes", [Element, aurelia_framework_1.TaskQueue])
-    ], MdcTextfield);
-    return MdcTextfield;
-    var MdcTextfield_1;
+    ], MdcTextField);
+    return MdcTextField;
+    var MdcTextField_1;
 }());
-exports.MdcTextfield = MdcTextfield;
+exports.MdcTextField = MdcTextField;

@@ -21,6 +21,8 @@ var MdcSlider = (function () {
         this.step = 1;
         this.ariaLabel = 'Slider';
         this.disabled = false;
+        this.discrete = false;
+        this.markers = false;
         this.stopChangeEvent = false;
         this.log = getLogger('mdc-slider');
     }
@@ -28,6 +30,8 @@ var MdcSlider = (function () {
     MdcSlider.prototype.unbind = function () { };
     MdcSlider.prototype.attached = function () {
         var _this = this;
+        this.discreteChanged(this.discrete);
+        this.markersChanged(this.markers);
         this.taskQueue.queueTask(function () {
             _this.mdcSlider = new MDCSlider(_this.elementSlider);
             _this.mdcSlider.listen('MDCSlider:change', _this.onChange.bind(_this));
@@ -81,6 +85,14 @@ var MdcSlider = (function () {
     MdcSlider.prototype.disabledChanged = function (newValue) {
         this.mdcSlider.disabled = util.getBoolean(newValue);
     };
+    MdcSlider.prototype.discreteChanged = function (newValue) {
+        var value = util.getBoolean(newValue);
+        this.elementSlider.classList[value ? 'add' : 'remove']('mdc-slider--discrete');
+    };
+    MdcSlider.prototype.markersChanged = function (newValue) {
+        var value = util.getBoolean(newValue);
+        this.elementSlider.classList[value ? 'add' : 'remove']('mdc-slider--display-markers');
+    };
     __decorate([
         bindable({ defaultBindingMode: bindingMode.twoWay }),
         __metadata("design:type", Object)
@@ -105,6 +117,14 @@ var MdcSlider = (function () {
         bindable(),
         __metadata("design:type", Object)
     ], MdcSlider.prototype, "disabled", void 0);
+    __decorate([
+        bindable({ defaultBindingMode: bindingMode.oneTime }),
+        __metadata("design:type", Object)
+    ], MdcSlider.prototype, "discrete", void 0);
+    __decorate([
+        bindable({ defaultBindingMode: bindingMode.oneTime }),
+        __metadata("design:type", Object)
+    ], MdcSlider.prototype, "markers", void 0);
     MdcSlider = __decorate([
         customElement('mdc-slider'),
         inject(Element, TaskQueue),

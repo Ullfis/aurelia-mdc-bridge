@@ -12,7 +12,6 @@ import { MDCLinearProgress } from '@material/linear-progress';
 import * as util from '../util';
 let MdcLinearProgress = class MdcLinearProgress {
     constructor() {
-        this.accent = false;
         this.indeterminate = false;
         this.reversed = false;
         this.open = true;
@@ -20,7 +19,6 @@ let MdcLinearProgress = class MdcLinearProgress {
     bind() { }
     attached() {
         this.mdcElement = new MDCLinearProgress(this.elementDiv);
-        this.accentChanged(this.accent);
         this.indeterminateChanged(this.indeterminate);
         this.reversedChanged(this.reversed);
         this.progressChanged(this.progress);
@@ -29,10 +27,6 @@ let MdcLinearProgress = class MdcLinearProgress {
     }
     detached() {
         this.mdcElement.destroy();
-    }
-    accentChanged(newValue) {
-        const value = util.getBoolean(newValue);
-        this.elementDiv.classList[value ? 'add' : 'remove']('mdc-linear-progress--accent');
     }
     indeterminateChanged(newValue) {
         const value = util.getBoolean(newValue);
@@ -62,10 +56,6 @@ __decorate([
     bindable(),
     __metadata("design:type", String)
 ], MdcLinearProgress.prototype, "class", void 0);
-__decorate([
-    bindable(),
-    __metadata("design:type", Boolean)
-], MdcLinearProgress.prototype, "accent", void 0);
 __decorate([
     bindable(),
     __metadata("design:type", Boolean)

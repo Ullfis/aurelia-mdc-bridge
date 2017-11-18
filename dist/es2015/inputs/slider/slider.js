@@ -21,12 +21,16 @@ let MdcSlider = class MdcSlider {
         this.step = 1;
         this.ariaLabel = 'Slider';
         this.disabled = false;
+        this.discrete = false;
+        this.markers = false;
         this.stopChangeEvent = false;
         this.log = getLogger('mdc-slider');
     }
     bind() { }
     unbind() { }
     attached() {
+        this.discreteChanged(this.discrete);
+        this.markersChanged(this.markers);
         this.taskQueue.queueTask(() => {
             this.mdcSlider = new MDCSlider(this.elementSlider);
             this.mdcSlider.listen('MDCSlider:change', this.onChange.bind(this));
@@ -80,6 +84,14 @@ let MdcSlider = class MdcSlider {
     disabledChanged(newValue) {
         this.mdcSlider.disabled = util.getBoolean(newValue);
     }
+    discreteChanged(newValue) {
+        const value = util.getBoolean(newValue);
+        this.elementSlider.classList[value ? 'add' : 'remove']('mdc-slider--discrete');
+    }
+    markersChanged(newValue) {
+        const value = util.getBoolean(newValue);
+        this.elementSlider.classList[value ? 'add' : 'remove']('mdc-slider--display-markers');
+    }
 };
 __decorate([
     bindable({ defaultBindingMode: bindingMode.twoWay }),
@@ -105,6 +117,14 @@ __decorate([
     bindable(),
     __metadata("design:type", Object)
 ], MdcSlider.prototype, "disabled", void 0);
+__decorate([
+    bindable({ defaultBindingMode: bindingMode.oneTime }),
+    __metadata("design:type", Object)
+], MdcSlider.prototype, "discrete", void 0);
+__decorate([
+    bindable({ defaultBindingMode: bindingMode.oneTime }),
+    __metadata("design:type", Object)
+], MdcSlider.prototype, "markers", void 0);
 MdcSlider = __decorate([
     customElement('mdc-slider'),
     inject(Element, TaskQueue),
