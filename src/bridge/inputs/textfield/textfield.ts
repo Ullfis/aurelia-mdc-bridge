@@ -1,11 +1,11 @@
 import { autoinject, bindable, bindingMode, customElement, TaskQueue } from 'aurelia-framework';
 import { getLogger, Logger } from 'aurelia-logging';
-import { MDCTextfield } from '@material/textfield';
+import { MDCTextField } from '@material/textfield';
 import * as util from '../../util';
 
-@customElement('mdc-textfield')
+@customElement('mdc-text-field')
 @autoinject()
-export class MdcTextfield {
+export class MdcTextField {
   private static id = 0;
   @bindable({ defaultBindingMode: bindingMode.twoWay }) public value = '';
   @bindable({ defaultBindingMode: bindingMode.twoWay }) public focused = false;
@@ -44,9 +44,9 @@ export class MdcTextfield {
   private trailingIconSlot: HTMLDivElement;
 
   constructor(private element: Element, private taskQueue: TaskQueue) {
-    this.controlId = `mdc-textfield-${MdcTextfield.id++}`;
-    this.helptextId = `mdc-helptextfield-${MdcTextfield.id}`;
-    this.log = getLogger('mdc-textfield');
+    this.controlId = `mdc-text-field-${MdcTextField.id++}`;
+    this.helptextId = `mdc-helptextfield-${MdcTextField.id}`;
+    this.log = getLogger('mdc-text-field');
   }
 
   public focus() {
@@ -75,17 +75,17 @@ export class MdcTextfield {
 
     this.prefilledChanged(this.prefilled);
 
-    this.mdcTextfield = new MDCTextfield(this.elementMain);
+    this.mdcTextfield = new MDCTextField(this.elementMain);
 
     this.helptextShowChanged(this.helptextShow);
     this.disabledChanged(this.disabled);
     this.focusedChanged(this.focused);
 
     if (this.isIcon(this.leadingIconSlot)) {
-      this.elementMain.classList.add('mdc-textfield--with-leading-icon');
+      this.elementMain.classList.add('mdc-text-field--with-leading-icon');
     }
     if (this.isIcon(this.trailingIconSlot)) {
-      this.elementMain.classList.add('mdc-textfield--with-trailing-icon');
+      this.elementMain.classList.add('mdc-text-field--with-trailing-icon');
     }
 
     this.mdcTextfield.foundation_.adapter_.registerInputInteractionHandler('blur', this.onBlur.bind(this));
@@ -104,8 +104,8 @@ export class MdcTextfield {
     for (let i = 0; i < el.children.length; i++) {
       const item = el.children[i];
       if (item.tagName === 'I') {
-        if (!el.children[i].classList.contains('mdc-textfield__icon')) {
-          el.children[i].classList.add('mdc-textfield__icon');
+        if (!el.children[i].classList.contains('mdc-text-field__icon')) {
+          el.children[i].classList.add('mdc-text-field__icon');
         }
         return true;
       }
@@ -115,15 +115,15 @@ export class MdcTextfield {
 
   private valueChanged(newValue: string) {
     // TODO: validation if value is updated from other controls or script
-    const isAbove = this.elementLabel.classList.contains('mdc-textfield__label--float-above');
+    const isAbove = this.elementLabel.classList.contains('mdc-text-field__label--float-above');
 
     if (newValue && newValue.length > 0) {
       if (!isAbove) {
-        this.elementLabel.classList.add('mdc-textfield__label--float-above');
+        this.elementLabel.classList.add('mdc-text-field__label--float-above');
       }
     } else {
       if (isAbove) {
-        this.elementLabel.classList.remove('mdc-textfield__label--float-above');
+        this.elementLabel.classList.remove('mdc-text-field__label--float-above');
       }
     }
   }
@@ -199,33 +199,33 @@ export class MdcTextfield {
   }
   private boxChanged(newValue) {
     const value = util.getBoolean(newValue);
-    this.elementMain.classList[value ? 'add' : 'remove']('mdc-textfield--box');
+    this.elementMain.classList[value ? 'add' : 'remove']('mdc-text-field--box');
   }
   private multilineChanged(newValue) {
     const value = util.getBoolean(newValue);
-    this.elementMain.classList[value ? 'add' : 'remove']('mdc-textfield--textarea');
+    this.elementMain.classList[value ? 'add' : 'remove']('mdc-text-field--textarea');
   }
   private denseChanged(newValue) {
     const value = util.getBoolean(newValue);
-    this.elementMain.classList[value ? 'add' : 'remove']('mdc-textfield--dense');
+    this.elementMain.classList[value ? 'add' : 'remove']('mdc-text-field--dense');
   }
   private fullwidthChanged(newValue) {
     const value = util.getBoolean(newValue);
-    this.elementMain.classList[value ? 'add' : 'remove']('mdc-textfield--fullwidth');
+    this.elementMain.classList[value ? 'add' : 'remove']('mdc-text-field--fullwidth');
   }
 
   private prefilledChanged(newValue) {
     const value = util.getBoolean(newValue);
-    this.elementMain.classList[value ? 'add' : 'remove']('mdc-textfield--upgraded');
-    this.elementLabel.classList[value ? 'add' : 'remove']('mdc-textfield__label--float-above');
+    this.elementMain.classList[value ? 'add' : 'remove']('mdc-text-field--upgraded');
+    this.elementLabel.classList[value ? 'add' : 'remove']('mdc-text-field__label--float-above');
   }
 
   private helptextPersistentChanged(newValue) {
     const value = util.getBoolean(newValue);
-    this.elementHelpText.classList[value ? 'add' : 'remove']('mdc-textfield-helptext--persistent');
+    this.elementHelpText.classList[value ? 'add' : 'remove']('mdc-text-field-helptext--persistent');
   }
   private helptextValidationChanged(newValue) {
     const value = util.getBoolean(newValue);
-    this.elementHelpText.classList[value ? 'add' : 'remove']('mdc-textfield-helptext--validation-msg');
+    this.elementHelpText.classList[value ? 'add' : 'remove']('mdc-text-field-helptext--validation-msg');
   }
 }
