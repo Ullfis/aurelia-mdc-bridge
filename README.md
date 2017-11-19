@@ -65,9 +65,9 @@ export function configure(aurelia) {
 - Use it:
 
 ```html
-<mdc-textfield value.bind="value">          
+<mdc-text-field value.bind="value">          
   Username
-</mdc-textfield>            
+</mdc-text-field>            
 <button mdc-button="raised: true;">Submit</button>
 ```
 
