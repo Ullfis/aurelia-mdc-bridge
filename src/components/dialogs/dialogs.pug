@@ -13,7 +13,6 @@ template
       button(mdc-button="raised: true;" click.delegate="showDialog2()") Show Dialog - scrollable dialog
       p accept clicked: ${acceptClicked2}
       p event counter: ${eventCounter}
-      button(mdc-button="raised: true;" click.delegate="showDialog7()") Show Dialog - header/footer slots
     
       mdc-dialog(
         view-model.ref="dialog"
@@ -44,14 +43,6 @@ template
         on-click.delegate="onDialogClick1($event)")
         p Colored footer button
 
-      mdc-dialog(view-model.ref="dialog7")
-        h2(slot="header").mdc-dialog__header__title
-          i.material-icons.md-36.primary star
-          | Header
-        div(slot="footer")
-          button.mdc-button.mdc-dialog__footer__button.mdc-dialog__footer__button--accept(type="button") Accept button
-
-        p Body
 
     // LINKS
     mdc-grid-cell(span="12")
@@ -226,6 +217,8 @@ template
               background-color: /* custom bg color */;
             }      
 
+
+    // OPEN / CLOSED EVENTS
     mdc-grid-cell(span="12")
       h5 Opened / Closed events
       p These events fire after the dialog has beed opened / closed.
@@ -267,3 +260,39 @@ template
               this.focusMe.focus();
             });
           }
+
+
+
+    // USE SLOTS FOR DIALOG BOXES
+    mdc-grid-cell(span="12")
+      h5 Use header and footer slots
+      p If you want to customize the content of the header and footer, use slots:
+          
+      pre
+        code-prism.
+          <mdc-dialog>
+            <span slot="header">
+              <i class="material-icons md-24 primary">star</i>
+              <span class="mdc-dialog__header__title">Header</span>
+            </span>
+            
+            <span slot="footer">
+              <button mdc-button class="mdc-dialog__footer__button mdc-dialog__footer__button--accept">
+                Accept
+              </button>
+            </span>
+
+            <p>Body</p>
+          </mdc-dialog>
+
+      button(mdc-button="raised: true;" click.delegate="showDialog7()") Open Dialog
+      br
+
+      mdc-dialog(view-model.ref="dialog7")
+        span(slot="header")
+          i.material-icons.md-24.primary star
+          span.mdc-dialog__header__title Header
+        span(slot="footer")
+          button(mdc-button).mdc-dialog__footer__button.mdc-dialog__footer__button--accept Accept
+
+        p Body
