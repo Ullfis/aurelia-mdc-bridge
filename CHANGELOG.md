@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.12.1"></a>
+## [0.12.1](https://github.com/ullfis/aurelia-mdc-bridge/compare/v0.12.0...v0.12.1) (2017-11-23)
+
+
+### Bug Fixes
+
+* **mdc-select:** allow select input with custom items ([7bcad68](https://github.com/ullfis/aurelia-mdc-bridge/commit/7bcad68))
+* **mdc-simple-menu:** allow select input with custom items ([f6a00e6](https://github.com/ullfis/aurelia-mdc-bridge/commit/f6a00e6))
+
+
+
 <a name="0.12.0"></a>
 # [0.12.0](https://github.com/ullfis/aurelia-mdc-bridge/compare/v0.11.0...v0.12.0) (2017-11-18)
 
