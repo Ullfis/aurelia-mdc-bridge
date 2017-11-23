@@ -41,7 +41,14 @@ template
       section.mdc-theme--dark.components
         h6 Dark theme
         br
-        mdc-select(value.bind="selectedProductId" disabled.bind="disabled" on-change.delegate="onChange($event)")
+        style.
+          .my-cont .mdc-select {
+            min-width: 250px;
+          }
+          .my-cont .mdc-select .mdc-list-item {
+            min-width: 250px;
+          }
+        mdc-select.my-cont(value.bind="selectedProductId" disabled.bind="disabled" on-change.delegate="onChange($event)")
           mdc-list-item(repeat.for="product of products" model.bind="product.id")
             span ${product.id} - ${product.name}
             span(slot="start")
@@ -166,5 +173,33 @@ template
         pre
           code-prism(language="html").
             &lt;mdc-select on-change.delegate="onChange($event)" ... &gt;
+              ...
+            &lt;/mdc-select&gt;
+
+    // CUSTOM WIDTH
+    mdc-grid-cell(span="12")
+      section(id="event")
+        h5 Custom Width
+        style.
+          .my-select-container .mdc-select {
+            min-width: 350px;
+          }
+          .my-select-container .mdc-select .mdc-list-item {
+            min-width: 350px;
+          }          
+        mdc-select.my-select-container
+          mdc-list-item Item 1
+          mdc-list-item Item 2
+        pre
+          code-prism(language="css").
+            .my-select-container .mdc-select {
+              min-width: 350px;
+            }
+            .my-select-container .mdc-select .mdc-list-item {
+              min-width: 350px;
+            }
+        pre
+          code-prism(language="html").
+            &lt;mdc-select class="my-select-container" ... &gt;
               ...
             &lt;/mdc-select&gt;
