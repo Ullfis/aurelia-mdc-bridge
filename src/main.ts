@@ -5,7 +5,7 @@ import { ConfigBuilder } from './bridge/index';
 export function configure(aurelia: Aurelia) {
   aurelia.use
     .standardConfiguration()
-    .feature('./bridge/index', (b: ConfigBuilder) => b.useAll() )
+    .feature('./bridge/index', (b: ConfigBuilder) => b.useAll())
     .feature('resources');
 
   if (environment.debug) {

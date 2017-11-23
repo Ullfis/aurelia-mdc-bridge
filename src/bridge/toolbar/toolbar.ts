@@ -1,4 +1,4 @@
-import { inject, bindable, bindingMode, containerless } from 'aurelia-framework';
+import { inject, bindable, bindingMode } from 'aurelia-framework';
 import { getLogger, Logger } from 'aurelia-logging';
 import { MDCToolbar } from '@material/toolbar';
 import * as util from '../util';
@@ -16,7 +16,6 @@ export interface IMdcToolbarFlexibleChangeEvent extends CustomEvent {
   };
 }
 
-@containerless()
 @inject(Element)
 export class MdcToolbar {
   @bindable() public class;

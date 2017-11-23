@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { inject, bindable, containerless } from 'aurelia-framework';
+import { inject, bindable } from 'aurelia-framework';
 import { getLogger } from 'aurelia-logging';
 import { MDCToolbar } from '@material/toolbar';
 import * as util from '../util';
@@ -92,7 +92,6 @@ var MdcToolbar = (function () {
         __metadata("design:type", Object)
     ], MdcToolbar.prototype, "flexibleDefault", void 0);
     MdcToolbar = __decorate([
-        containerless(),
         inject(Element),
         __metadata("design:paramtypes", [Element])
     ], MdcToolbar);

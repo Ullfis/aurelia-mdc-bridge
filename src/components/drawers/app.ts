@@ -6,7 +6,7 @@ export class App {
 
   private configureRouter(config: RouterConfiguration, router: Router) {
     config.map([
-      // tslint:disable-next-line:max-line-length
+      // tslint:disable:max-line-length
       { route: ['', 'permanent-above'], moduleId: './permanent-above/drawer', nav: true,  title: 'Permanent Above Toolbar' },
       { route: 'permanent-below',       moduleId: './permanent-below/drawer', nav: true,  title: 'Permanent Below Toolbar' },
       { route: 'persistent',            moduleId: './persistent/drawer',      nav: true,  title: 'Persistent' },

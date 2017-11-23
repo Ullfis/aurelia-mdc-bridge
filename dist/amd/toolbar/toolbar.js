@@ -91,7 +91,6 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material
             __metadata("design:type", Object)
         ], MdcToolbar.prototype, "flexibleDefault", void 0);
         MdcToolbar = __decorate([
-            aurelia_framework_1.containerless(),
             aurelia_framework_1.inject(Element),
             __metadata("design:paramtypes", [Element])
         ], MdcToolbar);
