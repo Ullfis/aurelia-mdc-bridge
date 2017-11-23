@@ -23,7 +23,7 @@ export class MdcDrawerPersistent {
     // TODO: https://github.com/material-components/material-components-web/issues/1004
     if (!MDCPersistentDrawer.prototype.getDefaultFoundation_) {
       MDCPersistentDrawer.prototype.getDefaultFoundation_ = MDCPersistentDrawer.prototype.getDefaultFoundation;
-      MDCPersistentDrawer.prototype.getDefaultFoundation = function () {
+      MDCPersistentDrawer.prototype.getDefaultFoundation = function() {
         const foundation = this.getDefaultFoundation_();
 
         foundation.drawerClickHandler_ = (e) => {
