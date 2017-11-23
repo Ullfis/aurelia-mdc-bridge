@@ -22,6 +22,7 @@ let MdcDialog = MdcDialog_1 = class MdcDialog {
         this.acceptDisabled = false;
         this.scrollable = false;
         this.controlId = '';
+        this.showHeader = false;
         this.controlId = `mdc-dialog-${MdcDialog_1.id++}`;
         this.log = getLogger('mdc-dialog');
     }
@@ -43,13 +44,18 @@ let MdcDialog = MdcDialog_1 = class MdcDialog {
     unbind() { }
     attached() {
         this.scrollableChanged(this.scrollable);
+        this.headerChanged(this.header);
         this.mdcElement = new MDCDialog(this.diagElement);
         this.mdcDialogFoundation = this.mdcElement.foundation_.adapter_;
         this.mdcDialogFoundation.registerTransitionEndHandler(this.onTransitionEnd.bind(this));
-        this.mdcElement.listen('MDCDialog:accept', this.onButtonAccept.bind(this));
-        this.mdcElement.listen('MDCDialog:cancel', this.onButtonCancel.bind(this));
-        this.acceptActionChanged(this.acceptAction);
-        this.cancelActionChanged(this.cancelAction);
+        if (this.acceptButtonElement) {
+            this.mdcElement.listen('MDCDialog:accept', this.onButtonAccept.bind(this));
+            this.acceptActionChanged(this.acceptAction);
+        }
+        if (this.cancelButtonElement) {
+            this.mdcElement.listen('MDCDialog:cancel', this.onButtonCancel.bind(this));
+            this.cancelActionChanged(this.cancelAction);
+        }
         if (this.focusAt) {
             this.log.debug('this.focusAt:', this.focusAt);
             this.mdcElement.focusTrap_ = MDCUtil.createFocusTrapInstance(this.mdcElement.dialogSurface_, this.focusAt);
@@ -61,6 +67,13 @@ let MdcDialog = MdcDialog_1 = class MdcDialog {
         this.mdcDialogFoundation.deregisterTransitionEndHandler(this.onTransitionEnd.bind(this));
         this.mdcDialogFoundation = null;
         this.mdcElement.destroy();
+    }
+    headerChanged(newValue) {
+        let value = (newValue || '').length !== 0;
+        if (!this.titleElement) {
+            value = true;
+        }
+        this.showHeader = value;
     }
     onButtonAccept() {
         util.fireEvent(this.diagElement, 'on-click', true);

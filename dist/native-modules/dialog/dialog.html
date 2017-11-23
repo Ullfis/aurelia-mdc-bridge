@@ -3,8 +3,10 @@
   <aside class="mdc-dialog" id="${controlId}" ref="diagElement" role="alertdialog" aria-labelledby="${controlId}-label" aria-describedby="${controlId}-description">
     <div class="mdc-dialog__surface">
       <!-- HEADER-->
-      <header class="mdc-dialog__header" show.bind="header.length !== 0">
-        <h2 class="mdc-dialog__header__title" id="${controlId}-label">${header}</h2>
+      <header class="mdc-dialog__header" show.bind="showHeader">
+        <slot name="header">
+          <h2 class="mdc-dialog__header__title" id="${controlId}-label" ref="titleElement">${header}</h2>
+        </slot>
       </header>
       <!-- BODY-->
       <section class="mdc-dialog__body" id="${controlId}-description" class.bind="scrollable ? 'mdc-dialog__body--scrollable' : ''">
@@ -12,8 +14,10 @@
       </section>
       <!-- FOOTER-->
       <footer class="mdc-dialog__footer">
-        <button class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--cancel" type="button" ref="cancelButtonElement">${cancel}</button>
-        <button class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--accept" type="button" ref="acceptButtonElement" disabled.bind="acceptDisabled">${accept}</button>
+        <slot name="footer">
+          <button class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--cancel" type="button" ref="cancelButtonElement">${cancel}</button>
+          <button class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--accept" type="button" ref="acceptButtonElement" disabled.bind="acceptDisabled">${accept}</button>
+        </slot>
       </footer>
     </div>
     <div class="mdc-dialog__backdrop"></div>

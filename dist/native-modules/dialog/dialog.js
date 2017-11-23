@@ -22,6 +22,7 @@ var MdcDialog = (function () {
         this.acceptDisabled = false;
         this.scrollable = false;
         this.controlId = '';
+        this.showHeader = false;
         this.controlId = "mdc-dialog-" + MdcDialog_1.id++;
         this.log = getLogger('mdc-dialog');
     }
@@ -49,13 +50,18 @@ var MdcDialog = (function () {
     MdcDialog.prototype.unbind = function () { };
     MdcDialog.prototype.attached = function () {
         this.scrollableChanged(this.scrollable);
+        this.headerChanged(this.header);
         this.mdcElement = new MDCDialog(this.diagElement);
         this.mdcDialogFoundation = this.mdcElement.foundation_.adapter_;
         this.mdcDialogFoundation.registerTransitionEndHandler(this.onTransitionEnd.bind(this));
-        this.mdcElement.listen('MDCDialog:accept', this.onButtonAccept.bind(this));
-        this.mdcElement.listen('MDCDialog:cancel', this.onButtonCancel.bind(this));
-        this.acceptActionChanged(this.acceptAction);
-        this.cancelActionChanged(this.cancelAction);
+        if (this.acceptButtonElement) {
+            this.mdcElement.listen('MDCDialog:accept', this.onButtonAccept.bind(this));
+            this.acceptActionChanged(this.acceptAction);
+        }
+        if (this.cancelButtonElement) {
+            this.mdcElement.listen('MDCDialog:cancel', this.onButtonCancel.bind(this));
+            this.cancelActionChanged(this.cancelAction);
+        }
         if (this.focusAt) {
             this.log.debug('this.focusAt:', this.focusAt);
             this.mdcElement.focusTrap_ = MDCUtil.createFocusTrapInstance(this.mdcElement.dialogSurface_, this.focusAt);
@@ -67,6 +73,13 @@ var MdcDialog = (function () {
         this.mdcDialogFoundation.deregisterTransitionEndHandler(this.onTransitionEnd.bind(this));
         this.mdcDialogFoundation = null;
         this.mdcElement.destroy();
+    };
+    MdcDialog.prototype.headerChanged = function (newValue) {
+        var value = (newValue || '').length !== 0;
+        if (!this.titleElement) {
+            value = true;
+        }
+        this.showHeader = value;
     };
     MdcDialog.prototype.onButtonAccept = function () {
         util.fireEvent(this.diagElement, 'on-click', true);
