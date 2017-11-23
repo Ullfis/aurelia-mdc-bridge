@@ -25,6 +25,21 @@ var MdcSelect = (function () {
         var _this = this;
         this.taskQueue.queueTask(function () {
             _this.mdcSelect = new MDCSelect(_this.elementSelect);
+            _this.mdcSelect.menu_.foundation_.adapter_.getIndexForEventTarget = function (target) {
+                while (target) {
+                    if (target.classList.contains('mdc-list-item')) {
+                        if (target.attributes.getNamedItem('aria-disabled').value === 'true') {
+                            target = null;
+                        }
+                        break;
+                    }
+                    else if (target.classList.contains('mdc-simple-menu')) {
+                        break;
+                    }
+                    target = target.parentElement;
+                }
+                return _this.mdcSelect.menu_.items.indexOf(target);
+            };
             _this.mdcSelect.listen('MDCSelect:change', _this.raiseChangeEvent.bind(_this));
             var mdcSelectFoundation = _this.mdcSelect.foundation_.adapter_;
             mdcSelectFoundation.getTextForOptionAtIndex = _this.getTextForOptionAtIndex.bind(_this);

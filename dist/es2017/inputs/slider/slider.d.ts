@@ -11,6 +11,8 @@ export declare class MdcSlider {
     step: number;
     ariaLabel: string;
     disabled: boolean;
+    discrete: boolean;
+    markers: boolean;
     private log;
     private elementSlider;
     private mdcSlider;
@@ -28,4 +30,6 @@ export declare class MdcSlider {
     private minChanged(newValue);
     private maxChanged(newValue);
     private disabledChanged(newValue);
+    private discreteChanged(newValue);
+    private markersChanged(newValue);
 }

@@ -101,6 +101,22 @@ export class MdcSimpleMenu {
     if (util.getBoolean(this.openState)) { this.elementSimpleMenu.classList.add('mdc-simple-menu--open'); }
     this.openFromChanged(this.openFrom);
     this.mdcSimpleMenu = new MDCSimpleMenu(this.elementSimpleMenu);
+
+    // TODO: temporary override of click event target
+    // set target to closest parent element with class 'mdc-list-item'
+    this.mdcSimpleMenu.foundation_.adapter_.getIndexForEventTarget = (target: Element) => {
+      while (target) {
+        if (target.classList.contains('mdc-list-item')) {
+          if (target.attributes.getNamedItem('aria-disabled').value === 'true') { target = null; }
+          break;
+        } else if (target.classList.contains('mdc-simple-menu')) {
+          break;
+        }
+        target = target.parentElement;
+      }
+      return this.mdcSimpleMenu.items.indexOf(target);
+    };
+
     this.mdcSimpleMenu.listen('MDCSimpleMenu:selected', this.raiseSelectEvent.bind(this));
     this.mdcSimpleMenu.listen('MDCSimpleMenu:cancel', this.raiseCancelEvent.bind(this));
 

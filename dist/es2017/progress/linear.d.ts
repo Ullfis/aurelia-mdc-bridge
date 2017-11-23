@@ -1,6 +1,5 @@
 export declare class MdcLinearProgress {
     class: string;
-    accent: boolean;
     indeterminate: boolean;
     reversed: boolean;
     progress: number;
@@ -11,7 +10,6 @@ export declare class MdcLinearProgress {
     private bind();
     private attached();
     private detached();
-    private accentChanged(newValue);
     private indeterminateChanged(newValue);
     private reversedChanged(newValue);
     private progressChanged(newValue);

@@ -3,8 +3,10 @@
   <div class="mdc-slider" role="slider" tabindex="0" ref="elementSlider" aria-valuemin="${min}" aria-valuemax="${max}" aria-valuenow="${value}" data-step="${step}" aria-label="${ariaLabel}" aria-disabled="${disabled}">
     <div class="mdc-slider__track-container">
       <div class="mdc-slider__track"></div>
+      <div class="mdc-slider__track-marker-container" if.bind="markers"></div>
     </div>
     <div class="mdc-slider__thumb-container">
+      <div class="mdc-slider__pin" if.bind="discrete"><span class="mdc-slider__pin-value-marker"></span></div>
       <svg class="mdc-slider__thumb" width="21" height="21">
         <circle cx="10.5" cy="10.5" r="7.875"></circle>
       </svg>

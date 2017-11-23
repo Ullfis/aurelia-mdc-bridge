@@ -12,7 +12,6 @@ define(["require", "exports", "aurelia-framework", "@material/linear-progress", 
     Object.defineProperty(exports, "__esModule", { value: true });
     var MdcLinearProgress = (function () {
         function MdcLinearProgress() {
-            this.accent = false;
             this.indeterminate = false;
             this.reversed = false;
             this.open = true;
@@ -20,7 +19,6 @@ define(["require", "exports", "aurelia-framework", "@material/linear-progress", 
         MdcLinearProgress.prototype.bind = function () { };
         MdcLinearProgress.prototype.attached = function () {
             this.mdcElement = new linear_progress_1.MDCLinearProgress(this.elementDiv);
-            this.accentChanged(this.accent);
             this.indeterminateChanged(this.indeterminate);
             this.reversedChanged(this.reversed);
             this.progressChanged(this.progress);
@@ -29,10 +27,6 @@ define(["require", "exports", "aurelia-framework", "@material/linear-progress", 
         };
         MdcLinearProgress.prototype.detached = function () {
             this.mdcElement.destroy();
-        };
-        MdcLinearProgress.prototype.accentChanged = function (newValue) {
-            var value = util.getBoolean(newValue);
-            this.elementDiv.classList[value ? 'add' : 'remove']('mdc-linear-progress--accent');
         };
         MdcLinearProgress.prototype.indeterminateChanged = function (newValue) {
             var value = util.getBoolean(newValue);
@@ -61,10 +55,6 @@ define(["require", "exports", "aurelia-framework", "@material/linear-progress", 
             aurelia_framework_1.bindable(),
             __metadata("design:type", String)
         ], MdcLinearProgress.prototype, "class", void 0);
-        __decorate([
-            aurelia_framework_1.bindable(),
-            __metadata("design:type", Boolean)
-        ], MdcLinearProgress.prototype, "accent", void 0);
         __decorate([
             aurelia_framework_1.bindable(),
             __metadata("design:type", Boolean)

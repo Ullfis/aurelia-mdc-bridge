@@ -1,5 +1,5 @@
 import { TaskQueue } from 'aurelia-framework';
-export declare class MdcTextfield {
+export declare class MdcTextField {
     private element;
     private taskQueue;
     private static id;
