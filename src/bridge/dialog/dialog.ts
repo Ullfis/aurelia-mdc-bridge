@@ -28,11 +28,13 @@ export class MdcDialog {
   @bindable() public focusAt: HTMLElement;
   private log: Logger;
   private diagElement: HTMLElement;
+  private titleElement: HTMLElement;
   private acceptButtonElement: HTMLButtonElement;
   private cancelButtonElement: HTMLButtonElement;
   private mdcElement: MDCDialog;
   private mdcDialogFoundation: MDCDialogFoundation;
   private controlId = '';
+  private showHeader = false;
 
   constructor(private element: Element) {
     this.controlId = `mdc-dialog-${MdcDialog.id++}`;
@@ -59,6 +61,7 @@ export class MdcDialog {
 
   private attached() {
     this.scrollableChanged(this.scrollable);
+    this.headerChanged(this.header);
     this.mdcElement = new MDCDialog(this.diagElement);
     this.mdcDialogFoundation = this.mdcElement.foundation_.adapter_;
     this.mdcDialogFoundation.registerTransitionEndHandler(this.onTransitionEnd.bind(this));
@@ -88,6 +91,12 @@ export class MdcDialog {
     this.mdcDialogFoundation.deregisterTransitionEndHandler(this.onTransitionEnd.bind(this));
     this.mdcDialogFoundation = null;
     this.mdcElement.destroy();
+  }
+
+  private headerChanged(newValue) {
+    let value = (newValue || '').length !== 0;
+    if (!this.titleElement) { value = true; }
+    this.showHeader = value;
   }
 
   private onButtonAccept() {

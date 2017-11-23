@@ -44,10 +44,7 @@ template
         on-click.delegate="onDialogClick1($event)")
         p Colored footer button
 
-      mdc-dialog(
-        header="_"
-        view-model.ref="dialog7"
-      )
+      mdc-dialog(view-model.ref="dialog7")
         h2(slot="header").mdc-dialog__header__title
           i.material-icons.md-36.primary star
           | Header
