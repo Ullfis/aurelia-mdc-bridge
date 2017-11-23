@@ -36,6 +36,22 @@ export class MdcSelect {
   private attached() {
     this.taskQueue.queueTask(() => {
       this.mdcSelect = new MDCSelect(this.elementSelect);
+
+      // TODO: temporary override of click event target
+      // set target to closest parent element with class 'mdc-list-item'
+      this.mdcSelect.menu_.foundation_.adapter_.getIndexForEventTarget = (target) => {
+        while (target) {
+          if (target.classList.contains('mdc-list-item')) {
+            if (target.attributes.getNamedItem('aria-disabled').value === 'true') { target = null; }
+            break;
+          } else if (target.classList.contains('mdc-simple-menu')) {
+            break;
+          }
+          target = target.parentElement;
+        }
+        return this.mdcSelect.menu_.items.indexOf(target);
+      };
+
       this.mdcSelect.listen('MDCSelect:change', this.raiseChangeEvent.bind(this));
       const mdcSelectFoundation = this.mdcSelect.foundation_.adapter_;
 
