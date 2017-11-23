@@ -28,11 +28,13 @@ export class MdcDialog {
   @bindable() public focusAt: HTMLElement;
   private log: Logger;
   private diagElement: HTMLElement;
+  private titleElement: HTMLElement;
   private acceptButtonElement: HTMLButtonElement;
   private cancelButtonElement: HTMLButtonElement;
   private mdcElement: MDCDialog;
   private mdcDialogFoundation: MDCDialogFoundation;
   private controlId = '';
+  private showHeader = false;
 
   constructor(private element: Element) {
     this.controlId = `mdc-dialog-${MdcDialog.id++}`;
@@ -59,14 +61,21 @@ export class MdcDialog {
 
   private attached() {
     this.scrollableChanged(this.scrollable);
+    this.headerChanged(this.header);
     this.mdcElement = new MDCDialog(this.diagElement);
     this.mdcDialogFoundation = this.mdcElement.foundation_.adapter_;
     this.mdcDialogFoundation.registerTransitionEndHandler(this.onTransitionEnd.bind(this));
-    this.mdcElement.listen('MDCDialog:accept', this.onButtonAccept.bind(this));
-    this.mdcElement.listen('MDCDialog:cancel', this.onButtonCancel.bind(this));
 
-    this.acceptActionChanged(this.acceptAction);
-    this.cancelActionChanged(this.cancelAction);
+    // check if accept button is present
+    if (this.acceptButtonElement) {
+      this.mdcElement.listen('MDCDialog:accept', this.onButtonAccept.bind(this));
+      this.acceptActionChanged(this.acceptAction);
+    }
+    // check if cancel button is present
+    if (this.cancelButtonElement) {
+      this.mdcElement.listen('MDCDialog:cancel', this.onButtonCancel.bind(this));
+      this.cancelActionChanged(this.cancelAction);
+    }
 
     // not working with mdc-text-field (it works with input type="text")
     // <input type="text" ref="focusMeOnOpen" ..
@@ -82,6 +91,12 @@ export class MdcDialog {
     this.mdcDialogFoundation.deregisterTransitionEndHandler(this.onTransitionEnd.bind(this));
     this.mdcDialogFoundation = null;
     this.mdcElement.destroy();
+  }
+
+  private headerChanged(newValue) {
+    let value = (newValue || '').length !== 0;
+    if (!this.titleElement) { value = true; }
+    this.showHeader = value;
   }
 
   private onButtonAccept() {
