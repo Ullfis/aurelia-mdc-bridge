@@ -65,6 +65,21 @@ var MdcSimpleMenu = (function () {
         }
         this.openFromChanged(this.openFrom);
         this.mdcSimpleMenu = new MDCSimpleMenu(this.elementSimpleMenu);
+        this.mdcSimpleMenu.foundation_.adapter_.getIndexForEventTarget = function (target) {
+            while (target) {
+                if (target.classList.contains('mdc-list-item')) {
+                    if (target.attributes.getNamedItem('aria-disabled').value === 'true') {
+                        target = null;
+                    }
+                    break;
+                }
+                else if (target.classList.contains('mdc-simple-menu')) {
+                    break;
+                }
+                target = target.parentElement;
+            }
+            return _this.mdcSimpleMenu.items.indexOf(target);
+        };
         this.mdcSimpleMenu.listen('MDCSimpleMenu:selected', this.raiseSelectEvent.bind(this));
         this.mdcSimpleMenu.listen('MDCSimpleMenu:cancel', this.raiseCancelEvent.bind(this));
         this.taskQueue.queueMicroTask(function () {
