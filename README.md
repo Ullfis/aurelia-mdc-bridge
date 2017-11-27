@@ -1,5 +1,7 @@
 # Aurelia Mdc Bridge
 
+![version](https://img.shields.io/npm/v/aurelia-mdc-bridge.svg?style=flat-square)![downloads](https://img.shields.io/npm/dt/aurelia-mdc-bridge.svg?style=flat-square)![license](https://img.shields.io/npm/l/aurelia-mdc-bridge.svg?style=flat-square)
+
 [Project page](https://ullfis.github.io/aurelia-mdc-bridge)
 
 _This plugin is in active development and your feedback is welcome_
