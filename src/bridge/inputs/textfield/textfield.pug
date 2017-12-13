@@ -1,13 +1,12 @@
 template
   // TEXTFIELD
-  .mdc-text-field(ref="elementMain")
+  label.mdc-text-field(ref="elementMain")
 
     div(ref="leadingIconSlot")
       slot(name="leading-icon")
     
     //- INPUT
     input.mdc-text-field__input(
-      id="${controlId}"
       ref="elementInput"
       if.bind="!multiline"
       type="${type}" 
@@ -21,7 +20,6 @@ template
 
     //- TEXTAREA
     textarea.mdc-text-field__input(
-      id="${controlId}"
       ref="elementInput" 
       name.bind="name"
       if.bind="multiline" 
@@ -32,7 +30,7 @@ template
       aria-controls="${helptextId}")
 
     //- LABEL
-    label.mdc-text-field__label(for="${controlId}" ref="elementLabel")
+    span.mdc-text-field__label(ref="elementLabel")
       slot
 
     div(ref="trailingIconSlot")
@@ -42,7 +40,7 @@ template
     .mdc-text-field__bottom-line
 
   //- HELP TEXT
-  p.mdc-text-field-helptext(
+  p.mdc-text-field-helper-text(
     id="${helptextId}"
     ref="elementHelpText" 
     aria-hidden="true"
