@@ -47,7 +47,15 @@ System.register(["aurelia-framework", "aurelia-logging"], function (exports_1, c
                         this.setOptionClasses(this.element);
                     }
                     else {
-                        element.classList.add('mdc-select');
+                        var parent_1 = element.parentNode;
+                        var wrapper = document.createElement('div');
+                        parent_1.replaceChild(wrapper, element);
+                        wrapper.appendChild(element);
+                        wrapper.classList.add('mdc-select');
+                        element.classList.add('mdc-select__surface');
+                        var bottomLine = document.createElement('div');
+                        wrapper.appendChild(bottomLine);
+                        bottomLine.classList.add('mdc-select__bottom-line');
                     }
                 };
                 MdcSelectCss.prototype.setOptionClasses = function (el) {

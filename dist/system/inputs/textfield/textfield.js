@@ -54,11 +54,10 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/textfield", 
                     this.max = null;
                     this.step = null;
                     this.name = null;
-                    this.controlId = '';
                     this.helptextId = '';
                     this.styleHelptext = 'display: none;';
                     this.stopFocusedChanged = false;
-                    this.controlId = "mdc-text-field-" + MdcTextField_1.id++;
+                    MdcTextField_1.id++;
                     this.helptextId = "mdc-helptextfield-" + MdcTextField_1.id;
                     this.log = aurelia_logging_1.getLogger('mdc-text-field');
                 }
@@ -185,11 +184,6 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/textfield", 
                         this.elementInput.setAttribute('pattern', newValue);
                     }
                 };
-                MdcTextField.prototype.helptextShowChanged = function (newValue) {
-                    var value = util.getBoolean(newValue);
-                    this.mdcTextfield.elementHelpText = value ? this.elementHelpText : null;
-                    this.styleHelptext = 'display: ' + (value ? 'block;' : 'none;');
-                };
                 MdcTextField.prototype.boxChanged = function (newValue) {
                     var value = util.getBoolean(newValue);
                     this.elementMain.classList[value ? 'add' : 'remove']('mdc-text-field--box');
@@ -211,13 +205,18 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/textfield", 
                     this.elementMain.classList[value ? 'add' : 'remove']('mdc-text-field--upgraded');
                     this.elementLabel.classList[value ? 'add' : 'remove']('mdc-text-field__label--float-above');
                 };
+                MdcTextField.prototype.helptextShowChanged = function (newValue) {
+                    var value = util.getBoolean(newValue);
+                    this.mdcTextfield.helperTextElement = value ? this.elementHelpText : null;
+                    this.styleHelptext = 'display: ' + (value ? 'block;' : 'none;');
+                };
                 MdcTextField.prototype.helptextPersistentChanged = function (newValue) {
                     var value = util.getBoolean(newValue);
-                    this.elementHelpText.classList[value ? 'add' : 'remove']('mdc-text-field-helptext--persistent');
+                    this.elementHelpText.classList[value ? 'add' : 'remove']('mdc-text-field-helper-text--persistent');
                 };
                 MdcTextField.prototype.helptextValidationChanged = function (newValue) {
                     var value = util.getBoolean(newValue);
-                    this.elementHelpText.classList[value ? 'add' : 'remove']('mdc-text-field-helptext--validation-msg');
+                    this.elementHelpText.classList[value ? 'add' : 'remove']('mdc-text-field-helper-text--validation-msg');
                 };
                 MdcTextField.id = 0;
                 __decorate([

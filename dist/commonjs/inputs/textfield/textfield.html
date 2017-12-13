@@ -1,24 +1,17 @@
 
 <template>
   <!-- TEXTFIELD-->
-  <div class="mdc-text-field" ref="elementMain">
+  <label class="mdc-text-field" ref="elementMain">
     <div ref="leadingIconSlot">
       <slot name="leading-icon"></slot>
     </div>
-    <!-- INPUT-->
-    <input class="mdc-text-field__input amdc_input_element" id="${controlId}" ref="elementInput" if.bind="!multiline" type="${type}" name.bind="name" value.bind="value" min.bind="min" max.bind="max" step.bind="step" required.bind="required" aria-controls="${helptextId}"/>
-    <!-- TEXTAREA-->
-    <textarea class="mdc-text-field__input amdc_textarea_element" id="${controlId}" ref="elementInput" name.bind="name" if.bind="multiline" rows="${multilineRows}" cols="${multilineCols}" value.bind="value" required.bind="required" aria-controls="${helptextId}"></textarea>
-    <!-- LABEL-->
-    <label class="mdc-text-field__label" for="${controlId}" ref="elementLabel">
-      <slot></slot>
-    </label>
+    <input class="mdc-text-field__input" ref="elementInput" if.bind="!multiline" type="${type}" name.bind="name" value.bind="value" min.bind="min" max.bind="max" step.bind="step" required.bind="required" aria-controls="${helptextId}"/>
+    <textarea class="mdc-text-field__input" ref="elementInput" name.bind="name" if.bind="multiline" rows="${multilineRows}" cols="${multilineCols}" value.bind="value" required.bind="required" aria-controls="${helptextId}"></textarea><span class="mdc-text-field__label" ref="elementLabel">
+      <slot></slot></span>
     <div ref="trailingIconSlot">
       <slot name="trailing-icon"></slot>
     </div>
-    <!-- BOX BOTTOM LINE-->
-    <div class="mdc-text-field__bottom-line" if.bind="box"></div>
-  </div>
-  <!-- HELP TEXT-->
-  <p class="mdc-text-field-helptext" id="${helptextId}" ref="elementHelpText" aria-hidden="true" css.bind="styleHelptext">${helptext}</p>
+    <div class="mdc-text-field__bottom-line"></div>
+  </label>
+  <p class="mdc-text-field-helper-text" id="${helptextId}" ref="elementHelpText" aria-hidden="true" css.bind="styleHelptext">${helptext}</p>
 </template>

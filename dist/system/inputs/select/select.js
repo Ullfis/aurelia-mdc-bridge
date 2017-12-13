@@ -65,6 +65,10 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/select", "..
                             return;
                         }
                         _this.mdcSelect.selectedIndex = _this.findIndex(_this.value);
+                        var labelElement = _this.elementSelect.getElementsByClassName('mdc-select__label');
+                        if (labelElement[0]) {
+                            labelElement[0].classList.add('mdc-select__label--float-above');
+                        }
                     });
                 };
                 MdcSelect.prototype.detached = function () {
@@ -142,6 +146,10 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/select", "..
                     aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
                     __metadata("design:type", Object)
                 ], MdcSelect.prototype, "value", void 0);
+                __decorate([
+                    aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.oneWay }),
+                    __metadata("design:type", Object)
+                ], MdcSelect.prototype, "labelText", void 0);
                 __decorate([
                     aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.oneTime }),
                     __metadata("design:type", Function)

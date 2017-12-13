@@ -121,7 +121,7 @@ define(["require", "exports", "aurelia-pal", "../dom-helper"], function (require
             }
         }
         if (secondarySlot.hasChildNodes()) {
-            secondarySlot.classList.add('mdc-list-item__text__secondary');
+            secondarySlot.classList.add('mdc-list-item__text-secondary');
             textSlot.appendChild(secondarySlot);
         }
         if (textSlot.hasChildNodes()) {

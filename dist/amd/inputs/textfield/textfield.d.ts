@@ -27,17 +27,16 @@ export declare class MdcTextField {
     step: number;
     name: string;
     private log;
-    private controlId;
     private helptextId;
     private mdcTextfield;
-    private elementLabel;
     private elementMain;
-    private elementHelpText;
+    private leadingIconSlot;
     private elementInput;
+    private elementLabel;
+    private trailingIconSlot;
+    private elementHelpText;
     private styleHelptext;
     private stopFocusedChanged;
-    private leadingIconSlot;
-    private trailingIconSlot;
     constructor(element: Element, taskQueue: TaskQueue);
     focus(): void;
     getNativeInput(): {
@@ -59,12 +58,12 @@ export declare class MdcTextField {
     private placeholderChanged(newValue);
     private ariaLabelChanged(newValue);
     private patternChanged(newValue);
-    private helptextShowChanged(newValue);
     private boxChanged(newValue);
     private multilineChanged(newValue);
     private denseChanged(newValue);
     private fullwidthChanged(newValue);
     private prefilledChanged(newValue);
+    private helptextShowChanged(newValue);
     private helptextPersistentChanged(newValue);
     private helptextValidationChanged(newValue);
 }

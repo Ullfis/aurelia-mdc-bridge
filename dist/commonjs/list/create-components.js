@@ -122,7 +122,7 @@ function moveSlotElements(node, base) {
         }
     }
     if (secondarySlot.hasChildNodes()) {
-        secondarySlot.classList.add('mdc-list-item__text__secondary');
+        secondarySlot.classList.add('mdc-list-item__text-secondary');
         textSlot.appendChild(secondarySlot);
     }
     if (textSlot.hasChildNodes()) {

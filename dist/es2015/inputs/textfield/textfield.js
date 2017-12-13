@@ -38,11 +38,10 @@ let MdcTextField = MdcTextField_1 = class MdcTextField {
         this.max = null;
         this.step = null;
         this.name = null;
-        this.controlId = '';
         this.helptextId = '';
         this.styleHelptext = 'display: none;';
         this.stopFocusedChanged = false;
-        this.controlId = `mdc-text-field-${MdcTextField_1.id++}`;
+        MdcTextField_1.id++;
         this.helptextId = `mdc-helptextfield-${MdcTextField_1.id}`;
         this.log = getLogger('mdc-text-field');
     }
@@ -167,11 +166,6 @@ let MdcTextField = MdcTextField_1 = class MdcTextField {
             this.elementInput.setAttribute('pattern', newValue);
         }
     }
-    helptextShowChanged(newValue) {
-        const value = util.getBoolean(newValue);
-        this.mdcTextfield.elementHelpText = value ? this.elementHelpText : null;
-        this.styleHelptext = 'display: ' + (value ? 'block;' : 'none;');
-    }
     boxChanged(newValue) {
         const value = util.getBoolean(newValue);
         this.elementMain.classList[value ? 'add' : 'remove']('mdc-text-field--box');
@@ -193,13 +187,18 @@ let MdcTextField = MdcTextField_1 = class MdcTextField {
         this.elementMain.classList[value ? 'add' : 'remove']('mdc-text-field--upgraded');
         this.elementLabel.classList[value ? 'add' : 'remove']('mdc-text-field__label--float-above');
     }
+    helptextShowChanged(newValue) {
+        const value = util.getBoolean(newValue);
+        this.mdcTextfield.helperTextElement = value ? this.elementHelpText : null;
+        this.styleHelptext = 'display: ' + (value ? 'block;' : 'none;');
+    }
     helptextPersistentChanged(newValue) {
         const value = util.getBoolean(newValue);
-        this.elementHelpText.classList[value ? 'add' : 'remove']('mdc-text-field-helptext--persistent');
+        this.elementHelpText.classList[value ? 'add' : 'remove']('mdc-text-field-helper-text--persistent');
     }
     helptextValidationChanged(newValue) {
         const value = util.getBoolean(newValue);
-        this.elementHelpText.classList[value ? 'add' : 'remove']('mdc-text-field-helptext--validation-msg');
+        this.elementHelpText.classList[value ? 'add' : 'remove']('mdc-text-field-helper-text--validation-msg');
     }
 };
 MdcTextField.id = 0;

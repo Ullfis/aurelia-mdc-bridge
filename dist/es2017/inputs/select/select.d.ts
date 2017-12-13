@@ -9,6 +9,7 @@ export declare class MdcSelect {
     class: any;
     disabled: boolean;
     value: any;
+    labelText: any;
     matcher: (a: any, b: any) => boolean;
     private listItems;
     private elementSelect;
