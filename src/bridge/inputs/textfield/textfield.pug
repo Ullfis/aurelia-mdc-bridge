@@ -5,8 +5,8 @@ template
     div(ref="leadingIconSlot")
       slot(name="leading-icon")
     
-    // INPUT
-    input.mdc-text-field__input.amdc_input_element(
+    //- INPUT
+    input.mdc-text-field__input(
       id="${controlId}"
       ref="elementInput"
       if.bind="!multiline"
@@ -19,8 +19,8 @@ template
       required.bind="required" 
       aria-controls="${helptextId}")
 
-    // TEXTAREA
-    textarea.mdc-text-field__input.amdc_textarea_element(
+    //- TEXTAREA
+    textarea.mdc-text-field__input(
       id="${controlId}"
       ref="elementInput" 
       name.bind="name"
@@ -31,17 +31,17 @@ template
       required.bind="required" 
       aria-controls="${helptextId}")
 
-    // LABEL
+    //- LABEL
     label.mdc-text-field__label(for="${controlId}" ref="elementLabel")
       slot
 
     div(ref="trailingIconSlot")
       slot(name="trailing-icon")
   
-    // BOX BOTTOM LINE
-    .mdc-text-field__bottom-line(if.bind="box")
+    //- BOX BOTTOM LINE
+    .mdc-text-field__bottom-line
 
-  // HELP TEXT
+  //- HELP TEXT
   p.mdc-text-field-helptext(
     id="${helptextId}"
     ref="elementHelpText" 
