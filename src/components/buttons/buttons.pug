@@ -92,14 +92,25 @@ template
           code-prism(language="css").
             button.secondary-text {
               @include mdc-button-ink-color($mdc-theme-secondary);
-              @include mdc-ripple-color(secondary, $mdc-unfilled-button-ripple-opacity);
+              @include mdc-states(secondary);
 
               @include mdc-theme-dark(".mdc-button") {
                 @include mdc-button-ink-color($mdc-theme-secondary);
-                @include mdc-ripple-color(secondary, $mdc-unfilled-button-ripple-opacity);
+                @include mdc-states(secondary);
               }
             }
 
+        pre
+          code-prism.
+            &lt;button mdc-button class="secondary-text"&gt;
+              secondary-text-button
+            &lt;/button&gt;
+
+        button.secondary-text(mdc-button) secondary-text-button
+
+
+        pre
+          code-prism(language="css").
             button.secondary-filled {
               @include mdc-button-filled-accessible($mdc-theme-secondary);
 
@@ -108,23 +119,65 @@ template
               }
             }
 
+        pre
+          code-prism.
+            &lt;button mdc-button class="secondary-filled"&gt;
+              secondary-filled-button
+            &lt;/button&gt;
+
+        button.secondary-filled(mdc-button) secondary-filled-button          
+
+
+        pre
+          code-prism(language="css").
             button.secondary-stroked {
               @include mdc-button-ink-color($mdc-theme-secondary);
               @include mdc-button-stroke-color($mdc-theme-secondary);
-              @include mdc-ripple-color(secondary, $mdc-unfilled-button-ripple-opacity);
+              @include mdc-states(secondary);
 
               @include mdc-theme-dark(".mdc-button") {
                 @include mdc-button-ink-color($mdc-theme-secondary);
                 @include mdc-button-stroke-color($mdc-theme-secondary);
-                @include mdc-ripple-color(secondary, $mdc-unfilled-button-ripple-opacity);
+                @include mdc-states(secondary);
               }
             }
 
         pre
           code-prism.
-            &lt;button mdc-button="stroked: true;" class="secondary-stroked" ...&gt;
-              Secondary colored button
+            &lt;button mdc-button="stroked: true;" class="secondary-stroked"&gt;
+              secondary-stroked-button
             &lt;/button&gt;
+
+        button.secondary-stroked(mdc-button="stroked: true;") secondary-stroked-button         
+
+        pre
+          code-prism(language="css").
+            button.big-round-corner-button {
+              @include mdc-button-corner-radius(8px);
+            }
+
+        pre
+          code-prism.
+            &lt;button mdc-button="stroked: true;" class="big-round-corner"&gt;
+              big-round-corner-button
+            &lt;/button&gt;
+
+        button.big-round-corner(mdc-button="stroked: true;") big-round-corner-button           
+
+        pre
+          code-prism(language="css").
+            button.thick-stroke {
+              @include mdc-button-stroke-width(4px);
+            }            
+
+        pre
+          code-prism.
+            &lt;button mdc-button="stroked: true;" class="thick-stroke"&gt;
+              thick-stroke-button
+            &lt;/button&gt;
+
+        button.thick-stroke(mdc-button="stroked: true;") thick-stroke-button           
+
 
     // WALL OF BUTTONS
     mdc-grid-cell(span="12")
