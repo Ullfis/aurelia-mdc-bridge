@@ -1,7 +1,7 @@
 import { IMdcSelectChangeEvent } from '../../../bridge/index';
 
 export class Selects {
-  /** */
+  private labelText = 'Label text';
 
   private products = [
     { id: 0, name: 'WiFi', icon: 'network_wifi' },

@@ -49,7 +49,21 @@ export class MdcSelectCss {
       this.setOptionClasses(this.element);
 
     } else {
-      element.classList.add('mdc-select');
+      // wrap element into div
+      const parent = element.parentNode;
+      const wrapper = document.createElement('div');
+
+      // set the wrapper as child (instead of the element)
+      parent.replaceChild(wrapper, element);
+      // set element as child of wrapper
+      wrapper.appendChild(element);
+      wrapper.classList.add('mdc-select');
+      element.classList.add('mdc-select__surface');
+
+      // add bottom line
+      const bottomLine = document.createElement('div');
+      wrapper.appendChild(bottomLine);
+      bottomLine.classList.add('mdc-select__bottom-line');
     }
   }
 

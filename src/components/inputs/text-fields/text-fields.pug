@@ -13,11 +13,11 @@ template
       br
       mdc-checkbox(checked.bind="mRequired") required
       br
-      mdc-checkbox(checked.bind="mHelptextShow") Show Helptext
+      mdc-checkbox(checked.bind="mHelptextShow") helptext-show
       br
-      mdc-checkbox(checked.bind="mHelptextPersistent") Persistent Helptext
+      mdc-checkbox(checked.bind="mHelptextPersistent") helptext-persistent
       br
-      mdc-checkbox(checked.bind="mHelptextValidation") Validation Helptext
+      mdc-checkbox(checked.bind="mHelptextValidation") helptext-validation
       br
       mdc-checkbox(checked.bind="mFullwidth") fullwidth              
       br
@@ -51,26 +51,33 @@ template
       section.components
         h5 Default theme
 
-        // demo textfield
-        mdc-text-field#testid(
-          view-model.ref="demoTextfieldElement"
-          value.bind="mValue" 
-          disabled.bind="mDisabled"
-          dense.bind="mDense"
-          required.bind="mRequired"
-          helptext.bind="mHelptext"
-          helptext-show.bind="mHelptextShow"
-          helptext-persistent.bind="mHelptextPersistent"
-          helptext-validation.bind="mHelptextValidation"
-          blur-on-enter="true"
-          focused.bind="mFocused"
-          focus.delegate="onEvent('focus', $event)"          
-          blur.delegate="onEvent('blur', $event)") Label text
+        mdc-grid-inner
+          mdc-grid-cell(span="6")
 
-        br
-        // events
-        report-element(view-model.ref="reportElement")
-        br
+            // demo textfield
+            mdc-text-field#testid(
+              view-model.ref="demoTextfieldElement"
+              value.bind="mValue" 
+              disabled.bind="mDisabled"
+              dense.bind="mDense"
+              required.bind="mRequired"
+              helptext.bind="mHelptext"
+              helptext-show.bind="mHelptextShow"
+              helptext-persistent.bind="mHelptextPersistent"
+              helptext-validation.bind="mHelptextValidation"
+              blur-on-enter="true"
+              focused.bind="mFocused"
+              focus.delegate="onEvent('focus', $event)"          
+              blur.delegate="onEvent('blur', $event)") Label text
+
+            br
+            br
+            br
+
+          mdc-grid-cell(span="6")
+            // events
+            report-element(view-model.ref="reportElement")
+            br
 
         // multiline
         mdc-text-field(

@@ -19,6 +19,7 @@ export class MdcSelect {
   @bindable() public class;
   @bindable() public disabled = false;
   @bindable({ defaultBindingMode: bindingMode.twoWay }) public value;
+  @bindable({ defaultBindingMode: bindingMode.oneWay }) public labelText;
   @bindable({ defaultBindingMode: bindingMode.oneTime }) public matcher: (a: any, b: any) => boolean;
   @children('.mdc-list-item') private listItems;
   private elementSelect: HTMLElement;
@@ -65,6 +66,12 @@ export class MdcSelect {
       // if value is set, find option index and select it
       if (!this.value) { return; }
       this.mdcSelect.selectedIndex = this.findIndex(this.value);
+
+      // let label float to top
+      const labelElement = this.elementSelect.getElementsByClassName('mdc-select__label');
+      if (labelElement[0]) {
+        labelElement[0].classList.add('mdc-select__label--float-above');
+      }
     });
   }
 

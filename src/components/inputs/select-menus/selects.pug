@@ -14,6 +14,8 @@ template
       br
       mdc-checkbox(checked.bind="disabled") disabled
       br
+      mdc-text-field(value.bind="labelText") label-text
+      br
       mdc-list(dense="true")
         mdc-list-item
           a(href="#icons") Icons
@@ -29,7 +31,10 @@ template
       section.components
         h6 Default theme
         br
-        mdc-select(value.bind="selectedProductId" disabled.bind="disabled" on-change.delegate="onChange($event)")
+        mdc-select(value.bind="selectedProductId" 
+                   disabled.bind="disabled" 
+                   on-change.delegate="onChange($event)"
+                   label-text.bind="labelText")
           mdc-list-item(repeat.for="product of products" model.bind="product.id")
             span ${product.id} - ${product.name}
           mdc-list-item(model="998" disabled="true")
@@ -48,7 +53,10 @@ template
           .my-cont .mdc-select .mdc-list-item {
             min-width: 250px;
           }
-        mdc-select.my-cont(value.bind="selectedProductId" disabled.bind="disabled" on-change.delegate="onChange($event)")
+        mdc-select.my-cont(value.bind="selectedProductId" 
+                           disabled.bind="disabled" 
+                           on-change.delegate="onChange($event)"
+                           label-text.bind="labelText")
           mdc-list-item(repeat.for="product of products" model.bind="product.id")
             span ${product.id} - ${product.name}
             span(slot="start")

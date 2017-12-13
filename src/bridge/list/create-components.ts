@@ -170,7 +170,7 @@ function moveSlotElements(node: HTMLElement, base: HTMLElement) {
   }
   // build and add noSlot element
   if (secondarySlot.hasChildNodes()) {
-    secondarySlot.classList.add('mdc-list-item__text__secondary');
+    secondarySlot.classList.add('mdc-list-item__text-secondary');
     textSlot.appendChild(secondarySlot);
   }
   if (textSlot.hasChildNodes()) {

@@ -31,20 +31,21 @@ export class MdcTextField {
   @bindable() public step: number = null;
   @bindable() public name: string = null;
   private log: Logger;
-  private controlId = '';
   private helptextId = '';
   private mdcTextfield;
-  private elementLabel: HTMLLabelElement;
-  private elementMain: HTMLDivElement;
-  private elementHelpText: HTMLParagraphElement;
+
+  private elementMain: HTMLLabelElement;
+  private leadingIconSlot: HTMLDivElement;
   private elementInput: HTMLInputElement | HTMLTextAreaElement;
+  private elementLabel: HTMLSpanElement;
+  private trailingIconSlot: HTMLDivElement;
+  private elementHelpText: HTMLParagraphElement;
+
   private styleHelptext = 'display: none;';
   private stopFocusedChanged = false;
-  private leadingIconSlot: HTMLDivElement;
-  private trailingIconSlot: HTMLDivElement;
 
   constructor(private element: Element, private taskQueue: TaskQueue) {
-    this.controlId = `mdc-text-field-${MdcTextField.id++}`;
+    MdcTextField.id++;
     this.helptextId = `mdc-helptextfield-${MdcTextField.id}`;
     this.log = getLogger('mdc-text-field');
   }
@@ -192,11 +193,6 @@ export class MdcTextField {
     }
   }
 
-  private helptextShowChanged(newValue: boolean) {
-    const value = util.getBoolean(newValue);
-    this.mdcTextfield.elementHelpText = value ? this.elementHelpText : null;
-    this.styleHelptext = 'display: ' + (value ? 'block;' : 'none;');
-  }
   private boxChanged(newValue) {
     const value = util.getBoolean(newValue);
     this.elementMain.classList[value ? 'add' : 'remove']('mdc-text-field--box');
@@ -220,12 +216,17 @@ export class MdcTextField {
     this.elementLabel.classList[value ? 'add' : 'remove']('mdc-text-field__label--float-above');
   }
 
+  private helptextShowChanged(newValue) {
+    const value = util.getBoolean(newValue);
+    this.mdcTextfield.helperTextElement = value ? this.elementHelpText : null;
+    this.styleHelptext = 'display: ' + (value ? 'block;' : 'none;');
+  }
   private helptextPersistentChanged(newValue) {
     const value = util.getBoolean(newValue);
-    this.elementHelpText.classList[value ? 'add' : 'remove']('mdc-text-field-helptext--persistent');
+    this.elementHelpText.classList[value ? 'add' : 'remove']('mdc-text-field-helper-text--persistent');
   }
   private helptextValidationChanged(newValue) {
     const value = util.getBoolean(newValue);
-    this.elementHelpText.classList[value ? 'add' : 'remove']('mdc-text-field-helptext--validation-msg');
+    this.elementHelpText.classList[value ? 'add' : 'remove']('mdc-text-field-helper-text--validation-msg');
   }
 }

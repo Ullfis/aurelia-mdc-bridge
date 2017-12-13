@@ -39,14 +39,15 @@ template
         span Selected id: ${selectedProductId}
           
         br
-        select(mdc-select-css multiple value.bind="selectedProducts" disabled.bind="disabled")
-          option(repeat.for="product of products"
-            model.bind="product.id") ${product.id} - ${product.name}
+        select(mdc-select-css multiple value.bind="selectedProducts" disabled.bind="disabled" size="9")
+          optgroup(label="Products")
+            option(repeat.for="product of products"
+                   model.bind="product.id") ${product.id} - ${product.name}
           option(role="presentation" disabled)
-          option Item 2
-          optgroup(label="optgroup label")
-            option Group
-          option Item 3
+          optgroup(label="Items")
+            option Item 1
+            option Item 2
+            option Item 3
 
         br
         span Selected selected ids: ${selectedProducts}
@@ -60,14 +61,15 @@ template
             model.bind="product.id") ${product.id} - ${product.name}
         
         br
-        select(mdc-select-css multiple value.bind="selectedProducts" disabled.bind="disabled")
-          option(repeat.for="product of products"
-            model.bind="product.id") ${product.id} - ${product.name}
+        select(mdc-select-css multiple value.bind="selectedProducts" disabled.bind="disabled" size="9")
+          optgroup(label="Products")
+            option(repeat.for="product of products"
+                   model.bind="product.id") ${product.id} - ${product.name}
           option(role="presentation" disabled)
-          option Item 2
-          optgroup(label="optgroup label")
-            option Group
-          option Item 3
+          optgroup(label="Items")
+            option Item 1
+            option Item 2
+            option Item 3
         br
 
 
