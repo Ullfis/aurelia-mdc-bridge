@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.14.0"></a>
+# [0.14.0](https://github.com/ullfis/aurelia-mdc-bridge/compare/v0.13.0...v0.14.0) (2017-12-13)
+
+
+### Bug Fixes
+
+* **mdc-list-item:** rename secondary text class name ([3a873c6](https://github.com/ullfis/aurelia-mdc-bridge/commit/3a873c6))
+* **mdc-select-css:** wrap select into div and add bottom line class ([98ebd18](https://github.com/ullfis/aurelia-mdc-bridge/commit/98ebd18))
+* **mdc-text-field:** remove box binding from bottom line ([951f41e](https://github.com/ullfis/aurelia-mdc-bridge/commit/951f41e))
+* **mdc-text-field:** rename helper-text classes ([6b12608](https://github.com/ullfis/aurelia-mdc-bridge/commit/6b12608))
+
+
+### Features
+
+* **mdc-select:** add label-text attribute ([5ed224e](https://github.com/ullfis/aurelia-mdc-bridge/commit/5ed224e))
+
+
+
 <a name="0.13.0"></a>
 # [0.13.0](https://github.com/ullfis/aurelia-mdc-bridge/compare/v0.12.2...v0.13.0) (2017-11-23)
 
