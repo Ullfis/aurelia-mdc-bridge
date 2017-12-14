@@ -1,7 +1,7 @@
 {
   "name": "aurelia-mdc-bridge",
   "description": "Use Material Design Components in Aurelia projects",
-  "version": "0.14.0",
+  "version": "0.14.3",
   "repository": {
     "type": "git",
     "url": "https://github.com/ullfis/aurelia-mdc-bridge.git"
@@ -76,7 +76,7 @@
   },
   "peerDependencies": {},
   "devDependencies": {
-    "@types/node": "^8.0.58",
+    "@types/node": "^8.5.0",
     "@types/prismjs": "^1.9.0",
     "aurelia-bootstrapper": "^2.1.1",
     "aurelia-cli": "^0.32.0",
