@@ -121,7 +121,7 @@ System.register(["aurelia-pal", "../dom-helper"], function (exports_1, context_1
             }
         }
         if (secondarySlot.hasChildNodes()) {
-            secondarySlot.classList.add('mdc-list-item__text-secondary');
+            secondarySlot.classList.add('mdc-list-item__secondary-text');
             textSlot.appendChild(secondarySlot);
         }
         if (textSlot.hasChildNodes()) {
