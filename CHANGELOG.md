@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.14.5"></a>
+## [0.14.5](https://github.com/ullfis/aurelia-mdc-bridge/compare/v0.14.4...v0.14.5) (2017-12-14)
+
+
+### Bug Fixes
+
+* **mdc-list-item:** secondary text class ([b56ea91](https://github.com/ullfis/aurelia-mdc-bridge/commit/b56ea91))
+
+
+
 <a name="0.14.4"></a>
 ## [0.14.4](https://github.com/ullfis/aurelia-mdc-bridge/compare/v0.14.3...v0.14.4) (2017-12-14)
 
