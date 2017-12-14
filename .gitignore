@@ -3,6 +3,7 @@
 #
 # We recommend that you use a Global Gitignore for files that are not related
 # to the project. (https://help.github.com/articles/ignoring-files/#create-a-global-gitignore)
+/npm-debug.log
 
 # OS
 #

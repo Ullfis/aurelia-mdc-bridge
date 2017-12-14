@@ -16,8 +16,16 @@
     "email": "",
     "url": "https://github.com/ullfis"
   },
-  "main": "dist/amd/index.js",
-  "typings": "dist/amd/index.d.ts",
+  "main": "dist/commonjs/index.js",
+  "typings": "dist/commonjs/index.d.ts",
+  "jspm": {
+    "registry": "npm",
+    "main": "index",
+    "format": "amd",
+    "directories": {
+      "lib": "dist/amd"
+    }
+  },
   "scripts": {
     "start": "au run -w",
     "___TEST___": "---- TEST ----",
