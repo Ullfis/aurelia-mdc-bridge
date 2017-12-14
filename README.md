@@ -2,7 +2,7 @@
 
 ![version](https://img.shields.io/npm/v/aurelia-mdc-bridge.svg?style=flat-square)![downloads](https://img.shields.io/npm/dt/aurelia-mdc-bridge.svg?style=flat-square)![license](https://img.shields.io/npm/l/aurelia-mdc-bridge.svg?style=flat-square)
 
-[Project page](https://ullfis.github.io/aurelia-mdc-bridge)
+[Project page](https://ullfis.github.io/aurelia-mdc-bridge) | [GistRun](https://gist.run/?id=7e9a439b81c17ac94e40409cb1f4b14d)
 
 _This plugin is in active development and your feedback is welcome_
 
