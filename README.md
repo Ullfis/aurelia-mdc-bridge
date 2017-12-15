@@ -128,3 +128,5 @@ Visual and console. No tests has been created yet. Contribute?
 # Pull Requests
 
 Yes, please!
+
+[Guidelines](https://github.com/Ullfis/aurelia-mdc-bridge/blob/master/CONTRIBUTING.md)
