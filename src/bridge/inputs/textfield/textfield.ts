@@ -58,6 +58,19 @@ export class MdcTextField {
     return this.mdcTextfield.foundation_.adapter_.getNativeInput();
   }
 
+  public get valid(): boolean {
+    if (this.mdcTextfield) {
+      return this.mdcTextfield.valid;
+    }
+    return true;
+  }
+
+  public set valid(value: boolean) {
+    if (this.mdcTextfield) {
+      this.mdcTextfield.valid = value;
+    }
+  }
+
   private bind() { /** */ }
   private unbind() { /** */ }
 

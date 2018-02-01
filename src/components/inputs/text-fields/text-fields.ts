@@ -1,7 +1,9 @@
+import { bindable } from 'aurelia-framework';
 import { getLogger, Logger } from 'aurelia-logging';
 import { MdcTextField } from '../../../bridge/index';
 
 export class TextFields {
+  @bindable() private mValid = true;
   private mValue = 'Hello world!';
   private mDisabled = false;
   private mDense = false;
@@ -50,5 +52,9 @@ export class TextFields {
     const week1 = new Date(date.getFullYear(), 0, 4);
     return 1 + Math.round(((date.getTime() - week1.getTime()) / 86400000
       - 3 + (week1.getDay() + 6) % 7) / 7);
+  }
+
+  private mValidChanged(newValue) {
+    this.demoTextfieldElement.valid = newValue;
   }
 }

@@ -22,6 +22,8 @@ template
       mdc-checkbox(checked.bind="mFullwidth") fullwidth              
       br
       mdc-checkbox(checked.bind="mFocused") focused
+      br
+      mdc-checkbox(checked.bind="mValid") valid
       br      
       mdc-text-field(value.bind="mHelptext") Help text
       br
@@ -240,4 +242,6 @@ template
             this.textfieldModel.focus();
             this.textfieldModel.focused = false;
             const nativeInput = this.textfieldModel.getNativeInput();
+
+            this.textfieldModel.valid = !this.textfieldModel.valid;
           ...
