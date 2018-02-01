@@ -1,6 +1,5 @@
 import { inject, customElement } from 'aurelia-framework';
 import { getLogger, Logger } from 'aurelia-logging';
-import * as util from '../util';
 
 @customElement('mdc-drawer-permanent')
 @inject(Element)
