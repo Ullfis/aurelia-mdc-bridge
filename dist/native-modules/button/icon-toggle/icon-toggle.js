@@ -18,9 +18,9 @@ var MdcIconToggle = (function () {
         this.iconOff = 'star_border';
         this.ariaLabelOn = 'On label';
         this.ariaLabelOff = 'Off label';
-        this.primary = false;
-        this.accent = false;
+        this.disabled = false;
         this.on = false;
+        this.tabindex = 0;
         this.log = getLogger('mdc-icon-toggle');
     }
     MdcIconToggle.prototype.bind = function () { };
@@ -28,8 +28,7 @@ var MdcIconToggle = (function () {
     MdcIconToggle.prototype.attached = function () {
         this.mdcIconToggle = new MDCIconToggle(this.elementI);
         this.elementI.addEventListener('MDCIconToggle:change', this.raiseEvent.bind(this));
-        this.primaryChanged(this.primary);
-        this.accentChanged(this.accent);
+        this.disabledChanged(this.disabled);
     };
     MdcIconToggle.prototype.detached = function () {
         this.elementI.removeEventListener('MDCIconToggle:change', this.raiseEvent.bind(this));
@@ -42,24 +41,9 @@ var MdcIconToggle = (function () {
     MdcIconToggle.prototype.onChanged = function (newValue) {
         this.mdcIconToggle.on = util.getBoolean(newValue);
     };
-    MdcIconToggle.prototype.primaryChanged = function (newValue) {
-        var value = util.getBoolean(newValue);
-        this.elementI.classList[value ? 'add' : 'remove']('mdc-icon-toggle--primary');
-        if (value) {
-            this.accent = false;
-        }
+    MdcIconToggle.prototype.disabledChanged = function (newValue) {
+        this.mdcIconToggle.disabled = util.getBoolean(newValue);
     };
-    MdcIconToggle.prototype.accentChanged = function (newValue) {
-        var value = util.getBoolean(newValue);
-        this.elementI.classList[value ? 'add' : 'remove']('mdc-icon-toggle--accent');
-        if (value) {
-            this.primary = false;
-        }
-    };
-    __decorate([
-        bindable(),
-        __metadata("design:type", String)
-    ], MdcIconToggle.prototype, "class", void 0);
     __decorate([
         bindable({ defaultBindingMode: bindingMode.oneTime }),
         __metadata("design:type", Object)
@@ -77,13 +61,9 @@ var MdcIconToggle = (function () {
         __metadata("design:type", Object)
     ], MdcIconToggle.prototype, "ariaLabelOff", void 0);
     __decorate([
-        bindable({ defaultBindingMode: bindingMode.twoWay }),
+        bindable({ defaultBindingMode: bindingMode.oneWay }),
         __metadata("design:type", Object)
-    ], MdcIconToggle.prototype, "primary", void 0);
-    __decorate([
-        bindable({ defaultBindingMode: bindingMode.twoWay }),
-        __metadata("design:type", Object)
-    ], MdcIconToggle.prototype, "accent", void 0);
+    ], MdcIconToggle.prototype, "disabled", void 0);
     __decorate([
         bindable({ defaultBindingMode: bindingMode.twoWay }),
         __metadata("design:type", Object)

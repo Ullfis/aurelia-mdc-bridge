@@ -54,14 +54,8 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/ripple", "./
                 MdcListItem.prototype.unbind = function () { };
                 MdcListItem.prototype.attached = function () {
                     this.parentElement = util.findAncestor(this.elementListItem, 'mdc-list');
-                    if (drawerCommon.isPermanentDrawer(this.element)) {
-                        this.selectedClass = 'mdc-permanent-drawer--selected';
-                    }
-                    if (drawerCommon.isPersistentDrawer(this.element)) {
-                        this.selectedClass = 'mdc-persistent-drawer--selected';
-                    }
-                    if (drawerCommon.isTemporaryDrawer(this.element)) {
-                        this.selectedClass = 'mdc-temporary-drawer--selected';
+                    if (drawerCommon.isDrawer(this.element)) {
+                        this.selectedClass = 'mdc-list-item--activated';
                     }
                     this.selectMenuItem();
                     this.simpleMenuItem();

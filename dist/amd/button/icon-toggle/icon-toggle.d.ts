@@ -3,16 +3,15 @@ export interface IMdcIconToggleEvent extends CustomEvent {
 }
 export declare class MdcIconToggle {
     private element;
-    class: string;
     iconOn: string;
     iconOff: string;
     ariaLabelOn: string;
     ariaLabelOff: string;
-    primary: boolean;
-    accent: boolean;
+    disabled: boolean;
     on: boolean;
     private log;
     private mdcIconToggle;
+    private tabindex;
     private elementI;
     constructor(element: Element);
     private bind();
@@ -21,6 +20,5 @@ export declare class MdcIconToggle {
     private detached();
     private raiseEvent();
     private onChanged(newValue);
-    private primaryChanged(newValue);
-    private accentChanged(newValue);
+    private disabledChanged(newValue);
 }

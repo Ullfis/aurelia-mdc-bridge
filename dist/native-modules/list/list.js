@@ -24,14 +24,8 @@ var MdcList = (function () {
     MdcList.prototype.bind = function () { };
     MdcList.prototype.unbind = function () { };
     MdcList.prototype.attached = function () {
-        if (drawerCommon.isPermanentDrawer(this.element)) {
-            this.element.classList.add('mdc-permanent-drawer__content');
-        }
-        if (drawerCommon.isPersistentDrawer(this.element)) {
-            this.element.classList.add('mdc-persistent-drawer__content');
-        }
-        if (drawerCommon.isTemporaryDrawer(this.element)) {
-            this.element.classList.add('mdc-temporary-drawer__content');
+        if (drawerCommon.isDrawer(this.element)) {
+            this.element.classList.add('mdc-drawer__content');
         }
         this.denseChanged(this.dense);
         this.twoLineChanged(this.twoLine);

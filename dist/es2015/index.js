@@ -1,7 +1,7 @@
 import { ConfigBuilder } from './config-builder';
 export function configure(aurelia, configCallback) {
     const builder = aurelia.container.get(ConfigBuilder);
-    if (configCallback !== undefined && typeof (configCallback) === 'function') {
+    if (configCallback instanceof Function) {
         configCallback(builder);
     }
     else {

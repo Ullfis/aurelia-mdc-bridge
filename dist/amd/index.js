@@ -6,7 +6,7 @@ define(["require", "exports", "./config-builder", "./config-builder", "./button/
     Object.defineProperty(exports, "__esModule", { value: true });
     function configure(aurelia, configCallback) {
         var builder = aurelia.container.get(config_builder_1.ConfigBuilder);
-        if (configCallback !== undefined && typeof (configCallback) === 'function') {
+        if (configCallback instanceof Function) {
             configCallback(builder);
         }
         else {

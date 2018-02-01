@@ -3,7 +3,7 @@ System.register(["./config-builder", "./button/button", "./button/fab/fab", "./b
     var __moduleName = context_1 && context_1.id;
     function configure(aurelia, configCallback) {
         var builder = aurelia.container.get(config_builder_1.ConfigBuilder);
-        if (configCallback !== undefined && typeof (configCallback) === 'function') {
+        if (configCallback instanceof Function) {
             configCallback(builder);
         }
         else {

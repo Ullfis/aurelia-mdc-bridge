@@ -1,4 +1,4 @@
-System.register(["aurelia-framework", "aurelia-logging", "./common"], function (exports_1, context_1) {
+System.register(["aurelia-framework", "aurelia-logging"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -10,7 +10,7 @@ System.register(["aurelia-framework", "aurelia-logging", "./common"], function (
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var aurelia_framework_1, aurelia_logging_1, drawerCommon, MdcDrawerSpacer;
+    var aurelia_framework_1, aurelia_logging_1, MdcDrawerSpacer;
     return {
         setters: [
             function (aurelia_framework_1_1) {
@@ -18,9 +18,6 @@ System.register(["aurelia-framework", "aurelia-logging", "./common"], function (
             },
             function (aurelia_logging_1_1) {
                 aurelia_logging_1 = aurelia_logging_1_1;
-            },
-            function (drawerCommon_1) {
-                drawerCommon = drawerCommon_1;
             }
         ],
         execute: function () {
@@ -31,15 +28,7 @@ System.register(["aurelia-framework", "aurelia-logging", "./common"], function (
                 MdcDrawerSpacer.prototype.bind = function () { };
                 MdcDrawerSpacer.prototype.unbind = function () { };
                 MdcDrawerSpacer.prototype.attached = function () {
-                    if (drawerCommon.isPermanentDrawer(this.elementSpacer)) {
-                        this.elementSpacer.classList.add('mdc-permanent-drawer__toolbar-spacer');
-                    }
-                    if (drawerCommon.isPersistentDrawer(this.elementSpacer)) {
-                        this.elementSpacer.classList.add('mdc-persistent-drawer__toolbar-spacer');
-                    }
-                    if (drawerCommon.isTemporaryDrawer(this.elementSpacer)) {
-                        this.elementSpacer.classList.add('mdc-temporary-drawer__toolbar-spacer');
-                    }
+                    this.elementSpacer.classList.add('mdc-drawer__toolbar-spacer');
                 };
                 MdcDrawerSpacer = __decorate([
                     aurelia_framework_1.customElement('mdc-drawer-spacer'),

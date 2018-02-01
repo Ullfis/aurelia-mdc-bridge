@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var config_builder_1 = require("./config-builder");
 function configure(aurelia, configCallback) {
     var builder = aurelia.container.get(config_builder_1.ConfigBuilder);
-    if (configCallback !== undefined && typeof (configCallback) === 'function') {
+    if (configCallback instanceof Function) {
         configCallback(builder);
     }
     else {

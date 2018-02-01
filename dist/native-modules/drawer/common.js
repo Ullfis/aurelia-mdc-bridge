@@ -1,12 +1,7 @@
 import * as util from '../util';
-export function isPermanentDrawer(element) {
-    return isClassPresent(element, 'mdc-permanent-drawer');
-}
-export function isPersistentDrawer(element) {
-    return isClassPresent(element, 'mdc-persistent-drawer__drawer');
-}
-export function isTemporaryDrawer(element) {
-    return isClassPresent(element, 'mdc-temporary-drawer__drawer');
+export function isDrawer(element) {
+    return isClassPresent(element, 'mdc-drawer__drawer') ||
+        isClassPresent(element, 'mdc-drawer--permanent');
 }
 function isClassPresent(parent, className) {
     if (parent) {

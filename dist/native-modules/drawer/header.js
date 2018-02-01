@@ -9,7 +9,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { customElement } from 'aurelia-framework';
 import { getLogger } from 'aurelia-logging';
-import * as drawerCommon from './common';
 var MdcDrawerHeader = (function () {
     function MdcDrawerHeader() {
         this.log = getLogger('mdc-drawer-header');
@@ -17,18 +16,8 @@ var MdcDrawerHeader = (function () {
     MdcDrawerHeader.prototype.bind = function () { };
     MdcDrawerHeader.prototype.unbind = function () { };
     MdcDrawerHeader.prototype.attached = function () {
-        if (drawerCommon.isPermanentDrawer(this.elementHeader)) {
-            this.elementHeader.classList.add('mdc-permanent-drawer__header');
-            this.elementContent.classList.add('mdc-permanent-drawer__header-content');
-        }
-        if (drawerCommon.isPersistentDrawer(this.elementHeader)) {
-            this.elementHeader.classList.add('mdc-persistent-drawer__header');
-            this.elementContent.classList.add('mdc-persistent-drawer__header-content');
-        }
-        if (drawerCommon.isTemporaryDrawer(this.elementHeader)) {
-            this.elementHeader.classList.add('mdc-temporary-drawer__header');
-            this.elementContent.classList.add('mdc-temporary-drawer__header-content');
-        }
+        this.elementHeader.classList.add('mdc-drawer__header');
+        this.elementContent.classList.add('mdc-drawer__header-content');
     };
     MdcDrawerHeader = __decorate([
         customElement('mdc-drawer-header'),
