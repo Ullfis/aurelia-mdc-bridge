@@ -61,14 +61,8 @@ export class MdcListItem {
   private attached() {
     this.parentElement = util.findAncestor(this.elementListItem, 'mdc-list') as HTMLElement;
 
-    if (drawerCommon.isPermanentDrawer(this.element)) {
-      this.selectedClass = 'mdc-permanent-drawer--selected';
-    }
-    if (drawerCommon.isPersistentDrawer(this.element)) {
-      this.selectedClass = 'mdc-persistent-drawer--selected';
-    }
-    if (drawerCommon.isTemporaryDrawer(this.element)) {
-      this.selectedClass = 'mdc-temporary-drawer--selected';
+    if (drawerCommon.isDrawer(this.element)) {
+      this.selectedClass = 'mdc-list-item--activated';
     }
 
     this.selectMenuItem();

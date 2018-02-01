@@ -16,16 +16,15 @@ export interface IMdcIconToggleEvent extends CustomEvent {
 @customElement('mdc-icon-toggle')
 @inject(Element)
 export class MdcIconToggle {
-  @bindable() public class: string;
   @bindable({ defaultBindingMode: bindingMode.oneTime }) public iconOn = 'star';
   @bindable({ defaultBindingMode: bindingMode.oneTime }) public iconOff = 'star_border';
   @bindable({ defaultBindingMode: bindingMode.oneTime }) public ariaLabelOn = 'On label';
   @bindable({ defaultBindingMode: bindingMode.oneTime }) public ariaLabelOff = 'Off label';
-  @bindable({ defaultBindingMode: bindingMode.twoWay }) public primary = false;
-  @bindable({ defaultBindingMode: bindingMode.twoWay }) public accent = false;
+  @bindable({ defaultBindingMode: bindingMode.oneWay }) public disabled = false;
   @bindable({ defaultBindingMode: bindingMode.twoWay }) public on = false;
   private log: Logger;
   private mdcIconToggle;
+  private tabindex = 0;
   private elementI: HTMLElement;
 
   constructor(private element: Element) {
@@ -38,9 +37,7 @@ export class MdcIconToggle {
   private attached() {
     this.mdcIconToggle = new MDCIconToggle(this.elementI);
     this.elementI.addEventListener('MDCIconToggle:change', this.raiseEvent.bind(this));
-
-    this.primaryChanged(this.primary);
-    this.accentChanged(this.accent);
+    this.disabledChanged(this.disabled);
   }
 
   private detached() {
@@ -57,15 +54,7 @@ export class MdcIconToggle {
     this.mdcIconToggle.on = util.getBoolean(newValue);
   }
 
-  private primaryChanged(newValue) {
-    const value = util.getBoolean(newValue);
-    this.elementI.classList[value ? 'add' : 'remove']('mdc-icon-toggle--primary');
-    if (value) { this.accent = false; }
-  }
-
-  private accentChanged(newValue) {
-    const value = util.getBoolean(newValue);
-    this.elementI.classList[value ? 'add' : 'remove']('mdc-icon-toggle--accent');
-    if (value) { this.primary = false; }
+  private disabledChanged(newValue) {
+    this.mdcIconToggle.disabled = util.getBoolean(newValue);
   }
 }

@@ -1,0 +1,13 @@
+.my-icon-toggle-primary {
+  .mdc-icon-toggle {
+    @include mdc-states($mdc-theme-primary);
+    @include mdc-icon-toggle-ink-color($mdc-theme-primary);
+  }
+}
+
+.my-icon-toggle-secondary {
+  .mdc-icon-toggle {
+    @include mdc-states($mdc-theme-secondary);
+    @include mdc-icon-toggle-ink-color($mdc-theme-secondary);
+  }
+}
