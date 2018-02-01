@@ -109,11 +109,11 @@ function moveSlotElements(node: HTMLElement, base: HTMLElement) {
             while (childNode.firstChild) {
               if (childNode.firstChild.nodeType === Node.TEXT_NODE) {
                 const span = DOMHelper.createElement('span');
-                span.classList.add('mdc-list-item__start-detail');
+                span.classList.add('mdc-list-item__graphic');
                 span.appendChild(childNode.firstChild);
                 startSlot.appendChild(span);
               } else {
-                (childNode.firstChild as HTMLElement).classList.add('mdc-list-item__start-detail');
+                (childNode.firstChild as HTMLElement).classList.add('mdc-list-item__graphic');
                 startSlot.appendChild(childNode.firstChild);
               }
             }
@@ -125,11 +125,11 @@ function moveSlotElements(node: HTMLElement, base: HTMLElement) {
             while (childNode.firstChild) {
               if (childNode.firstChild.nodeType === Node.TEXT_NODE) {
                 const span = DOMHelper.createElement('span');
-                span.classList.add('mdc-list-item__end-detail');
+                span.classList.add('mdc-list-item__meta');
                 span.appendChild(childNode.firstChild);
                 endSlot.appendChild(span);
               } else {
-                (childNode.firstChild as HTMLElement).classList.add('mdc-list-item__end-detail');
+                (childNode.firstChild as HTMLElement).classList.add('mdc-list-item__meta');
                 endSlot.appendChild(childNode.firstChild);
               }
             }
