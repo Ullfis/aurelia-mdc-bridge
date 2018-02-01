@@ -20,9 +20,11 @@ export class MdcIconToggle {
   @bindable({ defaultBindingMode: bindingMode.oneTime }) public iconOff = 'star_border';
   @bindable({ defaultBindingMode: bindingMode.oneTime }) public ariaLabelOn = 'On label';
   @bindable({ defaultBindingMode: bindingMode.oneTime }) public ariaLabelOff = 'Off label';
+  @bindable({ defaultBindingMode: bindingMode.oneWay }) public disabled = false;
   @bindable({ defaultBindingMode: bindingMode.twoWay }) public on = false;
   private log: Logger;
   private mdcIconToggle;
+  private tabindex = 0;
   private elementI: HTMLElement;
 
   constructor(private element: Element) {
@@ -35,6 +37,7 @@ export class MdcIconToggle {
   private attached() {
     this.mdcIconToggle = new MDCIconToggle(this.elementI);
     this.elementI.addEventListener('MDCIconToggle:change', this.raiseEvent.bind(this));
+    this.disabledChanged(this.disabled);
   }
 
   private detached() {
@@ -49,5 +52,9 @@ export class MdcIconToggle {
 
   private onChanged(newValue) {
     this.mdcIconToggle.on = util.getBoolean(newValue);
+  }
+
+  private disabledChanged(newValue) {
+    this.mdcIconToggle.disabled = util.getBoolean(newValue);
   }
 }

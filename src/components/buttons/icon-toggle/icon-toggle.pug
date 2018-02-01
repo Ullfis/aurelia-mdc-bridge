@@ -8,6 +8,8 @@ template
     // CONFIG AREA
     mdc-grid-cell(span="4")
       mdc-checkbox(checked.bind="on") on: ${on}
+      br
+      mdc-checkbox(checked.bind="disabled") disabled: ${disabled}
           
     // DEMO AREA
     mdc-grid-cell(span="8")
@@ -15,6 +17,7 @@ template
         h6 Default theme
         mdc-icon-toggle(
           on.bind="on"
+          disabled.bind="disabled"
           icon-on="star"
           icon-off="star_outline"
           aria-label-on="On"
@@ -25,6 +28,7 @@ template
         h6 Dark theme
         mdc-icon-toggle(
           on.bind="on"
+          disabled.bind="disabled"
           icon-on="star"
           icon-off="star_outline"
           aria-label-on="On"
@@ -37,6 +41,7 @@ template
         h6 Custom color
         mdc-icon-toggle.my-icon-toggle-primary(
           on.bind="on"
+          disabled.bind="disabled"
           icon-on="star"
           icon-off="star_outline"
           aria-label-on="On"
@@ -46,6 +51,7 @@ template
       section.mdc-theme--dark.components
         mdc-icon-toggle.my-icon-toggle-secondary(
           on.bind="on"
+          disabled.bind="disabled"
           icon-on="star"
           icon-off="star_outline"
           aria-label-on="On"
@@ -77,6 +83,7 @@ template
         code-prism.
           &lt;mdc-icon-toggle
             on.bind="on"
+            disabled.bind="disabled"
             icon-on="star"
             icon-off="star_outline"
             aria-label-on="On"
