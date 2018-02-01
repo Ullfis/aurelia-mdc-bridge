@@ -189,10 +189,12 @@ template
             .my-tile-stuff {
               .mdc-grid-tile {
                 @include mdc-elevation(0);
-                @include mdc-elevation-transition;
+                transition: mdc-elevation-transition-value();
+                will-change: $mdc-elevation-property;
+
+                &:active {
+                  @include mdc-elevation(8);  
+                }
               }
-              .mdc-grid-tile:active {
-                @include mdc-elevation(8);
-              }  
             }
         a(href="https://material.io/components/web/catalog/elevation/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-elevation") Elevation
