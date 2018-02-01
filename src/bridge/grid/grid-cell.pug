@@ -1,3 +1,5 @@
 template
-  .mdc-layout-grid__cell(ref="elementDiv" class.bind="class")
+  .mdc-layout-grid__cell(
+    class.bind="(span ? ' mdc-layout-grid__cell--span-' + span : '') + (spanDesktop ? ' mdc-layout-grid__cell--span-' + spanDesktop + '-desktop' : '') + (spanTablet ? ' mdc-layout-grid__cell--span-' + spanTablet + '-tablet' : '') + (spanPhone ? ' mdc-layout-grid__cell--span-' + spanPhone + '-phone' : '') + (order ? ' mdc-layout-grid__cell--order-' + order : '') + (align ? ' mdc-layout-grid__cell--align-' + align : '') + ' ' + class"
+  )
     slot

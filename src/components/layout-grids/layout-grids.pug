@@ -141,3 +141,20 @@ template
               <mdc-grid-cell></mdc-grid-cell>
               <mdc-grid-cell></mdc-grid-cell>
             </mdc-grid>
+
+  mdc-grid
+    mdc-grid-cell(span="12")
+      h4 Binding
+      mdc-text-field(
+        value.bind="step"
+        type="number"
+        min="1"
+        max="11"
+        step="1"
+      ) Span
+
+      mdc-grid-inner
+        mdc-grid-cell(span.bind="step")
+          p cell span ${step}
+        mdc-grid-cell(span="${12-step}")
+          p cell span ${12-step}
