@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.15.0"></a>
+# [0.15.0](https://github.com/ullfis/aurelia-mdc-bridge/compare/v0.14.5...v0.15.0) (2018-02-01)
+
+
+### Bug Fixes
+
+* **drawers:** rename drawer classes ([8274b12](https://github.com/ullfis/aurelia-mdc-bridge/commit/8274b12))
+* **mdc-drawer:** change selected class ([16ccc87](https://github.com/ullfis/aurelia-mdc-bridge/commit/16ccc87))
+* **mdc-list-item:** change start/end classes ([fe55cae](https://github.com/ullfis/aurelia-mdc-bridge/commit/fe55cae))
+
+
+### Features
+
+* update material-components-web to v0.28.0 ([dcda9aa](https://github.com/ullfis/aurelia-mdc-bridge/commit/dcda9aa))
+* **mdc-icon-toggle:** add disabled attribute ([b728745](https://github.com/ullfis/aurelia-mdc-bridge/commit/b728745))
+* **mdc-icon-toggle:** remove primary and accent attributes ([f163c81](https://github.com/ullfis/aurelia-mdc-bridge/commit/f163c81))
+
+
+
 <a name="0.14.5"></a>
 ## [0.14.5](https://github.com/ullfis/aurelia-mdc-bridge/compare/v0.14.4...v0.14.5) (2017-12-14)
 
