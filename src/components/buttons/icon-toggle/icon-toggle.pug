@@ -7,10 +7,6 @@ template
 
     // CONFIG AREA
     mdc-grid-cell(span="4")
-      mdc-checkbox(checked.bind="accent") accent
-      br
-      mdc-checkbox(checked.bind="primary") primary
-      br
       mdc-checkbox(checked.bind="on") on: ${on}
           
     // DEMO AREA
@@ -19,8 +15,6 @@ template
         h6 Default theme
         mdc-icon-toggle(
           on.bind="on"
-          accent.bind="accent" 
-          primary.bind="primary"
           icon-on="star"
           icon-off="star_outline"
           aria-label-on="On"
@@ -31,8 +25,6 @@ template
         h6 Dark theme
         mdc-icon-toggle(
           on.bind="on"
-          accent.bind="accent" 
-          primary.bind="primary"
           icon-on="star"
           icon-off="star_outline"
           aria-label-on="On"
@@ -40,6 +32,25 @@ template
           on-toggle.delegate="onToggle($event)")
       
       p Toggle event value: ${iconValue}        
+
+      section.components
+        h6 Custom color
+        mdc-icon-toggle.my-icon-toggle-primary(
+          on.bind="on"
+          icon-on="star"
+          icon-off="star_outline"
+          aria-label-on="On"
+          aria-label-off="Off"
+          on-toggle.delegate="onToggle($event)")
+
+      section.mdc-theme--dark.components
+        mdc-icon-toggle.my-icon-toggle-secondary(
+          on.bind="on"
+          icon-on="star"
+          icon-off="star_outline"
+          aria-label-on="On"
+          aria-label-off="Off"
+          on-toggle.delegate="onToggle($event)")
 
     // LINKS
     mdc-grid-cell(span="12")
@@ -66,11 +77,34 @@ template
         code-prism.
           &lt;mdc-icon-toggle
             on.bind="on"
-            accent.bind="accent" 
-            primary.bind="primary"
             icon-on="star"
             icon-off="star_outline"
             aria-label-on="On"
             aria-label-off="Off"
             on-toggle.delegate="onToggle($event)"&gt;
           &lt;/mdc-icon-toggle&gt;
+
+
+    // EXAMPLE CUSTOM COLOR
+    mdc-grid-cell(span="12")
+      section
+        h5 Custom color
+        pre
+          code-prism(language="css").
+            .my-icon-toggle-primary {
+              .mdc-icon-toggle {
+                @include mdc-states($mdc-theme-primary);
+                @include mdc-icon-toggle-ink-color($mdc-theme-primary);
+              }
+            }
+            .my-icon-toggle-secondary {
+              .mdc-icon-toggle {
+                @include mdc-states($mdc-theme-secondary);
+                @include mdc-icon-toggle-ink-color($mdc-theme-secondary);
+              }
+            }
+
+        pre
+          code-prism.
+            &lt;mdc-icon-toggle class="my-icon-toggle-.." ...&gt;
+            &lt;/mdc-icon-toggle&gt;
