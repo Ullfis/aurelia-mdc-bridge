@@ -17,6 +17,7 @@ var MdcTextField = (function () {
         this.taskQueue = taskQueue;
         this.value = '';
         this.focused = false;
+        this.outlined = false;
         this.type = '';
         this.multiline = false;
         this.box = false;
@@ -38,10 +39,12 @@ var MdcTextField = (function () {
         this.max = null;
         this.step = null;
         this.name = null;
+        this.textfieldId = '';
         this.helptextId = '';
         this.styleHelptext = 'display: none;';
         this.stopFocusedChanged = false;
         MdcTextField_1.id++;
+        this.textfieldId = "mdc-textfield-" + MdcTextField_1.id;
         this.helptextId = "mdc-helptextfield-" + MdcTextField_1.id;
         this.log = getLogger('mdc-text-field');
     }
@@ -52,6 +55,21 @@ var MdcTextField = (function () {
     MdcTextField.prototype.getNativeInput = function () {
         return this.mdcTextfield.foundation_.adapter_.getNativeInput();
     };
+    Object.defineProperty(MdcTextField.prototype, "valid", {
+        get: function () {
+            if (this.mdcTextfield) {
+                return this.mdcTextfield.valid;
+            }
+            return true;
+        },
+        set: function (value) {
+            if (this.mdcTextfield) {
+                this.mdcTextfield.valid = value;
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
     MdcTextField.prototype.bind = function () { };
     MdcTextField.prototype.unbind = function () { };
     MdcTextField.prototype.attached = function () {
@@ -59,6 +77,7 @@ var MdcTextField = (function () {
         this.multilineChanged(this.multiline);
         this.denseChanged(this.dense);
         this.fullwidthChanged(this.fullwidth);
+        this.outlinedChanged(this.outlined);
         this.patternChanged(this.pattern);
         this.placeholderChanged(this.placeholder);
         this.ariaLabelChanged(this.ariaLabel);
@@ -184,6 +203,10 @@ var MdcTextField = (function () {
         var value = util.getBoolean(newValue);
         this.elementMain.classList[value ? 'add' : 'remove']('mdc-text-field--fullwidth');
     };
+    MdcTextField.prototype.outlinedChanged = function (newValue) {
+        var value = util.getBoolean(newValue);
+        this.elementMain.classList[value ? 'add' : 'remove']('mdc-text-field--outlined');
+    };
     MdcTextField.prototype.prefilledChanged = function (newValue) {
         var value = util.getBoolean(newValue);
         this.elementMain.classList[value ? 'add' : 'remove']('mdc-text-field--upgraded');
@@ -211,6 +234,10 @@ var MdcTextField = (function () {
         bindable({ defaultBindingMode: bindingMode.twoWay }),
         __metadata("design:type", Object)
     ], MdcTextField.prototype, "focused", void 0);
+    __decorate([
+        bindable({ defaultBindingMode: bindingMode.oneWay }),
+        __metadata("design:type", Object)
+    ], MdcTextField.prototype, "outlined", void 0);
     __decorate([
         bindable({ defaultBindingMode: bindingMode.oneTime }),
         __metadata("design:type", Object)

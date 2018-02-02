@@ -17,6 +17,7 @@ let MdcTextField = MdcTextField_1 = class MdcTextField {
         this.taskQueue = taskQueue;
         this.value = '';
         this.focused = false;
+        this.outlined = false;
         this.type = '';
         this.multiline = false;
         this.box = false;
@@ -38,10 +39,12 @@ let MdcTextField = MdcTextField_1 = class MdcTextField {
         this.max = null;
         this.step = null;
         this.name = null;
+        this.textfieldId = '';
         this.helptextId = '';
         this.styleHelptext = 'display: none;';
         this.stopFocusedChanged = false;
         MdcTextField_1.id++;
+        this.textfieldId = `mdc-textfield-${MdcTextField_1.id}`;
         this.helptextId = `mdc-helptextfield-${MdcTextField_1.id}`;
         this.log = getLogger('mdc-text-field');
     }
@@ -51,6 +54,17 @@ let MdcTextField = MdcTextField_1 = class MdcTextField {
     getNativeInput() {
         return this.mdcTextfield.foundation_.adapter_.getNativeInput();
     }
+    get valid() {
+        if (this.mdcTextfield) {
+            return this.mdcTextfield.valid;
+        }
+        return true;
+    }
+    set valid(value) {
+        if (this.mdcTextfield) {
+            this.mdcTextfield.valid = value;
+        }
+    }
     bind() { }
     unbind() { }
     attached() {
@@ -58,6 +72,7 @@ let MdcTextField = MdcTextField_1 = class MdcTextField {
         this.multilineChanged(this.multiline);
         this.denseChanged(this.dense);
         this.fullwidthChanged(this.fullwidth);
+        this.outlinedChanged(this.outlined);
         this.patternChanged(this.pattern);
         this.placeholderChanged(this.placeholder);
         this.ariaLabelChanged(this.ariaLabel);
@@ -182,6 +197,10 @@ let MdcTextField = MdcTextField_1 = class MdcTextField {
         const value = util.getBoolean(newValue);
         this.elementMain.classList[value ? 'add' : 'remove']('mdc-text-field--fullwidth');
     }
+    outlinedChanged(newValue) {
+        const value = util.getBoolean(newValue);
+        this.elementMain.classList[value ? 'add' : 'remove']('mdc-text-field--outlined');
+    }
     prefilledChanged(newValue) {
         const value = util.getBoolean(newValue);
         this.elementMain.classList[value ? 'add' : 'remove']('mdc-text-field--upgraded');
@@ -210,6 +229,10 @@ __decorate([
     bindable({ defaultBindingMode: bindingMode.twoWay }),
     __metadata("design:type", Object)
 ], MdcTextField.prototype, "focused", void 0);
+__decorate([
+    bindable({ defaultBindingMode: bindingMode.oneWay }),
+    __metadata("design:type", Object)
+], MdcTextField.prototype, "outlined", void 0);
 __decorate([
     bindable({ defaultBindingMode: bindingMode.oneTime }),
     __metadata("design:type", Object)

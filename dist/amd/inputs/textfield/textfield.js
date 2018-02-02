@@ -16,6 +16,7 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material
             this.taskQueue = taskQueue;
             this.value = '';
             this.focused = false;
+            this.outlined = false;
             this.type = '';
             this.multiline = false;
             this.box = false;
@@ -37,10 +38,12 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material
             this.max = null;
             this.step = null;
             this.name = null;
+            this.textfieldId = '';
             this.helptextId = '';
             this.styleHelptext = 'display: none;';
             this.stopFocusedChanged = false;
             MdcTextField_1.id++;
+            this.textfieldId = "mdc-textfield-" + MdcTextField_1.id;
             this.helptextId = "mdc-helptextfield-" + MdcTextField_1.id;
             this.log = aurelia_logging_1.getLogger('mdc-text-field');
         }
@@ -51,6 +54,21 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material
         MdcTextField.prototype.getNativeInput = function () {
             return this.mdcTextfield.foundation_.adapter_.getNativeInput();
         };
+        Object.defineProperty(MdcTextField.prototype, "valid", {
+            get: function () {
+                if (this.mdcTextfield) {
+                    return this.mdcTextfield.valid;
+                }
+                return true;
+            },
+            set: function (value) {
+                if (this.mdcTextfield) {
+                    this.mdcTextfield.valid = value;
+                }
+            },
+            enumerable: true,
+            configurable: true
+        });
         MdcTextField.prototype.bind = function () { };
         MdcTextField.prototype.unbind = function () { };
         MdcTextField.prototype.attached = function () {
@@ -58,6 +76,7 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material
             this.multilineChanged(this.multiline);
             this.denseChanged(this.dense);
             this.fullwidthChanged(this.fullwidth);
+            this.outlinedChanged(this.outlined);
             this.patternChanged(this.pattern);
             this.placeholderChanged(this.placeholder);
             this.ariaLabelChanged(this.ariaLabel);
@@ -183,6 +202,10 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material
             var value = util.getBoolean(newValue);
             this.elementMain.classList[value ? 'add' : 'remove']('mdc-text-field--fullwidth');
         };
+        MdcTextField.prototype.outlinedChanged = function (newValue) {
+            var value = util.getBoolean(newValue);
+            this.elementMain.classList[value ? 'add' : 'remove']('mdc-text-field--outlined');
+        };
         MdcTextField.prototype.prefilledChanged = function (newValue) {
             var value = util.getBoolean(newValue);
             this.elementMain.classList[value ? 'add' : 'remove']('mdc-text-field--upgraded');
@@ -210,6 +233,10 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material
             aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
             __metadata("design:type", Object)
         ], MdcTextField.prototype, "focused", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.oneWay }),
+            __metadata("design:type", Object)
+        ], MdcTextField.prototype, "outlined", void 0);
         __decorate([
             aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.oneTime }),
             __metadata("design:type", Object)

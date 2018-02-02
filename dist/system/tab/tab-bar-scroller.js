@@ -33,8 +33,6 @@ System.register(["aurelia-framework", "@material/tabs", "../util"], function (ex
                     this.ariaNext = 'scroll forward button';
                     this.icon = false;
                     this.text = false;
-                    this.primary = false;
-                    this.accent = false;
                     this.stopChangedEvent = false;
                 }
                 MdcTabBarScroller.prototype.bind = function () { };
@@ -51,8 +49,6 @@ System.register(["aurelia-framework", "@material/tabs", "../util"], function (ex
                             _this.mdcTabBarScroller.tabBar.preventDefaultOnClick = true;
                         }
                     });
-                    this.primaryChanged(this.primary);
-                    this.accentChanged(this.accent);
                 };
                 MdcTabBarScroller.prototype.detached = function () {
                     if (this.mdcTabBarScroller) {
@@ -116,20 +112,6 @@ System.register(["aurelia-framework", "@material/tabs", "../util"], function (ex
                         }
                     }
                 };
-                MdcTabBarScroller.prototype.primaryChanged = function (newValue) {
-                    var value = util.getBoolean(newValue);
-                    this.elementTabBar.classList[value ? 'add' : 'remove']('mdc-tab-bar--indicator-primary');
-                    if (value) {
-                        this.accent = false;
-                    }
-                };
-                MdcTabBarScroller.prototype.accentChanged = function (newValue) {
-                    var value = util.getBoolean(newValue);
-                    this.elementTabBar.classList[value ? 'add' : 'remove']('mdc-tab-bar--indicator-accent');
-                    if (value) {
-                        this.primary = false;
-                    }
-                };
                 __decorate([
                     aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
                     __metadata("design:type", Object)
@@ -150,14 +132,6 @@ System.register(["aurelia-framework", "@material/tabs", "../util"], function (ex
                     aurelia_framework_1.bindable(),
                     __metadata("design:type", Object)
                 ], MdcTabBarScroller.prototype, "text", void 0);
-                __decorate([
-                    aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
-                    __metadata("design:type", Object)
-                ], MdcTabBarScroller.prototype, "primary", void 0);
-                __decorate([
-                    aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
-                    __metadata("design:type", Object)
-                ], MdcTabBarScroller.prototype, "accent", void 0);
                 MdcTabBarScroller = __decorate([
                     aurelia_framework_1.inject(Element, aurelia_framework_1.TaskQueue),
                     __metadata("design:paramtypes", [Element, aurelia_framework_1.TaskQueue])

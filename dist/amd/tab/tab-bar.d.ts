@@ -11,8 +11,6 @@ export declare class MdcTabBar {
     class: string;
     icon: boolean;
     text: boolean;
-    primary: boolean;
-    accent: boolean;
     private log;
     private elementTabBar;
     private mdcTabBar;
@@ -28,6 +26,4 @@ export declare class MdcTabBar {
     private activeTabIndexChanged(newValue);
     private iconChanged(newValue);
     private textChanged(newValue);
-    private primaryChanged(newValue);
-    private accentChanged(newValue);
 }

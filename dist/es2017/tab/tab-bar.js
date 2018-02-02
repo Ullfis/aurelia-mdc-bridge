@@ -18,8 +18,6 @@ let MdcTabBar = class MdcTabBar {
         this.activeTabIndex = 0;
         this.icon = false;
         this.text = false;
-        this.primary = false;
-        this.accent = false;
         this.stopChangedEvent = false;
         this.log = getLogger('mdc-tab-bar');
     }
@@ -34,8 +32,6 @@ let MdcTabBar = class MdcTabBar {
             this.mdcTabBar.listen('MDCTabBar:change', this.onChange.bind(this));
             this.mdcTabBar.preventDefaultOnClick = true;
         });
-        this.primaryChanged(this.primary);
-        this.accentChanged(this.accent);
     }
     detached() {
         if (this.mdcTabBar) {
@@ -95,20 +91,6 @@ let MdcTabBar = class MdcTabBar {
             }
         }
     }
-    primaryChanged(newValue) {
-        const value = util.getBoolean(newValue);
-        this.elementTabBar.classList[value ? 'add' : 'remove']('mdc-tab-bar--indicator-primary');
-        if (value) {
-            this.accent = false;
-        }
-    }
-    accentChanged(newValue) {
-        const value = util.getBoolean(newValue);
-        this.elementTabBar.classList[value ? 'add' : 'remove']('mdc-tab-bar--indicator-accent');
-        if (value) {
-            this.primary = false;
-        }
-    }
 };
 __decorate([
     bindable({ defaultBindingMode: bindingMode.twoWay }),
@@ -126,14 +108,6 @@ __decorate([
     bindable(),
     __metadata("design:type", Object)
 ], MdcTabBar.prototype, "text", void 0);
-__decorate([
-    bindable({ defaultBindingMode: bindingMode.twoWay }),
-    __metadata("design:type", Object)
-], MdcTabBar.prototype, "primary", void 0);
-__decorate([
-    bindable({ defaultBindingMode: bindingMode.twoWay }),
-    __metadata("design:type", Object)
-], MdcTabBar.prototype, "accent", void 0);
 MdcTabBar = __decorate([
     autoinject(),
     __metadata("design:paramtypes", [Element, TaskQueue])

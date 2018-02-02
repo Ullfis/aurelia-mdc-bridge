@@ -12,6 +12,4 @@ export declare class MdcGridCell {
     spanPhone: IMdcGridCellNumber;
     order: IMdcGridCellNumber;
     align: keyof IMdcGridCellAlign;
-    private elementDiv;
-    private attached();
 }

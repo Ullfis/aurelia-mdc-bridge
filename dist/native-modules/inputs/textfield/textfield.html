@@ -11,7 +11,13 @@
     <div ref="trailingIconSlot">
       <slot name="trailing-icon"></slot>
     </div>
-    <div class="mdc-text-field__bottom-line"></div>
+    <div class="mdc-text-field__bottom-line" show.bind="!outlined"></div>
+    <div class="mdc-text-field__outline" show.bind="outlined">
+      <svg>
+        <path class="mdc-text-field__outline-path"></path>
+      </svg>
+    </div>
+    <div class="mdc-text-field__idle-outline" show.bind="outlined"></div>
   </label>
   <p class="mdc-text-field-helper-text" id="${helptextId}" ref="elementHelpText" aria-hidden="true" css.bind="styleHelptext">${helptext}</p>
 </template>

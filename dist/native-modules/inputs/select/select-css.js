@@ -7,34 +7,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { children, inject, customAttribute } from 'aurelia-framework';
+import { inject, customAttribute } from 'aurelia-framework';
 import { getLogger } from 'aurelia-logging';
 var MdcSelectCss = (function () {
     function MdcSelectCss(element) {
         this.element = element;
-        this.isMultiple = false;
-        this.isPureCss = false;
         this.log = getLogger('mdc-select-css');
     }
     MdcSelectCss.prototype.bind = function () {
         if (this.element.nodeName === 'SELECT') {
-            this.isPureCss = true;
-            this.pureCss();
-        }
-    };
-    MdcSelectCss.prototype.optionsChanged = function () {
-        if (this.isMultiple && this.isPureCss) {
-            this.setOptionClasses(this.element);
-        }
-    };
-    MdcSelectCss.prototype.pureCss = function () {
-        var element = this.element;
-        if (element.hasAttribute('multiple')) {
-            this.isMultiple = true;
-            element.classList.add('mdc-multi-select', 'mdc-list');
-            this.setOptionClasses(this.element);
-        }
-        else {
+            var element = this.element;
             var parent_1 = element.parentNode;
             var wrapper = document.createElement('div');
             parent_1.replaceChild(wrapper, element);
@@ -46,29 +28,6 @@ var MdcSelectCss = (function () {
             bottomLine.classList.add('mdc-select__bottom-line');
         }
     };
-    MdcSelectCss.prototype.setOptionClasses = function (el) {
-        for (var index = 0; index < el.children.length; index++) {
-            var child = el.children[index];
-            switch (child.nodeName) {
-                case 'OPTION':
-                    if (child.getAttribute('role') === 'presentation') {
-                        child.classList.add('mdc-list-divider');
-                    }
-                    else {
-                        child.classList.add('mdc-list-item');
-                    }
-                    break;
-                case 'OPTGROUP':
-                    child.classList.add('mdc-list-group');
-                    this.setOptionClasses(child);
-                    break;
-            }
-        }
-    };
-    __decorate([
-        children('option, optgroup'),
-        __metadata("design:type", Object)
-    ], MdcSelectCss.prototype, "options", void 0);
     MdcSelectCss = __decorate([
         customAttribute('mdc-select-css'),
         inject(Element),

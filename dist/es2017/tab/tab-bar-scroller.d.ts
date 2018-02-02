@@ -7,8 +7,6 @@ export declare class MdcTabBarScroller {
     ariaNext: string;
     icon: boolean;
     text: boolean;
-    primary: boolean;
-    accent: boolean;
     private elementTabBar;
     private elementTabBarScroller;
     private mdcTabBarScroller;
@@ -24,6 +22,4 @@ export declare class MdcTabBarScroller {
     private hasChildText();
     private iconChanged(newValue);
     private textChanged(newValue);
-    private primaryChanged(newValue);
-    private accentChanged(newValue);
 }

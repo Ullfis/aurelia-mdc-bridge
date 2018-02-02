@@ -34,8 +34,6 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/tabs", "../u
                     this.activeTabIndex = 0;
                     this.icon = false;
                     this.text = false;
-                    this.primary = false;
-                    this.accent = false;
                     this.stopChangedEvent = false;
                     this.log = aurelia_logging_1.getLogger('mdc-tab-bar');
                 }
@@ -51,8 +49,6 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/tabs", "../u
                         _this.mdcTabBar.listen('MDCTabBar:change', _this.onChange.bind(_this));
                         _this.mdcTabBar.preventDefaultOnClick = true;
                     });
-                    this.primaryChanged(this.primary);
-                    this.accentChanged(this.accent);
                 };
                 MdcTabBar.prototype.detached = function () {
                     if (this.mdcTabBar) {
@@ -113,20 +109,6 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/tabs", "../u
                         }
                     }
                 };
-                MdcTabBar.prototype.primaryChanged = function (newValue) {
-                    var value = util.getBoolean(newValue);
-                    this.elementTabBar.classList[value ? 'add' : 'remove']('mdc-tab-bar--indicator-primary');
-                    if (value) {
-                        this.accent = false;
-                    }
-                };
-                MdcTabBar.prototype.accentChanged = function (newValue) {
-                    var value = util.getBoolean(newValue);
-                    this.elementTabBar.classList[value ? 'add' : 'remove']('mdc-tab-bar--indicator-accent');
-                    if (value) {
-                        this.primary = false;
-                    }
-                };
                 __decorate([
                     aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
                     __metadata("design:type", Object)
@@ -143,14 +125,6 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/tabs", "../u
                     aurelia_framework_1.bindable(),
                     __metadata("design:type", Object)
                 ], MdcTabBar.prototype, "text", void 0);
-                __decorate([
-                    aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
-                    __metadata("design:type", Object)
-                ], MdcTabBar.prototype, "primary", void 0);
-                __decorate([
-                    aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
-                    __metadata("design:type", Object)
-                ], MdcTabBar.prototype, "accent", void 0);
                 MdcTabBar = __decorate([
                     aurelia_framework_1.autoinject(),
                     __metadata("design:paramtypes", [Element, aurelia_framework_1.TaskQueue])

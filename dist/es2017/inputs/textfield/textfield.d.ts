@@ -5,6 +5,7 @@ export declare class MdcTextField {
     private static id;
     value: string;
     focused: boolean;
+    outlined: boolean;
     type: string;
     multiline: boolean;
     box: boolean;
@@ -27,6 +28,7 @@ export declare class MdcTextField {
     step: number;
     name: string;
     private log;
+    private textfieldId;
     private helptextId;
     private mdcTextfield;
     private elementMain;
@@ -45,6 +47,7 @@ export declare class MdcTextField {
         badInput: boolean;
         checkValidity: () => boolean;
     };
+    valid: boolean;
     private bind();
     private unbind();
     private attached();
@@ -62,6 +65,7 @@ export declare class MdcTextField {
     private multilineChanged(newValue);
     private denseChanged(newValue);
     private fullwidthChanged(newValue);
+    private outlinedChanged(newValue);
     private prefilledChanged(newValue);
     private helptextShowChanged(newValue);
     private helptextPersistentChanged(newValue);

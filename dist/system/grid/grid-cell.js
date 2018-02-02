@@ -27,52 +27,32 @@ System.register(["aurelia-framework"], function (exports_1, context_1) {
                     this.order = null;
                     this.align = null;
                 }
-                MdcGridCell.prototype.attached = function () {
-                    if (this.span) {
-                        this.elementDiv.classList.add('mdc-layout-grid__cell--span-' + this.span);
-                    }
-                    if (this.spanDesktop) {
-                        this.elementDiv.classList.add('mdc-layout-grid__cell--span-' + this.spanDesktop + '-desktop');
-                    }
-                    if (this.spanTablet) {
-                        this.elementDiv.classList.add('mdc-layout-grid__cell--span-' + this.spanTablet + '-tablet');
-                    }
-                    if (this.spanPhone) {
-                        this.elementDiv.classList.add('mdc-layout-grid__cell--span-' + this.spanPhone + '-phone');
-                    }
-                    if (this.order) {
-                        this.elementDiv.classList.add('mdc-layout-grid__cell--order-' + this.order);
-                    }
-                    if (this.align) {
-                        this.elementDiv.classList.add('mdc-layout-grid__cell--align-' + this.align);
-                    }
-                };
                 __decorate([
                     aurelia_framework_1.bindable(),
                     __metadata("design:type", String)
                 ], MdcGridCell.prototype, "class", void 0);
                 __decorate([
-                    aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.oneTime }),
+                    aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.toView }),
                     __metadata("design:type", Number)
                 ], MdcGridCell.prototype, "span", void 0);
                 __decorate([
-                    aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.oneTime }),
+                    aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.toView }),
                     __metadata("design:type", Number)
                 ], MdcGridCell.prototype, "spanDesktop", void 0);
                 __decorate([
-                    aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.oneTime }),
+                    aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.toView }),
                     __metadata("design:type", Number)
                 ], MdcGridCell.prototype, "spanTablet", void 0);
                 __decorate([
-                    aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.oneTime }),
+                    aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.toView }),
                     __metadata("design:type", Number)
                 ], MdcGridCell.prototype, "spanPhone", void 0);
                 __decorate([
-                    aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.oneTime }),
+                    aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.toView }),
                     __metadata("design:type", Number)
                 ], MdcGridCell.prototype, "order", void 0);
                 __decorate([
-                    aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.oneTime }),
+                    aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.toView }),
                     __metadata("design:type", Object)
                 ], MdcGridCell.prototype, "align", void 0);
                 MdcGridCell = __decorate([

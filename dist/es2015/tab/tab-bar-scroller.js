@@ -19,8 +19,6 @@ let MdcTabBarScroller = class MdcTabBarScroller {
         this.ariaNext = 'scroll forward button';
         this.icon = false;
         this.text = false;
-        this.primary = false;
-        this.accent = false;
         this.stopChangedEvent = false;
     }
     bind() { }
@@ -36,8 +34,6 @@ let MdcTabBarScroller = class MdcTabBarScroller {
                 this.mdcTabBarScroller.tabBar.preventDefaultOnClick = true;
             }
         });
-        this.primaryChanged(this.primary);
-        this.accentChanged(this.accent);
     }
     detached() {
         if (this.mdcTabBarScroller) {
@@ -100,20 +96,6 @@ let MdcTabBarScroller = class MdcTabBarScroller {
             }
         }
     }
-    primaryChanged(newValue) {
-        const value = util.getBoolean(newValue);
-        this.elementTabBar.classList[value ? 'add' : 'remove']('mdc-tab-bar--indicator-primary');
-        if (value) {
-            this.accent = false;
-        }
-    }
-    accentChanged(newValue) {
-        const value = util.getBoolean(newValue);
-        this.elementTabBar.classList[value ? 'add' : 'remove']('mdc-tab-bar--indicator-accent');
-        if (value) {
-            this.primary = false;
-        }
-    }
 };
 __decorate([
     bindable({ defaultBindingMode: bindingMode.twoWay }),
@@ -135,14 +117,6 @@ __decorate([
     bindable(),
     __metadata("design:type", Object)
 ], MdcTabBarScroller.prototype, "text", void 0);
-__decorate([
-    bindable({ defaultBindingMode: bindingMode.twoWay }),
-    __metadata("design:type", Object)
-], MdcTabBarScroller.prototype, "primary", void 0);
-__decorate([
-    bindable({ defaultBindingMode: bindingMode.twoWay }),
-    __metadata("design:type", Object)
-], MdcTabBarScroller.prototype, "accent", void 0);
 MdcTabBarScroller = __decorate([
     inject(Element, TaskQueue),
     __metadata("design:paramtypes", [Element, TaskQueue])
