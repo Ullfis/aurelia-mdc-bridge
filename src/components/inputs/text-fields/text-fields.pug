@@ -99,15 +99,28 @@ template
       // DARK THEME
       section.mdc-theme--dark.components
         h5 Dark theme
-        mdc-text-field(
-          value.bind="mValue" 
-          disabled.bind="mDisabled"
-          dense.bind="mDense"
-          required.bind="mRequired"
-          helptext.bind="mHelptext"
-          helptext-show.bind="mHelptextShow"
-          helptext-persistent.bind="mHelptextPersistent"
-          helptext-validation.bind="mHelptextValidation") Label text
+        mdc-grid-inner
+          mdc-grid-cell(span="6")        
+            mdc-text-field(
+              value.bind="mValue" 
+              disabled.bind="mDisabled"
+              dense.bind="mDense"
+              required.bind="mRequired"
+              helptext.bind="mHelptext"
+              helptext-show.bind="mHelptextShow"
+              helptext-persistent.bind="mHelptextPersistent"
+              helptext-validation.bind="mHelptextValidation") Label text
+
+          mdc-grid-cell(span="6")        
+            mdc-text-field.my-text-field(
+              value.bind="mValue" 
+              disabled.bind="mDisabled"
+              dense.bind="mDense"
+              required.bind="mRequired"
+              helptext.bind="mHelptext"
+              helptext-show.bind="mHelptextShow"
+              helptext-persistent.bind="mHelptextPersistent"
+              helptext-validation.bind="mHelptextValidation") Custom color
 
       // password      
       mdc-text-field(
@@ -242,7 +255,53 @@ template
       pre
         code-prism.
           <i slot="leading-icon" class="material-icons">event</i>
-          
+
+    // CUSTOM COLOR
+    mdc-grid-cell(span="12")
+      h5 Custom Color
+      pre
+        code-prism.
+          &lt;mdc-text-field class="my-text-field"&gt;&lt;/mdc-text-field&gt;
+      pre
+        code-prism(language="css").
+          .my-text-field {
+            :not(.mdc-text-field--focused) {
+              @include mdc-text-field-bottom-line-color(green);
+              @include mdc-text-field-hover-bottom-line-color(blue);
+              @include mdc-text-field-focused-bottom-line-color(teal);
+              @include mdc-text-field-ink-color(white);
+              @include mdc-text-field-label-color(orange);
+              @include mdc-text-field-helper-text-validation-color(grey);
+              
+              @include mdc-text-field-outline-color(red);
+              @include mdc-text-field-hover-outline-color(brown);
+              @include mdc-text-field-focused-outline-color(yellow);
+            }
+
+            .mdc-text-field--focused {
+              @include mdc-text-field-bottom-line-color(white);
+              @include mdc-text-field-focused-bottom-line-color(yellow);
+              @include mdc-text-field-ink-color(red);
+              @include mdc-text-field-label-color(blue);
+              @include mdc-text-field-helper-text-validation-color(teal);
+              
+              @include mdc-text-field-outline-color(green);
+              @include mdc-text-field-focused-outline-color(grey);
+            }
+
+            .mdc-text-field--invalid {
+              @include mdc-text-field-bottom-line-color(red);
+              @include mdc-text-field-hover-bottom-line-color(blue);
+              @include mdc-text-field-focused-bottom-line-color(blue);
+              @include mdc-text-field-ink-color(white);
+              @include mdc-text-field-label-color(yellow);
+              @include mdc-text-field-helper-text-validation-color(orange);
+              
+              @include mdc-text-field-outline-color(green);
+              @include mdc-text-field-hover-outline-color(brown);
+              @include mdc-text-field-focused-outline-color(teal);
+            }
+          }          
 
     // FUNCTIONS
     mdc-grid-cell(span="12") 

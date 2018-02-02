@@ -1,0 +1,38 @@
+.my-text-field {
+  :not(.mdc-text-field--focused) {
+    @include mdc-text-field-bottom-line-color(green);
+    @include mdc-text-field-hover-bottom-line-color(blue);
+    @include mdc-text-field-focused-bottom-line-color(teal);
+    @include mdc-text-field-ink-color(white);
+    @include mdc-text-field-label-color(orange);
+    @include mdc-text-field-helper-text-validation-color(grey);
+    
+    @include mdc-text-field-outline-color(red);
+    @include mdc-text-field-hover-outline-color(brown);
+    @include mdc-text-field-focused-outline-color(yellow);
+  }
+
+  .mdc-text-field--focused {
+    @include mdc-text-field-bottom-line-color(white);
+    @include mdc-text-field-focused-bottom-line-color(yellow);
+    @include mdc-text-field-ink-color(red);
+    @include mdc-text-field-label-color(blue);
+    @include mdc-text-field-helper-text-validation-color(teal);
+    
+    @include mdc-text-field-outline-color(green);
+    @include mdc-text-field-focused-outline-color(grey);
+  }
+
+  .mdc-text-field--invalid {
+    @include mdc-text-field-bottom-line-color(red);
+    @include mdc-text-field-hover-bottom-line-color(blue);
+    @include mdc-text-field-focused-bottom-line-color(blue);
+    @include mdc-text-field-ink-color(white);
+    @include mdc-text-field-label-color(yellow);
+    @include mdc-text-field-helper-text-validation-color(orange);
+    
+    @include mdc-text-field-outline-color(green);
+    @include mdc-text-field-hover-outline-color(brown);
+    @include mdc-text-field-focused-outline-color(teal);
+  }
+}
