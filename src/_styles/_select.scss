@@ -1,0 +1,8 @@
+.my-custom-select {
+  @include mdc-select-ink-color(green);
+  @include mdc-select-container-fill-color(rgba(red, .1));
+  @include mdc-select-label-color(orange);
+  @include mdc-select-focused-label-color(blue);
+  @include mdc-select-bottom-line-color(black);
+  @include mdc-select-focused-bottom-line-color(brown);
+}
