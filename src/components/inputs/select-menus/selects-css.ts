@@ -1,5 +1,3 @@
-import { MdcSelectCss, IMdcSelectCssChangeEvent } from '../../../bridge/index';
-
 export class SelectsCss {
 
   // private elementSelect1: MdcSelect;

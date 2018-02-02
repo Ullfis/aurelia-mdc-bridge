@@ -126,7 +126,7 @@ template
     mdc-grid-cell(span="12")
       h5 Scroller
 
-      mdc-tab-bar-scroller(active-tab-index.bind="indexScroller" primary="true")
+      mdc-tab-bar-scroller(active-tab-index.bind="indexScroller")
         mdc-tab(href="#" repeat.for="itemNr of [0,1,2,3,4,5,6,7,8,9]") item ${itemNr}
       
       .panels
@@ -135,7 +135,7 @@ template
 
       pre
         code-prism.
-          <mdc-tab-bar-scroller active-tab-index.bind="indexScroller" primary="true">
+          <mdc-tab-bar-scroller active-tab-index.bind="indexScroller">
             <mdc-tab href="#" repeat.for="itemNr of [0,1,2,3,4,5,6,7,8,9]">item ${itemNr}</mdc-tab>
           </mdc-tab-bar-scroller>
 
@@ -164,23 +164,9 @@ template
 
     // COLORS
     mdc-grid-cell(span="12")
-      h5 Colors
-      h6 primary
-      mdc-tab-bar(primary="true")
-        mdc-tab
-          i.material-icons(slot="icon") phone
-          span(slot="icon-text") Recents
-
-        mdc-tab
-          i.material-icons(slot="icon") favorite
-          span(slot="icon-text") Favorites
-
-        mdc-tab
-          i.material-icons(slot="icon") person_pin
-          span(slot="icon-text") Nearby
-
-      h6 accent
-      mdc-tab-bar(accent="true")
+      h5 Custom Colors
+      h6 my-tab-cusom-color
+      mdc-tab-bar.my-tab-cusom-color
         mdc-tab
           i.material-icons(slot="icon") phone
           span(slot="icon-text") Recents
@@ -209,14 +195,40 @@ template
 
       pre
         code-prism.
-          <mdc-tab-bar primary="true">
-            ...
-          </mdc-tab-bar>
-
-          <mdc-tab-bar accent="true">
+          <mdc-tab-bar class="my-tab-custom-color">
             ...
           </mdc-tab-bar>
 
           <mdc-tab-bar class="mdc-theme--dark">
             ...
           </mdc-tab-bar>
+
+      pre
+        code-prism(language="css").
+          .my-tab-cusom-color {
+            @include mdc-tab-bar-indicator-ink-color($mdc-theme-primary);
+
+            .mdc-tab:not(.mdc-tab--active) {
+              @include mdc-tab-ink-color($mdc-theme-primary);
+            }
+
+            .mdc-tab.mdc-tab--active {
+              @include mdc-tab-ink-color($mdc-theme-secondary);
+            }
+            .mdc-tab:hover {
+              @include mdc-tab-ink-color(yellow);
+            }
+          }
+
+          // // Use this mixin to set the color of all ink on the tab.
+          // @include mdc-tab-ink-color($mdc-theme-primary);
+
+          // // This mixin customizes the icon ink color.
+          // @include mdc-tab-icon-ink-color($mdc-theme-primary);
+
+          // // This mixin customizes the label ink color.
+          // @include mdc-tab-label-ink-color($mdc-theme-primary);
+
+          // // This mixin customizes the indicator ink color.
+          // @include mdc-tab-bar-indicator-ink-color($mdc-theme-primary);
+        

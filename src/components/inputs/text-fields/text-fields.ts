@@ -7,6 +7,7 @@ export class TextFields {
   private mValue = 'Hello world!';
   private mDisabled = false;
   private mDense = false;
+  private mOutlined = false;
   private mRequired = false;
   private mHelptext = 'Help text';
   private mHelptextShow = false;

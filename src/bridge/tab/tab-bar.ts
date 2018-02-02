@@ -20,8 +20,6 @@ export class MdcTabBar {
   @bindable() public class: string;
   @bindable() public icon = false;
   @bindable() public text = false;
-  @bindable({ defaultBindingMode: bindingMode.twoWay }) public primary = false;
-  @bindable({ defaultBindingMode: bindingMode.twoWay }) public accent = false;
   private log: Logger;
   private elementTabBar: HTMLElement;
   private mdcTabBar;
@@ -43,8 +41,6 @@ export class MdcTabBar {
       this.mdcTabBar.listen('MDCTabBar:change', this.onChange.bind(this));
       this.mdcTabBar.preventDefaultOnClick = true;
     });
-    this.primaryChanged(this.primary);
-    this.accentChanged(this.accent);
   }
 
   private detached() {
@@ -107,17 +103,5 @@ export class MdcTabBar {
         this.elementTabBar.classList.add('mdc-tab-bar--icons-with-text');
       }
     }
-  }
-
-  private primaryChanged(newValue: boolean) {
-    const value = util.getBoolean(newValue);
-    this.elementTabBar.classList[value ? 'add' : 'remove']('mdc-tab-bar--indicator-primary');
-    if (value) { this.accent = false; }
-  }
-
-  private accentChanged(newValue: boolean) {
-    const value = util.getBoolean(newValue);
-    this.elementTabBar.classList[value ? 'add' : 'remove']('mdc-tab-bar--indicator-accent');
-    if (value) { this.primary = false; }
   }
 }

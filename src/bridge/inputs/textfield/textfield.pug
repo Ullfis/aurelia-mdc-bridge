@@ -37,7 +37,12 @@ template
       slot(name="trailing-icon")
   
     //- BOX BOTTOM LINE
-    .mdc-text-field__bottom-line
+    .mdc-text-field__bottom-line(show.bind="!outlined")
+    //- OUTLINED
+    .mdc-text-field__outline(show.bind="outlined")
+      svg
+        path.mdc-text-field__outline-path
+    .mdc-text-field__idle-outline(show.bind="outlined")
 
   //- HELP TEXT
   p.mdc-text-field-helper-text(

@@ -9,8 +9,6 @@ export class MdcTabBarScroller {
   @bindable() public ariaNext = 'scroll forward button';
   @bindable() public icon = false;
   @bindable() public text = false;
-  @bindable({ defaultBindingMode: bindingMode.twoWay }) public primary = false;
-  @bindable({ defaultBindingMode: bindingMode.twoWay }) public accent = false;
   private elementTabBar: HTMLElement;
   private elementTabBarScroller: HTMLElement;
   private mdcTabBarScroller;
@@ -32,8 +30,6 @@ export class MdcTabBarScroller {
         this.mdcTabBarScroller.tabBar.preventDefaultOnClick = true;
       }
     });
-    this.primaryChanged(this.primary);
-    this.accentChanged(this.accent);
   }
 
   private detached() {
@@ -99,17 +95,5 @@ export class MdcTabBarScroller {
         this.elementTabBar.classList.add('mdc-tab-bar--icons-with-text');
       }
     }
-  }
-
-  private primaryChanged(newValue: boolean) {
-    const value = util.getBoolean(newValue);
-    this.elementTabBar.classList[value ? 'add' : 'remove']('mdc-tab-bar--indicator-primary');
-    if (value) { this.accent = false; }
-  }
-
-  private accentChanged(newValue: boolean) {
-    const value = util.getBoolean(newValue);
-    this.elementTabBar.classList[value ? 'add' : 'remove']('mdc-tab-bar--indicator-accent');
-    if (value) { this.primary = false; }
   }
 }

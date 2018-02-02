@@ -1,0 +1,25 @@
+.my-tab-cusom-color {
+  @include mdc-tab-bar-indicator-ink-color($mdc-theme-primary);
+
+  .mdc-tab:not(.mdc-tab--active) {
+    @include mdc-tab-ink-color($mdc-theme-primary);
+  }
+
+  .mdc-tab.mdc-tab--active {
+    @include mdc-tab-ink-color($mdc-theme-secondary);
+  }
+  .mdc-tab:hover {
+    @include mdc-tab-ink-color(yellow);
+  }
+}
+  // // Use this mixin to set the color of all ink on the tab.
+  // @include mdc-tab-ink-color($mdc-theme-primary);
+
+  // // This mixin customizes the icon ink color.
+  // @include mdc-tab-icon-ink-color($mdc-theme-primary);
+
+  // // This mixin customizes the label ink color.
+  // @include mdc-tab-label-ink-color($mdc-theme-primary);
+
+  // // This mixin customizes the indicator ink color.
+  // @include mdc-tab-bar-indicator-ink-color($mdc-theme-primary);

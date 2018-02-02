@@ -5,8 +5,8 @@ template
     mdc-grid-cell(span="12")
       h4 Select Menus
       p.
-        If you need to support browser's native select or use 
-        multiselect, see #[a(href="#/components/inputs/select-menus-css") mdc-select-css]
+        If you need to support browser's native select, 
+        see #[a(href="#/components/inputs/select-menus-css") mdc-select-css]
 
     // CONFIG AREA
     mdc-grid-cell(span="4")
@@ -25,6 +25,8 @@ template
           a(href="#divider") Divider
         mdc-list-item
           a(href="#event") Event
+        mdc-list-item
+          a(href="#customcolors") Custom colors
 
     // DEMO AREA
     mdc-grid-cell(span="8")
@@ -70,6 +72,21 @@ template
               i.material-icons(aria-hidden="true") gps_fixed
         br
       span Selected product Id: ${selectedProductId}
+
+      section.components
+        h6 Custom colors
+        br
+        mdc-select.my-custom-select(value.bind="selectedProductId" 
+                   disabled.bind="disabled" 
+                   on-change.delegate="onChange($event)"
+                   label-text.bind="labelText")
+          mdc-list-item(repeat.for="product of products" model.bind="product.id")
+            span ${product.id} - ${product.name}
+          mdc-list-item(model="998" disabled="true")
+            span 998 - Disabled
+          mdc-list-divider
+          mdc-list-item(model="999")
+            span Something
 
 
     // LINKS
@@ -209,5 +226,36 @@ template
         pre
           code-prism(language="html").
             &lt;mdc-select class="my-select-container" ... &gt;
+              ...
+            &lt;/mdc-select&gt;
+
+    // CUSTOM COLORS
+    mdc-grid-cell(span="12")
+      section(id="customcolors")
+        h5 Custom Colors
+        mdc-select.my-custom-select(value.bind="selectedProductId" 
+                   disabled.bind="disabled" 
+                   on-change.delegate="onChange($event)"
+                   label-text.bind="labelText")
+          mdc-list-item(repeat.for="product of products" model.bind="product.id")
+            span ${product.id} - ${product.name}
+          mdc-list-item(model="998" disabled="true")
+            span 998 - Disabled
+          mdc-list-divider
+          mdc-list-item(model="999")
+            span Something
+        pre
+          code-prism(language="css").
+            .my-custom-select {
+              @include mdc-select-ink-color(green);
+              @include mdc-select-container-fill-color(rgba(red, .1));
+              @include mdc-select-label-color(orange);
+              @include mdc-select-focused-label-color(blue);
+              @include mdc-select-bottom-line-color(black);
+              @include mdc-select-focused-bottom-line-color(brown);
+            }         
+        pre
+          code-prism(language="html").
+            &lt;mdc-select class="my-custom-select" ... &gt;
               ...
             &lt;/mdc-select&gt;

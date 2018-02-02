@@ -9,6 +9,7 @@ export class MdcTextField {
   private static id = 0;
   @bindable({ defaultBindingMode: bindingMode.twoWay }) public value = '';
   @bindable({ defaultBindingMode: bindingMode.twoWay }) public focused = false;
+  @bindable({ defaultBindingMode: bindingMode.oneWay }) public outlined = false;
   @bindable({ defaultBindingMode: bindingMode.oneTime }) public type = '';
   @bindable({ defaultBindingMode: bindingMode.oneTime }) public multiline = false;
   @bindable({ defaultBindingMode: bindingMode.oneTime }) public box = false;
@@ -31,6 +32,7 @@ export class MdcTextField {
   @bindable() public step: number = null;
   @bindable() public name: string = null;
   private log: Logger;
+  private textfieldId = '';
   private helptextId = '';
   private mdcTextfield;
 
@@ -46,6 +48,7 @@ export class MdcTextField {
 
   constructor(private element: Element, private taskQueue: TaskQueue) {
     MdcTextField.id++;
+    this.textfieldId = `mdc-textfield-${MdcTextField.id}`;
     this.helptextId = `mdc-helptextfield-${MdcTextField.id}`;
     this.log = getLogger('mdc-text-field');
   }
@@ -79,6 +82,7 @@ export class MdcTextField {
     this.multilineChanged(this.multiline);
     this.denseChanged(this.dense);
     this.fullwidthChanged(this.fullwidth);
+    this.outlinedChanged(this.outlined);
 
     this.patternChanged(this.pattern);
     this.placeholderChanged(this.placeholder);
@@ -221,6 +225,10 @@ export class MdcTextField {
   private fullwidthChanged(newValue) {
     const value = util.getBoolean(newValue);
     this.elementMain.classList[value ? 'add' : 'remove']('mdc-text-field--fullwidth');
+  }
+  private outlinedChanged(newValue) {
+    const value = util.getBoolean(newValue);
+    this.elementMain.classList[value ? 'add' : 'remove']('mdc-text-field--outlined');
   }
 
   private prefilledChanged(newValue) {
