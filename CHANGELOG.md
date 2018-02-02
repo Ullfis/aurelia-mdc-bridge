@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.16.0"></a>
+# [0.16.0](https://github.com/ullfis/aurelia-mdc-bridge/compare/v0.15.0...v0.16.0) (2018-02-02)
+
+
+### Features
+
+* **mdc-grid-cell:** make spans, order and align bindable ([f43c9f7](https://github.com/ullfis/aurelia-mdc-bridge/commit/f43c9f7)), closes [#35](https://github.com/ullfis/aurelia-mdc-bridge/issues/35)
+* material components web version 0.29.0 ([b36044e](https://github.com/ullfis/aurelia-mdc-bridge/commit/b36044e))
+* **mdc-select-css:** remove multi select ([cc06884](https://github.com/ullfis/aurelia-mdc-bridge/commit/cc06884))
+* **mdc-tab-bar:** remove primary and accent attributes ([ac0819d](https://github.com/ullfis/aurelia-mdc-bridge/commit/ac0819d))
+* **mdc-tab-bar-scroller:** remove primary and accent attribute ([d2daa95](https://github.com/ullfis/aurelia-mdc-bridge/commit/d2daa95))
+* **mdc-text-field:** add valid function (get/set) ([1494690](https://github.com/ullfis/aurelia-mdc-bridge/commit/1494690)), closes [#38](https://github.com/ullfis/aurelia-mdc-bridge/issues/38)
+
+
+
 <a name="0.15.0"></a>
 # [0.15.0](https://github.com/ullfis/aurelia-mdc-bridge/compare/v0.14.5...v0.15.0) (2018-02-01)
 
