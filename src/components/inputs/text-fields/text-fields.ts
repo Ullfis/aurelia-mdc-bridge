@@ -19,6 +19,7 @@ export class TextFields {
   private numericText = 9;
   private reportElement;
   private demoTextfieldElement: MdcTextField;
+  private demoTextfieldElement2: MdcTextField;
 
   private mFocused = true;
 
@@ -57,5 +58,6 @@ export class TextFields {
 
   private mValidChanged(newValue) {
     this.demoTextfieldElement.valid = newValue;
+    this.demoTextfieldElement2.valid = newValue;
   }
 }
