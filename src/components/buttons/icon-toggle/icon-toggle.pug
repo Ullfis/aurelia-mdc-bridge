@@ -14,18 +14,7 @@ template
     // DEMO AREA
     mdc-grid-cell(span="8")
       section.components
-        h6 Default theme
-        mdc-icon-toggle(
-          on.bind="on"
-          disabled.bind="disabled"
-          icon-on="star"
-          icon-off="star_outline"
-          aria-label-on="On"
-          aria-label-off="Off"
-          on-toggle.delegate="onToggle($event)")
-      
-      section.mdc-theme--dark.components
-        h6 Dark theme
+        h6 Example
         mdc-icon-toggle(
           on.bind="on"
           disabled.bind="disabled"
@@ -48,7 +37,7 @@ template
           aria-label-off="Off"
           on-toggle.delegate="onToggle($event)")
 
-      section.mdc-theme--dark.components
+      section.components
         mdc-icon-toggle.my-icon-toggle-secondary(
           on.bind="on"
           disabled.bind="disabled"
