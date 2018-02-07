@@ -72,11 +72,11 @@
     "___end-docs___": ""
   },
   "dependencies": {
-    "material-components-web": "~0.29.0"
+    "material-components-web": "~0.30.0"
   },
   "peerDependencies": {},
   "devDependencies": {
-    "@types/node": "^9.4.0",
+    "@types/node": "^9.4.1",
     "@types/prismjs": "^1.9.0",
     "aurelia-bootstrapper": "^2.2.0",
     "aurelia-cli": "^0.32.0",
@@ -99,7 +99,7 @@
     "gulp-plumber": "^1.2.0",
     "gulp-pug": "^3.3.0",
     "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.3.2",
+    "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-tslint": "^8.1.2",
     "gulp-typescript": "^3.2.4",
@@ -107,7 +107,7 @@
     "html-minifier": "^3.5.8",
     "material-design-icons": "^3.0.1",
     "minimatch": "^3.0.4",
-    "prismjs": "^1.10.0",
+    "prismjs": "^1.11.0",
     "requirejs": "^2.3.5",
     "rimraf": "^2.6.2",
     "roboto-npm-webfont": "^1.0.1",
