@@ -30,18 +30,8 @@ template
           disabled.bind="disabled"
           aria-label="Aria label"
           on-input.delegate="onInput($event)")
-
-      section.mdc-theme--dark.components
-        mdc-slider(
-          value.bind="value" 
-          min.bind="min" 
-          max.bind="max"
-          step.bind="step"
-          disabled.bind="disabled"
-          aria-label="Aria label"
-          on-input.delegate="onInput($event)")
   
-      p.mdc-typography--caption input event value: ${inputValue}
+        p.mdc-typography--caption input event value: ${inputValue}
 
       h5 Descrete Slider 
       span.mdc-typography--caption (descrete="true")
@@ -128,3 +118,5 @@ template
             class="slider--primary"
             ...&gt;
           &lt;/mdc-slider&gt;          
+
+      p More Sass Mixins at #[a(href="https://material.io/components/web/catalog/input-controls/sliders/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-slider") Material components documentation]
