@@ -22,18 +22,10 @@ template
     // DEMO AREA
     mdc-grid-cell(span="8")
       section.components
-        h6 Default theme
+        h6 Example
         button(
           mdc-button="raised.bind: raised; dense.bind: dense; compact.bind: compact; stroked.bind: stroked; unelevated.bind: unelevated;"              
           disabled.bind="aureliaDisabled") Button 1
-        br
-        br
-
-      section.mdc-theme--dark.components
-        h6 Dark theme
-        button(
-          mdc-button="raised.bind: raised; dense.bind: dense; compact.bind: compact; stroked.bind: stroked; unelevated.bind: unelevated;"
-          disabled.bind="aureliaDisabled") Button 2
         br
         br
 
@@ -93,11 +85,6 @@ template
             button.secondary-text {
               @include mdc-button-ink-color($mdc-theme-secondary);
               @include mdc-states(secondary);
-
-              @include mdc-theme-dark(".mdc-button") {
-                @include mdc-button-ink-color($mdc-theme-secondary);
-                @include mdc-states(secondary);
-              }
             }
 
         pre
@@ -113,10 +100,6 @@ template
           code-prism(language="css").
             button.secondary-filled {
               @include mdc-button-filled-accessible($mdc-theme-secondary);
-
-              @include mdc-theme-dark(".mdc-button") {
-                @include mdc-button-filled-accessible($mdc-theme-secondary);
-              }
             }
 
         pre
@@ -134,12 +117,6 @@ template
               @include mdc-button-ink-color($mdc-theme-secondary);
               @include mdc-button-stroke-color($mdc-theme-secondary);
               @include mdc-states(secondary);
-
-              @include mdc-theme-dark(".mdc-button") {
-                @include mdc-button-ink-color($mdc-theme-secondary);
-                @include mdc-button-stroke-color($mdc-theme-secondary);
-                @include mdc-states(secondary);
-              }
             }
 
         pre
@@ -182,12 +159,11 @@ template
     // WALL OF BUTTONS
     mdc-grid-cell(span="12")
       hr
-      mdc-checkbox(checked.bind="darkTheme") Dark theme
       mdc-checkbox(checked.bind="disabled") Disable buttons (excluding links and divs)
       hr
 
       // BUTTONS
-      section.components(class.bind="darkTheme ? 'mdc-theme--dark' : ''")
+      section.components
         h5 Text Button
         fieldset(disabled.bind="disabled")
           button(mdc-button="raised: false; dense: false; compact: false;") Default

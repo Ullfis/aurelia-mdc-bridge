@@ -6,6 +6,5 @@ export class Buttons {
   private compact = false;
   private stroked = false;
   private unelevated = false;
-  private darkTheme = false;
   private panelId = 0;
 }
