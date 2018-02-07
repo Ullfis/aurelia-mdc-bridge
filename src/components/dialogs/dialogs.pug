@@ -23,17 +23,16 @@ template
         on-click.delegate="onDialogClick1($event)")
         span Body elements
 
-      section.mdc-theme--dark              
-        mdc-dialog(
-          view-model.ref="dialog2"
-          header="Dialog with scrollable content"
-          scrollable="true"
-          accept="OK"
-          cancel="Close"
-          on-click.delegate="onDialogClick2($event)")
-          mdc-list
-            each i in [0,1,2,3,4,5,6,7,8,9]
-              mdc-list-item item #{i}
+      mdc-dialog(
+        view-model.ref="dialog2"
+        header="Dialog with scrollable content"
+        scrollable="true"
+        accept="OK"
+        cancel="Close"
+        on-click.delegate="onDialogClick2($event)")
+        mdc-list
+          each i in [0,1,2,3,4,5,6,7,8,9]
+            mdc-list-item item #{i}
 
       mdc-dialog(
         view-model.ref="dialog4"
@@ -195,27 +194,6 @@ template
 
         p Press Accept button to start close counter
         p Counter: ${dialog6Counter}
-        
-
-    // THEMING
-    mdc-grid-cell(span="12")
-      section
-        h5 Theming
-        p.mdc-typography--subheading2 Dark Theme Considerations
-        p.
-          When using #[span.mark-text mdc-theme--dark] / #[span.mark-text mdc-dialog--theme-dark], 
-          the dialog by default sets its background color to #303030. 
-          You can override this by either overridding the 
-          #[span.mark-text --mdc-dialog-dark-theme-bg-color], overridding the 
-          #[span.mark-text $mdc-dialog-dark-theme-bg-color] sass variable, 
-          or directly in CSS:
-
-        pre
-          code-prism(language="css").
-            .mdc-theme--dark .mdc-dialog__surface,
-            .mdc-dialog--theme-dark .mdc-dialog__surface {
-              background-color: /* custom bg color */;
-            }      
 
 
     // OPEN / CLOSED EVENTS
