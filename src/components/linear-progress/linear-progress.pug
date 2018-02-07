@@ -30,15 +30,6 @@ template
           progress.bind="progress"
         )
 
-      section.mdc-theme--dark.components
-        mdc-linear-progress(
-          open.bind="open" 
-          indeterminate.bind="indeterminate"
-          reversed.bind="reversed"
-          buffer.bind="buffer"
-          progress.bind="progress"          
-        )      
-
       section.linear-progress-secondary.components
         mdc-linear-progress(
           open.bind="open" 
@@ -46,7 +37,7 @@ template
           reversed.bind="reversed"
           buffer.bind="buffer"
           progress.bind="progress"          
-        )      
+        )
 
 
     // LINKS
@@ -79,13 +70,6 @@ template
 
             // Sets the color of the buffer bar and dots
             @include mdc-linear-progress-buffer-color(#eee);
-          }
-
-          .mdc-theme--dark {
-            mdc-linear-progress {
-              // Sets the color of the buffer bar and dots
-              @include mdc-linear-progress-buffer-color(#222);
-            }
           }
 
       pre
