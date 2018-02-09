@@ -45,7 +45,7 @@ export class MdcSelect {
           if (target.classList.contains('mdc-list-item')) {
             if (target.attributes.getNamedItem('aria-disabled').value === 'true') { target = null; }
             break;
-          } else if (target.classList.contains('mdc-simple-menu')) {
+          } else if (target.classList.contains('mdc-menu')) {
             break;
           }
           target = target.parentElement;
