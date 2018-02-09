@@ -20,6 +20,7 @@ export class MdcSelect {
   @bindable() public disabled = false;
   @bindable({ defaultBindingMode: bindingMode.twoWay }) public value;
   @bindable({ defaultBindingMode: bindingMode.oneWay }) public labelText;
+  @bindable({ defaultBindingMode: bindingMode.oneWay }) public box = false;
   @bindable({ defaultBindingMode: bindingMode.oneTime }) public matcher: (a: any, b: any) => boolean;
   @children('.mdc-list-item') private listItems;
   private elementSelect: HTMLElement;
@@ -62,6 +63,7 @@ export class MdcSelect {
       mdcSelectFoundation.getValueForOptionAtIndex = this.getValueForOptionAtIndex.bind(this);
 
       this.disabledChanged(this.disabled);
+      this.boxChanged(this.box);
 
       // if value is set, find option index and select it
       if (!this.value) { return; }
@@ -91,6 +93,11 @@ export class MdcSelect {
 
   private disabledChanged(newValue) {
     this.mdcSelect.disabled = util.getBoolean(newValue);
+  }
+
+  private boxChanged(newValue) {
+    const value = util.getBoolean(newValue);
+    this.elementSelect.classList[value ? 'add' : 'remove']('mdc-select--box');
   }
 
   // find index and select item
