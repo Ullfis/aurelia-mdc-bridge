@@ -23,7 +23,6 @@ export class ConfigBuilder {
       .useCheckboxes()
       .useRadioButtons()
       .useSelectMenus()
-      .useSelectMenusCss()
       .useSliders()
       .useSwitches()
       .useTextFields()
@@ -92,10 +91,6 @@ export class ConfigBuilder {
   }
   public useSelectMenus(): ConfigBuilder {
     this.globalResources.push(PLATFORM.moduleName('./inputs/select/select'));
-    return this;
-  }
-  public useSelectMenusCss(): ConfigBuilder {
-    this.globalResources.push(PLATFORM.moduleName('./inputs/select/select-css'));
     return this;
   }
   public useSliders(): ConfigBuilder {

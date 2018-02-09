@@ -39,7 +39,6 @@ export * from './grid-list/grid-tile';
 export * from './inputs/checkbox/checkbox';
 export * from './inputs/radio/radio';
 export * from './inputs/select/select';
-export * from './inputs/select/select-css';
 export * from './inputs/slider/slider';
 export * from './inputs/switch/switch';
 export * from './inputs/textfield/textfield';
