@@ -12,9 +12,13 @@ template
         mdc-list-item
           a(href="#bindingmodel") Binding items model and menu value
         mdc-list-item
+          a(href="#openstate") Open state
+        mdc-list-item
+          a(href="#quickopen") Quick open
+        mdc-list-item
           a(href="#positioningthemenu") Positioning the menu
         mdc-list-item
-          a(href="#menuopeningpoint") Menu opening point
+          a(href="#menuanchorcorner") Menu anchor corner
         mdc-list-item
           a(href="#iconinmenuitem") Icon in menu item
               
@@ -24,10 +28,10 @@ template
 
       // default theme
       section.components
-        h5 Default theme
+        h5 Example
         .mdc-menu-anchor
           button(mdc-button="raised: true;" click.delegate="showMenu1()") Button 1
-          mdc-simple-menu(
+          mdc-menu(
             view-model.ref="menuElement1" 
             on-cancel.delegate="onCancel1()"
             on-select.delegate="onSelect1($event)")
@@ -44,14 +48,13 @@ template
             mdc-list-item(model="item") Item 3
             mdc-list-divider
             mdc-list-item Item 4
+
+        br
         p Last event menu 1: ${lastEvent1 | stringify}
 
-      // dark theme
-      section.mdc-theme--dark.components
-        h6 Dark theme
         .mdc-menu-anchor
           button(mdc-button="raised: true;" click.delegate="showMenu2()") Button 2
-          mdc-simple-menu(
+          mdc-menu(
             view-model.ref="menuElement2"
             on-cancel.delegate="onCancel2()"
             on-select.delegate="onSelect2($event)")
@@ -61,13 +64,14 @@ template
             mdc-list-item Item 3
             mdc-list-divider
             mdc-list-item Item 4
+        br
         p Last event menu 2: ${lastEvent2 | stringify}
 
 
     // LINKS
     mdc-grid-cell(span="12")
       hr
-      a(href="https://material.io/components/web/catalog/menus/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-simple-menu") Material components documentation
+      a(href="https://material.io/components/web/catalog/menus/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-menu") Material components documentation
       br
       a(href="https://material.io/guidelines/components/menus.html" target="_blank" data-analytics-category="external" data-analytics-action="mdg-simple-menu") Material design guidelines
       hr    
@@ -76,9 +80,9 @@ template
     mdc-grid-cell(span="12")
       pre
         code-prism(language="typescript").
-          import { MdcSimpleMenu, IMdcSimpleMenuSelectedEvent, MdcSimpleMenuOpenFrom } from 'aurelia-mdc-bridge';
+          import { MdcMenu, IMdcMenuSelectedEvent, MdcMenuAnchorCorner } from 'aurelia-mdc-bridge';
 
-          private menuElement: MdcSimpleMenu;
+          private menuElement: MdcMenu;
 
           // menu state
           isOpen = menuElement.open;
@@ -95,10 +99,10 @@ template
           menuElement.close();
 
           // open menu from bottom right
-          menuElement.openFrom = MdcSimpleMenuOpenFrom.bottomRight;
+          menuElement.anchorCorner = MdcMenuAnchorCorner.bottomRight;
 
           // menu item is selected
-          private onSelect(event: IMdcSimpleMenuSelectedEvent) {
+          private onSelect(event: IMdcMenuSelectedEvent) {
             // event.detail.item: HTMLElement (The DOM element for the selected item)
             // event.detail.index: number (The index of the selected item)
           }
@@ -109,13 +113,13 @@ template
       
       pre
         code-prism(language="html").
-          &lt;mdc-simple-menu view-model.ref="menuElement" on-select.delegate="onSelect($event)" on-cancel.delegate="onCancel()"&gt;
+          &lt;mdc-menu view-model.ref="menuElement" on-select.delegate="onSelect($event)" on-cancel.delegate="onCancel()"&gt;
             &lt;mdc-list-item&gt;Item 1&lt;/mdc-list-item&gt;
             &lt;mdc-list-item disabled="true"&gt;Item 2&lt;/mdc-list-item&gt;
             &lt;mdc-list-item&gt;Item 3&lt;/mdc-list-item&gt;
             &lt;mdc-list-divider&gt;&lt;/mdc-list-divider&gt;
             &lt;mdc-list-item&gt;Item 4&lt;/mdc-list-item&gt;
-          &lt;/mdc-simple-menu&gt;
+          &lt;/mdc-menu&gt;
     
     
     // BINDING MODEL
@@ -123,7 +127,7 @@ template
       section(id="bindingmodel")
         h5 Binding items model and menu value
         p.
-          You can bind a variable to #[span.mark-text value] attribute on #[span.mark-text mdc-simple-menu]
+          You can bind a variable to #[span.mark-text value] attribute on #[span.mark-text mdc-menu]
           element and get a #[span.mark-text model] from selected #[span.mark-text mdc-list-item].
         p.
           It is also possible to focus item based on value.
@@ -131,7 +135,7 @@ template
     mdc-grid-cell(span="6")
       pre
         code-prism(language="typescript").
-          private menuElement: MdcSimpleMenu;
+          private menuElement: MdcMenu;
 
           private menuItems = [
             { id: 1, text: 'Item 1' },
@@ -148,7 +152,7 @@ template
     mdc-grid-cell(span="6")
       .mdc-menu-anchor
         button(mdc-button="raised: true;" click.delegate="showMenu3()") Show Menu
-        mdc-simple-menu(view-model.ref="menuElement3" value.bind="selectedMenuItem")
+        mdc-menu(view-model.ref="menuElement3" value.bind="selectedMenuItem")
           mdc-list-item(
             repeat.for="item of menuItems3" 
             model.bind="item") ${item.text}
@@ -160,15 +164,46 @@ template
     mdc-grid-cell(span="12")
       pre
         code-prism.
-          &lt;mdc-simple-menu view-model.ref="menuElement" value.bind="selectedMenuItem"&gt;
+          &lt;mdc-menu view-model.ref="menuElement" value.bind="selectedMenuItem"&gt;
             &lt;mdc-list-item 
               repeat.for="item of menuItems" 
               model.bind="item"&gt;${item.text}
             &lt;/mdc-list-item&gt;
-          &lt;/mdc-simple-menu&gt;
+          &lt;/mdc-menu&gt;
 
           &lt;p&gt;${selectedMenuItem}&lt;/p&gt;
 
+
+    // OPEN STATE
+    mdc-grid-cell(span="9")
+      section(id="openstate")
+        h5 Open State
+        p.
+          The menu can be configured to start in the opened state by adding #[span.mark-text open-state="true"] attribute to the #[span.mark-text mdc-menu] element.
+
+    mdc-grid-cell(span="3")
+      mdc-menu(open-state="true")
+        mdc-list-item Item 1
+        mdc-list-item Item 2
+        mdc-list-item Item 3
+        mdc-list-item Item 4
+      br
+
+    // QUICK OPEN
+    mdc-grid-cell(span="12")
+      section(id="quickopen")
+        h5 Quick Open
+        p.
+          To open menu without animation add #[span.mark-text quick-open="true"] attribute to the #[span.mark-text mdc-menu] element.
+
+        .mdc-menu-anchor
+          button(mdc-button="raised: true;" click.delegate="showMenuQO()") Show Menu
+          mdc-menu(quick-open="true" view-model.ref="menuElementQO")
+            mdc-list-item Item 1
+            mdc-list-item Item 2
+            mdc-list-item Item 3
+            mdc-list-item Item 4
+        br
 
     // POSITIONING THE MENU
     mdc-grid-cell(span="12")
@@ -189,9 +224,9 @@ template
         pre
           code-prism.
             &lt;mdc-toolbar class="mdc-menu-anchor"&gt;
-              &lt;mdc-simple-menu&gt;
+              &lt;mdc-menu&gt;
                 ...
-              &lt;/mdc-simple-menu&gt;
+              &lt;/mdc-menu&gt;
             &lt;/mdc-toolbar&gt;
 
         p or a wrapper element that contains the actual visible element to attach to:
@@ -199,9 +234,9 @@ template
           code-prism.
             &lt;div class="mdc-menu-anchor"&gt;
               &lt;button mdc-button&gt;Open menu&lt;/button&gt;
-              &lt;mdc-simple-menu&gt;
+              &lt;mdc-menu&gt;
                 ...
-              &lt;/mdc-simple-menu&gt;
+              &lt;/mdc-menu&gt;
             &lt;/div&gt;
         p.
           Note: #[span.mark-text overflow: visible] and #[span.mark-text position: relative] will be set 
@@ -226,9 +261,9 @@ template
         pre
           code-prism.
             <div class="container">
-              <mdc-simple-menu style="top:0; left: 0;">
+              <mdc-menu style="top:0; left: 0;">
               ...
-              </mdc-simple-menu>
+              </mdc-menu>
             </div>          
 
     mdc-grid-cell(span="6")
@@ -256,31 +291,31 @@ template
       pre
         code-prism.
           &lt;div class="demo-menu-manual"&gt;
-            &lt;mdc-simple-menu class="demo-menu-topright"&gt;
+            &lt;mdc-menu class="demo-menu-topright"&gt;
               ...
-            &lt;/mdc-simple-menu&gt;
+            &lt;/mdc-menu&gt;
           &lt;/div&gt;
 
           &lt;button mdc-button&gt;Open menu&lt;/button&gt;
 
     mdc-grid-cell(span="6")
       .demo-menu-manual
-        mdc-simple-menu.demo-menu-topleft(view-model.ref="menuElement41" open-from="top-left")
+        mdc-menu.demo-menu-topleft(view-model.ref="menuElement41" anchor-corner="top-left")
           mdc-list-item Item 1
           mdc-list-item Item 2
           mdc-list-item Item 3
 
-        mdc-simple-menu.demo-menu-topright(view-model.ref="menuElement42" open-from="top-right")
+        mdc-menu.demo-menu-topright(view-model.ref="menuElement42" anchor-corner="top-right")
           mdc-list-item Item 1
           mdc-list-item Item 2
           mdc-list-item Item 3
 
-        mdc-simple-menu.demo-menu-bottomleft(view-model.ref="menuElement43" open-from="bottom-left")
+        mdc-menu.demo-menu-bottomleft(view-model.ref="menuElement43" anchor-corner="bottom-left")
           mdc-list-item Item 1
           mdc-list-item Item 2
           mdc-list-item Item 3
 
-        mdc-simple-menu.demo-menu-bottomright(view-model.ref="menuElement44" open-from="bottom-right")
+        mdc-menu.demo-menu-bottomright(view-model.ref="menuElement44" anchor-corner="bottom-right")
           mdc-list-item Item 1
           mdc-list-item Item 2
           mdc-list-item Item 3
@@ -295,55 +330,71 @@ template
       button(mdc-button="raised: true;" click.delegate="showMenu44()") Bottom Right
 
 
-    // MENU OPENING POINT
+    // MENU OPENING POSITION
     mdc-grid-cell(span="12")
       section
-        h5(id="menuopeningpoint") Menu opening point
+        h5(id="menuanchorcorner") Menu anchor corner
         p.
           The menu will open from the top left by default (top right in RTL). 
           Depending on how you’ve positioned your button, you may want to change the 
-          point it opens from. To override the opening point, you can style 
+          position it opens from. To override the opening position, you can style 
           #[span.mark-text transform-origin] directly, or use one of the following options:
 
+    mdc-grid-cell(span="3")
+      mdc-radio(
+        name="menu-position"
+        value="top-left"
+        checked.bind="menuPosition"
+      ) Top Left
+      br
+      mdc-radio(
+        name="menu-position"
+        value="top-right"
+        checked.bind="menuPosition"
+      ) Top Right
+      br
+      mdc-radio(
+        name="menu-position"
+        value="bottom-left"
+        checked.bind="menuPosition"
+      ) Bottom Left
+      br
+      mdc-radio(
+        name="menu-position"
+        value="bottom-right"
+        checked.bind="menuPosition"
+      ) Bottom Right
 
-    mdc-grid-cell(span="8")
+    mdc-grid-cell(span="9")
+      style.
+        .my-mdc-menu-anchor {
+          position: absolute;
+        }
+
+      .mdc-menu-anchor.my-mdc-menu-anchor
+        button(mdc-button="raised: true;" click.delegate="showMenu51()") Open Menu
+        mdc-menu(view-model.ref="menuElement51" anchor-corner.bind="menuPosition")
+          mdc-list-item Item 1
+          mdc-list-item Item 2
+          mdc-list-item Item 3
+
+    mdc-grid-cell(span="12")
       pre
         code-prism.
           &lt;div class="mdc-menu-anchor"&gt;
             &lt;button mdc-button click.delegate="showMenu()"&gt;Open menu&lt;/button&gt;
-            &lt;mdc-simple-menu 
-              open-from="top-left / top-right / bottom-left / bottom-right"
+            &lt;mdc-menu 
+              anchor-corner="top-left / top-right / bottom-left / bottom-right"
               view-model.ref="menuElement"&gt;
               ...
-            &lt;/mdc-simple-menu&gt;
+            &lt;/mdc-menu&gt;
           &lt;/div&gt;
-
-    mdc-grid-cell(span="4")
-      .mdc-menu-anchor
-        button(mdc-button="raised: true;" click.delegate="showMenu51()") Top Left
-        mdc-simple-menu(view-model.ref="menuElement51" open-from="top-left")
-          mdc-list-item Item 1
-          mdc-list-item Item 2
-          mdc-list-item Item 3
-      .mdc-menu-anchor
-        button(mdc-button="raised: true;" click.delegate="showMenu52()") Top Right
-        mdc-simple-menu(view-model.ref="menuElement52" open-from="top-right")
-          mdc-list-item Item 1
-          mdc-list-item Item 2
-          mdc-list-item Item 3
-      .mdc-menu-anchor
-        button(mdc-button="raised: true;" click.delegate="showMenu53()") Bottom left
-        mdc-simple-menu(view-model.ref="menuElement53" open-from="bottom-left")
-          mdc-list-item Item 1
-          mdc-list-item Item 2
-          mdc-list-item Item 3
-      .mdc-menu-anchor
-        button(mdc-button="raised: true;" click.delegate="showMenu54()") Bottom Right
-        mdc-simple-menu(view-model.ref="menuElement54" open-from="bottom-right")
-          mdc-list-item Item 1
-          mdc-list-item Item 2
-          mdc-list-item Item 3
-            
+      
+      pre
+        code-prism(language="css").
+          .mdc-menu-anchor {
+            position: absolute;
+          }          
 
     // ICON IN MENU ITEM
     mdc-grid-cell(span="12")
@@ -352,7 +403,7 @@ template
     mdc-grid-cell(span="8")
       pre
         code-prism.
-          &lt;mdc-simple-menu ...&gt;
+          &lt;mdc-menu ...&gt;
             &lt;mdc-list-item&gt;
               Item 1
               &lt;span slot="start"&gt;
@@ -365,12 +416,12 @@ template
                 &lt;i class="material-icons" aria-hidden="true"&gt;star&lt;/i&gt;
               &lt;/span&gt;
             &lt;/mdc-list-item&gt;
-          &lt;/mdc-simple-menu&gt;
+          &lt;/mdc-menu&gt;
 
     mdc-grid-cell(span="4")
       .mdc-menu-anchor
         button(mdc-button="raised: true;" click.delegate="showMenu6()") Open menu
-        mdc-simple-menu(view-model.ref="menuElement6")
+        mdc-menu(view-model.ref="menuElement6")
           mdc-list-item 
             | Item 1
             span(slot="start")

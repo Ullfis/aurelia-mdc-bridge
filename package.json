@@ -286,7 +286,7 @@
         "aurelia-mdc-bridge/list/list",
         "aurelia-mdc-bridge/list/mdc-list-group.html",
         "aurelia-mdc-bridge/list/mdc-list-group-header.html",
-        "aurelia-mdc-bridge/menu/simple-menu",
+        "aurelia-mdc-bridge/menu/menu",
         "aurelia-mdc-bridge/progress/linear",
         "aurelia-mdc-bridge/ripple/ripple",
         "aurelia-mdc-bridge/snackbar/snackbar",

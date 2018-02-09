@@ -1,18 +1,16 @@
-import { MdcSimpleMenu, IMdcSimpleMenuSelectedEvent, MdcSimpleMenuOpenFrom } from '../../bridge/index';
+import { MdcMenu, IMdcMenuSelectedEvent, MdcMenuAnchorCorner } from '../../bridge/index';
 
 export class SimpleMenu {
-  private menuElement1: MdcSimpleMenu;
-  private menuElement2: MdcSimpleMenu;
-  private menuElement3: MdcSimpleMenu;
-  private menuElement41: MdcSimpleMenu;
-  private menuElement42: MdcSimpleMenu;
-  private menuElement43: MdcSimpleMenu;
-  private menuElement44: MdcSimpleMenu;
-  private menuElement51: MdcSimpleMenu;
-  private menuElement52: MdcSimpleMenu;
-  private menuElement53: MdcSimpleMenu;
-  private menuElement54: MdcSimpleMenu;
-  private menuElement6: MdcSimpleMenu;
+  private menuElement1: MdcMenu;
+  private menuElement2: MdcMenu;
+  private menuElement3: MdcMenu;
+  private menuElement41: MdcMenu;
+  private menuElement42: MdcMenu;
+  private menuElement43: MdcMenu;
+  private menuElement44: MdcMenu;
+  private menuElement51: MdcMenu;
+  private menuElement6: MdcMenu;
+  private menuElementQO: MdcMenu;
   private lastEvent1;
   private lastEvent2;
   private elementManualAnchor: HTMLElement;
@@ -49,25 +47,19 @@ export class SimpleMenu {
   private showMenu51() {
     this.menuElement51.show();
   }
-  private showMenu52() {
-    this.menuElement52.show();
-  }
-  private showMenu53() {
-    this.menuElement53.show();
-  }
-  private showMenu54() {
-    this.menuElement54.show();
-  }
   private showMenu6() {
     this.menuElement6.show();
   }
-  private onSelect1(e: IMdcSimpleMenuSelectedEvent) {
+  private showMenuQO() {
+    this.menuElementQO.show();
+  }
+  private onSelect1(e: IMdcMenuSelectedEvent) {
     this.lastEvent1 = {
       index: e.detail.index,
       innerText: e.detail.item.innerText
     };
   }
-  private onSelect2(e: IMdcSimpleMenuSelectedEvent) {
+  private onSelect2(e: IMdcMenuSelectedEvent) {
     this.lastEvent2 = {
       index: e.detail.index,
       innerText: e.detail.item.innerText

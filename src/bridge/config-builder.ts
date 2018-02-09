@@ -129,7 +129,7 @@ export class ConfigBuilder {
     return this;
   }
   public useMenus(): ConfigBuilder {
-    this.globalResources.push(PLATFORM.moduleName('./menu/simple-menu'));
+    this.globalResources.push(PLATFORM.moduleName('./menu/menu'));
     return this;
   }
   public useRipples(): ConfigBuilder {

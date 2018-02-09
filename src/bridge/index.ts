@@ -46,7 +46,7 @@ export * from './inputs/textfield/textfield';
 export * from './list/list-divider';
 export * from './list/list-item';
 export * from './list/list';
-export * from './menu/simple-menu';
+export * from './menu/menu';
 export * from './progress/linear';
 export * from './ripple/ripple';
 export * from './snackbar/snackbar';

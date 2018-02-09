@@ -1,9 +1,9 @@
 import { inject, bindable, bindingMode, containerless, customElement, TaskQueue } from 'aurelia-framework';
 import { getLogger, Logger } from 'aurelia-logging';
-import { MDCSimpleMenu } from '@material/menu';
+import { MDCMenu, Corner } from '@material/menu';
 import * as util from '../util';
 
-export interface IMdcSimpleMenuSelectedEvent extends CustomEvent {
+export interface IMdcMenuSelectedEvent extends CustomEvent {
 
   detail: {
     /**
@@ -23,39 +23,44 @@ export interface IMdcSimpleMenuSelectedEvent extends CustomEvent {
 }
 
 /**
- * Helper to openFrom attribute
+ * Helper to anchorCorner attribute
  */
-export const MdcSimpleMenuOpenFrom = {
+export const MdcMenuAnchorCorner = {
   topLeft: 'top-left',
   topRight: 'top-right',
+  topStart: 'top-start',
+  topEnd: 'top-end',
   bottomLeft: 'bottom-left',
-  bottomRight: 'bottom-right'
+  bottomRight: 'bottom-right',
+  bottomStart: 'bottom-start',
+  bottomEnd: 'bottom-end'
 };
 
 @containerless()
-@customElement('mdc-simple-menu')
+@customElement('mdc-menu')
 @inject(Element, TaskQueue)
-export class MdcSimpleMenu {
+export class MdcMenu {
   @bindable({ defaultBindingMode: bindingMode.oneTime }) public openState: boolean = false;
-  @bindable({ defaultBindingMode: bindingMode.oneTime }) public openFrom: string = null;
+  @bindable({ defaultBindingMode: bindingMode.oneTime }) public quickOpen: boolean = false;
+  @bindable({ defaultBindingMode: bindingMode.oneWay }) public anchorCorner: string = null;
   @bindable({ defaultBindingMode: bindingMode.twoWay }) public value;
   @bindable() public class: string;
   private log: Logger;
-  private elementSimpleMenu: HTMLElement;
-  private mdcSimpleMenu: MDCSimpleMenu;
+  private elementMenu: HTMLElement;
+  private mdcMenu: MDCMenu;
   private internalValueChange = false;
 
   constructor(private element: Element, private taskQueue: TaskQueue) {
-    this.log = getLogger('mdc-simple-menu');
+    this.log = getLogger('mdc-menu');
   }
 
   // Is menu Open?
   public get open(): boolean {
-    return this.mdcSimpleMenu.open;
+    return this.mdcMenu.open;
   }
   // Open/close menu
   public set open(value: boolean) {
-    this.mdcSimpleMenu.open = value;
+    this.mdcMenu.open = value;
   }
 
   // Show menu and focus menu item at focusIndex index
@@ -74,51 +79,55 @@ export class MdcSimpleMenu {
     focusValue?: boolean }): void {
 
     if (options && options.focusIndex) {
-      this.mdcSimpleMenu.show({ focusIndex: options.focusIndex });
+      this.mdcMenu.show({ focusIndex: options.focusIndex });
       return;
     }
     if (options && options.focusValue) {
       const index = this.findIndex(this.value);
       if (index === -1) {
-        this.mdcSimpleMenu.show();
+        this.mdcMenu.show();
       } else {
-        this.mdcSimpleMenu.show({ focusIndex: index });
+        this.mdcMenu.show({ focusIndex: index });
       }
       return;
     }
-    this.mdcSimpleMenu.show();
+    this.mdcMenu.show();
   }
 
   // Close menu
   public hide(): void {
-    this.mdcSimpleMenu.hide();
+    this.mdcMenu.hide();
   }
 
   private bind() {/** */}
   private unbind() {/** */}
 
   private attached() {
-    if (util.getBoolean(this.openState)) { this.elementSimpleMenu.classList.add('mdc-simple-menu--open'); }
-    this.openFromChanged(this.openFrom);
-    this.mdcSimpleMenu = new MDCSimpleMenu(this.elementSimpleMenu);
+    if (util.getBoolean(this.openState)) {
+      this.elementMenu.classList.add('mdc-menu--open');
+    }
+    this.mdcMenu = new MDCMenu(this.elementMenu);
+    this.anchorCornerChanged(this.anchorCorner);
+
+    this.mdcMenu.quickOpen = util.getBoolean(this.quickOpen);
 
     // TODO: temporary override of click event target
     // set target to closest parent element with class 'mdc-list-item'
-    this.mdcSimpleMenu.foundation_.adapter_.getIndexForEventTarget = (target: Element) => {
+    this.mdcMenu.foundation_.adapter_.getIndexForEventTarget = (target: Element) => {
       while (target) {
         if (target.classList.contains('mdc-list-item')) {
           if (target.attributes.getNamedItem('aria-disabled').value === 'true') { target = null; }
           break;
-        } else if (target.classList.contains('mdc-simple-menu')) {
+        } else if (target.classList.contains('mdc-menu')) {
           break;
         }
         target = target.parentElement;
       }
-      return this.mdcSimpleMenu.items.indexOf(target);
+      return this.mdcMenu.items.indexOf(target);
     };
 
-    this.mdcSimpleMenu.listen('MDCSimpleMenu:selected', this.raiseSelectEvent.bind(this));
-    this.mdcSimpleMenu.listen('MDCSimpleMenu:cancel', this.raiseCancelEvent.bind(this));
+    this.mdcMenu.listen('MDCMenu:selected', this.raiseSelectEvent.bind(this));
+    this.mdcMenu.listen('MDCMenu:cancel', this.raiseCancelEvent.bind(this));
 
     // if model bound items and openState is set, focus value item.
     this.taskQueue.queueMicroTask(() => {
@@ -126,9 +135,9 @@ export class MdcSimpleMenu {
     });
   }
   private detached() {
-    this.mdcSimpleMenu.unlisten('MDCSimpleMenu:selected', this.raiseSelectEvent.bind(this));
-    this.mdcSimpleMenu.unlisten('MDCSimpleMenu:cancel', this.raiseCancelEvent.bind(this));
-    this.mdcSimpleMenu.destroy();
+    this.mdcMenu.unlisten('MDCMenu:selected', this.raiseSelectEvent.bind(this));
+    this.mdcMenu.unlisten('MDCMenu:cancel', this.raiseCancelEvent.bind(this));
+    this.mdcMenu.destroy();
   }
 
   private raiseSelectEvent(e) {
@@ -140,13 +149,35 @@ export class MdcSimpleMenu {
     util.fireEvent(this.element, 'on-cancel');
   }
 
-  private openFromChanged(newValue) {
-    this.elementSimpleMenu.classList.remove('mdc-simple-menu--open-from-' + MdcSimpleMenuOpenFrom.topLeft);
-    this.elementSimpleMenu.classList.remove('mdc-simple-menu--open-from-' + MdcSimpleMenuOpenFrom.topRight);
-    this.elementSimpleMenu.classList.remove('mdc-simple-menu--open-from-' + MdcSimpleMenuOpenFrom.bottomLeft);
-    this.elementSimpleMenu.classList.remove('mdc-simple-menu--open-from-' + MdcSimpleMenuOpenFrom.bottomRight);
-    if (newValue) {
-      this.elementSimpleMenu.classList.add('mdc-simple-menu--open-from-' + newValue);
+  private anchorCornerChanged(newValue) {
+    if (this.mdcMenu) {
+      this.log.debug('Anchor Corner:', newValue);
+      switch (newValue) {
+        case MdcMenuAnchorCorner.topLeft:
+          this.mdcMenu.setAnchorCorner(Corner.TOP_LEFT);
+          break;
+        case MdcMenuAnchorCorner.topRight:
+          this.mdcMenu.setAnchorCorner(Corner.TOP_RIGHT);
+          break;
+        case MdcMenuAnchorCorner.topStart:
+          this.mdcMenu.setAnchorCorner(Corner.TOP_START);
+          break;
+        case MdcMenuAnchorCorner.topEnd:
+          this.mdcMenu.setAnchorCorner(Corner.TOP_END);
+          break;
+        case MdcMenuAnchorCorner.bottomLeft:
+          this.mdcMenu.setAnchorCorner(Corner.BOTTOM_LEFT);
+          break;
+        case MdcMenuAnchorCorner.bottomRight:
+          this.mdcMenu.setAnchorCorner(Corner.BOTTOM_RIGHT);
+          break;
+        case MdcMenuAnchorCorner.bottomStart:
+          this.mdcMenu.setAnchorCorner(Corner.BOTTOM_START);
+          break;
+        case MdcMenuAnchorCorner.bottomEnd:
+          this.mdcMenu.setAnchorCorner(Corner.BOTTOM_END);
+          break;
+      }
     }
   }
 
@@ -157,11 +188,11 @@ export class MdcSimpleMenu {
     }
     const index = this.findIndex(newValue);
     if (index === -1) { return; }
-    this.mdcSimpleMenu.items[index].focus();
+    this.mdcMenu.items[index].focus();
   }
   private findIndex(value): number {
-    for (let index = 0; index < this.mdcSimpleMenu.items.length; index++) {
-      const item = this.mdcSimpleMenu.items[index];
+    for (let index = 0; index < this.mdcMenu.items.length; index++) {
+      const item = this.mdcMenu.items[index];
       if (item.model && this.compareModels(item.model, value)) {
         this.log.debug('item index', index);
         return index;
