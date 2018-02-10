@@ -36,7 +36,6 @@ export class TextFields {
   }
 
   private onEvent(name, event = null) {
-    this.log.debug(name);
     this.reportElement.add(name);
     return true;
   }

@@ -21,8 +21,6 @@ export interface IMdcSnackbarOptions {
   dismissesOnAction?: boolean;
   /** Align position to start */
   alignStart?: boolean;
-  /** When snackbar is created without element on page, dark theme has to be set here */
-  darkTheme?: boolean;
 }
 
 @inject(Element)
@@ -59,11 +57,6 @@ export class MdcSnackbar {
 
     if (util.hasProp(options, 'alignStart')) { this.alignStart = options.alignStart; }
     if (util.hasProp(options, 'dismissesOnAction')) { this.dismissesOnAction = options.dismissesOnAction; }
-    if (util.hasProp(options, 'darkTheme')) {
-      if (this.elementTheme && options.darkTheme) {
-        this.elementTheme.classList.add('mdc-theme--dark');
-      }
-    }
     if (!util.hasProp(options, 'message')) { options.message = this.message; }
     if (!util.hasProp(options, 'timeout')) { options.timeout = this.timeout; }
     if (!util.hasProp(options, 'actionText')) { options.actionText = this.actionText; }
