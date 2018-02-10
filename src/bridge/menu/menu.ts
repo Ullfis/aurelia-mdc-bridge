@@ -116,7 +116,8 @@ export class MdcMenu {
     this.mdcMenu.foundation_.adapter_.getIndexForEventTarget = (target: Element) => {
       while (target) {
         if (target.classList.contains('mdc-list-item')) {
-          if (target.attributes.getNamedItem('aria-disabled').value === 'true') { target = null; }
+          if (target.attributes.getNamedItem('aria-disabled') &&
+              target.attributes.getNamedItem('aria-disabled').value === 'true') { target = null; }
           break;
         } else if (target.classList.contains('mdc-menu')) {
           break;
@@ -151,7 +152,6 @@ export class MdcMenu {
 
   private anchorCornerChanged(newValue) {
     if (this.mdcMenu) {
-      this.log.debug('Anchor Corner:', newValue);
       switch (newValue) {
         case MdcMenuAnchorCorner.topLeft:
           this.mdcMenu.setAnchorCorner(Corner.TOP_LEFT);
@@ -194,7 +194,6 @@ export class MdcMenu {
     for (let index = 0; index < this.mdcMenu.items.length; index++) {
       const item = this.mdcMenu.items[index];
       if (item.model && this.compareModels(item.model, value)) {
-        this.log.debug('item index', index);
         return index;
       }
     }
