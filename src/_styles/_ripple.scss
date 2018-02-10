@@ -1,5 +1,6 @@
 .my-custom-ripple-target {
+  @include mdc-elevation(2);
   height: 100px;
   width: 100px;
-  border: 1px solid #333;
+  padding: 10px;
 }

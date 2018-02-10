@@ -1,5 +1,4 @@
 template
-  require(from="./ripples.css")
 
   // SAMPLE
   mdc-grid
@@ -21,18 +20,24 @@ template
       pre
         code-prism(language="css").
           .my-custom-ripple-target {
+            @include mdc-elevation(2);
             height: 100px;
             width: 100px;
-            border: 1px solid #333;
+            padding: 10px;
           }
 
     mdc-grid-cell(span="8")
       pre
         code-prism.
           &lt;div class="my-custom-ripple-target" mdc-ripple&gt;&lt;/div&gt;
+      pre
+        code-prism.
+          &lt;div class="my-custom-ripple-target mdc-ripple-surface"&gt;CSS-Only&lt;/div&gt;
 
-    mdc-grid-cell(span="4")
+    mdc-grid-cell(span="2")
       .my-custom-ripple-target(mdc-ripple)
+    mdc-grid-cell(span="2")
+      .my-custom-ripple-target.mdc-ripple-surface CSS-Only
 
     // UNBOUNDED
     mdc-grid-cell(span="8")
@@ -41,9 +46,15 @@ template
       pre
         code-prism.
           &lt;div class="my-custom-ripple-target" mdc-ripple="unbounded: true;"&gt;&lt;/div&gt;
+      pre
+        code-prism.
+          &lt;div class="my-custom-ripple-target mdc-ripple-surface" data-mdc-ripple-is-unbounded&gt;CSS-Only&lt;/div&gt;
 
-    mdc-grid-cell(span="4")
+    mdc-grid-cell(span="2")
       .my-custom-ripple-target(mdc-ripple="unbounded: true;")
+    mdc-grid-cell(span="2")
+      .my-custom-ripple-target.mdc-ripple-surface(data-mdc-ripple-is-unbounded) CSS-Only
+      
 
     // ACCENT
     mdc-grid-cell(span="8")
@@ -52,9 +63,14 @@ template
       pre
         code-prism.
           &lt;div class="my-custom-ripple-target" mdc-ripple="accent: true;"&gt;&lt;/div&gt;
+      pre
+        code-prism.
+          &lt;div class="my-custom-ripple-target mdc-ripple-surface mdc-ripple-surface--accent"&gt;CSS-Only&lt;/div&gt;
 
-    mdc-grid-cell(span="4")
+    mdc-grid-cell(span="2")
       .my-custom-ripple-target(mdc-ripple="accent: true;")
+    mdc-grid-cell(span="2")
+      .my-custom-ripple-target.mdc-ripple-surface.mdc-ripple-surface--accent CSS-Only
 
     // PRIMARY
     mdc-grid-cell(span="8")
@@ -63,6 +79,11 @@ template
       pre
         code-prism.
           &lt;div class="my-custom-ripple-target" mdc-ripple="primary: true;"&gt;&lt;/div&gt;
+      pre
+        code-prism.
+          &lt;div class="my-custom-ripple-target mdc-ripple-surface mdc-ripple-surface--primary"&gt;CSS-Only&lt;/div&gt;
 
-    mdc-grid-cell(span="4")
+    mdc-grid-cell(span="2")
       .my-custom-ripple-target(mdc-ripple="primary: true;")
+    mdc-grid-cell(span="2")
+      .my-custom-ripple-target.mdc-ripple-surface.mdc-ripple-surface--primary CSS-Only
