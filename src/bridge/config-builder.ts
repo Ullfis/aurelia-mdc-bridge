@@ -15,6 +15,7 @@ export class ConfigBuilder {
       .useFab()
       .useIconToggle()
       .useCards()
+      .useChips()
       .useDialogs()
       .usePermanentDrawer()
       .usePersistentDrawer()
@@ -52,6 +53,11 @@ export class ConfigBuilder {
     this.globalResources.push(PLATFORM.moduleName('./card/card-actions'));
     this.globalResources.push(PLATFORM.moduleName('./card/card-media'));
     this.globalResources.push(PLATFORM.moduleName('./card/card'));
+    return this;
+  }
+  public useChips(): ConfigBuilder {
+    this.globalResources.push(PLATFORM.moduleName('./chip/chip-set'));
+    this.globalResources.push(PLATFORM.moduleName('./chip/chip'));
     return this;
   }
   public useDialogs(): ConfigBuilder {

@@ -23,6 +23,8 @@ export * from './button/icon-toggle/icon-toggle';
 export * from './card/card-actions';
 export * from './card/card-media';
 export * from './card/card';
+export * from './chip/chip';
+export * from './chip/chip-set';
 export * from './dialog/dialog';
 export * from './drawer/header';
 export * from './drawer/permanent';

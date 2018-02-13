@@ -143,6 +143,11 @@
               "main": "mdc.checkbox"
             },
             {
+              "name": "@material/chips",
+              "path": "../node_modules/@material/chips/dist",
+              "main": "mdc.chip"
+            },            
+            {
               "name": "@material/dialog",
               "path": "../node_modules/@material/dialog/dist",
               "main": "mdc.dialog"
@@ -261,6 +266,8 @@
         "aurelia-mdc-bridge/card/card-actions",
         "aurelia-mdc-bridge/card/card-media",
         "aurelia-mdc-bridge/card/card",
+        "aurelia-mdc-bridge/chip/chip-set",
+        "aurelia-mdc-bridge/chip/chip",
         "aurelia-mdc-bridge/dialog/dialog",
         "aurelia-mdc-bridge/drawer/header",
         "aurelia-mdc-bridge/drawer/permanent",
@@ -275,7 +282,6 @@
         "aurelia-mdc-bridge/inputs/checkbox/checkbox",
         "aurelia-mdc-bridge/inputs/radio/radio",
         "aurelia-mdc-bridge/inputs/select/select",
-        "aurelia-mdc-bridge/inputs/select/select-css",
         "aurelia-mdc-bridge/inputs/slider/slider",
         "aurelia-mdc-bridge/inputs/switch/switch",
         "aurelia-mdc-bridge/inputs/textfield/textfield",
