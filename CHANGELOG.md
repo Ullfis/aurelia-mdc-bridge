@@ -2,6 +2,61 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.17.0"></a>
+# [0.17.0](https://github.com/ullfis/aurelia-mdc-bridge/compare/v0.16.0...v0.17.0) (2018-02-13)
+
+## Material Components Web 0.30.0
+
+**Read this before you upgrade!**
+
+Much has changed in this version. If you use some or all of these components, please refactor your code. See changelog and documentation for details:
+
+- `mdc-simple-menu`
+- `mdc-select-css`
+- `mdc-card`
+
+There is also a new component:
+
+- `mdc-chip`
+- `mdc-chip-set`
+
+This component is not fully implemented. But it’s a start.
+
+Add this to your `aurelia.json` mdc-bundle dependencies:
+
+```json
+{
+  "name": "@material/chips",
+  "path": "../node_modules/@material/chips/dist",
+  "main": "mdc.chips"
+},
+```
+
+### Bug Fixes
+
+* **mdc-button:** make card-action handle card classes ([084f43d](https://github.com/ullfis/aurelia-mdc-bridge/commit/084f43d))
+* **mdc-checkbox:** update svg path's class ([a983a8b](https://github.com/ullfis/aurelia-mdc-bridge/commit/a983a8b))
+* **mdc-menu:** error thrown when click empty list-item area ([78382eb](https://github.com/ullfis/aurelia-mdc-bridge/commit/78382eb))
+* **mdc-select:** reflect mdc-menu changes ([5f34935](https://github.com/ullfis/aurelia-mdc-bridge/commit/5f34935))
+* **mdc-text-field:** change bottom line class ([9188093](https://github.com/ullfis/aurelia-mdc-bridge/commit/9188093))
+
+
+### Features
+
+* **mdc-card-title:** remove component ([c0d0aac](https://github.com/ullfis/aurelia-mdc-bridge/commit/c0d0aac))
+* material-components-web v0.30.0 ([89c8c19](https://github.com/ullfis/aurelia-mdc-bridge/commit/89c8c19))
+* **mdc-card:** add stroked attribute ([a00ca5c](https://github.com/ullfis/aurelia-mdc-bridge/commit/a00ca5c))
+* **mdc-card-actions:** remove vertical, add full-bleed.. ([64e76e2](https://github.com/ullfis/aurelia-mdc-bridge/commit/64e76e2))
+* **mdc-card-horizontal:** remove component ([e7d6f85](https://github.com/ullfis/aurelia-mdc-bridge/commit/e7d6f85))
+* **mdc-card-media:** add scaled attribute ([fff7ab5](https://github.com/ullfis/aurelia-mdc-bridge/commit/fff7ab5))
+* **mdc-card-text:** remove component ([cdf2baf](https://github.com/ullfis/aurelia-mdc-bridge/commit/cdf2baf))
+* **mdc-chip:** add new component ([7ef326c](https://github.com/ullfis/aurelia-mdc-bridge/commit/7ef326c))
+* **mdc-menu:** mdc-simple-menu has been renamed to mdc-menu ([770d017](https://github.com/ullfis/aurelia-mdc-bridge/commit/770d017))
+* **mdc-select:** add box attribute ([428136a](https://github.com/ullfis/aurelia-mdc-bridge/commit/428136a))
+* **mdc-select-css:** remove component ([ddd7415](https://github.com/ullfis/aurelia-mdc-bridge/commit/ddd7415))
+
+
+
 <a name="0.16.0"></a>
 # [0.16.0](https://github.com/ullfis/aurelia-mdc-bridge/compare/v0.15.0...v0.16.0) (2018-02-02)
 
