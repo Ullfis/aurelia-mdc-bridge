@@ -27,11 +27,14 @@ template
 
       // AURELIA
       mdc-grid-cell(span-desktop="6" span-tablet="8")
-        mdc-card
-          mdc-card-title(title="What is Aurelia?" subtitle="Create next generation JavaScript apps today.")
+        mdc-card.my-frontpage-card
+          .my-card-header
             .aurelia-avatar
-
-          mdc-card-text
+            .header-text
+              h2 What is Aurelia?
+              h3 Create next generation JavaScript apps today.
+          hr.mdc-list-divider
+          .my-card-content
             p.
               Aurelia is a JavaScript client framework for mobile, desktop and web leveraging 
               simple conventions and empowering creativity.
@@ -44,16 +47,23 @@ template
               li MV* with Conventions
               li Broad Language Support
               li Testable
-          mdc-card-actions
-            a(href="http://aurelia.io/" target="_blank" mdc-button="primary: true;" data-analytics-category="external" data-analytics-action="aurelia.io") Check out Aurelia.io
+          hr.mdc-list-divider
+          mdc-card-actions(full-bleed="true")
+            a(href="http://aurelia.io/" target="_blank" mdc-button="primary: true;" data-analytics-category="external" data-analytics-action="aurelia.io")
+              | Check out Aurelia.io
+              i.material-icons(aria-hidden="true") arrow_forward              
         
 
       // MATERIAL
       mdc-grid-cell(span-desktop="6" span-tablet="8")
-        mdc-card
-          mdc-card-title(title="What is Material Components?" subtitle="Combine theory, resources and tools for crafting digital experiences.")
+        mdc-card.my-frontpage-card
+          .my-card-header
             .material-avatar
-          mdc-card-text
+            .header-text
+              h2 What is Material Components?
+              h3 Combine theory, resources and tools for crafting digital experiences.
+          hr.mdc-list-divider
+          .my-card-content
             p.
               Material Components provide a reliable development environment for apps and websites across 
               Android, iOS, and the web. 
@@ -61,8 +71,11 @@ template
               Components are updated as the Material Design system evolves, 
               ensuring consistent pixel-perfect implementation and adherence to Google’s front-end development 
               standards, such as internationalization and accessibility support.
-          mdc-card-actions
-            a(href="https://material.io/" target="_blank" mdc-button="primary: true;" data-analytics-category="external" data-analytics-action="material.io") Check out Material.io
+          hr.mdc-list-divider
+          mdc-card-actions(full-bleed="true")
+            a(href="https://material.io/" target="_blank" mdc-button="primary: true;" data-analytics-category="external" data-analytics-action="material.io")
+              | Check out Material.io
+              i.material-icons(aria-hidden="true") arrow_forward              
 
   // YEAH  
   footer.footer
