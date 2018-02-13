@@ -20,12 +20,6 @@ export class MdcButton {
 
   private attached() {
     this.element.classList.add('mdc-button');
-    // is this a card action section?
-    const parentNode = this.element.parentNode as HTMLElement;
-    if (parentNode && parentNode.classList.contains('mdc-card__actions')) {
-      this.element.classList.add('mdc-card__action');
-      this.compact = true;
-    }
 
     this.compactChanged(this.compact);
     this.denseChanged(this.dense);
@@ -47,7 +41,8 @@ export class MdcButton {
       'mdc-button--compact',
       'mdc-button--stroked',
       'mdc-button--unelevated',
-      'mdc-card__action'
+      'mdc-card__action',
+      'mdc-card__action--button'
     ];
     this.element.classList.remove(...classes);
   }
