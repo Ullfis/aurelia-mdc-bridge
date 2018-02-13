@@ -1,6 +1,7 @@
 import { IMdcSelectChangeEvent } from '../../../bridge/index';
 
 export class Selects {
+  private box = false;
   private labelText = 'Label text';
 
   private products = [

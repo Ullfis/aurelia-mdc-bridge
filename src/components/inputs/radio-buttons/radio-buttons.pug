@@ -15,7 +15,7 @@ template
 
       // DEFAULT THEME
       section.components
-        h6 Default theme
+        h6 Example
         mdc-radio(
           checked.bind="radioChoise"
           disabled.bind="radioDisable"
@@ -46,40 +46,6 @@ template
             tr
               td event value:
               td ${eventDetail['radio1'].value}
-        br
-
-      // DARK THEME
-      section.mdc-theme--dark.components
-        h6 Dark theme
-        mdc-radio(
-          checked.bind="radioChoise"
-          disabled.bind="radioDisable"
-          value="option1"
-          name="radio2"
-          on-change.delegate="onChange($event)") Option 1
-
-        mdc-radio(
-          checked.bind="radioChoise"
-          disabled.bind="radioDisable"
-          value="option2"
-          name="radio2"
-          on-change.delegate="onChange($event)") Option 2
-
-        mdc-radio(
-          checked.bind="radioChoise"
-          disabled.bind="radioDisable"
-          value="option3"
-          name="radio2"
-          on-change.delegate="onChange($event)") Option 3
-
-        table.event-list
-          tbody
-            tr
-              td selected value:
-              td ${radioChoise}
-            tr
-              td event value:
-              td ${eventDetail['radio2'].value}
         br
 
       // BOOLEAN

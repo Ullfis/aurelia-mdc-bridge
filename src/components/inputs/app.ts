@@ -8,7 +8,6 @@ export class App {
       { route: '',                 moduleId: './checkboxes/checkboxes',       nav: true,  title: 'Checkboxes' },
       { route: 'checkboxes',       moduleId: './checkboxes/checkboxes',       nav: true,  title: 'Checkboxes' },
       { route: 'radio-buttons',    moduleId: './radio-buttons/radio-buttons', nav: true,  title: 'Radio Buttons' },
-      { route: 'select-menus-css', moduleId: './select-menus/selects-css',    nav: true,  title: 'Select Menus Css' },
       { route: 'select-menus',     moduleId: './select-menus/selects',        nav: true,  title: 'Select Menus' },
       { route: 'sliders',          moduleId: './sliders/sliders',             nav: true,  title: 'Sliders' },
       { route: 'switches',         moduleId: './switches/switches',           nav: true,  title: 'Switches' },

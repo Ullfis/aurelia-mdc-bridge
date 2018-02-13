@@ -5,11 +5,12 @@ import * as util from '../util';
 @customElement('mdc-card')
 @inject(Element)
 export class MdcCard {
-  @bindable() public height: string;
-  @bindable() public width: string;
-  @bindable() public class: string;
+  @bindable({ defaultBindingMode: bindingMode.oneWay }) public height: string;
+  @bindable({ defaultBindingMode: bindingMode.oneWay }) public width: string;
+  @bindable({ defaultBindingMode: bindingMode.oneWay }) public stroked = false;
   private log: Logger;
   private cssString = '';
+  private elementCard: HTMLDivElement;
 
   constructor(private element: Element) {
     this.log = getLogger('mdc-card');
@@ -20,6 +21,7 @@ export class MdcCard {
 
   private attached() {
     this.createCss();
+    this.strokedChanged(this.stroked);
   }
 
   private heightChanged(newValue: string) {
@@ -27,6 +29,10 @@ export class MdcCard {
   }
   private widthChanged(newValue: string) {
     this.createCss();
+  }
+  private strokedChanged(newValue) {
+    const value = util.getBoolean(newValue);
+    this.elementCard.classList[value ? 'add' : 'remove']('mdc-card--stroked');
   }
 
   private createCss() {

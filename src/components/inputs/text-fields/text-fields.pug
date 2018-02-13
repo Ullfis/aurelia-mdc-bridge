@@ -53,7 +53,7 @@ template
 
       // DEFAULT THEME
       section.components
-        h5 Default theme
+        h5 Example
 
         mdc-grid-inner
           mdc-grid-cell(span="6")
@@ -75,14 +75,24 @@ template
               focus.delegate="onEvent('focus', $event)"          
               blur.delegate="onEvent('blur', $event)") Label text
 
-            br
-            br
-            br
+          // Custom color
+          mdc-grid-cell(span="6")        
+            mdc-text-field.my-text-field(
+              view-model.ref="demoTextfieldElement2"
+              value.bind="mValue" 
+              disabled.bind="mDisabled"
+              dense.bind="mDense"
+              required.bind="mRequired"
+              helptext.bind="mHelptext"
+              helptext-show.bind="mHelptextShow"
+              helptext-persistent.bind="mHelptextPersistent"
+              helptext-validation.bind="mHelptextValidation") Custom color
 
           mdc-grid-cell(span="6")
             // events
             report-element(view-model.ref="reportElement")
             br
+
 
         // multiline
         mdc-text-field(
@@ -95,32 +105,6 @@ template
           helptext-show.bind="mHelptextShow"
           helptext-persistent.bind="mHelptextPersistent"
           helptext-validation.bind="mHelptextValidation") Multiline
-
-      // DARK THEME
-      section.mdc-theme--dark.components
-        h5 Dark theme
-        mdc-grid-inner
-          mdc-grid-cell(span="6")        
-            mdc-text-field(
-              value.bind="mValue" 
-              disabled.bind="mDisabled"
-              dense.bind="mDense"
-              required.bind="mRequired"
-              helptext.bind="mHelptext"
-              helptext-show.bind="mHelptextShow"
-              helptext-persistent.bind="mHelptextPersistent"
-              helptext-validation.bind="mHelptextValidation") Label text
-
-          mdc-grid-cell(span="6")        
-            mdc-text-field.my-text-field(
-              value.bind="mValue" 
-              disabled.bind="mDisabled"
-              dense.bind="mDense"
-              required.bind="mRequired"
-              helptext.bind="mHelptext"
-              helptext-show.bind="mHelptextShow"
-              helptext-persistent.bind="mHelptextPersistent"
-              helptext-validation.bind="mHelptextValidation") Custom color
 
       // password      
       mdc-text-field(
@@ -268,8 +252,8 @@ template
             :not(.mdc-text-field--focused) {
               @include mdc-text-field-bottom-line-color(green);
               @include mdc-text-field-hover-bottom-line-color(blue);
-              @include mdc-text-field-focused-bottom-line-color(teal);
-              @include mdc-text-field-ink-color(white);
+              
+              @include mdc-text-field-ink-color(black);
               @include mdc-text-field-label-color(orange);
               @include mdc-text-field-helper-text-validation-color(grey);
               
@@ -277,10 +261,11 @@ template
               @include mdc-text-field-hover-outline-color(brown);
               @include mdc-text-field-focused-outline-color(yellow);
             }
-
+            
             .mdc-text-field--focused {
-              @include mdc-text-field-bottom-line-color(white);
-              @include mdc-text-field-focused-bottom-line-color(yellow);
+              @include mdc-text-field-bottom-line-color(yellow);
+              @include mdc-text-field-line-ripple-color(green);
+
               @include mdc-text-field-ink-color(red);
               @include mdc-text-field-label-color(blue);
               @include mdc-text-field-helper-text-validation-color(teal);
@@ -291,9 +276,10 @@ template
 
             .mdc-text-field--invalid {
               @include mdc-text-field-bottom-line-color(red);
-              @include mdc-text-field-hover-bottom-line-color(blue);
-              @include mdc-text-field-focused-bottom-line-color(blue);
-              @include mdc-text-field-ink-color(white);
+              @include mdc-text-field-line-ripple-color(red);
+              @include mdc-text-field-hover-bottom-line-color(orange);
+
+              @include mdc-text-field-ink-color(grey);
               @include mdc-text-field-label-color(yellow);
               @include mdc-text-field-helper-text-validation-color(orange);
               

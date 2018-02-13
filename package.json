@@ -72,11 +72,11 @@
     "___end-docs___": ""
   },
   "dependencies": {
-    "material-components-web": "~0.29.0"
+    "material-components-web": "~0.30.0"
   },
   "peerDependencies": {},
   "devDependencies": {
-    "@types/node": "^9.4.0",
+    "@types/node": "^9.4.1",
     "@types/prismjs": "^1.9.0",
     "aurelia-bootstrapper": "^2.2.0",
     "aurelia-cli": "^0.32.0",
@@ -99,7 +99,7 @@
     "gulp-plumber": "^1.2.0",
     "gulp-pug": "^3.3.0",
     "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.3.2",
+    "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-tslint": "^8.1.2",
     "gulp-typescript": "^3.2.4",
@@ -107,7 +107,7 @@
     "html-minifier": "^3.5.8",
     "material-design-icons": "^3.0.1",
     "minimatch": "^3.0.4",
-    "prismjs": "^1.10.0",
+    "prismjs": "^1.11.0",
     "requirejs": "^2.3.5",
     "rimraf": "^2.6.2",
     "roboto-npm-webfont": "^1.0.1",
@@ -142,6 +142,11 @@
               "path": "../node_modules/@material/checkbox/dist",
               "main": "mdc.checkbox"
             },
+            {
+              "name": "@material/chips",
+              "path": "../node_modules/@material/chips/dist",
+              "main": "mdc.chip"
+            },            
             {
               "name": "@material/dialog",
               "path": "../node_modules/@material/dialog/dist",
@@ -259,10 +264,10 @@
         "aurelia-mdc-bridge/button/fab/fab",
         "aurelia-mdc-bridge/button/icon-toggle/icon-toggle",
         "aurelia-mdc-bridge/card/card-actions",
-        "aurelia-mdc-bridge/card/card-horizontal",
         "aurelia-mdc-bridge/card/card-media",
-        "aurelia-mdc-bridge/card/card-title",
         "aurelia-mdc-bridge/card/card",
+        "aurelia-mdc-bridge/chip/chip-set",
+        "aurelia-mdc-bridge/chip/chip",
         "aurelia-mdc-bridge/dialog/dialog",
         "aurelia-mdc-bridge/drawer/header",
         "aurelia-mdc-bridge/drawer/permanent",
@@ -277,7 +282,6 @@
         "aurelia-mdc-bridge/inputs/checkbox/checkbox",
         "aurelia-mdc-bridge/inputs/radio/radio",
         "aurelia-mdc-bridge/inputs/select/select",
-        "aurelia-mdc-bridge/inputs/select/select-css",
         "aurelia-mdc-bridge/inputs/slider/slider",
         "aurelia-mdc-bridge/inputs/switch/switch",
         "aurelia-mdc-bridge/inputs/textfield/textfield",
@@ -286,7 +290,7 @@
         "aurelia-mdc-bridge/list/list",
         "aurelia-mdc-bridge/list/mdc-list-group.html",
         "aurelia-mdc-bridge/list/mdc-list-group-header.html",
-        "aurelia-mdc-bridge/menu/simple-menu",
+        "aurelia-mdc-bridge/menu/menu",
         "aurelia-mdc-bridge/progress/linear",
         "aurelia-mdc-bridge/ripple/ripple",
         "aurelia-mdc-bridge/snackbar/snackbar",

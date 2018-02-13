@@ -20,7 +20,7 @@ template
     // DEMO AREA
     mdc-grid-cell(span="8")    
       section.components
-        h6 Default theme
+        h6 Example
         br
         mdc-checkbox(
           checked.bind="checked1" 
@@ -28,18 +28,12 @@ template
           disabled.bind="disable" 
           on-change.delegate="onChange($event)") DEMO checkbox. checked: ${checked1}
 
-      section.mdc-theme--dark.components
-        h6 Dark theme
         br
-        mdc-checkbox(checked.bind="checked2") Checkbox. checked: ${checked2}
-
-      section
         mdc-checkbox(checked="true") Check unbound (checked="true")
-      section
+        br
         mdc-checkbox(indeterminate="true") Check unbound (indeterminate="true")
-      section
+        br
         mdc-checkbox(disabled="true") Check unbound (disabled="true")
-
 
     // LINKS
     mdc-grid-cell(span="12")

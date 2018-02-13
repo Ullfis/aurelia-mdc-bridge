@@ -1,17 +1,20 @@
-import { inject, bindable, bindingMode, customElement } from 'aurelia-framework';
+import { inject, bindable, bindingMode, customElement, containerless } from 'aurelia-framework';
 import { getLogger, Logger } from 'aurelia-logging';
 import * as util from '../util';
 
 @customElement('mdc-card-media')
+@containerless()
 @inject(Element)
 export class MdcCardMedia {
-  @bindable() public class: string;
-  @bindable() public image: string = null;
-  @bindable() public size: string = null;
-  @bindable() public repeat: string = null;
-  @bindable() public height: string = null;
+  @bindable({ defaultBindingMode: bindingMode.oneWay }) public class: string = null;
+  @bindable({ defaultBindingMode: bindingMode.oneWay }) public image: string = null;
+  @bindable({ defaultBindingMode: bindingMode.oneWay }) public size: string = null;
+  @bindable({ defaultBindingMode: bindingMode.oneWay }) public repeat: string = null;
+  @bindable({ defaultBindingMode: bindingMode.oneWay }) public height: string = null;
+  @bindable({ defaultBindingMode: bindingMode.oneWay }) public scaled: string = null;
   private log: Logger;
   private cssString = '';
+  private elementMedia: HTMLDivElement;
 
   constructor(private element: Element) {
     this.log = getLogger('mdc-card-media');
@@ -22,6 +25,7 @@ export class MdcCardMedia {
 
   private attached() {
     this.createCss();
+    this.scaledChanged(this.scaled);
   }
   private imageChanged() {
     this.createCss();
@@ -34,6 +38,22 @@ export class MdcCardMedia {
   }
   private heightChanged() {
     this.createCss();
+  }
+  private scaledChanged(newValue: string) {
+    if (this.elementMedia) {
+      this.elementMedia.classList.remove(
+        'mdc-card__media--square',
+        'mdc-card__media--16-9'
+      );
+      switch (newValue) {
+        case 'square':
+          this.elementMedia.classList.add('mdc-card__media--square');
+          break;
+        case '16-9':
+          this.elementMedia.classList.add('mdc-card__media--16-9');
+          break;
+      }
+    }
   }
 
   private createCss() {

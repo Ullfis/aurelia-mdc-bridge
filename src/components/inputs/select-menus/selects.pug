@@ -4,15 +4,14 @@ template
   mdc-grid
     mdc-grid-cell(span="12")
       h4 Select Menus
-      p.
-        If you need to support browser's native select, 
-        see #[a(href="#/components/inputs/select-menus-css") mdc-select-css]
 
     // CONFIG AREA
     mdc-grid-cell(span="4")
       button(mdc-button="raised: true;" click.delegate="addRow()") Add option
       br
       mdc-checkbox(checked.bind="disabled") disabled
+      br
+      mdc-checkbox(checked.bind="box") box
       br
       mdc-text-field(value.bind="labelText") label-text
       br
@@ -28,12 +27,13 @@ template
         mdc-list-item
           a(href="#customcolors") Custom colors
 
-    // DEMO AREA
+    // EXAMPLE
     mdc-grid-cell(span="8")
       section.components
-        h6 Default theme
+        h6 Example
         br
-        mdc-select(value.bind="selectedProductId" 
+        mdc-select(value.bind="selectedProductId"
+                   box.bind="box" 
                    disabled.bind="disabled" 
                    on-change.delegate="onChange($event)"
                    label-text.bind="labelText")
@@ -45,8 +45,6 @@ template
           mdc-list-item(model="999")
             span Something
 
-      section.mdc-theme--dark.components
-        h6 Dark theme
         br
         style.
           .my-cont .mdc-select {
@@ -114,7 +112,7 @@ template
           private selectedProductId = 1;
       pre
         code-prism(language="html").
-          &lt;mdc-select value.bind="selectedProductId" disabled.bind="disabled"&gt;
+          &lt;mdc-select value.bind="selectedProductId" label-text="Label text" disabled.bind="disabled" box.bind="box"&gt;
             &lt;mdc-list-item
               repeat.for="product of products"
               model.bind="product.id"&gt;${product.id} - ${product.name}
