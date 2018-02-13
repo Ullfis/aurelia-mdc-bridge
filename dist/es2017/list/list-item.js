@@ -20,7 +20,7 @@ let MdcListItem = class MdcListItem {
         this.selected = false;
         this.disabled = false;
         this.target = '_self';
-        this.isSimpleMenuItem = false;
+        this.isMenuItem = false;
         this.isSelectMenuItem = false;
         this.selectedClass = '';
         this.log = getLogger('mdc-list-item');
@@ -38,7 +38,7 @@ let MdcListItem = class MdcListItem {
             this.selectedClass = 'mdc-list-item--activated';
         }
         this.selectMenuItem();
-        this.simpleMenuItem();
+        this.menuItem();
         this.rippleEffect();
         this.disabledChanged(this.disabled);
         this.selectedChanged(this.selected);
@@ -48,9 +48,9 @@ let MdcListItem = class MdcListItem {
             this.mdcRipple.destroy();
         }
     }
-    simpleMenuItem() {
-        this.isSimpleMenuItem = this.parentElement.classList.contains('mdc-simple-menu__items');
-        if (this.isSimpleMenuItem) {
+    menuItem() {
+        this.isMenuItem = this.parentElement.classList.contains('mdc-menu__items');
+        if (this.isMenuItem) {
             this.elementListItem.setAttribute('role', this.isSelectMenuItem ? 'option' : 'menuitem');
         }
     }
@@ -64,7 +64,7 @@ let MdcListItem = class MdcListItem {
     }
     disabledChanged(newValue) {
         const value = util.getBoolean(newValue);
-        if (this.isSimpleMenuItem || this.isSelectMenuItem) {
+        if (this.isMenuItem || this.isSelectMenuItem) {
             this.elementListItem.setAttribute('tabindex', value ? '-1' : '0');
             this.elementListItem.setAttribute('aria-disabled', value ? 'true' : 'false');
         }

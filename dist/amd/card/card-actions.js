@@ -11,27 +11,49 @@ define(["require", "exports", "aurelia-framework", "../util"], function (require
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var MdcCardActions = (function () {
-        function MdcCardActions() {
+        function MdcCardActions(taskQueue) {
+            this.taskQueue = taskQueue;
+            this.fullBleed = false;
         }
         MdcCardActions.prototype.bind = function () { };
         MdcCardActions.prototype.unbind = function () { };
         MdcCardActions.prototype.attached = function () {
-            this.verticalChanged(this.vertical);
+            var _this = this;
+            this.fullBleedChanged(this.fullBleed);
+            this.taskQueue.queueTask(function () {
+                _this.decorateChildren(_this.elementSection);
+            });
         };
-        MdcCardActions.prototype.verticalChanged = function (newValue) {
+        MdcCardActions.prototype.fullBleedChanged = function (newValue) {
             var value = util.getBoolean(newValue);
-            this.elementSection.classList[value ? 'add' : 'remove']('mdc-card__actions--vertical');
+            this.elementSection.classList[value ? 'add' : 'remove']('mdc-card__actions--full-bleed');
+        };
+        MdcCardActions.prototype.decorateChildren = function (element) {
+            if (element.classList.contains('mdc-button')) {
+                element.classList.add('mdc-card__action', 'mdc-card__action--button');
+            }
+            else if (element.classList.contains('material-icons')) {
+                element.classList.add('mdc-card__action', 'mdc-card__action--icon');
+            }
+            else {
+                for (var i = 0; i < element.children.length; i++) {
+                    this.decorateChildren(element.children[i]);
+                }
+            }
         };
         __decorate([
-            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.oneTime }),
-            __metadata("design:type", Boolean)
-        ], MdcCardActions.prototype, "vertical", void 0);
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.oneWay }),
+            __metadata("design:type", Object)
+        ], MdcCardActions.prototype, "fullBleed", void 0);
         __decorate([
-            aurelia_framework_1.bindable(),
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.oneWay }),
             __metadata("design:type", String)
         ], MdcCardActions.prototype, "class", void 0);
         MdcCardActions = __decorate([
-            aurelia_framework_1.customElement('mdc-card-actions')
+            aurelia_framework_1.customElement('mdc-card-actions'),
+            aurelia_framework_1.containerless(),
+            aurelia_framework_1.autoinject(),
+            __metadata("design:paramtypes", [aurelia_framework_1.TaskQueue])
         ], MdcCardActions);
         return MdcCardActions;
     }());

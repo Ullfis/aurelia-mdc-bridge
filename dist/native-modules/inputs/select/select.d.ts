@@ -10,6 +10,7 @@ export declare class MdcSelect {
     disabled: boolean;
     value: any;
     labelText: any;
+    box: boolean;
     matcher: (a: any, b: any) => boolean;
     private listItems;
     private elementSelect;
@@ -23,6 +24,7 @@ export declare class MdcSelect {
     private detached();
     private listItemsChanged();
     private disabledChanged(newValue);
+    private boxChanged(newValue);
     private valueChanged(newValue);
     private findIndex(value);
     private compareModels(model1, model2);

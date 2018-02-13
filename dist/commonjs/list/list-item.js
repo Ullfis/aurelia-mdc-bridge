@@ -22,7 +22,7 @@ var MdcListItem = (function () {
         this.selected = false;
         this.disabled = false;
         this.target = '_self';
-        this.isSimpleMenuItem = false;
+        this.isMenuItem = false;
         this.isSelectMenuItem = false;
         this.selectedClass = '';
         this.log = aurelia_logging_1.getLogger('mdc-list-item');
@@ -40,7 +40,7 @@ var MdcListItem = (function () {
             this.selectedClass = 'mdc-list-item--activated';
         }
         this.selectMenuItem();
-        this.simpleMenuItem();
+        this.menuItem();
         this.rippleEffect();
         this.disabledChanged(this.disabled);
         this.selectedChanged(this.selected);
@@ -50,9 +50,9 @@ var MdcListItem = (function () {
             this.mdcRipple.destroy();
         }
     };
-    MdcListItem.prototype.simpleMenuItem = function () {
-        this.isSimpleMenuItem = this.parentElement.classList.contains('mdc-simple-menu__items');
-        if (this.isSimpleMenuItem) {
+    MdcListItem.prototype.menuItem = function () {
+        this.isMenuItem = this.parentElement.classList.contains('mdc-menu__items');
+        if (this.isMenuItem) {
             this.elementListItem.setAttribute('role', this.isSelectMenuItem ? 'option' : 'menuitem');
         }
     };
@@ -66,7 +66,7 @@ var MdcListItem = (function () {
     };
     MdcListItem.prototype.disabledChanged = function (newValue) {
         var value = util.getBoolean(newValue);
-        if (this.isSimpleMenuItem || this.isSelectMenuItem) {
+        if (this.isMenuItem || this.isSelectMenuItem) {
             this.elementListItem.setAttribute('tabindex', value ? '-1' : '0');
             this.elementListItem.setAttribute('aria-disabled', value ? 'true' : 'false');
         }

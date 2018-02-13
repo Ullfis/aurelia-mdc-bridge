@@ -18,6 +18,7 @@ var MdcSelect = (function () {
         this.element = element;
         this.taskQueue = taskQueue;
         this.disabled = false;
+        this.box = false;
         this.internalValueChanged = false;
         this.log = aurelia_logging_1.getLogger('mdc-select');
     }
@@ -35,7 +36,7 @@ var MdcSelect = (function () {
                         }
                         break;
                     }
-                    else if (target.classList.contains('mdc-simple-menu')) {
+                    else if (target.classList.contains('mdc-menu')) {
                         break;
                     }
                     target = target.parentElement;
@@ -47,6 +48,7 @@ var MdcSelect = (function () {
             mdcSelectFoundation.getTextForOptionAtIndex = _this.getTextForOptionAtIndex.bind(_this);
             mdcSelectFoundation.getValueForOptionAtIndex = _this.getValueForOptionAtIndex.bind(_this);
             _this.disabledChanged(_this.disabled);
+            _this.boxChanged(_this.box);
             if (!_this.value) {
                 return;
             }
@@ -70,6 +72,10 @@ var MdcSelect = (function () {
     };
     MdcSelect.prototype.disabledChanged = function (newValue) {
         this.mdcSelect.disabled = util.getBoolean(newValue);
+    };
+    MdcSelect.prototype.boxChanged = function (newValue) {
+        var value = util.getBoolean(newValue);
+        this.elementSelect.classList[value ? 'add' : 'remove']('mdc-select--box');
     };
     MdcSelect.prototype.valueChanged = function (newValue) {
         if (this.internalValueChanged) {
@@ -136,6 +142,10 @@ var MdcSelect = (function () {
         aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.oneWay }),
         __metadata("design:type", Object)
     ], MdcSelect.prototype, "labelText", void 0);
+    __decorate([
+        aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.oneWay }),
+        __metadata("design:type", Object)
+    ], MdcSelect.prototype, "box", void 0);
     __decorate([
         aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.oneTime }),
         __metadata("design:type", Function)

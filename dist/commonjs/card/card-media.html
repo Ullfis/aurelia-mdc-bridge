@@ -1,6 +1,8 @@
 
 <template>
-  <section class="mdc-card__media" css.bind="cssString">
-    <slot></slot>
-  </section>
+  <div class="mdc-card__media" css.bind="cssString" class.bind="class" ref="elementMedia">
+    <div class="mdc-card__media-content">
+      <slot></slot>
+    </div>
+  </div>
 </template>

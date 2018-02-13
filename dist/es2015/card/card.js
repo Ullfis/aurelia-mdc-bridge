@@ -7,11 +7,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { inject, bindable, customElement } from 'aurelia-framework';
+import { inject, bindable, bindingMode, customElement } from 'aurelia-framework';
 import { getLogger } from 'aurelia-logging';
+import * as util from '../util';
 let MdcCard = class MdcCard {
     constructor(element) {
         this.element = element;
+        this.stroked = false;
         this.cssString = '';
         this.log = getLogger('mdc-card');
     }
@@ -19,12 +21,17 @@ let MdcCard = class MdcCard {
     unbind() { }
     attached() {
         this.createCss();
+        this.strokedChanged(this.stroked);
     }
     heightChanged(newValue) {
         this.createCss();
     }
     widthChanged(newValue) {
         this.createCss();
+    }
+    strokedChanged(newValue) {
+        const value = util.getBoolean(newValue);
+        this.elementCard.classList[value ? 'add' : 'remove']('mdc-card--stroked');
     }
     createCss() {
         let value = '';
@@ -38,17 +45,17 @@ let MdcCard = class MdcCard {
     }
 };
 __decorate([
-    bindable(),
+    bindable({ defaultBindingMode: bindingMode.oneWay }),
     __metadata("design:type", String)
 ], MdcCard.prototype, "height", void 0);
 __decorate([
-    bindable(),
+    bindable({ defaultBindingMode: bindingMode.oneWay }),
     __metadata("design:type", String)
 ], MdcCard.prototype, "width", void 0);
 __decorate([
-    bindable(),
-    __metadata("design:type", String)
-], MdcCard.prototype, "class", void 0);
+    bindable({ defaultBindingMode: bindingMode.oneWay }),
+    __metadata("design:type", Object)
+], MdcCard.prototype, "stroked", void 0);
 MdcCard = __decorate([
     customElement('mdc-card'),
     inject(Element),

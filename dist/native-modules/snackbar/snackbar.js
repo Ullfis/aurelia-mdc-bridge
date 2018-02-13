@@ -34,11 +34,6 @@ var MdcSnackbar = (function () {
         if (util.hasProp(options, 'dismissesOnAction')) {
             this.dismissesOnAction = options.dismissesOnAction;
         }
-        if (util.hasProp(options, 'darkTheme')) {
-            if (this.elementTheme && options.darkTheme) {
-                this.elementTheme.classList.add('mdc-theme--dark');
-            }
-        }
         if (!util.hasProp(options, 'message')) {
             options.message = this.message;
         }

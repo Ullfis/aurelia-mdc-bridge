@@ -1,4 +1,4 @@
-System.register(["aurelia-framework", "aurelia-logging"], function (exports_1, context_1) {
+System.register(["aurelia-framework", "aurelia-logging", "../util"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -10,7 +10,7 @@ System.register(["aurelia-framework", "aurelia-logging"], function (exports_1, c
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var aurelia_framework_1, aurelia_logging_1, MdcCard;
+    var aurelia_framework_1, aurelia_logging_1, util, MdcCard;
     return {
         setters: [
             function (aurelia_framework_1_1) {
@@ -18,12 +18,16 @@ System.register(["aurelia-framework", "aurelia-logging"], function (exports_1, c
             },
             function (aurelia_logging_1_1) {
                 aurelia_logging_1 = aurelia_logging_1_1;
+            },
+            function (util_1) {
+                util = util_1;
             }
         ],
         execute: function () {
             MdcCard = (function () {
                 function MdcCard(element) {
                     this.element = element;
+                    this.stroked = false;
                     this.cssString = '';
                     this.log = aurelia_logging_1.getLogger('mdc-card');
                 }
@@ -31,12 +35,17 @@ System.register(["aurelia-framework", "aurelia-logging"], function (exports_1, c
                 MdcCard.prototype.unbind = function () { };
                 MdcCard.prototype.attached = function () {
                     this.createCss();
+                    this.strokedChanged(this.stroked);
                 };
                 MdcCard.prototype.heightChanged = function (newValue) {
                     this.createCss();
                 };
                 MdcCard.prototype.widthChanged = function (newValue) {
                     this.createCss();
+                };
+                MdcCard.prototype.strokedChanged = function (newValue) {
+                    var value = util.getBoolean(newValue);
+                    this.elementCard.classList[value ? 'add' : 'remove']('mdc-card--stroked');
                 };
                 MdcCard.prototype.createCss = function () {
                     var value = '';
@@ -49,17 +58,17 @@ System.register(["aurelia-framework", "aurelia-logging"], function (exports_1, c
                     this.cssString = value;
                 };
                 __decorate([
-                    aurelia_framework_1.bindable(),
+                    aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.oneWay }),
                     __metadata("design:type", String)
                 ], MdcCard.prototype, "height", void 0);
                 __decorate([
-                    aurelia_framework_1.bindable(),
+                    aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.oneWay }),
                     __metadata("design:type", String)
                 ], MdcCard.prototype, "width", void 0);
                 __decorate([
-                    aurelia_framework_1.bindable(),
-                    __metadata("design:type", String)
-                ], MdcCard.prototype, "class", void 0);
+                    aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.oneWay }),
+                    __metadata("design:type", Object)
+                ], MdcCard.prototype, "stroked", void 0);
                 MdcCard = __decorate([
                     aurelia_framework_1.customElement('mdc-card'),
                     aurelia_framework_1.inject(Element),

@@ -7,28 +7,51 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { bindable, bindingMode, customElement } from 'aurelia-framework';
+import { bindable, bindingMode, customElement, containerless, TaskQueue, autoinject } from 'aurelia-framework';
 import * as util from '../util';
 let MdcCardActions = class MdcCardActions {
+    constructor(taskQueue) {
+        this.taskQueue = taskQueue;
+        this.fullBleed = false;
+    }
     bind() { }
     unbind() { }
     attached() {
-        this.verticalChanged(this.vertical);
+        this.fullBleedChanged(this.fullBleed);
+        this.taskQueue.queueTask(() => {
+            this.decorateChildren(this.elementSection);
+        });
     }
-    verticalChanged(newValue) {
+    fullBleedChanged(newValue) {
         const value = util.getBoolean(newValue);
-        this.elementSection.classList[value ? 'add' : 'remove']('mdc-card__actions--vertical');
+        this.elementSection.classList[value ? 'add' : 'remove']('mdc-card__actions--full-bleed');
+    }
+    decorateChildren(element) {
+        if (element.classList.contains('mdc-button')) {
+            element.classList.add('mdc-card__action', 'mdc-card__action--button');
+        }
+        else if (element.classList.contains('material-icons')) {
+            element.classList.add('mdc-card__action', 'mdc-card__action--icon');
+        }
+        else {
+            for (let i = 0; i < element.children.length; i++) {
+                this.decorateChildren(element.children[i]);
+            }
+        }
     }
 };
 __decorate([
-    bindable({ defaultBindingMode: bindingMode.oneTime }),
-    __metadata("design:type", Boolean)
-], MdcCardActions.prototype, "vertical", void 0);
+    bindable({ defaultBindingMode: bindingMode.oneWay }),
+    __metadata("design:type", Object)
+], MdcCardActions.prototype, "fullBleed", void 0);
 __decorate([
-    bindable(),
+    bindable({ defaultBindingMode: bindingMode.oneWay }),
     __metadata("design:type", String)
 ], MdcCardActions.prototype, "class", void 0);
 MdcCardActions = __decorate([
-    customElement('mdc-card-actions')
+    customElement('mdc-card-actions'),
+    containerless(),
+    autoinject(),
+    __metadata("design:paramtypes", [TaskQueue])
 ], MdcCardActions);
 export { MdcCardActions };

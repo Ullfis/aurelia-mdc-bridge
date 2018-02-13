@@ -6,6 +6,7 @@ export declare class ConfigBuilder {
     useFab(): ConfigBuilder;
     useIconToggle(): ConfigBuilder;
     useCards(): ConfigBuilder;
+    useChips(): ConfigBuilder;
     useDialogs(): ConfigBuilder;
     usePermanentDrawer(): ConfigBuilder;
     usePersistentDrawer(): ConfigBuilder;
@@ -14,7 +15,6 @@ export declare class ConfigBuilder {
     useCheckboxes(): ConfigBuilder;
     useRadioButtons(): ConfigBuilder;
     useSelectMenus(): ConfigBuilder;
-    useSelectMenusCss(): ConfigBuilder;
     useSliders(): ConfigBuilder;
     useSwitches(): ConfigBuilder;
     useTextFields(): ConfigBuilder;

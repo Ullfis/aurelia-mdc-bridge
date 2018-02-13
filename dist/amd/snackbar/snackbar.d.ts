@@ -7,7 +7,6 @@ export interface IMdcSnackbarOptions {
     multiline?: boolean;
     dismissesOnAction?: boolean;
     alignStart?: boolean;
-    darkTheme?: boolean;
 }
 export declare class MdcSnackbar {
     private element;

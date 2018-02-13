@@ -5,8 +5,10 @@ export declare class MdcCardMedia {
     size: string;
     repeat: string;
     height: string;
+    scaled: string;
     private log;
     private cssString;
+    private elementMedia;
     constructor(element: Element);
     private bind();
     private unbind();
@@ -15,5 +17,6 @@ export declare class MdcCardMedia {
     private sizeChanged();
     private repeatChanged();
     private heightChanged();
+    private scaledChanged(newValue);
     private createCss();
 }

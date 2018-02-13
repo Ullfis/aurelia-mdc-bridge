@@ -40,11 +40,6 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/ripple", "..
                 }
                 MdcButton.prototype.attached = function () {
                     this.element.classList.add('mdc-button');
-                    var parentNode = this.element.parentNode;
-                    if (parentNode && parentNode.classList.contains('mdc-card__actions')) {
-                        this.element.classList.add('mdc-card__action');
-                        this.compact = true;
-                    }
                     this.compactChanged(this.compact);
                     this.denseChanged(this.dense);
                     this.raisedChanged(this.raised);
@@ -62,7 +57,8 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/ripple", "..
                         'mdc-button--compact',
                         'mdc-button--stroked',
                         'mdc-button--unelevated',
-                        'mdc-card__action'
+                        'mdc-card__action',
+                        'mdc-card__action--button'
                     ];
                     (_a = this.element.classList).remove.apply(_a, classes);
                     var _a;

@@ -12,6 +12,7 @@ var ConfigBuilder = (function () {
             .useFab()
             .useIconToggle()
             .useCards()
+            .useChips()
             .useDialogs()
             .usePermanentDrawer()
             .usePersistentDrawer()
@@ -20,7 +21,6 @@ var ConfigBuilder = (function () {
             .useCheckboxes()
             .useRadioButtons()
             .useSelectMenus()
-            .useSelectMenusCss()
             .useSliders()
             .useSwitches()
             .useTextFields()
@@ -47,11 +47,13 @@ var ConfigBuilder = (function () {
     };
     ConfigBuilder.prototype.useCards = function () {
         this.globalResources.push(aurelia_pal_1.PLATFORM.moduleName('./card/card-actions'));
-        this.globalResources.push(aurelia_pal_1.PLATFORM.moduleName('./card/card-horizontal'));
         this.globalResources.push(aurelia_pal_1.PLATFORM.moduleName('./card/card-media'));
-        this.globalResources.push(aurelia_pal_1.PLATFORM.moduleName('./card/card-text'));
-        this.globalResources.push(aurelia_pal_1.PLATFORM.moduleName('./card/card-title'));
         this.globalResources.push(aurelia_pal_1.PLATFORM.moduleName('./card/card'));
+        return this;
+    };
+    ConfigBuilder.prototype.useChips = function () {
+        this.globalResources.push(aurelia_pal_1.PLATFORM.moduleName('./chip/chip-set'));
+        this.globalResources.push(aurelia_pal_1.PLATFORM.moduleName('./chip/chip'));
         return this;
     };
     ConfigBuilder.prototype.useDialogs = function () {
@@ -90,10 +92,6 @@ var ConfigBuilder = (function () {
         this.globalResources.push(aurelia_pal_1.PLATFORM.moduleName('./inputs/select/select'));
         return this;
     };
-    ConfigBuilder.prototype.useSelectMenusCss = function () {
-        this.globalResources.push(aurelia_pal_1.PLATFORM.moduleName('./inputs/select/select-css'));
-        return this;
-    };
     ConfigBuilder.prototype.useSliders = function () {
         this.globalResources.push(aurelia_pal_1.PLATFORM.moduleName('./inputs/slider/slider'));
         return this;
@@ -125,7 +123,7 @@ var ConfigBuilder = (function () {
         return this;
     };
     ConfigBuilder.prototype.useMenus = function () {
-        this.globalResources.push(aurelia_pal_1.PLATFORM.moduleName('./menu/simple-menu'));
+        this.globalResources.push(aurelia_pal_1.PLATFORM.moduleName('./menu/menu'));
         return this;
     };
     ConfigBuilder.prototype.useRipples = function () {

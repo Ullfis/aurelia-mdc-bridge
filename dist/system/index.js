@@ -1,4 +1,4 @@
-System.register(["./config-builder", "./button/button", "./button/fab/fab", "./button/icon-toggle/icon-toggle", "./card/card-actions", "./card/card-horizontal", "./card/card-media", "./card/card-text", "./card/card-title", "./card/card", "./dialog/dialog", "./drawer/header", "./drawer/permanent", "./drawer/persistent", "./drawer/spacer", "./drawer/temporary", "./grid/grid-cell", "./grid/grid", "./grid-list/grid-list", "./grid-list/grid-tile", "./inputs/checkbox/checkbox", "./inputs/radio/radio", "./inputs/select/select", "./inputs/select/select-css", "./inputs/slider/slider", "./inputs/switch/switch", "./inputs/textfield/textfield", "./list/list-divider", "./list/list-item", "./list/list", "./menu/simple-menu", "./progress/linear", "./ripple/ripple", "./snackbar/snackbar", "./tab/tab-bar-scroller", "./tab/tab-bar", "./tab/tab", "./toolbar/toolbar-row", "./toolbar/toolbar-section", "./toolbar/toolbar-title", "./toolbar/toolbar"], function (exports_1, context_1) {
+System.register(["./config-builder", "./button/button", "./button/fab/fab", "./button/icon-toggle/icon-toggle", "./card/card-actions", "./card/card-media", "./card/card", "./chip/chip", "./chip/chip-set", "./dialog/dialog", "./drawer/header", "./drawer/permanent", "./drawer/persistent", "./drawer/spacer", "./drawer/temporary", "./grid/grid-cell", "./grid/grid", "./grid-list/grid-list", "./grid-list/grid-tile", "./inputs/checkbox/checkbox", "./inputs/radio/radio", "./inputs/select/select", "./inputs/slider/slider", "./inputs/switch/switch", "./inputs/textfield/textfield", "./list/list-divider", "./list/list-item", "./list/list", "./menu/menu", "./progress/linear", "./ripple/ripple", "./snackbar/snackbar", "./tab/tab-bar-scroller", "./tab/tab-bar", "./tab/tab", "./toolbar/toolbar-row", "./toolbar/toolbar-section", "./toolbar/toolbar-title", "./toolbar/toolbar"], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     function configure(aurelia, configCallback) {
@@ -43,20 +43,17 @@ System.register(["./config-builder", "./button/button", "./button/fab/fab", "./b
             function (card_actions_1_1) {
                 exportStar_1(card_actions_1_1);
             },
-            function (card_horizontal_1_1) {
-                exportStar_1(card_horizontal_1_1);
-            },
             function (card_media_1_1) {
                 exportStar_1(card_media_1_1);
             },
-            function (card_text_1_1) {
-                exportStar_1(card_text_1_1);
-            },
-            function (card_title_1_1) {
-                exportStar_1(card_title_1_1);
-            },
             function (card_1_1) {
                 exportStar_1(card_1_1);
+            },
+            function (chip_1_1) {
+                exportStar_1(chip_1_1);
+            },
+            function (chip_set_1_1) {
+                exportStar_1(chip_set_1_1);
             },
             function (dialog_1_1) {
                 exportStar_1(dialog_1_1);
@@ -97,9 +94,6 @@ System.register(["./config-builder", "./button/button", "./button/fab/fab", "./b
             function (select_1_1) {
                 exportStar_1(select_1_1);
             },
-            function (select_css_1_1) {
-                exportStar_1(select_css_1_1);
-            },
             function (slider_1_1) {
                 exportStar_1(slider_1_1);
             },
@@ -118,8 +112,8 @@ System.register(["./config-builder", "./button/button", "./button/fab/fab", "./b
             function (list_1_1) {
                 exportStar_1(list_1_1);
             },
-            function (simple_menu_1_1) {
-                exportStar_1(simple_menu_1_1);
+            function (menu_1_1) {
+                exportStar_1(menu_1_1);
             },
             function (linear_1_1) {
                 exportStar_1(linear_1_1);

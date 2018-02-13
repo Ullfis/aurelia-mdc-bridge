@@ -16,6 +16,7 @@ let MdcSelect = class MdcSelect {
         this.element = element;
         this.taskQueue = taskQueue;
         this.disabled = false;
+        this.box = false;
         this.internalValueChanged = false;
         this.log = getLogger('mdc-select');
     }
@@ -32,7 +33,7 @@ let MdcSelect = class MdcSelect {
                         }
                         break;
                     }
-                    else if (target.classList.contains('mdc-simple-menu')) {
+                    else if (target.classList.contains('mdc-menu')) {
                         break;
                     }
                     target = target.parentElement;
@@ -44,6 +45,7 @@ let MdcSelect = class MdcSelect {
             mdcSelectFoundation.getTextForOptionAtIndex = this.getTextForOptionAtIndex.bind(this);
             mdcSelectFoundation.getValueForOptionAtIndex = this.getValueForOptionAtIndex.bind(this);
             this.disabledChanged(this.disabled);
+            this.boxChanged(this.box);
             if (!this.value) {
                 return;
             }
@@ -67,6 +69,10 @@ let MdcSelect = class MdcSelect {
     }
     disabledChanged(newValue) {
         this.mdcSelect.disabled = util.getBoolean(newValue);
+    }
+    boxChanged(newValue) {
+        const value = util.getBoolean(newValue);
+        this.elementSelect.classList[value ? 'add' : 'remove']('mdc-select--box');
     }
     valueChanged(newValue) {
         if (this.internalValueChanged) {
@@ -134,6 +140,10 @@ __decorate([
     bindable({ defaultBindingMode: bindingMode.oneWay }),
     __metadata("design:type", Object)
 ], MdcSelect.prototype, "labelText", void 0);
+__decorate([
+    bindable({ defaultBindingMode: bindingMode.oneWay }),
+    __metadata("design:type", Object)
+], MdcSelect.prototype, "box", void 0);
 __decorate([
     bindable({ defaultBindingMode: bindingMode.oneTime }),
     __metadata("design:type", Function)

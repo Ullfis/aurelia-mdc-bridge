@@ -13,7 +13,7 @@ export declare class MdcListItem {
     private log;
     private parentElement;
     private elementListItem;
-    private isSimpleMenuItem;
+    private isMenuItem;
     private isSelectMenuItem;
     private mdcRipple;
     private selectedClass;
@@ -23,7 +23,7 @@ export declare class MdcListItem {
     private unbind();
     private attached();
     private detached();
-    private simpleMenuItem();
+    private menuItem();
     private selectMenuItem();
     private rippleEffect();
     private disabledChanged(newValue);

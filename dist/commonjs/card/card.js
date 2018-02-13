@@ -11,9 +11,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var aurelia_framework_1 = require("aurelia-framework");
 var aurelia_logging_1 = require("aurelia-logging");
+var util = require("../util");
 var MdcCard = (function () {
     function MdcCard(element) {
         this.element = element;
+        this.stroked = false;
         this.cssString = '';
         this.log = aurelia_logging_1.getLogger('mdc-card');
     }
@@ -21,12 +23,17 @@ var MdcCard = (function () {
     MdcCard.prototype.unbind = function () { };
     MdcCard.prototype.attached = function () {
         this.createCss();
+        this.strokedChanged(this.stroked);
     };
     MdcCard.prototype.heightChanged = function (newValue) {
         this.createCss();
     };
     MdcCard.prototype.widthChanged = function (newValue) {
         this.createCss();
+    };
+    MdcCard.prototype.strokedChanged = function (newValue) {
+        var value = util.getBoolean(newValue);
+        this.elementCard.classList[value ? 'add' : 'remove']('mdc-card--stroked');
     };
     MdcCard.prototype.createCss = function () {
         var value = '';
@@ -39,17 +46,17 @@ var MdcCard = (function () {
         this.cssString = value;
     };
     __decorate([
-        aurelia_framework_1.bindable(),
+        aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.oneWay }),
         __metadata("design:type", String)
     ], MdcCard.prototype, "height", void 0);
     __decorate([
-        aurelia_framework_1.bindable(),
+        aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.oneWay }),
         __metadata("design:type", String)
     ], MdcCard.prototype, "width", void 0);
     __decorate([
-        aurelia_framework_1.bindable(),
-        __metadata("design:type", String)
-    ], MdcCard.prototype, "class", void 0);
+        aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.oneWay }),
+        __metadata("design:type", Object)
+    ], MdcCard.prototype, "stroked", void 0);
     MdcCard = __decorate([
         aurelia_framework_1.customElement('mdc-card'),
         aurelia_framework_1.inject(Element),

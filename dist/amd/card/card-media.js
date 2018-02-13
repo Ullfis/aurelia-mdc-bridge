@@ -13,10 +13,12 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging"], function 
     var MdcCardMedia = (function () {
         function MdcCardMedia(element) {
             this.element = element;
+            this.class = null;
             this.image = null;
             this.size = null;
             this.repeat = null;
             this.height = null;
+            this.scaled = null;
             this.cssString = '';
             this.log = aurelia_logging_1.getLogger('mdc-card-media');
         }
@@ -24,6 +26,7 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging"], function 
         MdcCardMedia.prototype.unbind = function () { };
         MdcCardMedia.prototype.attached = function () {
             this.createCss();
+            this.scaledChanged(this.scaled);
         };
         MdcCardMedia.prototype.imageChanged = function () {
             this.createCss();
@@ -36,6 +39,19 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging"], function 
         };
         MdcCardMedia.prototype.heightChanged = function () {
             this.createCss();
+        };
+        MdcCardMedia.prototype.scaledChanged = function (newValue) {
+            if (this.elementMedia) {
+                this.elementMedia.classList.remove('mdc-card__media--square', 'mdc-card__media--16-9');
+                switch (newValue) {
+                    case 'square':
+                        this.elementMedia.classList.add('mdc-card__media--square');
+                        break;
+                    case '16-9':
+                        this.elementMedia.classList.add('mdc-card__media--16-9');
+                        break;
+                }
+            }
         };
         MdcCardMedia.prototype.createCss = function () {
             var value = '';
@@ -50,27 +66,32 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging"], function 
             this.cssString = value;
         };
         __decorate([
-            aurelia_framework_1.bindable(),
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.oneWay }),
             __metadata("design:type", String)
         ], MdcCardMedia.prototype, "class", void 0);
         __decorate([
-            aurelia_framework_1.bindable(),
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.oneWay }),
             __metadata("design:type", String)
         ], MdcCardMedia.prototype, "image", void 0);
         __decorate([
-            aurelia_framework_1.bindable(),
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.oneWay }),
             __metadata("design:type", String)
         ], MdcCardMedia.prototype, "size", void 0);
         __decorate([
-            aurelia_framework_1.bindable(),
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.oneWay }),
             __metadata("design:type", String)
         ], MdcCardMedia.prototype, "repeat", void 0);
         __decorate([
-            aurelia_framework_1.bindable(),
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.oneWay }),
             __metadata("design:type", String)
         ], MdcCardMedia.prototype, "height", void 0);
+        __decorate([
+            aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.oneWay }),
+            __metadata("design:type", String)
+        ], MdcCardMedia.prototype, "scaled", void 0);
         MdcCardMedia = __decorate([
             aurelia_framework_1.customElement('mdc-card-media'),
+            aurelia_framework_1.containerless(),
             aurelia_framework_1.inject(Element),
             __metadata("design:paramtypes", [Element])
         ], MdcCardMedia);
