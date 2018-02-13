@@ -9,6 +9,7 @@ export class App {
       { route: '',                moduleId: './index',                           nav: true, title: '' },
       { route: 'buttons',         moduleId: './buttons/app',                     nav: true, title: 'Buttons' },
       { route: 'cards',           moduleId: './cards/cards',                     nav: true, title: 'Cards' },
+      { route: 'chips',           moduleId: './chips/chips',                     nav: true, title: 'Chips' },
       { route: 'dialogs',         moduleId: './dialogs/dialogs',                 nav: true, title: 'Dialogs' },
       { route: 'grid-lists',      moduleId: './grid-lists/grid-lists',           nav: true, title: 'Grid Lists' },
       { route: 'inputs',          moduleId: './inputs/app',                      nav: true, title: 'Inputs' },
