@@ -50,10 +50,7 @@ export class ConfigBuilder {
   }
   public useCards(): ConfigBuilder {
     this.globalResources.push(PLATFORM.moduleName('./card/card-actions'));
-    this.globalResources.push(PLATFORM.moduleName('./card/card-horizontal'));
     this.globalResources.push(PLATFORM.moduleName('./card/card-media'));
-    this.globalResources.push(PLATFORM.moduleName('./card/card-text'));
-    this.globalResources.push(PLATFORM.moduleName('./card/card-title'));
     this.globalResources.push(PLATFORM.moduleName('./card/card'));
     return this;
   }
