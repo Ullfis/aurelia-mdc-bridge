@@ -95,6 +95,7 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material
             }
             this.mdcTextfield.foundation_.adapter_.registerInputInteractionHandler('blur', this.onBlur.bind(this));
             this.mdcTextfield.foundation_.adapter_.registerInputInteractionHandler('focus', this.onFocus.bind(this));
+            this.mdcTextfield.layout();
         };
         MdcTextField.prototype.detached = function () {
             this.mdcTextfield.foundation_.adapter_.deregisterInputInteractionHandler('focus', this.onFocus.bind(this));
