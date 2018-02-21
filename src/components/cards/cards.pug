@@ -18,6 +18,8 @@ template
           a(href="#cardactions") Card Actions
         mdc-list-item 
           a(href="#cardactiongroups") Card Actions Groups
+        mdc-list-item 
+          a(href="#cardprimaryaction") Card Primary Action
 
 
     // EXAMPLE
@@ -241,7 +243,7 @@ template
         mdc-card-media(image="images/1-1.jpeg" scaled="square")
           h2 Media Card Content
 
-    // CARD ACTION
+    // CARD ACTIONS
     mdc-grid-cell(span="6")
       section
         h6(id="cardactions") Card Actions
@@ -348,3 +350,35 @@ template
               tabindex="0"
               role="button"
               data-mdc-ripple-is-unbounded) more_vert
+
+    // CARD PRIMARY ACTION
+    mdc-grid-cell(span="6")
+      section
+        h6(id="cardprimaryaction") Card Primary Action
+        p.
+          The main tappable area of the card. Typically contains most (or all) card content except mdc-card-actions. 
+          Only applicable to cards that have a primary action that the main surface should trigger.
+        pre
+          code-prism.
+            &lt;mdc-card width="300px"&gt;
+              &lt;a class="mdc-card__primary-action" href="#" mdc-ripple&gt;
+                &lt;mdc-card-media image="images/16-9.jpeg" scaled="16-9"&gt;
+                  &lt;h2&gt;Main tappable area&lt;/h2&gt;
+                &lt;/mdc-card-media&gt;
+              &lt;/a&gt;
+              &lt;mdc-card-actions&gt;
+                &lt;button mdc-button&gt;Action 1&lt;/button&gt;
+                &lt;button mdc-button&gt;Action 2&lt;/button&gt;
+              &lt;/mdc-card-actions&gt;
+            &lt;/mdc-card&gt;
+
+
+    mdc-grid-cell(span="6")
+      mdc-card.my-demo-card(width="300px")
+        a.mdc-card__primary-action(href="#/components/cards" mdc-ripple)
+          mdc-card-media(image="images/16-9.jpeg" scaled="16-9")
+            .my-card-header
+              h2.white Main tappable area
+        mdc-card-actions
+          button(mdc-button) Action 1
+          button(mdc-button) Action 2
