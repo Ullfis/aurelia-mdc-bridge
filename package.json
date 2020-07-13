@@ -111,7 +111,7 @@
     "requirejs": "^2.3.5",
     "rimraf": "^2.6.2",
     "roboto-npm-webfont": "^1.0.1",
-    "standard-version": "^4.3.0",
+    "standard-version": "^8.0.1",
     "text": "github:requirejs/text#latest",
     "through2": "^2.0.3",
     "tslint": "^5.9.1",
