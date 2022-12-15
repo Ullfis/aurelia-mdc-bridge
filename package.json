@@ -79,7 +79,7 @@
     "@types/node": "^9.4.1",
     "@types/prismjs": "^1.9.0",
     "aurelia-bootstrapper": "^2.2.0",
-    "aurelia-cli": "^0.32.0",
+    "aurelia-cli": "^3.0.1",
     "aurelia-google-analytics": "^2.3.1",
     "aurelia-tools": "^2.0.0",
     "bluebird": "^3.5.1",
